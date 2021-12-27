@@ -1,0 +1,178 @@
+﻿<?xml version="1.0" encoding="utf-8" ?>
+<ContentPage xmlns="http://xamarin.com/schemas/2014/forms"
+             xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml" 
+             xmlns:sfDataGrid="clr-namespace:Syncfusion.SfDataGrid.XForms;assembly=Syncfusion.SfDataGrid.XForms" 
+             xmlns:sfCheck="clr-namespace:Syncfusion.XForms.Buttons;assembly=Syncfusion.Buttons.XForms" 
+             xmlns:combobox="clr-namespace:Syncfusion.XForms.ComboBox;assembly=Syncfusion.SfComboBox.XForms"
+             xmlns:ListCollection="clr-namespace:System.Collections.Generic;assembly=netstandard"             
+             xmlns:local1="clr-namespace:HGPT_APP.Converter" 
+             Title="Kế hoạch bảo trì"
+             xmlns:sfinputtext="clr-namespace:Syncfusion.XForms.TextInputLayout;assembly=Syncfusion.Core.XForms" 
+             x:Class="HGPT_APP.Views.KeHoachBaoTriPage">
+    <ContentPage.ToolbarItems>
+        <ToolbarItem IconImageSource="scan.png" Clicked="ToolbarItem_Clicked_1"></ToolbarItem>
+        <ToolbarItem IconImageSource="add.png" Clicked="ToolbarItem_Clicked"></ToolbarItem>
+    </ContentPage.ToolbarItems>
+    <ContentPage.Resources>
+        <ResourceDictionary>
+            <local1:Dark x:Key="dark" />
+            <local1:Format_Mau_KHBT x:Key="Format_Mau_KHTB" />
+        </ResourceDictionary>
+    </ContentPage.Resources>
+    <ContentPage.Content>
+        <StackLayout Spacing="0">
+            <StackLayout Spacing="0" >
+                <StackLayout Orientation="Horizontal">
+                    <Grid ColumnDefinitions="4*,2*,5*" HorizontalOptions="FillAndExpand" >
+                        <combobox:SfComboBox x:Name="entryThang" Grid.Column="0"  IsEditableMode="False" SelectionChanged="entryThang_SelectionChanged" ShowBorder="False" Style="{StaticResource styleCombobox}"  Watermark="Chọn Tháng" >
+                            <combobox:SfComboBox.ComboBoxSource>
+                                <ListCollection:List x:TypeArguments="x:String">
+                                    <x:String>Tất Cả</x:String>
+                                    <x:String>Tháng 1</x:String>
+                                    <x:String>Tháng 2</x:String>
+                                    <x:String>Tháng 3</x:String>
+                                    <x:String>Tháng 4</x:String>
+                                    <x:String>Tháng 5</x:String>
+                                    <x:String>Tháng 6</x:String>
+                                    <x:String>Tháng 7</x:String>
+                                    <x:String>Tháng 8</x:String>
+                                    <x:String>Tháng 9</x:String>
+                                    <x:String>Tháng 10</x:String>
+                                    <x:String>Tháng 11</x:String>
+                                    <x:String>Tháng 12</x:String>
+                                </ListCollection:List>
+                            </combobox:SfComboBox.ComboBoxSource>
+                        </combobox:SfComboBox>
+
+
+                        <Entry x:Name="entryNam" Style="{StaticResource styleEntry}" Unfocused="entryNam_Unfocused" TextChanged="entryNam_TextChanged" Keyboard="Numeric" Grid.Column="1"  Placeholder="Năm" Text="2020" ClearButtonVisibility="WhileEditing"></Entry>
+                        <Entry x:Name="entryMaTB" Grid.Column="2" Style="{StaticResource styleEntry}"  TextChanged="entryMaTB_TextChanged"  Placeholder="Tìm serial/Tên" ClearButtonVisibility="WhileEditing"></Entry>
+                    </Grid>
+
+
+                </StackLayout>
+                <sfCheck:SfRadioGroup Orientation="Horizontal"  CheckedChanged="SfRadioGroup_CheckedChanged">
+                    <sfCheck:SfRadioButton Text="Tất Cả" x:Name="radTatCa" VerticalOptions="Center" IsChecked="True"/>
+                    <sfCheck:SfRadioButton Text="Đã Bảo Trì" IsChecked="False" x:Name="radDaBaoTri" VerticalOptions="Center"/>
+                    <sfCheck:SfRadioButton Text="Chưa Bảo Trì" x:Name="radChuaBaoTri" VerticalOptions="Center"/>
+                </sfCheck:SfRadioGroup>
+
+
+            </StackLayout>
+            <Grid x:Name="mGridLayout" AbsoluteLayout.LayoutFlags="All"
+          AbsoluteLayout.LayoutBounds="1,1,1,1" VerticalOptions="FillAndExpand" HorizontalOptions="FillAndExpand">
+                <sfDataGrid:SfDataGrid x:Name="listThietBi"                                           
+                                          ItemsSource="{Binding KE_HOACH_BAO_TRI}"      
+                                          GroupCaptionTextFormat="{}{}{Key} - {ItemsCount} mã"
+                                          AutoGenerateColumns="False"
+                                           GridStyle="{StaticResource dark}"                                       
+                                            Style="{StaticResource styleDataGrid}"  
+                                           AllowSwiping="True"               
+                                           SwipeEnded="listThietBi_SwipeEnded"    
+                                           MaxSwipeOffset="200"
+                                       >
+                    <sfDataGrid:SfDataGrid.Columns>
+
+                        <sfDataGrid:GridTemplateColumn MappingName="No_2" HeaderText="Model" HeaderFontAttribute="Bold" Width="120"   HeaderCellTextSize="16" >
+
+                            <sfDataGrid:GridTemplateColumn.CellTemplate>
+                                <DataTemplate>
+                                    <Label Text="{Binding No_2}" TextColor="{Binding Da_Bao_Tri, Converter={StaticResource Format_Mau_KHTB} }" Padding="5,0,0,0" WidthRequest="120"   XAlign="Start" YAlign="Center" />
+                                </DataTemplate>
+                            </sfDataGrid:GridTemplateColumn.CellTemplate>
+                        </sfDataGrid:GridTemplateColumn>
+
+
+                        <sfDataGrid:GridTemplateColumn  MappingName="No_3" HeaderText="Số Máy" Width="120"  HeaderFontAttribute="Bold"  HeaderCellTextSize="16">
+                            <sfDataGrid:GridTemplateColumn.CellTemplate>
+                                <DataTemplate>
+                                    <Label Text="{Binding No_3}" TextColor="{Binding Da_Bao_Tri, Converter={StaticResource Format_Mau_KHTB} }" Padding="5,0,0,0" WidthRequest="120"   XAlign="Start" YAlign="Center" />
+                                </DataTemplate>
+                            </sfDataGrid:GridTemplateColumn.CellTemplate>
+
+                        </sfDataGrid:GridTemplateColumn>
+
+                        <sfDataGrid:GridTemplateColumn  HeaderText="Tháng"                                                
+                                                        Width="80"
+                                                MappingName="Thang" 
+                                                HeaderFontAttribute="Bold" 
+                                                HeaderCellTextSize="16">
+                            <sfDataGrid:GridTemplateColumn.CellTemplate>
+                                <DataTemplate>
+                                    <Label Text="{Binding Thang}" TextColor="{Binding Da_Bao_Tri, Converter={StaticResource Format_Mau_KHTB} }" Padding="5,0,5,0" WidthRequest="140"   XAlign="Center" YAlign="Center" />
+                                </DataTemplate>
+                            </sfDataGrid:GridTemplateColumn.CellTemplate>
+
+                        </sfDataGrid:GridTemplateColumn>
+                        <sfDataGrid:GridTemplateColumn MappingName="Code" 
+                                                   Width="140"                                                               
+                                                   HeaderText="Loại Bảo Trì" 
+                                                   HeaderFontAttribute="Bold" 
+                                                   HeaderCellTextSize="16">
+                            <sfDataGrid:GridTemplateColumn.CellTemplate>
+                                <DataTemplate>
+                                    <Label Text="{Binding LoaiBaoTri}"  XAlign="Start" YAlign="Center"  TextColor="{Binding Da_Bao_Tri, Converter={StaticResource Format_Mau_KHTB} }" />
+                                </DataTemplate>
+                            </sfDataGrid:GridTemplateColumn.CellTemplate>
+
+                        </sfDataGrid:GridTemplateColumn>
+
+                        <sfDataGrid:GridTemplateColumn MappingName="Da_Bao_Tri" 
+                                                   Width="100"     
+                                                   HeaderText="Đã Bảo Trì" 
+                                                   HeaderFontAttribute="Bold" 
+                                                   HeaderCellTextSize="16">
+                            <sfDataGrid:GridTemplateColumn.CellTemplate>
+                                <DataTemplate>
+                                    <CheckBox  IsChecked="{Binding Da_Bao_Tri}" Color="#06264c" IsEnabled="False" HorizontalOptions="Center"/>
+                                </DataTemplate>
+                            </sfDataGrid:GridTemplateColumn.CellTemplate>
+
+                        </sfDataGrid:GridTemplateColumn>
+
+                    </sfDataGrid:SfDataGrid.Columns>
+                    <sfDataGrid:SfDataGrid.LeftSwipeTemplate>
+                        <DataTemplate>
+                            <Grid ColumnSpacing="0" HorizontalOptions="FillAndExpand">
+                                <ContentView Grid.Column="0">
+                                    <ContentView.GestureRecognizers >
+                                        <TapGestureRecognizer x:Name="btnViewLichSu" Tapped="btnViewLichSu_Tapped"></TapGestureRecognizer>
+                                    </ContentView.GestureRecognizers>
+                                    <Grid  BackgroundColor="Green">
+                                        <Label 
+                                       Text ="Xem Lịch Sử" 
+                                       HorizontalTextAlignment="Center" 
+                                       VerticalTextAlignment="Center"  
+                                       LineBreakMode ="NoWrap" 
+                                       BackgroundColor="Transparent" 
+                                       TextColor ="White" />
+                                    </Grid>
+                                </ContentView>
+                            </Grid>
+                        </DataTemplate>
+                    </sfDataGrid:SfDataGrid.LeftSwipeTemplate>
+                    
+                    <sfDataGrid:SfDataGrid.GroupColumnDescriptions>
+                        <sfDataGrid:GroupColumnDescription ColumnName="NameVN"/>
+                    </sfDataGrid:SfDataGrid.GroupColumnDescriptions>
+                    <sfDataGrid:SfDataGrid.TableSummaryRows>
+                        <sfDataGrid:GridTableSummaryRow Title="Số Lượng : {TotalSalary}" 
+                                Position="Bottom"
+                                ShowSummaryInRow="True">
+                            <sfDataGrid:GridTableSummaryRow.SummaryColumns>
+                                <sfDataGrid:GridSummaryColumn Name="TotalSalary"
+                                      Format="{}{Count}"
+                                      MappingName="No_2"                                       
+                                      SummaryType="CountAggregate" />
+
+                            </sfDataGrid:GridTableSummaryRow.SummaryColumns>
+                        </sfDataGrid:GridTableSummaryRow>
+                    </sfDataGrid:SfDataGrid.TableSummaryRows>
+                </sfDataGrid:SfDataGrid>
+                <ActivityIndicator x:Name="mIndicator" IsRunning="{Binding IsRunning}" Color="CornflowerBlue" VerticalOptions="Center"
+                           HorizontalOptions="Center"   />
+            </Grid>
+        </StackLayout>
+
+    </ContentPage.Content>
+</ContentPage>

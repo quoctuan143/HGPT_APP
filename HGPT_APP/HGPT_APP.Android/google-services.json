@@ -1,0 +1,40 @@
+{
+  "project_info": {
+    "project_number": "928372971479",
+    "firebase_url": "https://hgpt-4c40d.firebaseio.com",
+    "project_id": "hgpt-4c40d",
+    "storage_bucket": "hgpt-4c40d.appspot.com"
+  },
+  "client": [
+    {
+      "client_info": {
+        "mobilesdk_app_id": "1:928372971479:android:efc061741b45f8356add92",
+        "android_client_info": {
+          "package_name": "com.companyname.hgpt_app"
+        }
+      },
+      "oauth_client": [
+        {
+          "client_id": "928372971479-f8tm99iaqa0bgibmku4ojkb5cdpbfuq3.apps.googleusercontent.com",
+          "client_type": 3
+        }
+      ],
+      "api_key": [
+        {
+          "current_key": "AIzaSyCNh8ziDFfN4fbZtQxAeLgABxeB2FKxoFM"
+        }
+      ],
+      "services": {
+        "appinvite_service": {
+          "other_platform_oauth_client": [
+            {
+              "client_id": "928372971479-f8tm99iaqa0bgibmku4ojkb5cdpbfuq3.apps.googleusercontent.com",
+              "client_type": 3
+            }
+          ]
+        }
+      }
+    }
+  ],
+  "configuration_version": "1"
+}

@@ -1,0 +1,50 @@
+﻿<?xml version="1.0" encoding="utf-8" ?>
+<page:PopupPage xmlns="http://xamarin.com/schemas/2014/forms"
+             xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
+               xmlns:page="clr-namespace:Rg.Plugins.Popup.Pages;assembly=Rg.Plugins.Popup" 
+                xmlns:sfinputext="clr-namespace:Syncfusion.XForms.TextInputLayout;assembly=Syncfusion.Core.XForms"
+                CloseWhenBackgroundIsClicked="True"                
+                x:Class="HGPT_APP.Popup.Cap_Nhat_Thoi_Gian_Bat_Dau">
+    <ContentPage.Content>
+        <Frame CornerRadius="15"
+           OutlineColor="Black"
+           HorizontalOptions="FillAndExpand"
+           VerticalOptions="End">
+            <StackLayout>
+                <Grid ColumnDefinitions="5*,5*">
+                    <sfinputext:SfTextInputLayout Hint="Ngày vào" Grid.Column="0" ContainerType="Outlined" IsHintAlwaysFloated="True" ReserveSpaceForAssistiveLabels="False">
+                        <DatePicker  x:Name="dateKetThuc" Date="{Binding Item.GIO_BAT_DAU.Date , Mode=TwoWay}" />
+                    </sfinputext:SfTextInputLayout>
+
+                    <sfinputext:SfTextInputLayout Hint="Giờ vào" Grid.Column="1" ContainerType="Outlined" IsHintAlwaysFloated="True" ReserveSpaceForAssistiveLabels="False">
+                        <TimePicker x:Name="timeKetThuc" Time="{Binding Item.GIO_BAT_DAU.TimeOfDay , Mode=TwoWay}"  />
+                    </sfinputext:SfTextInputLayout>
+
+                </Grid>
+                <Grid HorizontalOptions="FillAndExpand">
+                    <Grid.ColumnDefinitions>
+                        <ColumnDefinition Width="5*"></ColumnDefinition>
+                        <ColumnDefinition Width="5*"></ColumnDefinition>
+                    </Grid.ColumnDefinitions>
+                    <Button  Grid.Column="0" CornerRadius="50" x:Name="btnOK" 
+                             Text="OK" FontSize="20" FontAttributes="Bold"  
+                             ImageSource="ok.png" Clicked="btnOK_Clicked" 
+                             HorizontalOptions="FillAndExpand"  
+                             BackgroundColor="#E10555" TextColor="White" 
+                             HeightRequest="50">
+                    </Button>
+                    <Button Grid.Column="1" CornerRadius="50" 
+                            x:Name="btnCancel" Text="Cancel" 
+                            FontSize="20" FontAttributes="Bold" 
+                            ImageSource="ic_delete.png" 
+                            Clicked="btnCancel_Clicked" 
+                            HorizontalOptions="FillAndExpand" 
+                            BackgroundColor="DarkGray" TextColor="White"
+                            HeightRequest="50"></Button>
+                </Grid>
+            </StackLayout>
+        </Frame>
+            
+           
+    </ContentPage.Content>
+</page:PopupPage>

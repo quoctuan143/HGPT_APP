@@ -1,0 +1,60 @@
+﻿<?xml version="1.0" encoding="utf-8" ?>
+<ContentPage xmlns="http://xamarin.com/schemas/2014/forms"
+             xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml" xmlns:sfcombox="clr-namespace:Syncfusion.XForms.ComboBox;assembly=Syncfusion.SfComboBox.XForms"
+             Title="Cập nhật thông tin thiết bị"
+              xmlns:ListCollection="clr-namespace:System.Collections.Generic;assembly=netstandard"   
+             x:Class="HGPT_APP.Views.ThongTinThietBi_Edit">
+    <ScrollView Orientation="Vertical">
+        <StackLayout>
+            <Grid x:Name="Information" ColumnDefinitions="4*,6*" RowDefinitions="auto,40,auto,auto,auto,auto,auto,auto,50,50,40,40" Padding="10">
+                <Label Text="Mã Thiết Bị" VerticalTextAlignment="Center" Grid.Column="0" Grid.Row="0" FontSize="16" TextColor="Black"></Label>
+
+                <Label Text="{Binding Item.No_}" Grid.Column="1" Grid.Row="0" VerticalTextAlignment="Center" FontSize="16" TextColor="Black"></Label>
+                <Label Text="Tên Thiết Bị" Grid.Column="0" VerticalTextAlignment="Center" Grid.Row="1" FontSize="16" TextColor="Black"></Label>
+                <Label Text="{Binding Item.NameVN}" Grid.Column="1" Grid.Row="1" FontSize="16" TextColor="Black" LineBreakMode="WordWrap"></Label>
+                <Label Text="Số Serial" Grid.Column="0" VerticalTextAlignment="Center" Grid.Row="2" FontSize="16" TextColor="Black"></Label>
+                <Entry Text="{Binding Item.No_3,Mode=TwoWay}" Grid.Column="1" Grid.Row="2" FontSize="16" TextColor="Black"></Entry>
+                <Label Text="Model" Grid.Column="0" VerticalTextAlignment="Center" Grid.Row="3" FontSize="16" TextColor="Black"></Label>
+                <Entry Text="{Binding Item.No_2,Mode=TwoWay}"  Grid.Column="1" Grid.Row="3" FontSize="16" TextColor="Black"></Entry>
+                <Label Text="Xuất Xứ" Grid.Column="0" VerticalTextAlignment="Center" Grid.Row="4" FontSize="16" TextColor="Black"></Label>
+                <Entry Text="{Binding Item.XuatXu,Mode=TwoWay}" Grid.Column="1" Grid.Row="4" FontSize="16" TextColor="Black"></Entry>
+                <Label Text="Hãng Sản Xuất" Grid.Column="0" VerticalTextAlignment="Center" Grid.Row="5" FontSize="16" TextColor="Black"></Label>
+                <Entry Text="{Binding Item.NhaSanXuat,Mode=TwoWay}" Grid.Column="1" Grid.Row="5" FontSize="16" TextColor="Black"></Entry>
+                <Label Text="Công Suất" Grid.Column="0" VerticalTextAlignment="Center" Grid.Row="6" FontSize="16" TextColor="Black"></Label>
+                <Entry Text="{Binding Item.CongSuat,Mode=TwoWay}" Grid.Column="1" Grid.Row="6" FontSize="16" TextColor="Black"></Entry>
+                <Label Text="Ngày Sử Dụng" Grid.Column="0" VerticalTextAlignment="Center" Grid.Row="7" FontSize="16" TextColor="Black"></Label>
+                <DatePicker Date="{Binding Item.NgaySuDung ,Mode=TwoWay}" Grid.Column="1" Grid.Row="7" FontSize="16" TextColor="Black"></DatePicker>
+                <Label Text="Mã Nhà Máy" Grid.Column="0" VerticalTextAlignment="Center" Grid.Row="8" FontSize="16" TextColor="Black"></Label>
+                <sfcombox:SfComboBox x:Name="cbNhaMay" Grid.Column="1" Grid.Row="8" DataSource="{Binding ListNhaMay}" 
+                                 DisplayMemberPath="Name" SelectedValuePath="Code"
+                                   Style="{StaticResource styleCombobox}"                                   
+                                   Watermark="Chọn nhà máy"
+                                   SelectedItem="{Binding SelectNhaMay}"
+                                 HeightRequest="50"
+                                   >
+
+                </sfcombox:SfComboBox>
+                <Label Text="Phòng Sử Dụng" Grid.Column="0" VerticalTextAlignment="Center" Grid.Row="9" FontSize="16" TextColor="Black"></Label>
+                <sfcombox:SfComboBox x:Name="cbPhongBan"    
+                                 Grid.Column="1"
+                                 Grid.Row="9"
+                                 DataSource="{Binding ListPhongBan , Mode=TwoWay}"
+                                 SelectedItem="{Binding SelectPhongBan, Mode=TwoWay}"
+                                 Style="{StaticResource styleCombobox}"
+                                       Watermark="Chọn phòng ban"    
+                                       DisplayMemberPath="Name"
+                                       HorizontalOptions="FillAndExpand"                              
+                                       NoResultsFoundText="Không tìm thấy thông tin"     
+                                       IsEditableMode="True"
+                                      >
+                </sfcombox:SfComboBox>
+                <Label Text="Ngưởi sử dụng" Grid.Column="0" VerticalTextAlignment="Center" Grid.Row="10" FontSize="16" TextColor="Black"></Label>
+                <Entry Text="{Binding Item.NguoiSuDung,Mode=TwoWay}" Grid.Column="1" Grid.Row="10" FontSize="16" TextColor="Black"></Entry>
+                <Label Text="Năm Sản Xuất" Grid.Column="0" Grid.Row="11" FontSize="16" TextColor="Black" VerticalTextAlignment="Center"></Label>
+                <Entry Text="{Binding Item.NamSanXuat}" Grid.Column="1" Grid.Row="11" FontSize="16" TextColor="Black"></Entry>
+            </Grid>
+            <Button Style="{StaticResource styleButton}" Text="Cập Nhật" Clicked="Button_Clicked"></Button>
+        </StackLayout>
+    </ScrollView>
+   
+</ContentPage>

@@ -1,0 +1,57 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<Shell xmlns="http://xamarin.com/schemas/2014/forms" 
+       xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
+       xmlns:d="http://xamarin.com/schemas/2014/forms/design"
+       xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
+       mc:Ignorable="d"
+       xmlns:local="clr-namespace:HGPT_APP.Views"
+       Title="HGPT_APP"
+       BackgroundColor="#06264c"         
+       x:Class="HGPT_APP.AppShell">
+
+    <!-- 
+        Styles and Resources 
+    -->
+    <Shell.Resources>
+        <ResourceDictionary>
+            <Color x:Key="NavigationPrimary">#06264c</Color>
+            <Style x:Key="BaseStyle" TargetType="Element">
+                <Setter Property="Shell.BackgroundColor" Value="{StaticResource NavigationPrimary}" />
+                <Setter Property="Shell.ForegroundColor" Value="White" />
+                <Setter Property="Shell.TitleColor" Value="White" />
+                <Setter Property="Shell.DisabledColor" Value="#B4FFFFFF" />
+                <Setter Property="Shell.UnselectedColor" Value="#95FFFFFF" />
+                <Setter Property="Shell.TabBarBackgroundColor" Value="{StaticResource NavigationPrimary}" />
+                <Setter Property="Shell.TabBarForegroundColor" Value="White"/>
+                <Setter Property="Shell.TabBarUnselectedColor" Value="#95FFFFFF"/>
+                <Setter Property="Shell.TabBarTitleColor" Value="Red"/>
+
+            </Style>
+            <Style TargetType="TabBar" BasedOn="{StaticResource BaseStyle}" />
+        </ResourceDictionary>
+    </Shell.Resources>  
+  
+    <TabBar 
+                Shell.TabBarIsVisible="False"
+                FlyoutDisplayOptions="AsMultipleItems"
+                FlyoutIcon="ic_back.png"
+                
+                >
+        <ShellContent Title="Trang Chủ"  IsTabStop="True" Icon="logo.png" ContentTemplate="{DataTemplate local:Main }">
+
+        </ShellContent>
+        <ShellContent Title="Danh Sách Lệnh Sản Xuất"  IsTabStop="True" Icon="ic_check.png" ContentTemplate="{DataTemplate local:DanhSachLenhSanXuat }">
+
+        </ShellContent>
+        <ShellContent Title="Công việc đang thực hiện"  IsTabStop="True" Icon="list.png" ContentTemplate="{DataTemplate local:Phan_Chia_Cong_Viec}">
+
+        </ShellContent>
+        <ShellContent Title="Lịch sử công việc"  IsTabStop="True" Icon="history.png" ContentTemplate="{DataTemplate local:Lich_Su_Phan_Chia_Cong_Viec}">
+
+        </ShellContent>
+    </TabBar>
+
+    <MenuItem Text="Đăng Xuất" IconImageSource="offline.png" Clicked="MenuItem_Clicked">
+        
+    </MenuItem>
+</Shell>

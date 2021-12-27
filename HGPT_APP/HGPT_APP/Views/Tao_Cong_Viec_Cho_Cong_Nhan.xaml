@@ -1,0 +1,93 @@
+﻿<?xml version="1.0" encoding="utf-8" ?>
+<ContentPage xmlns="http://xamarin.com/schemas/2014/forms"
+             xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
+             xmlns:d="http://xamarin.com/schemas/2014/forms/design"
+             xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006" xmlns:sfDataGrid="clr-namespace:Syncfusion.SfDataGrid.XForms;assembly=Syncfusion.SfDataGrid.XForms" xmlns:sfinputtext="clr-namespace:Syncfusion.XForms.TextInputLayout;assembly=Syncfusion.Core.XForms" xmlns:local1="clr-namespace:HGPT_APP.Converter"
+             xmlns:sfbutton="clr-namespace:Syncfusion.XForms.Buttons;assembly=Syncfusion.Buttons.XForms"
+             xmlns:sfcombobox="clr-namespace:Syncfusion.XForms.ComboBox;assembly=Syncfusion.SfComboBox.XForms"
+             xmlns:local="clr-namespace:HGPT_APP.ViewModels"           
+             mc:Ignorable="d"
+             Title="{Binding Title}"
+           x:Class="HGPT_APP.Views.Tao_Cong_Viec_Cho_Cong_Nhan">
+   
+    <ContentPage.Resources>        
+        <ResourceDictionary>
+            <local1:Dark x:Key="dark" />           
+        </ResourceDictionary>
+       
+    </ContentPage.Resources>
+    <ContentPage.Content>
+        <StackLayout Spacing="0">
+            <sfcombobox:SfComboBox x:Name="cbToSanXuat" DataSource="{Binding ListToSanXuat}" DisplayMemberPath="Name" SelectedValuePath="Code"
+                                   Style="{StaticResource styleCombobox}"                                   
+                                   Watermark="Nhập tổ sản xuất"
+                                   IsEditableMode="True"
+                                   SelectedItem="{Binding SelectToSanXuat}"
+                                   >     
+
+            </sfcombobox:SfComboBox>
+            <sfinputtext:SfTextInputLayout Hint="Tìm tên nhân viên"    
+                                               LeadingViewPosition="Inside"
+                                               HeightRequest="50"
+                                               ContainerType="Outlined">
+                <Entry  x:Name="search" HorizontalOptions="FillAndExpand"  
+                        Placeholder="Tìm tên nhân viên"
+                                    Style="{StaticResource styleSearch}"
+                                    ClearButtonVisibility="WhileEditing"                       
+                                    TextChanged="search_TextChanged"/>
+                <sfinputtext:SfTextInputLayout.LeadingView>
+                    <Image Source="search.png"></Image>
+                </sfinputtext:SfTextInputLayout.LeadingView>
+            </sfinputtext:SfTextInputLayout>
+            <Grid x:Name="mGridLayout" AbsoluteLayout.LayoutFlags="All"
+                  AbsoluteLayout.LayoutBounds="1,1,1,1" VerticalOptions="FillAndExpand" HorizontalOptions="FillAndExpand">
+                <sfDataGrid:SfDataGrid x:Name="listCongDoanCongNhan"                                           
+                                       ItemsSource="{Binding ListCong_Doan_Cong_Nhans , Mode=TwoWay}" 
+                                       SelectedItem="{Binding SelectCongDoan}"                                       
+                                       AutoGenerateColumns="False"                                                                     
+                                       GridStyle="{StaticResource dark}"                                      
+                                       AllowEditing="True"
+                                       NavigationMode="Cell"
+					                    EditTapAction="OnTap"
+					                    SelectionMode="SingleDeselect"     
+                                       ColumnSizer="LastColumnFill"
+                                       >
+                    <sfDataGrid:SfDataGrid.Columns>
+                        <sfDataGrid:GridTemplateColumn MappingName="TEN_NHAN_VIEN"  HeaderText="Tên nhân viên" HeaderFontAttribute="Bold" Width="140"   HeaderCellTextSize="16">
+                            <sfDataGrid:GridTemplateColumn.CellTemplate>
+                                <DataTemplate>
+                                    <Label Text="{Binding TEN_NHAN_VIEN}" Padding="5,0,0,0" TextColor="Black"  XAlign="Start" YAlign="Center"/>
+                                </DataTemplate>
+                            </sfDataGrid:GridTemplateColumn.CellTemplate>
+                        </sfDataGrid:GridTemplateColumn>
+
+                        <sfDataGrid:GridTemplateColumn MappingName="NOI_DUNG"   HeaderText="Nội dung" HeaderFontAttribute="Bold" Width="120"   HeaderCellTextSize="16">
+                            <sfDataGrid:GridTemplateColumn.CellTemplate>
+                                <DataTemplate>
+                                    <Entry Text="{Binding NOI_DUNG, Mode=TwoWay}"  TextColor="Black" />
+                                </DataTemplate>
+                            </sfDataGrid:GridTemplateColumn.CellTemplate>
+                        </sfDataGrid:GridTemplateColumn>
+                        <sfDataGrid:GridTemplateColumn MappingName="DINH_MUC"   HeaderText="Định Mức" HeaderFontAttribute="Bold" Width="150"  HeaderCellTextSize="16">
+                            <sfDataGrid:GridTemplateColumn.CellTemplate>
+                                <DataTemplate>
+                                    <Entry Text="{Binding DINH_MUC, Mode=TwoWay}"  TextColor="Black" />
+                                </DataTemplate>
+                            </sfDataGrid:GridTemplateColumn.CellTemplate>
+                        </sfDataGrid:GridTemplateColumn>
+
+                    </sfDataGrid:SfDataGrid.Columns>
+
+                </sfDataGrid:SfDataGrid>
+                <ActivityIndicator x:Name="mIndicator" IsRunning="{Binding IsRunning}" Color="CornflowerBlue" VerticalOptions="Center"
+                           HorizontalOptions="Center"  
+                         />
+            </Grid>
+            <StackLayout Orientation="Horizontal" Spacing="3">
+                <sfbutton:SfButton x:Name="btnStartAll" Command="{Binding StartAllCommand}" Text="Phân Việc" Style="{StaticResource stylesfButton}" HorizontalOptions="FillAndExpand"></sfbutton:SfButton>
+                <sfbutton:SfButton x:Name="btnStopALl" Text="Phân và Bắt Đầu" Command="{Binding StartAndBeginAllCommand}" Style="{StaticResource stylesfButton}" HorizontalOptions="FillAndExpand"></sfbutton:SfButton>
+                
+            </StackLayout>
+        </StackLayout>
+    </ContentPage.Content>
+</ContentPage>

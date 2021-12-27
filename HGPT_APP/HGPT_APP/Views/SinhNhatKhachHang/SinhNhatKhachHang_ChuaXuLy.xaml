@@ -1,0 +1,80 @@
+﻿<?xml version="1.0" encoding="utf-8" ?>
+<ContentPage xmlns="http://xamarin.com/schemas/2014/forms"
+             xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
+             Title="Sinh nhật khách hàng"
+             x:Class="HGPT_APP.Views.SinhNhatKhachHang.SinhNhatKhachHang_ChuaXuLy"
+             x:Name="sinhnhat">
+    <ContentPage.Content>
+        <ListView VerticalScrollBarVisibility="Never"
+                  HasUnevenRows="True"
+                 SeparatorVisibility="None"
+                  ItemsSource="{Binding ListDanhSach,Mode=TwoWay}"
+                  ItemSelected="ListView_ItemSelected"
+                  IsRefreshing="{Binding IsRunning}"
+                  x:Name="listChuaXuLy"
+                  >
+            <ListView.ItemTemplate>
+                <DataTemplate>
+                    <ViewCell>
+                        <Frame 
+                            BorderColor="Gray"
+                            CornerRadius="5"
+                            Margin="0,0,0,10"
+                               HorizontalOptions="FillAndExpand"
+                               VerticalOptions="FillAndExpand"
+                               Padding="10">
+                            <StackLayout>
+                                <Label Text="{Binding CongTy}" Style="{StaticResource styleLableBlue}"  FontAttributes="Bold" />
+                                <Label Style="{StaticResource styleLableBlue}" FontSize="18" FontAttributes="Bold">
+                                    <Label.FormattedText>
+                                        <FormattedString>
+                                            <Span  Text="{Binding NguoiLienHe}"/>
+                                            <Span Text=" ( "/>
+                                            <Span  Text="{Binding NgaySinh, StringFormat='{0:dd/MM/yyyy}'}"/>
+                                            <Span Text=" )"/>
+                                        </FormattedString>
+                                    </Label.FormattedText>
+                                </Label>
+                                <StackLayout Orientation="Horizontal">
+                                    <Label Style="{StaticResource styleLableBlue}">
+                                        <Label.FormattedText>
+                                            <FormattedString>
+                                                <Span Text="Số ĐT: "/>
+                                                <Span  Text="{Binding PhoneNo_}"/>
+                                            </FormattedString>
+                                        </Label.FormattedText>
+                                    </Label>
+                                    <Image Source="call.png" Aspect="AspectFit" HeightRequest="40" WidthRequest="40">
+                                        <Image.GestureRecognizers>
+                                            <TapGestureRecognizer
+                                                Command="{Binding Path=BindingContext.CallCommand, Source={x:Reference Name=sinhnhat}}"
+                                                CommandParameter="{Binding .}" />           
+                                        </Image.GestureRecognizers>
+                                    </Image>
+                                </StackLayout>
+                                
+                                <Label Style="{StaticResource styleLableBlue}" LineBreakMode="WordWrap">
+                                    <Label.FormattedText>
+                                        <FormattedString>
+                                            <Span Text="Chức vụ: "/>
+                                            <Span  Text="{Binding ChucVu}"/>
+                                        </FormattedString>
+                                    </Label.FormattedText>
+                                </Label>
+                                <Label Style="{StaticResource styleLableBlue}">
+                                    <Label.FormattedText>
+                                        <FormattedString>
+                                            <Span Text="Email: "/>
+                                            <Span  Text="{Binding Email}"/>
+                                        </FormattedString>
+                                    </Label.FormattedText>
+                                </Label>
+                                
+                            </StackLayout>
+                        </Frame>
+                    </ViewCell>
+                </DataTemplate>
+            </ListView.ItemTemplate>
+        </ListView>
+    </ContentPage.Content>
+</ContentPage>

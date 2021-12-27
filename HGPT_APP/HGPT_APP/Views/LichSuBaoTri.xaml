@@ -1,0 +1,187 @@
+﻿<?xml version="1.0" encoding="utf-8" ?>
+<ContentPage xmlns="http://xamarin.com/schemas/2014/forms"
+             xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml" 
+             xmlns:sfDataGrid="clr-namespace:Syncfusion.SfDataGrid.XForms;assembly=Syncfusion.SfDataGrid.XForms" 
+             xmlns:sfinputtext="clr-namespace:Syncfusion.XForms.TextInputLayout;assembly=Syncfusion.Core.XForms"
+             xmlns:local1="clr-namespace:HGPT_APP.Converter"
+              Title="Lịch Sử Bảo Trì"   
+             x:Class="HGPT_APP.Views.LichSuBaoTri">
+    <ContentPage.Resources>
+        <ResourceDictionary>
+            <local1:Dark x:Key="dark"></local1:Dark>
+        </ResourceDictionary>
+    </ContentPage.Resources>
+
+    <ContentPage.Content>
+        <StackLayout Spacing="0">
+            <sfinputtext:SfTextInputLayout Hint="Nhập tên, số serial, model để tìm" 
+                                               Grid.Row="2"
+                                               LeadingViewPosition="Inside"
+                                               HeightRequest="50"
+                                               ContainerType="Outlined">
+                <Entry x:Name="search" HorizontalOptions="FillAndExpand"  
+                           Style="{StaticResource styleSearch}"
+                            ClearButtonVisibility="WhileEditing"                       
+                           TextChanged="search_TextChanged"/>
+                <sfinputtext:SfTextInputLayout.LeadingView>
+                    <Image Source="search.png"></Image>
+                </sfinputtext:SfTextInputLayout.LeadingView>
+            </sfinputtext:SfTextInputLayout>
+            <Grid x:Name="mGridLayout" AbsoluteLayout.LayoutFlags="All"
+                               AbsoluteLayout.LayoutBounds="1,1,1,1" VerticalOptions="FillAndExpand" HorizontalOptions="FillAndExpand">
+                <sfDataGrid:SfDataGrid x:Name="listThietBi"                                           
+                                          ItemsSource="{Binding  LichSus}"                         
+                                          AutoGenerateColumns="False"
+                                           GroupCaptionTextFormat="{}{}{Key} - {ItemsCount} lần"
+                                           GridStyle="{StaticResource dark}"                                        
+                                           SelectionChanged="listThietBi_SelectionChanged"
+                                           Style="{StaticResource styleDataGrid}"
+                                           AllowSwiping="True"               
+                                           SwipeEnded="listThietBi_SwipeEnded"    
+                                           MaxSwipeOffset="200">
+                    <sfDataGrid:SfDataGrid.Columns>
+                        <sfDataGrid:GridTemplateColumn  MappingName="NGAY_GIO" HeaderText="Ngày Giờ" Width="120"  HeaderFontAttribute="Bold"  HeaderCellTextSize="16">
+                            <sfDataGrid:GridTemplateColumn.CellTemplate>
+                                <DataTemplate>
+                                    <Label Text="{Binding NGAY_GIO , StringFormat='{0:dd-MM-yyyy}'}" TextColor="Black" Padding="5,0,0,0" WidthRequest="120"   XAlign="Start" YAlign="Center" />
+                                </DataTemplate>
+                            </sfDataGrid:GridTemplateColumn.CellTemplate>
+                        </sfDataGrid:GridTemplateColumn>
+
+
+
+                        <sfDataGrid:GridTemplateColumn MappingName="MODEL" HeaderText="MODEL" HeaderFontAttribute="Bold"  HeaderCellTextSize="16">
+                            <sfDataGrid:GridTemplateColumn.CellTemplate>
+                                <DataTemplate>
+                                    <Label Text="{Binding MODEL}" TextColor="Black" Padding="5,0,0,0" WidthRequest="140"   XAlign="Start" YAlign="Center" />
+                                </DataTemplate>
+                            </sfDataGrid:GridTemplateColumn.CellTemplate>
+                        </sfDataGrid:GridTemplateColumn>
+                        <sfDataGrid:GridTemplateColumn MappingName="SERIAL" HeaderText="SERIAL" HeaderFontAttribute="Bold" Width="120"   HeaderCellTextSize="16">
+                            <sfDataGrid:GridTemplateColumn.CellTemplate>
+                                <DataTemplate>
+                                    <Label Text="{Binding SERIAL}" TextColor="Black" Padding="5,0,0,0" WidthRequest="140"   XAlign="Start" YAlign="Center" />
+                                </DataTemplate>
+                            </sfDataGrid:GridTemplateColumn.CellTemplate>
+                        </sfDataGrid:GridTemplateColumn>
+
+
+                        <sfDataGrid:GridTemplateColumn MappingName="MA_PHU_TUNG" HeaderText="Mã Phụ Tùng" HeaderFontAttribute="Bold" Width="120"   HeaderCellTextSize="16">
+                            <sfDataGrid:GridTemplateColumn.CellTemplate>
+                                <DataTemplate>
+                                    <Label Text="{Binding MA_PHU_TUNG}" TextColor="Black" Padding="5,0,0,0" WidthRequest="140"   XAlign="Start" YAlign="Center" />
+                                </DataTemplate>
+                            </sfDataGrid:GridTemplateColumn.CellTemplate>
+                        </sfDataGrid:GridTemplateColumn>
+
+                        <sfDataGrid:GridTemplateColumn MappingName="TINH_TRANG_HIEN_TAI" 
+                                                   Width="160"
+                                                   HeaderText="Tình Trạng Hiện Tại" 
+                                                   HeaderFontAttribute="Bold" 
+                                                   HeaderCellTextSize="16">
+                            <sfDataGrid:GridTemplateColumn.CellTemplate>
+                                <DataTemplate>
+                                    <Label Text="{Binding TINH_TRANG_HIEN_TAI}" TextColor="Black" Padding="5,0,0,0" WidthRequest="120"   XAlign="Start" YAlign="Center" LineBreakMode="WordWrap" />
+                                </DataTemplate>
+                            </sfDataGrid:GridTemplateColumn.CellTemplate>
+                        </sfDataGrid:GridTemplateColumn>
+                        <sfDataGrid:GridTemplateColumn MappingName="NHOM_BAO_TRI" 
+                                                   Width="160"
+                                                   HeaderText="NHÓM BẢO TRÌ" 
+                                                   HeaderFontAttribute="Bold" 
+                                                   HeaderCellTextSize="16">
+                            <sfDataGrid:GridTemplateColumn.CellTemplate>
+                                <DataTemplate>
+                                    <Label Text="{Binding NHOM_BAO_TRI}" TextColor="Black" Padding="5,0,0,0" WidthRequest="120"   XAlign="Start" YAlign="Center" LineBreakMode="WordWrap" />
+                                </DataTemplate>
+                            </sfDataGrid:GridTemplateColumn.CellTemplate>
+                        </sfDataGrid:GridTemplateColumn>
+                        <sfDataGrid:GridTemplateColumn  MappingName="NOI_DUNG" HeaderText="Nội Dung" Width="400"  HeaderFontAttribute="Bold"  HeaderCellTextSize="16">
+                            <sfDataGrid:GridTemplateColumn.CellTemplate>
+                                <DataTemplate>
+                                    <Label Text="{Binding NOI_DUNG_BAO_TRI}" TextColor="Black" Padding="5,0,0,0"    XAlign="Start" YAlign="Center"  LineBreakMode="WordWrap"/>
+                                </DataTemplate>
+                            </sfDataGrid:GridTemplateColumn.CellTemplate>
+                        </sfDataGrid:GridTemplateColumn>
+
+                        <sfDataGrid:GridTemplateColumn  HeaderText="Người thực hiện"                                                
+                                                        Width="140"
+                                                MappingName="NGUOI_THUC_HIEN" 
+                                                HeaderFontAttribute="Bold" 
+                                                HeaderCellTextSize="16">
+                            <sfDataGrid:GridTemplateColumn.CellTemplate>
+                                <DataTemplate>
+                                    <Label Text="{Binding NGUOI_THUC_HIEN}" TextColor="Black" Padding="5,0,0,0" WidthRequest="140"   XAlign="Start" YAlign="Center" />
+                                </DataTemplate>
+                            </sfDataGrid:GridTemplateColumn.CellTemplate>
+
+                        </sfDataGrid:GridTemplateColumn>
+                        <sfDataGrid:GridTemplateColumn MappingName="BAO_DUONG_DINH_KY" 
+                                                   Width="100"                                                               
+                                                   HeaderText="Bảo Dưỡng ĐK" 
+                                                   HeaderFontAttribute="Bold" 
+                                                   HeaderCellTextSize="16">
+                            <sfDataGrid:GridTemplateColumn.CellTemplate>
+                                <DataTemplate>
+                                    <CheckBox IsChecked="{Binding BAO_DUONG_DINH_KY}" Color="#06264c" IsEnabled="False" VerticalOptions="CenterAndExpand" HorizontalOptions="CenterAndExpand"  />
+                                </DataTemplate>
+                            </sfDataGrid:GridTemplateColumn.CellTemplate>
+                        </sfDataGrid:GridTemplateColumn>
+
+
+                        <sfDataGrid:GridTemplateColumn  HeaderText="Người Xác Nhận"                                                 
+                                                        MappingName="NGUOI_XAC_NHAN" 
+                                                        HeaderFontAttribute="Bold" 
+                                                        HeaderCellTextSize="16"
+                                                        Width="100">
+                            <sfDataGrid:GridTemplateColumn.CellTemplate>
+                                <DataTemplate>
+                                    <Label Text="{Binding NGUOI_XAC_NHAN}" TextColor="Black" Padding="5,0,0,0" WidthRequest="120"   XAlign="Start" YAlign="Center" />
+                                </DataTemplate>
+                            </sfDataGrid:GridTemplateColumn.CellTemplate>
+                        </sfDataGrid:GridTemplateColumn>
+                    </sfDataGrid:SfDataGrid.Columns>
+                    <sfDataGrid:SfDataGrid.LeftSwipeTemplate>
+                        <DataTemplate>
+                            <Grid ColumnSpacing="0" HorizontalOptions="FillAndExpand">
+                                <ContentView Grid.Column="0">
+                                    <ContentView.GestureRecognizers >
+                                        <TapGestureRecognizer x:Name="btnViewLichSu" Tapped="btnViewLichSu_Tapped"></TapGestureRecognizer>
+                                    </ContentView.GestureRecognizers>
+                                    <Grid  BackgroundColor="Green">
+                                        <Label 
+                                       Text ="Xóa Lịch Sử" 
+                                       HorizontalTextAlignment="Center" 
+                                       VerticalTextAlignment="Center"  
+                                       LineBreakMode ="NoWrap" 
+                                       BackgroundColor="Transparent" 
+                                       TextColor ="White" />
+                                    </Grid>
+                                </ContentView>
+                            </Grid>
+                        </DataTemplate>
+                    </sfDataGrid:SfDataGrid.LeftSwipeTemplate>
+
+                    <sfDataGrid:SfDataGrid.GroupColumnDescriptions>
+                        <sfDataGrid:GroupColumnDescription ColumnName="TEN_THIET_BI"/>
+                    </sfDataGrid:SfDataGrid.GroupColumnDescriptions>
+                    <sfDataGrid:SfDataGrid.TableSummaryRows>
+                        <sfDataGrid:GridTableSummaryRow Title="Số Lượng : {TotalSalary}" 
+                                Position="Bottom"
+                                ShowSummaryInRow="True">
+                            <sfDataGrid:GridTableSummaryRow.SummaryColumns>
+                                <sfDataGrid:GridSummaryColumn Name="TotalSalary"
+                                      Format="{}{Count}"
+                                      MappingName="SERIAL"                                       
+                                      SummaryType="CountAggregate" />
+
+                            </sfDataGrid:GridTableSummaryRow.SummaryColumns>
+                        </sfDataGrid:GridTableSummaryRow>
+                    </sfDataGrid:SfDataGrid.TableSummaryRows>
+                </sfDataGrid:SfDataGrid>
+                <ActivityIndicator x:Name="mIndicator" IsRunning="{Binding IsRunning}" Color="CornflowerBlue" VerticalOptions="Center"
+                           HorizontalOptions="Center"   />
+            </Grid>
+        </StackLayout>
+    </ContentPage.Content>
+</ContentPage>
