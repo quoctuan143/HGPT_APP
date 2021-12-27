@@ -2,6 +2,7 @@
 <ContentPage xmlns="http://xamarin.com/schemas/2014/forms"
              xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
              Title="HGPT Mechanical thông báo"            
+              Shell.TabBarIsVisible="False"
              x:Class="HGPT_APP.Views.NotificationPage">
     <ContentPage.Content>
         <StackLayout>

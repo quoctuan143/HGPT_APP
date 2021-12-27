@@ -5,8 +5,10 @@
        xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
        mc:Ignorable="d"
        xmlns:local="clr-namespace:HGPT_APP.Views"
-       Title="HGPT_APP"
-       BackgroundColor="#06264c"         
+       BackgroundColor="#06264c"    
+       Title="HGPT"
+       xmlns:helper="clr-namespace:HGPT_APP.helper"
+       NavigationPage.HasNavigationBar="True"
        x:Class="HGPT_APP.AppShell">
 
     <!-- 
@@ -29,29 +31,28 @@
             </Style>
             <Style TargetType="TabBar" BasedOn="{StaticResource BaseStyle}" />
         </ResourceDictionary>
-    </Shell.Resources>  
-  
-    <TabBar 
-                Shell.TabBarIsVisible="False"
-                FlyoutDisplayOptions="AsMultipleItems"
-                FlyoutIcon="ic_back.png"
-                
-                >
-        <ShellContent Title="Trang Chủ"  IsTabStop="True" Icon="logo.png" ContentTemplate="{DataTemplate local:Main }">
+    </Shell.Resources>
 
+    <TabBar>
+        <Shell.FlyoutBackdrop>
+            <LinearGradientBrush StartPoint="0,0"
+                               EndPoint="1,1">
+                <GradientStop Color="#8A2387"
+                            Offset="0.1" />
+                <GradientStop Color="#E94057"
+                            Offset="0.6" />
+                <GradientStop Color="#F27121"
+                            Offset="1.0" />
+            </LinearGradientBrush>
+        </Shell.FlyoutBackdrop>
+        <ShellContent Title="Trang Chủ"  IsTabStop="True" Icon="{OnPlatform iOS=home , Android=logo }" ContentTemplate="{DataTemplate local:Main }">
         </ShellContent>
-        <ShellContent Title="Danh Sách Lệnh Sản Xuất"  IsTabStop="True" Icon="ic_check.png" ContentTemplate="{DataTemplate local:DanhSachLenhSanXuat }">
+        <ShellContent Title="Cài đặt"  IsTabStop="True"  ContentTemplate="{DataTemplate local:AboutPage }">
+            <ShellContent.Icon >
+                <FontImageSource FontFamily="UserIcons" Glyph="{Binding Source={x:Static helper:FontIconClass.AccountSettings}}" Size="25"  />
+            </ShellContent.Icon>
+        </ShellContent>
 
-        </ShellContent>
-        <ShellContent Title="Công việc đang thực hiện"  IsTabStop="True" Icon="list.png" ContentTemplate="{DataTemplate local:Phan_Chia_Cong_Viec}">
-
-        </ShellContent>
-        <ShellContent Title="Lịch sử công việc"  IsTabStop="True" Icon="history.png" ContentTemplate="{DataTemplate local:Lich_Su_Phan_Chia_Cong_Viec}">
-
-        </ShellContent>
     </TabBar>
-
-    <MenuItem Text="Đăng Xuất" IconImageSource="offline.png" Clicked="MenuItem_Clicked">
-        
-    </MenuItem>
+    
 </Shell>

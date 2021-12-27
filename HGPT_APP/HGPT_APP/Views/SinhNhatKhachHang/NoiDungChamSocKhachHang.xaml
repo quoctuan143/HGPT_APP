@@ -2,6 +2,7 @@
 <ContentPage xmlns="http://xamarin.com/schemas/2014/forms"
              xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml" 
              xmlns:richtexteditor="clr-namespace:Syncfusion.XForms.RichTextEditor;assembly=Syncfusion.SfRichTextEditor.XForms"
+              Shell.TabBarIsVisible="False"
              x:Class="HGPT_APP.Views.SinhNhatKhachHang.NoiDungChamSocKhachHang">
     <ContentPage.Content>
         <AbsoluteLayout>

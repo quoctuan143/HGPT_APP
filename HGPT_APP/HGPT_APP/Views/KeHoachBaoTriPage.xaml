@@ -7,6 +7,7 @@
              xmlns:ListCollection="clr-namespace:System.Collections.Generic;assembly=netstandard"             
              xmlns:local1="clr-namespace:HGPT_APP.Converter" 
              Title="Kế hoạch bảo trì"
+              Shell.TabBarIsVisible="False"
              xmlns:sfinputtext="clr-namespace:Syncfusion.XForms.TextInputLayout;assembly=Syncfusion.Core.XForms" 
              x:Class="HGPT_APP.Views.KeHoachBaoTriPage">
     <ContentPage.ToolbarItems>

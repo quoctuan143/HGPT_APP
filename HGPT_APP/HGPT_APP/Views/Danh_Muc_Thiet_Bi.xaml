@@ -11,6 +11,7 @@
               xmlns:local="clr-namespace:HGPT_APP.ViewModels"
              mc:Ignorable="d"
              Title="Danh mục thiết bị"
+              Shell.TabBarIsVisible="False"
              x:Class="HGPT_APP.Views.Danh_Muc_Thiet_Bi">
     <ContentPage.Resources>
         <ResourceDictionary>

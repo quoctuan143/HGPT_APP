@@ -2,8 +2,8 @@
 <page:PopupPage xmlns="http://xamarin.com/schemas/2014/forms" 
              xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
              xmlns:page="clr-namespace:Rg.Plugins.Popup.Pages;assembly=Rg.Plugins.Popup" 
-             xmlns:animations="clr-namespace:Rg.Plugins.Popup.Animations;assembly=Rg.Plugins.Popup"
-             x:Class="HGPT_APP.Popup.ShowImage">
+             xmlns:animations="clr-namespace:Rg.Plugins.Popup.Animations;assembly=Rg.Plugins.Popup" xmlns:sfbutton="clr-namespace:Syncfusion.XForms.Buttons;assembly=Syncfusion.Buttons.XForms"
+                x:Class="HGPT_APP.Popup.ShowImage">
     <page:PopupPage.Animation>
         <animations:MoveAnimation 
             PositionIn="Bottom" 
@@ -15,7 +15,7 @@
           VerticalOptions="FillAndExpand"
            HorizontalOptions="FillAndExpand"   >
         <StackLayout VerticalOptions="FillAndExpand" HorizontalOptions="FillAndExpand">
-            <Button Text="Đóng" Style="{StaticResource styleButton}" HeightRequest="50" Clicked="Button_Clicked" VerticalOptions="EndAndExpand" HorizontalOptions="FillAndExpand"/>
+            <sfbutton:SfButton Text="Đóng" Style="{StaticResource styleButton}" HeightRequest="50" Clicked="Button_Clicked" VerticalOptions="EndAndExpand" HorizontalOptions="FillAndExpand"/>
               <Image Source="{Binding IMAGE_LINK}" Aspect="AspectFill"  ></Image>
             
         </StackLayout>

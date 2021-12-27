@@ -9,6 +9,7 @@
              xmlns:local1="clr-namespace:HGPT_APP.Converter" 
              xmlns:sfinputtext="clr-namespace:Syncfusion.XForms.TextInputLayout;assembly=Syncfusion.Core.XForms"
              Title="{Binding Title}"
+              Shell.TabBarIsVisible="False"
              x:Class="HGPT_APP.Views.Phan_Chia_Cong_Viec">
     <ContentPage.ToolbarItems>
         <ToolbarItem IconImageSource="add.png" Clicked="ToolbarItem_Clicked"></ToolbarItem>

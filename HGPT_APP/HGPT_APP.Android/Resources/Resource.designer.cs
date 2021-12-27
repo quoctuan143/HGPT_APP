@@ -6031,6 +6031,7 @@ namespace HGPT_APP.Droid
 			global::Xamarin.Essentials.Resource.Id.text2 = global::HGPT_APP.Droid.Resource.Id.text2;
 			global::Xamarin.Essentials.Resource.Id.time = global::HGPT_APP.Droid.Resource.Id.time;
 			global::Xamarin.Essentials.Resource.Id.title = global::HGPT_APP.Droid.Resource.Id.title;
+			global::Xamarin.Essentials.Resource.Id.view_tree_lifecycle_owner = global::HGPT_APP.Droid.Resource.Id.view_tree_lifecycle_owner;
 			global::Xamarin.Essentials.Resource.Integer.status_bar_notification_info_maxnum = global::HGPT_APP.Droid.Resource.Integer.status_bar_notification_info_maxnum;
 			global::Xamarin.Essentials.Resource.Layout.browser_actions_context_menu_page = global::HGPT_APP.Droid.Resource.Layout.browser_actions_context_menu_page;
 			global::Xamarin.Essentials.Resource.Layout.browser_actions_context_menu_row = global::HGPT_APP.Droid.Resource.Layout.browser_actions_context_menu_row;

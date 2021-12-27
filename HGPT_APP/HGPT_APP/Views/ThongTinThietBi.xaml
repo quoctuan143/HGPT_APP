@@ -7,6 +7,7 @@
              Title="{Binding Title}"
              xmlns:local="clr-namespace:HGPT_APP.ViewModels" 
              xmlns:local1="clr-namespace:HGPT_APP.Converter" 
+              Shell.TabBarIsVisible="False"
              x:Class="HGPT_APP.Views.ThongTinThietBi">
     <ContentPage.Resources>
         <ResourceDictionary>

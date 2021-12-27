@@ -2,7 +2,7 @@
 <page:PopupPage xmlns="http://xamarin.com/schemas/2014/forms"
              xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
                xmlns:page="clr-namespace:Rg.Plugins.Popup.Pages;assembly=Rg.Plugins.Popup" 
-                xmlns:sfinputext="clr-namespace:Syncfusion.XForms.TextInputLayout;assembly=Syncfusion.Core.XForms"
+                xmlns:sfinputext="clr-namespace:Syncfusion.XForms.TextInputLayout;assembly=Syncfusion.Core.XForms" xmlns:sfbutton="clr-namespace:Syncfusion.XForms.Buttons;assembly=Syncfusion.Buttons.XForms"
                 CloseWhenBackgroundIsClicked="True"                
                 x:Class="HGPT_APP.Popup.Cap_Nhat_Thoi_Gian_Bat_Dau">
     <ContentPage.Content>
@@ -26,21 +26,21 @@
                         <ColumnDefinition Width="5*"></ColumnDefinition>
                         <ColumnDefinition Width="5*"></ColumnDefinition>
                     </Grid.ColumnDefinitions>
-                    <Button  Grid.Column="0" CornerRadius="50" x:Name="btnOK" 
+                    <sfbutton:SfButton  Grid.Column="0" CornerRadius="50" x:Name="btnOK" 
                              Text="OK" FontSize="20" FontAttributes="Bold"  
                              ImageSource="ok.png" Clicked="btnOK_Clicked" 
                              HorizontalOptions="FillAndExpand"  
                              BackgroundColor="#E10555" TextColor="White" 
                              HeightRequest="50">
-                    </Button>
-                    <Button Grid.Column="1" CornerRadius="50" 
+                    </sfbutton:SfButton>
+                    <sfbutton:SfButton Grid.Column="1" CornerRadius="50" 
                             x:Name="btnCancel" Text="Cancel" 
                             FontSize="20" FontAttributes="Bold" 
                             ImageSource="ic_delete.png" 
                             Clicked="btnCancel_Clicked" 
                             HorizontalOptions="FillAndExpand" 
                             BackgroundColor="DarkGray" TextColor="White"
-                            HeightRequest="50"></Button>
+                            HeightRequest="50"></sfbutton:SfButton>
                 </Grid>
             </StackLayout>
         </Frame>

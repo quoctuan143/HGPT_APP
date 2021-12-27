@@ -10,6 +10,7 @@
              xmlns:local="clr-namespace:HGPT_APP.ViewModels" xmlns:tabView="clr-namespace:Syncfusion.XForms.TabView;assembly=Syncfusion.SfTabView.XForms"
                           mc:Ignorable="d"
              Title="{Binding Title}"
+              Shell.TabBarIsVisible="False"
              x:Class="HGPT_APP.Views.DanhSachLenhSanXuat">
     <ContentPage.Resources>
         <ResourceDictionary>

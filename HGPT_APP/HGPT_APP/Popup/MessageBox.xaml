@@ -4,8 +4,8 @@
              xmlns:d="http://xamarin.com/schemas/2014/forms/design"
              xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
              xmlns:page="clr-namespace:Rg.Plugins.Popup.Pages;assembly=Rg.Plugins.Popup"
-                 xmlns:animations="clr-namespace:Rg.Plugins.Popup.Animations;assembly=Rg.Plugins.Popup"
-             mc:Ignorable="d"
+                 xmlns:animations="clr-namespace:Rg.Plugins.Popup.Animations;assembly=Rg.Plugins.Popup" xmlns:sfbutton="clr-namespace:Syncfusion.XForms.Buttons;assembly=Syncfusion.Buttons.XForms"
+                mc:Ignorable="d"
                 CloseWhenBackgroundIsClicked="True"
              x:Class="HGPT_APP.Popup.MessageBox">
     <page:PopupPage.Animation >
@@ -50,12 +50,12 @@
             </StackLayout>
 
             <StackLayout Spacing="0" HorizontalOptions="FillAndExpand" VerticalOptions="Center" Orientation="Horizontal" >
-                <Button x:Name="btnOK" Text="OK" ImageSource="ok.png" FontSize="25" 
+                <sfbutton:SfButton x:Name="btnOK" Text="OK" ImageSource="ok.png" FontSize="25" 
                         CornerRadius="50"
                         WidthRequest="100" FontAttributes="Bold" 
                         Clicked="btnOK_Clicked" VerticalOptions="CenterAndExpand"
                         HorizontalOptions="CenterAndExpand" BackgroundColor="#E10555" 
-                        TextColor="White" ></Button>
+                        TextColor="White" ></sfbutton:SfButton>
 
             </StackLayout>
         </StackLayout>

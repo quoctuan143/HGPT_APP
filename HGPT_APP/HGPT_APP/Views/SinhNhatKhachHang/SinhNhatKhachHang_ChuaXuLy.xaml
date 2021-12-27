@@ -3,6 +3,7 @@
              xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
              Title="Sinh nhật khách hàng"
              x:Class="HGPT_APP.Views.SinhNhatKhachHang.SinhNhatKhachHang_ChuaXuLy"
+             Shell.TabBarIsVisible="False"
              x:Name="sinhnhat">
     <ContentPage.Content>
         <ListView VerticalScrollBarVisibility="Never"

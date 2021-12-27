@@ -4,7 +4,8 @@
              xmlns:sfDataGrid="clr-namespace:Syncfusion.SfDataGrid.XForms;assembly=Syncfusion.SfDataGrid.XForms" 
              xmlns:sfinputtext="clr-namespace:Syncfusion.XForms.TextInputLayout;assembly=Syncfusion.Core.XForms"
              xmlns:local1="clr-namespace:HGPT_APP.Converter"
-              Title="Lịch Sử Bảo Trì"   
+              Title="Lịch Sử Bảo Trì"  
+              Shell.TabBarIsVisible="False"
              x:Class="HGPT_APP.Views.LichSuBaoTri">
     <ContentPage.Resources>
         <ResourceDictionary>
