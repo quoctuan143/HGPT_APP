@@ -16,7 +16,7 @@ namespace HGPT_APP.Global
         public static string IsThietBi = "IsThietBi";
         public static string IsPhanViec = "IsPhanViec";
         public static string IsChamSocKhachHang = "IsChamSocKhachHang";
-        public static string Token { get; set; }
+        public static string Token = "Token";
         public static string NhaMay = "NhaMay";
         public static string MaXuong = "MaXuong";
         public static string ThongBaoBaoTri = "ThongBaoBaoTri";
