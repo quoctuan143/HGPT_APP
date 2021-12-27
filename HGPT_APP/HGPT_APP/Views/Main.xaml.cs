@@ -228,7 +228,7 @@ namespace HGPT_APP.Views
                     Int32 from = _json.IndexOf("[");
                     Int32 to = _json.IndexOf("]");
                     string result = _json.Substring(from, to - from + 1);
-                    bagesinhnhatkhachhang.BadgeText  = JsonConvert.DeserializeObject<ObservableCollection<ChamSocKhachHang>>(result).Count.ToString();
+                    //bagesinhnhatkhachhang.BadgeText  = JsonConvert.DeserializeObject<ObservableCollection<ChamSocKhachHang>>(result).Count.ToString();
                 }
 
             }

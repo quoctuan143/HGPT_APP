@@ -83,7 +83,7 @@ namespace HGPT_APP.Views
                     //đăng kí token quản lý sinh nhật
                     using (HttpClient client1 = new HttpClient())
                     {
-                        Token token = new Token { TokenKey = CrossFirebasePushNotification.Current.Token, Topic = "sinhnhatkhachhang", UserName = btnusername.Text };
+                        Token token = new Token { TokenKey = CrossFirebasePushNotification.Current.Token, Topic = "sinhnhatkhachhang", UserName = btnusername.Text, Device= Device.RuntimePlatform  };
                         client1.BaseAddress = new Uri(Config.URL);
                         var ok = client1.PostAsJsonAsync("api/qltb/InsertToken", token);
                         var d = ok.Result.Content.ReadAsStringAsync();

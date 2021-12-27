@@ -6,12 +6,9 @@
              mc:Ignorable="d"
              x:Class="HGPT_APP.Views.AboutPage"
              xmlns:vm="clr-namespace:HGPT_APP.ViewModels"
-             xmlns:helper="clr-namespace:HGPT_APP.helper"
+             xmlns:helper="clr-namespace:HGPT_APP.helper"            
              Title="{Binding Title}">
-
-    <ContentPage.BindingContext>
-        <vm:AboutViewModel/>
-    </ContentPage.BindingContext>
+    
     <Shell.TitleView >
         <StackLayout Orientation="Horizontal" HorizontalOptions="FillAndExpand">
             <Label  x:Name="txtName"  TextColor="White" FontSize="20" FontAttributes="Bold" 
@@ -47,6 +44,20 @@
                     <Label Text="Thông tin ứng dụng" Style="{StaticResource styleLablenotwhite}" FontSize="20"/>
                     <StackLayout.GestureRecognizers>
                         <TapGestureRecognizer Command="{Binding InformationCommand}">
+                        </TapGestureRecognizer>
+                    </StackLayout.GestureRecognizers>
+                </StackLayout>
+
+                <BoxView HeightRequest="1" HorizontalOptions="FillAndExpand" Color="{StaticResource Primary}" Margin="0,10,0,0"/>
+                <StackLayout Orientation="Horizontal" Margin="0,10,0,0">
+                    <Image >
+                        <Image.Source>
+                            <FontImageSource FontFamily="UserIcons" Glyph="{Binding Source={x:Static helper:FontIconClass.StarSettings}}" Color="{StaticResource Primary}" Size="30"/>
+                        </Image.Source>
+                    </Image>
+                    <Label Text="Cài đặt thông báo" Style="{StaticResource styleLablenotwhite}" FontSize="20"/>
+                    <StackLayout.GestureRecognizers>
+                        <TapGestureRecognizer Command="{Binding SettingNotification}">
                         </TapGestureRecognizer>
                     </StackLayout.GestureRecognizers>
                 </StackLayout>

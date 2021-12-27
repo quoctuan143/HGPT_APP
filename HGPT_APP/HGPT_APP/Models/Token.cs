@@ -9,5 +9,6 @@ namespace HGPT_APP.Models
         public string TokenKey { get; set; } 
         public string Topic { get; set; }
         public string UserName { get; set; }
+        public string Device { get; set; } 
     }
 }

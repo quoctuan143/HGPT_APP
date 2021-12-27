@@ -2,6 +2,7 @@
 using HGPT_APP.Interface;
 using HGPT_APP.Models;
 using HGPT_APP.Popup;
+using Plugin.FirebasePushNotification;
 using System;
 using System.Collections.Generic;
 using System.Linq;
@@ -37,7 +38,7 @@ namespace HGPT_APP.Views
                 Preferences.Set(Config.LenhSanXuat, true);
                 using (HttpClient client = new HttpClient())
                 {
-                    Token token = new Token { TokenKey = DependencyService.Get<IFireBase>().getToken(), Topic = "LenhSanXuat" ,UserName = Preferences.Get(Config.User,"")};
+                    Token token = new Token { TokenKey = CrossFirebasePushNotification.Current.Token, Topic = "LenhSanXuat" ,UserName = Preferences.Get(Config.User,""), Device = Device.RuntimePlatform };
                     client.BaseAddress = new Uri(Config.URL);
 
                     var ok = client.PostAsJsonAsync("api/qltb/InsertToken", token);
@@ -57,7 +58,7 @@ namespace HGPT_APP.Views
                 Preferences.Set(Config.LenhSanXuat, false);
                 using (HttpClient client = new HttpClient())
                 {
-                    Token token = new Token { TokenKey = DependencyService.Get<IFireBase>().getToken(), Topic = "LenhSanXuat", UserName = Preferences.Get(Config.User, "") };
+                    Token token = new Token { TokenKey = CrossFirebasePushNotification.Current.Token, Topic = "LenhSanXuat", UserName = Preferences.Get(Config.User, ""), Device = Device.RuntimePlatform };
                     client.BaseAddress = new Uri(Config.URL);
                     var ok = client.PostAsJsonAsync("api/qltb/DeleteToken", token);
                     if (ok.Result.Content.ReadAsStringAsync().Result.ToLower().Contains("ok"))
@@ -80,7 +81,7 @@ namespace HGPT_APP.Views
                 Preferences.Set(Config.ThongBaoBaoTri, true);
                 using (HttpClient client = new HttpClient())
                 {
-                    Token token = new Token { TokenKey = DependencyService.Get<IFireBase>().getToken(), Topic = "ThongBaoBaoTri", UserName = Preferences.Get(Config.User, "") };
+                    Token token = new Token { TokenKey = CrossFirebasePushNotification.Current.Token, Topic = "ThongBaoBaoTri", UserName = Preferences.Get(Config.User, ""), Device = Device.RuntimePlatform };
                     client.BaseAddress = new Uri(Config.URL);
 
                     var ok = client.PostAsJsonAsync("api/qltb/InsertToken", token);
@@ -100,7 +101,7 @@ namespace HGPT_APP.Views
                 Preferences.Set(Config.ThongBaoBaoTri, false);
                 using (HttpClient client = new HttpClient())
                 {
-                    Token token = new Token { TokenKey = DependencyService.Get<IFireBase>().getToken(), Topic = "ThongBaoBaoTri", UserName = Preferences.Get(Config.User, "") };
+                    Token token = new Token { TokenKey = CrossFirebasePushNotification.Current.Token, Topic = "ThongBaoBaoTri", UserName = Preferences.Get(Config.User, ""), Device = Device.RuntimePlatform };
                     client.BaseAddress = new Uri(Config.URL);
                     var ok = client.PostAsJsonAsync("api/qltb/DeleteToken", token);
                     if (ok.Result.Content.ReadAsStringAsync().Result.ToLower().Contains("ok"))
@@ -123,7 +124,7 @@ namespace HGPT_APP.Views
                 Preferences.Set(Config.ThongBaoCongTy, true);
                 using (HttpClient client = new HttpClient())
                 {
-                    Token token = new Token { TokenKey = DependencyService.Get<IFireBase>().getToken(), Topic = "NhanThongBaoCongTy", UserName = Preferences.Get(Config.User, "") };
+                    Token token = new Token { TokenKey = CrossFirebasePushNotification.Current.Token, Topic = "NhanThongBaoCongTy", UserName = Preferences.Get(Config.User, ""), Device = Device.RuntimePlatform };
                     client.BaseAddress = new Uri(Config.URL);
 
                     var ok = client.PostAsJsonAsync("api/qltb/InsertToken", token);
@@ -143,7 +144,7 @@ namespace HGPT_APP.Views
                 Preferences.Set(Config.ThongBaoCongTy, false);
                 using (HttpClient client = new HttpClient())
                 {
-                    Token token = new Token { TokenKey = DependencyService.Get<IFireBase>().getToken(), Topic = "NhanThongBaoCongTy", UserName = Preferences.Get(Config.User, "") };
+                    Token token = new Token { TokenKey = CrossFirebasePushNotification.Current.Token, Topic = "NhanThongBaoCongTy", UserName = Preferences.Get(Config.User, ""), Device = Device.RuntimePlatform };
                     client.BaseAddress = new Uri(Config.URL);
                     var ok = client.PostAsJsonAsync("api/qltb/DeleteToken", token);
                     if (ok.Result.Content.ReadAsStringAsync().Result.ToLower().Contains("ok"))
@@ -167,7 +168,7 @@ namespace HGPT_APP.Views
                 Preferences.Set(Config.ThongBaoPhanViec, true);
                 using (HttpClient client = new HttpClient())
                 {
-                    Token token = new Token { TokenKey = DependencyService.Get<IFireBase>().getToken(), Topic = "ThongBaoPhanViec", UserName = Preferences.Get(Config.User, "") };
+                    Token token = new Token { TokenKey = CrossFirebasePushNotification.Current.Token, Topic = "ThongBaoPhanViec", UserName = Preferences.Get(Config.User, ""), Device=Device.RuntimePlatform  };
                     client.BaseAddress = new Uri(Config.URL);
                    
                     var ok = client.PostAsJsonAsync("api/qltb/InsertToken", token );
@@ -187,7 +188,7 @@ namespace HGPT_APP.Views
                 Preferences.Set(Config.ThongBaoPhanViec, false );
                 using (HttpClient client = new HttpClient())
                 {
-                    Token token = new Token { TokenKey = DependencyService.Get<IFireBase>().getToken(), Topic = "ThongBaoPhanViec", UserName = Preferences.Get(Config.User, "") };
+                    Token token = new Token { TokenKey = CrossFirebasePushNotification.Current.Token, Topic = "ThongBaoPhanViec", UserName = Preferences.Get(Config.User, ""), Device = Device.RuntimePlatform };
                     client.BaseAddress = new Uri(Config.URL);
                     var ok = client.PostAsJsonAsync("api/qltb/DeleteToken", token   );
                     if (ok.Result.Content.ReadAsStringAsync().Result.ToLower().Contains("ok"))

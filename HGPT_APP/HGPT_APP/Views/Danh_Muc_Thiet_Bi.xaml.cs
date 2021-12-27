@@ -68,6 +68,8 @@ namespace HGPT_APP.Views
         private async void btnScan_Clicked(object sender, EventArgs e)
         {
             var scan = new ZXingScannerPage();
+            scan.Title = "Tìm kiếm thiết bị";
+            Shell.SetTabBarIsVisible(scan, false);
             await Navigation.PushAsync(scan);
             scan.OnScanResult += (result) =>
             {

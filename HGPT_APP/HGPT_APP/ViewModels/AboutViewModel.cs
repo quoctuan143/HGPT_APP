@@ -10,10 +10,7 @@ namespace HGPT_APP.ViewModels
 {
     public class AboutViewModel : BaseViewModel
     {
-        #region "Field"
-
-        INavigation Navigation;
-        #endregion
+      public   INavigation navigation;
 
         #region "Contructor"
 
@@ -24,12 +21,13 @@ namespace HGPT_APP.ViewModels
             LogoutCommand = new Command(OnLogoutClicked);
             ChangePasswordCommand = new Command(OnChangePassClicked);
             InformationCommand = new Command(OnShowInformationClicked);
+            SettingNotification = new Command(OnSettingNotificationClicked);
         }
 
-
-
-
-
+        private async void OnSettingNotificationClicked(object obj)
+        {
+            await navigation.PushAsync(new Setting());
+        }
         #endregion
 
         #region "Method"
@@ -65,6 +63,7 @@ namespace HGPT_APP.ViewModels
         public Command InformationCommand { get; }
         public Command LogoutCommand { get; }
         public Command ChangePasswordCommand { get; }
+        public Command SettingNotification { get; } 
         #endregion
 
     }

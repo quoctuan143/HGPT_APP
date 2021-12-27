@@ -23,18 +23,18 @@
            VerticalOptions="Center">
         <StackLayout HorizontalOptions="FillAndExpand" Spacing="10">
 
-            <Image HorizontalOptions="CenterAndExpand" Source="logo.png" Aspect="AspectFit" WidthRequest="100" HeightRequest="100" />
+            <Image HorizontalOptions="CenterAndExpand" Source="logo.png" Aspect="AspectFill" WidthRequest="100" HeightRequest="50" />
             <StackLayout HorizontalOptions="CenterAndExpand" Orientation="Horizontal">
                 <Label Text="Ứng dụng:" Style="{StaticResource styleLablenotwhite}" FontSize="17"></Label>
-                <Label Text="HÒA THỌ" Style="{StaticResource styleLableBold}"  FontSize="17"></Label>
+                <Label Text="HGPT" Style="{StaticResource styleLableBlue}"  FontSize="17" FontAttributes="Bold"></Label>
             </StackLayout>
             <StackLayout HorizontalOptions="CenterAndExpand" Orientation="Horizontal"  >
                 <Label Text="Hệ điều hành:" Style="{StaticResource styleLablenotwhite}"  FontSize="17"></Label>
-                <Label x:Name="lblHeDieuHanh" Style="{StaticResource styleLableBold}"  FontSize="17"></Label>
+                <Label x:Name="lblHeDieuHanh" Style="{StaticResource styleLableBlue}"  FontSize="17" FontAttributes="Bold"></Label>
             </StackLayout>
             <StackLayout HorizontalOptions="CenterAndExpand" Orientation="Horizontal">
                 <Label Text="Phiên bản hiện tại:" Style="{StaticResource styleLablenotwhite}"  FontSize="17"></Label>
-                <Label x:Name="lblPhienBan" Style="{StaticResource styleLableBold}"  FontSize="17"></Label>
+                <Label x:Name="lblPhienBan" Style="{StaticResource styleLableBlue}"  FontSize="17" FontAttributes="Bold"></Label>
             </StackLayout>
             <sfbutton:SfButton          x:Name="btnOK"    Margin="20,10,20,0"
                                         Text="Kiểm tra cập nhật" FontSize="17"  

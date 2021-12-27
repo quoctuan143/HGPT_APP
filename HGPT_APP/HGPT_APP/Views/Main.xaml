@@ -42,15 +42,7 @@
                 </badge:SfBadgeView.BadgeSettings>
             </badge:SfBadgeView>
         </StackLayout>
-    </Shell.TitleView>
-    <ContentPage.ToolbarItems>
-        <!--<ToolbarItem Text="Xem thông báo" IconImageSource="notification.png" x:Name="btnthongbao" Clicked="btnthongbao_Clicked"></ToolbarItem>-->
-        <ToolbarItem Text="Đổi mật khẩu" IconImageSource="setting.png" x:Name="btnCaiDat" Clicked="btnCaiDat_Clicked" Order="Secondary" Priority="2"></ToolbarItem>
-        <ToolbarItem Text="Đăng xuất" IconImageSource="offline.png" x:Name="btnThoat" Clicked="btnThoat_Clicked" Order="Secondary" Priority="3" ></ToolbarItem>
-       
-
-
-    </ContentPage.ToolbarItems>
+    </Shell.TitleView>  
     <ContentPage.Content>
             <Grid RowDefinitions="2.5*,7.5*" VerticalOptions="FillAndExpand" >
                 <Image Source="trangchu.jpg" Grid.Row="0" Aspect="AspectFill" HorizontalOptions="FillAndExpand" VerticalOptions="FillAndExpand"></Image>
@@ -146,20 +138,13 @@
                         <StackLayout Padding="5">
                             <Label Grid.Row="0" Text="Chăm sóc khách hàng" TextDecorations="Underline" TextColor="White" FontSize="20" FontAttributes="Italic"></Label>
                             <Grid ColumnDefinitions="3.3*,3.3*,3.4*" RowDefinitions="*,*" Margin="0,20,0,0"  RowSpacing="0" 
-                                      HorizontalOptions="FillAndExpand" VerticalOptions="FillAndExpand">                                
-                               
-                                    <badge:SfBadgeView Grid.Row="0" Grid.Column="0" BadgeText="0" HorizontalOptions="CenterAndExpand" VerticalOptions="StartAndExpand" x:Name="bagesinhnhatkhachhang">
-                                        <badge:SfBadgeView.Content>
-                                        <Image Source="birthday.png" Aspect="AspectFit" HeightRequest="70" WidthRequest="70" HorizontalOptions="CenterAndExpand" VerticalOptions="StartAndExpand">
-                                                <Image.GestureRecognizers>
-                                                    <TapGestureRecognizer Tapped="btnsinhnhatkhachhangchuachamsoc_Tapped"></TapGestureRecognizer>
-                                                </Image.GestureRecognizers>
-                                            </Image>                                            
-                                        </badge:SfBadgeView.Content>
-                                        <badge:SfBadgeView.BadgeSettings>
-                                        <badge:BadgeSetting BadgeType="Error" Offset="-5,10" BadgeAnimation="Scale" BadgePosition="TopRight" FontSize="15" FontAttributes="Bold" />
-                                        </badge:SfBadgeView.BadgeSettings>
-                                    </badge:SfBadgeView>
+                                      HorizontalOptions="FillAndExpand" VerticalOptions="FillAndExpand"> 
+                                   
+                                <Image Source="birthday.png" Grid.Row="0" Grid.Column="0" Aspect="AspectFit" HeightRequest="70" WidthRequest="70" HorizontalOptions="CenterAndExpand" VerticalOptions="StartAndExpand">
+                                    <Image.GestureRecognizers>
+                                        <TapGestureRecognizer Tapped="btnsinhnhatkhachhangchuachamsoc_Tapped"></TapGestureRecognizer>
+                                    </Image.GestureRecognizers>
+                                </Image>                                
                                 <Label Grid.Row="1" Grid.Column="0" Text="Sinh nhật khách hàng" Style="{StaticResource styleLableBlue}"  Padding="5,0,5,0" FontAttributes="Italic" HorizontalTextAlignment="Center" VerticalOptions="Center"></Label>
 
 

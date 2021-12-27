@@ -1,4 +1,5 @@
-﻿using System;
+﻿using HGPT_APP.ViewModels;
+using System;
 using System.ComponentModel;
 using Xamarin.Forms;
 using Xamarin.Forms.Xaml;
@@ -10,9 +11,13 @@ namespace HGPT_APP.Views
     [DesignTimeVisible(false)]
     public partial class AboutPage : ContentPage
     {
+        AboutViewModel viewModel;
         public AboutPage()
         {
             InitializeComponent();
+            viewModel = new AboutViewModel();
+            viewModel.navigation = Navigation;
+            BindingContext = viewModel;
         }
     }
 }

@@ -34,6 +34,7 @@
         </syncTheme:SyncfusionThemeDictionary>
 
         <ResourceDictionary>
+            <Color x:Key="Primary">#06264c</Color>
             <Style TargetType="sfcombox:SfComboBox" x:Key="styleCombobox">
                 <Setter Property="TextColor" Value="#06264c"></Setter>
                 <Setter Property="ShowClearButton" Value="True"></Setter>

@@ -45,7 +45,7 @@
                             Offset="1.0" />
             </LinearGradientBrush>
         </Shell.FlyoutBackdrop>
-        <ShellContent Title="Trang Chủ"  IsTabStop="True" Icon="{OnPlatform iOS=home , Android=logo }" ContentTemplate="{DataTemplate local:Main }">
+        <ShellContent Title="Trang Chủ"  IsTabStop="True" Icon="home.png" ContentTemplate="{DataTemplate local:Main }">
         </ShellContent>
         <ShellContent Title="Cài đặt"  IsTabStop="True"  ContentTemplate="{DataTemplate local:AboutPage }">
             <ShellContent.Icon >
