@@ -49,6 +49,7 @@ namespace HGPT_APP.Converter
         {
             return Color.SkyBlue;
         }
+        [Obsolete]
         public override Color GetCaptionSummaryRowForeGroundColor()
         {
             return Color.White;

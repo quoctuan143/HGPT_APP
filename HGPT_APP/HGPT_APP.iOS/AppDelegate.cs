@@ -5,6 +5,7 @@ using System.Linq;
 using Foundation;
 using ImageCircle.Forms.Plugin.iOS;
 using Plugin.FirebasePushNotification;
+using Syncfusion.SfPicker.XForms.iOS;
 using Syncfusion.XForms.iOS.TextInputLayout;
 using UIKit;
 using UserNotifications;
@@ -40,6 +41,9 @@ namespace HGPT_APP.iOS
             SfTextInputLayoutRenderer.Init();
             Rg.Plugins.Popup.Popup.Init();
             ImageCircleRenderer.Init();
+            SfPickerRenderer.Init();
+            Syncfusion.XForms.iOS.TabView.SfTabViewRenderer.Init();
+            Syncfusion.XForms.iOS.PopupLayout.SfPopupLayoutRenderer.Init();
             Dictionary<string, string> dict = new Dictionary<string, string> ();
             FirebasePushNotificationManager.Initialize(options, true);
             FirebasePushNotificationManager.Initialize(options, new NotificationUserCategory[]

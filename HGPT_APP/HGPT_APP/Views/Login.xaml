@@ -67,9 +67,10 @@
 
 
             </StackLayout>
-            <StackLayout Grid.Row="3"   Padding="10,5,10,5" >                
-                      <sfbutton:SfCheckBox x:Name="swRememer" IsChecked="True" CheckedColor="White" TextColor="White" Text="Ghi nhớ" FontAttributes="Bold">
-             </sfbutton:SfCheckBox>
+            <StackLayout Grid.Row="3"   Padding="10,5,10,5" >
+                <sfbutton:SfCheckBox x:Name="swRememer" IsChecked="True" CheckedColor="White" TextColor="Blue" Text="Ghi nhớ" FontAttributes="Bold">
+                     
+                </sfbutton:SfCheckBox>
 
 
             </StackLayout>

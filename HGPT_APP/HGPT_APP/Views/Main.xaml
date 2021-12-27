@@ -145,32 +145,32 @@
                               IsVisible ="False">
                         <StackLayout Padding="5">
                             <Label Grid.Row="0" Text="Chăm sóc khách hàng" TextDecorations="Underline" TextColor="White" FontSize="20" FontAttributes="Italic"></Label>
-                            <Grid ColumnDefinitions="3.3*,3.3*,3.4*" Margin="0,20,0,0"  RowSpacing="0" 
-                                      HorizontalOptions="FillAndExpand" VerticalOptions="FillAndExpand">
-                                
-                                <StackLayout  Grid.Column="0" HorizontalOptions="CenterAndExpand">
-                                    <badge:SfBadgeView BadgeText="0" HorizontalOptions="Center" VerticalOptions="Center" x:Name="bagesinhnhatkhachhang">
+                            <Grid ColumnDefinitions="3.3*,3.3*,3.4*" RowDefinitions="*,*" Margin="0,20,0,0"  RowSpacing="0" 
+                                      HorizontalOptions="FillAndExpand" VerticalOptions="FillAndExpand">                                
+                               
+                                    <badge:SfBadgeView Grid.Row="0" Grid.Column="0" BadgeText="0" HorizontalOptions="CenterAndExpand" VerticalOptions="StartAndExpand" x:Name="bagesinhnhatkhachhang">
                                         <badge:SfBadgeView.Content>
-                                            <Image Source="birthday.png" Aspect="AspectFit" HeightRequest="70" WidthRequest="70">
+                                        <Image Source="birthday.png" Aspect="AspectFit" HeightRequest="70" WidthRequest="70" HorizontalOptions="CenterAndExpand" VerticalOptions="StartAndExpand">
                                                 <Image.GestureRecognizers>
                                                     <TapGestureRecognizer Tapped="btnsinhnhatkhachhangchuachamsoc_Tapped"></TapGestureRecognizer>
                                                 </Image.GestureRecognizers>
                                             </Image>                                            
                                         </badge:SfBadgeView.Content>
                                         <badge:SfBadgeView.BadgeSettings>
-                                            <badge:BadgeSetting BadgeType="Error" FontSize="17"  Offset="-10,10" BadgePosition="TopRight"/>
+                                        <badge:BadgeSetting BadgeType="Error" Offset="-5,10" BadgeAnimation="Scale" BadgePosition="TopRight" FontSize="15" FontAttributes="Bold" />
                                         </badge:SfBadgeView.BadgeSettings>
                                     </badge:SfBadgeView>
-                                    <Label Text="Sinh nhật khách hàng" Style="{StaticResource styleLableBlue}"  Padding="5,0,5,0" FontAttributes="Italic" HorizontalTextAlignment="Center" ></Label>
-                                </StackLayout>
-                                <StackLayout  Grid.Column="1" HorizontalOptions="CenterAndExpand">
-                                    <Image Source="finishjob.png" Aspect="AspectFit" HeightRequest="70" WidthRequest="70">
+                                <Label Grid.Row="1" Grid.Column="0" Text="Sinh nhật khách hàng" Style="{StaticResource styleLableBlue}"  Padding="5,0,5,0" FontAttributes="Italic" HorizontalTextAlignment="Center" VerticalOptions="Center"></Label>
+
+
+
+                                <Image Grid.Row="0" Grid.Column="1" Source="finishjob.png" Aspect="AspectFit" HeightRequest="70" WidthRequest="70" HorizontalOptions="CenterAndExpand" VerticalOptions="StartAndExpand" >
                                         <Image.GestureRecognizers>
                                             <TapGestureRecognizer x:Name="btnHoanThanhChamSocKhachHang" Tapped="btnHoanThanhChamSocKhachHang_Tapped" ></TapGestureRecognizer>
                                         </Image.GestureRecognizers>
                                     </Image>
-                                    <Label Text="Đã chăm sóc khách hàng" Style="{StaticResource styleLableBlue}"  Padding="5,0,5,0"  FontAttributes="Italic" HorizontalTextAlignment="Center" ></Label>
-                                </StackLayout>
+                                <Label Grid.Row="1" Grid.Column="1" Text="Đã chăm sóc khách hàng" Style="{StaticResource styleLableBlue}"  Padding="5,0,5,0"  FontAttributes="Italic" HorizontalTextAlignment="Center" VerticalOptions="Center" ></Label>
+                             
 
                             </Grid>
                         </StackLayout>
