@@ -394,4 +394,7 @@
   <ItemGroup>
     <BundleResource Include="Resources\logo.png" />
   </ItemGroup>
+  <ItemGroup>
+    <BundleResource Include="Resources\history1.png" />
+  </ItemGroup>
 </Project>
