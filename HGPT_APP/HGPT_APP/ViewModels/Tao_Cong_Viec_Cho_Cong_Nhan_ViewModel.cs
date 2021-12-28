@@ -65,9 +65,14 @@ namespace HGPT_APP.ViewModels
             get => _selectToSanXuat;
             set
             {
+                
                 _selectToSanXuat = value;
-                LoadCongDoanCongNhan.Execute(_selectToSanXuat.Code);
-                OnPropertyChanged("SelectToSanXuat");
+                if (_selectToSanXuat != null )
+                {
+                    LoadCongDoanCongNhan.Execute(_selectToSanXuat.Code);
+                    OnPropertyChanged("SelectToSanXuat");
+                }    
+                
             }
         }
         
