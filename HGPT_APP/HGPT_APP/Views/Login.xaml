@@ -5,13 +5,13 @@
              xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006" 
              xmlns:sfbutton="clr-namespace:Syncfusion.XForms.Buttons;assembly=Syncfusion.Buttons.XForms" 
              xmlns:sfinputText="clr-namespace:Syncfusion.XForms.TextInputLayout;assembly=Syncfusion.Core.XForms"
-             mc:Ignorable="d"
-             BackgroundImageSource="hinhnen.png"            
+             mc:Ignorable="d"                 
+             BackgroundColor="White"
              x:Class="HGPT_APP.Views.Login">
     <ContentPage.Resources>
         <Style TargetType="Entry" Class="entryClass">
             <Setter Property="FontAttributes" Value="Bold"></Setter>
-            <Setter Property="TextColor" Value="White"></Setter>
+            <Setter Property="TextColor" Value="{StaticResource Primary}"></Setter>
             <Setter Property="FontSize" Value="16"></Setter>
             <Setter Property="BackgroundColor" Value="White"></Setter>
         </Style>
@@ -68,7 +68,7 @@
 
             </StackLayout>
             <StackLayout Grid.Row="3"   Padding="10,5,10,5" >
-                <sfbutton:SfCheckBox x:Name="swRememer" IsChecked="True" CheckedColor="Blue" TextColor="White" Text="Ghi nhớ" FontAttributes="Bold">
+                <sfbutton:SfCheckBox x:Name="swRememer" IsChecked="True" CheckedColor="Blue" TextColor="{StaticResource Primary}" Text="Ghi nhớ" FontAttributes="Bold">
                      
                 </sfbutton:SfCheckBox>
 

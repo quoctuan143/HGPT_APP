@@ -5,8 +5,7 @@
              xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
              mc:Ignorable="d"
              xmlns:custom="clr-namespace:ImageCircle.Forms.Plugin.Abstractions;assembly=ImageCircle.Forms.Plugin" xmlns:badge="clr-namespace:Syncfusion.XForms.BadgeView;assembly=Syncfusion.SfBadgeView.XForms"
-             Title="HGPT Mechanical"
-             BackgroundImageSource="hinhnen.png"
+             Title="HGPT Mechanical"            
              Shell.NavBarIsVisible="True"
              x:Class="HGPT_APP.Views.Main">
    
@@ -58,7 +57,7 @@
                               IsVisible ="False"
                         >
                         <StackLayout Padding="5">
-                            <Label Grid.Row="0" Text="Quản lý công việc" TextDecorations="Underline" TextColor="White" FontSize="20" FontAttributes="Italic"></Label>
+                            <Label Grid.Row="0" Text="Quản lý công việc" TextDecorations="Underline" TextColor="{StaticResource Primary}" FontSize="20" FontAttributes="Italic"></Label>
                             <Grid ColumnDefinitions="3.3*,3.3*,3.4*" RowDefinitions="*,*" Margin="0,20,0,0" RowSpacing="5" 
                                       HorizontalOptions="FillAndExpand" VerticalOptions="FillAndExpand">
                                 <Image Source="duyetgiacong.png" Grid.Column="0" Grid.Row="0" Aspect="AspectFit" HeightRequest="70" WidthRequest="70" VerticalOptions="StartAndExpand" HorizontalOptions="CenterAndExpand">
@@ -91,7 +90,7 @@
                         x:Name="frmThietBi"
                               IsVisible ="False">
                             <StackLayout Padding="5">
-                                <Label Grid.Row="0" Text="Thiết bị công nghệ" TextDecorations="Underline" TextColor="White" FontSize="20" FontAttributes="Italic"></Label>
+                            <Label Grid.Row="0" Text="Thiết bị công nghệ" TextDecorations="Underline" TextColor="{StaticResource Primary}" FontSize="20" FontAttributes="Italic"></Label>
                                 <Grid ColumnDefinitions="3.3*,3.3*,3.4*" RowDefinitions="*,*" Margin="0,20,0,0"  RowSpacing="0" 
                                       HorizontalOptions="FillAndExpand" VerticalOptions="FillAndExpand">
                                 <Image Source="machine.png" Grid.Column="0" Grid.Row="0" Aspect="AspectFit" HeightRequest="70" WidthRequest="70" VerticalOptions="StartAndExpand" HorizontalOptions="CenterAndExpand">
@@ -124,7 +123,7 @@
                         x:Name="frmchamsockhachhang"
                               IsVisible ="False">
                         <StackLayout Padding="5">
-                            <Label Grid.Row="0" Text="Chăm sóc khách hàng" TextDecorations="Underline" TextColor="White" FontSize="20" FontAttributes="Italic"></Label>
+                            <Label Grid.Row="0" Text="Chăm sóc khách hàng" TextDecorations="Underline" TextColor="{StaticResource Primary}" FontSize="20" FontAttributes="Italic"></Label>
                             <Grid ColumnDefinitions="3.3*,3.3*,3.4*" RowDefinitions="*,*" Margin="0,20,0,0"  RowSpacing="0" 
                                       HorizontalOptions="FillAndExpand" VerticalOptions="FillAndExpand"> 
                                    
