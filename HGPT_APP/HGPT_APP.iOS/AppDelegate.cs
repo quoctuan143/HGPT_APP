@@ -27,6 +27,7 @@ namespace HGPT_APP.iOS
         //
         // You have 17 seconds to return from this method, or iOS will terminate your application.
         //
+        Dictionary<string, string> dict = new Dictionary<string, string>();
         public override bool FinishedLaunching(UIApplication app, NSDictionary options)
         {
             global::Xamarin.Forms.Forms.SetFlags(new string[] { "CollectionView_Experimental", "Brush_Experimental", "SwipeView_Experimental", "CarouseView_Experimental", "IndicatorView_Experimental" });
@@ -44,7 +45,7 @@ namespace HGPT_APP.iOS
             SfPickerRenderer.Init();
             Syncfusion.XForms.iOS.TabView.SfTabViewRenderer.Init();
             Syncfusion.XForms.iOS.PopupLayout.SfPopupLayoutRenderer.Init();
-            Dictionary<string, string> dict = new Dictionary<string, string> ();
+           
             FirebasePushNotificationManager.Initialize(options, true);
             FirebasePushNotificationManager.Initialize(options, new NotificationUserCategory[]
                         {
@@ -61,10 +62,21 @@ namespace HGPT_APP.iOS
             UINavigationBar.Appearance.BarTintColor = color;
             UITabBar.Appearance.BackgroundColor = color;
             UITabBar.Appearance.BarTintColor = color;
+           
+            CrossFirebasePushNotification.IOS.OnNotificationReceived += IOS_OnNotificationReceived;
             LoadApplication(new App(dict));
 
             return base.FinishedLaunching(app, options);
         }
+
+        private void IOS_OnNotificationReceived(object source, FirebasePushNotificationDataEventArgs e)
+        {
+           if (e.Data.Count > 0)
+            {
+                dict.Add("key", "nhanthongbao"); // cái này chỉ để kiểm tra có nhận thông báo ko.
+            }    
+        }
+
         public override void WillEnterForeground(UIApplication uiApplication)
         {
 
