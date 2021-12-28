@@ -23,7 +23,7 @@
            HorizontalOptions="FillAndExpand"
            VerticalOptions="End">
 
-            <StackLayout HorizontalOptions="FillAndExpand" Spacing="0">
+            <StackLayout HorizontalOptions="FillAndExpand" Spacing="5">
                 <Grid>
                     <Grid.ColumnDefinitions>
                         <ColumnDefinition Width="2*"></ColumnDefinition>
@@ -46,6 +46,7 @@
                                        HorizontalOptions="FillAndExpand"                              
                                        NoResultsFoundText="Không tìm thấy thông tin"      
                                            IsEditableMode="True"
+                                           HeightRequest="50"
                                       >
                     </sfcombobox:SfComboBox>
                     <sfinputext:SfTextInputLayout Hint="Mã nhân viên" IsHintAlwaysFloated="True" ContainerType="Outlined" ReserveSpaceForAssistiveLabels="False">
@@ -65,7 +66,8 @@
                                        HorizontalOptions="FillAndExpand"                              
                                        NoResultsFoundText="Không tìm thấy thông tin"  
                                            IsEditableMode="True"
-                                       ShowBorder="True"                                       
+                                       ShowBorder="True"             
+                                           HeightRequest="50"
                                       >
                     </sfcombobox:SfComboBox>
 

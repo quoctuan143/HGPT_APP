@@ -14,7 +14,7 @@
     </ContentPage.Resources>
 
     <ContentPage.Content>
-        <StackLayout Spacing="0">
+        <StackLayout Spacing="10">
             <sfinputtext:SfTextInputLayout Hint="Nhập tên, số serial, model để tìm" 
                                                Grid.Row="2"
                                                LeadingViewPosition="Inside"

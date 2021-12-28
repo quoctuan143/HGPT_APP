@@ -19,11 +19,11 @@
             PositionOut="Bottom">
         </animations:MoveAnimation>
     </page:PopupPage.Animation>
-    <Frame CornerRadius="15"           
+    <ScrollView >
+        <Frame CornerRadius="15"           
            HorizontalOptions="FillAndExpand"
-           VerticalOptions="End">
-        <ScrollView >
-            <StackLayout HorizontalOptions="FillAndExpand" Spacing="0">
+           VerticalOptions="End">       
+            <StackLayout HorizontalOptions="FillAndExpand" Spacing="5">
 
                 <Grid>
                     <Grid.ColumnDefinitions>
@@ -47,6 +47,7 @@
                                        HorizontalOptions="FillAndExpand"                              
                                        NoResultsFoundText="Không tìm thấy thông tin"   
                                            IsEditableMode="True"
+                                           HeightRequest="50"
                                       >
                     </sfcombobox:SfComboBox>
                     <sfinputext:SfTextInputLayout Hint="Mã nhân viên" IsHintAlwaysFloated="True" ContainerType="Outlined" ReserveSpaceForAssistiveLabels="False">
@@ -66,6 +67,7 @@
                                        NoResultsFoundText="Không tìm thấy thông tin"
                                             IsEditableMode="True"
                                        ShowBorder="True"    
+                                           HeightRequest="50"
                                           
                                       >
                     </sfcombobox:SfComboBox>
@@ -97,6 +99,7 @@
                                        HorizontalOptions="FillAndExpand"                              
                                        NoResultsFoundText="Không tìm thấy thông tin" 
                                                IsEditableMode="True"
+                                               HeightRequest="50"
                                        ShowBorder="True"   Watermark="Chọn mã T.Ca"/>
 
                     </Grid>
@@ -131,8 +134,6 @@
                     </Grid>
                 </StackLayout>
             </StackLayout>
-        </ScrollView>
-       
-
     </Frame>
+    </ScrollView>
 </page:PopupPage>

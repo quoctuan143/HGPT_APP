@@ -23,14 +23,17 @@
                                    Style="{StaticResource styleCombobox}"                                   
                                    Watermark="Nhập tổ sản xuất"
                                    IsEditableMode="True"
-                                   SelectedItem="{Binding SelectToSanXuat}"
+                                   SelectedItem="{Binding SelectToSanXuat}"                                  
+                                   HeightRequest="50"
+                                   ShowClearButton="True"                                  
                                    >     
 
             </sfcombobox:SfComboBox>
             <sfinputtext:SfTextInputLayout Hint="Tìm tên nhân viên"    
                                                LeadingViewPosition="Inside"
                                                HeightRequest="50"
-                                               ContainerType="Outlined">
+                                               ContainerType="Outlined"
+                                               >
                 <Entry  x:Name="search" HorizontalOptions="FillAndExpand"  
                         Placeholder="Tìm tên nhân viên"
                                     Style="{StaticResource styleSearch}"
@@ -41,6 +44,7 @@
                 </sfinputtext:SfTextInputLayout.LeadingView>
             </sfinputtext:SfTextInputLayout>
             <Grid x:Name="mGridLayout" AbsoluteLayout.LayoutFlags="All"
+                  Margin="0,10,0,0"
                   AbsoluteLayout.LayoutBounds="1,1,1,1" VerticalOptions="FillAndExpand" HorizontalOptions="FillAndExpand">
                 <sfDataGrid:SfDataGrid x:Name="listCongDoanCongNhan"                                           
                                        ItemsSource="{Binding ListCong_Doan_Cong_Nhans , Mode=TwoWay}" 

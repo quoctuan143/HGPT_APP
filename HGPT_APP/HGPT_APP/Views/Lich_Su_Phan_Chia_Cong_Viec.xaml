@@ -10,6 +10,7 @@
              mc:Ignorable="d"
              Title="{Binding Title}"
              Shell.TabBarIsVisible="False"
+             xmlns:helper="clr-namespace:HGPT_APP.helper"
              x:Class="HGPT_APP.Views.Lich_Su_Phan_Chia_Cong_Viec">
     <ContentPage.BindingContext>
         <local:Lich_Su_Phan_Chia_Cong_Viec_ViewModel></local:Lich_Su_Phan_Chia_Cong_Viec_ViewModel>
@@ -21,7 +22,7 @@
 
     </ContentPage.Resources>
     <ContentPage.Content>
-        <StackLayout>
+        <StackLayout Spacing="12">
             <Grid ColumnDefinitions="5*,5*">
                 <sfinputtext:SfTextInputLayout Hint="Ngày"      
                                                Grid.Column="0"
@@ -32,7 +33,11 @@
                     <DatePicker  x:Name="searchDate" HorizontalOptions="FillAndExpand"   DateSelected="search_DateSelected"                                                                                      
                                     />
                     <sfinputtext:SfTextInputLayout.LeadingView>
-                        <Image Source="search.png"></Image>
+                        <Image>
+                            <Image.Source >
+                                <FontImageSource FontFamily="UserIcons" Color="{StaticResource Primary}" Glyph="{x:Static helper:FontIconClass.Calendar}"/>
+                            </Image.Source>
+                        </Image>
                     </sfinputtext:SfTextInputLayout.LeadingView>
                 </sfinputtext:SfTextInputLayout>
 

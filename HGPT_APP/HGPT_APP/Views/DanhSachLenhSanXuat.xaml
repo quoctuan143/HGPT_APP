@@ -23,7 +23,7 @@
     </ContentPage.BindingContext>
     <ContentPage.Content>
 
-        <StackLayout Spacing="0" VerticalOptions="FillAndExpand" HorizontalOptions="FillAndExpand">
+        <StackLayout Spacing="10" VerticalOptions="FillAndExpand" HorizontalOptions="FillAndExpand">
             <sfinputtext:SfTextInputLayout Hint="Nhập số lệnh sản xuất" 
                                                LeadingViewPosition="Inside"
                                                HeightRequest="50"
