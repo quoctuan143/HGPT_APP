@@ -88,14 +88,12 @@ namespace HGPT_APP.Views
                 LoadLichSuBaoTri.Execute(null);
         }
 
-
-
         private async void listThietBi_SelectionChanged(object sender, Syncfusion.SfDataGrid.XForms.GridSelectionChangedEventArgs e)
         {
             LICH_SU_BAO_TRI item = listThietBi.SelectedItem as LICH_SU_BAO_TRI;
             if (item != null)
             {
-                if (item.IMAGE_LINK != "http://erp.hoatho.com.vn/ObjectSpace/")
+                if (!string.IsNullOrEmpty( item.IMAGE_LINK) )
                     await new ShowImage(item.IMAGE_LINK).Show();
             }
         }

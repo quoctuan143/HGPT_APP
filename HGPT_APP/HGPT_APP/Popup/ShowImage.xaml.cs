@@ -29,7 +29,7 @@ namespace HGPT_APP.Popup
 
         private async  void Button_Clicked(object sender, EventArgs e)
         {
-            await Navigation.PopAllPopupAsync();
+            await Navigation.PopPopupAsync();
         }
     }
 }

@@ -2,7 +2,8 @@
 <page:PopupPage xmlns="http://xamarin.com/schemas/2014/forms" 
              xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
              xmlns:page="clr-namespace:Rg.Plugins.Popup.Pages;assembly=Rg.Plugins.Popup" 
-             xmlns:animations="clr-namespace:Rg.Plugins.Popup.Animations;assembly=Rg.Plugins.Popup" xmlns:sfbutton="clr-namespace:Syncfusion.XForms.Buttons;assembly=Syncfusion.Buttons.XForms"
+             xmlns:animations="clr-namespace:Rg.Plugins.Popup.Animations;assembly=Rg.Plugins.Popup" 
+                xmlns:sfbutton="clr-namespace:Syncfusion.XForms.Buttons;assembly=Syncfusion.Buttons.XForms"
                 x:Class="HGPT_APP.Popup.ShowImage">
     <page:PopupPage.Animation>
         <animations:MoveAnimation 
@@ -15,8 +16,12 @@
           VerticalOptions="FillAndExpand"
            HorizontalOptions="FillAndExpand"   >
         <StackLayout VerticalOptions="FillAndExpand" HorizontalOptions="FillAndExpand">
-            <sfbutton:SfButton Text="Đóng" Style="{StaticResource styleButton}" HeightRequest="50" Clicked="Button_Clicked" VerticalOptions="EndAndExpand" HorizontalOptions="FillAndExpand"/>
-              <Image Source="{Binding IMAGE_LINK}" Aspect="AspectFill"  ></Image>
+            <Grid RowDefinitions="*,*"  HorizontalOptions="FillAndExpand" VerticalOptions="FillAndExpand" >
+                <Image Grid.Row="0" Source="{Binding IMAGE_LINK}" Aspect="AspectFit" HorizontalOptions="FillAndExpand" VerticalOptions="FillAndExpand" ></Image>
+                <sfbutton:SfButton Grid.Row="1" Text="Đóng" Style="{StaticResource stylesfButton}" HeightRequest="50" Clicked="Button_Clicked" VerticalOptions="EndAndExpand" HorizontalOptions="FillAndExpand"/>
+            </Grid>
+          
+              
             
         </StackLayout>
         
