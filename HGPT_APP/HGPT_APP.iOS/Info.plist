@@ -23,7 +23,7 @@
 	<key>MinimumOSVersion</key>
 	<string>10.3</string>
 	<key>CFBundleDisplayName</key>
-	<string>HGPT</string>
+	<string>HGPT Mechanical</string>
 	<key>CFBundleIdentifier</key>
 	<string>com.hgpt.HGPT</string>
 	<key>CFBundleVersion</key>
