@@ -25,8 +25,8 @@ namespace HGPT_APP.Global
                 image = new Image
                 {
                     Source = "logo.png",
-                    WidthRequest = 150,
-                    HeightRequest = 150
+                    WidthRequest = 250,
+                    HeightRequest = 250
 
                 };
                 AbsoluteLayout.SetLayoutFlags(image, AbsoluteLayoutFlags.PositionProportional);
