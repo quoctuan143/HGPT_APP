@@ -387,4 +387,7 @@
   <ItemGroup>
     <BundleResource Include="Resources\reopen1.png" />
   </ItemGroup>
+  <ItemGroup>
+    <BundleResource Include="Resources\logo.png" />
+  </ItemGroup>
 </Project>

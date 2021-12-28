@@ -19,13 +19,12 @@ namespace HGPT_APP.Global
         {
             CrossConnectivity.Current.ConnectivityChanged += Current_ConnectivityChangedAsync;
 
-            if (Device.RuntimePlatform == Device.iOS)
-            {
+            
                 NavigationPage.SetHasNavigationBar(this, false);
                 var sub = new AbsoluteLayout();
                 image = new Image
                 {
-                    Source = "logo.jpg",
+                    Source = "logo.png",
                     WidthRequest = 150,
                     HeightRequest = 150
 
@@ -35,16 +34,16 @@ namespace HGPT_APP.Global
                 sub.Children.Add(image);
                 this.BackgroundColor = Color.White;
                 this.Content = sub;
-            }
+           
 
 
         }
 
-        private  void Current_ConnectivityChangedAsync(object sender, Plugin.Connectivity.Abstractions.ConnectivityChangedEventArgs e)
+        private async  void Current_ConnectivityChangedAsync(object sender, Plugin.Connectivity.Abstractions.ConnectivityChangedEventArgs e)
         {
             if (!CrossConnectivity.Current.IsConnected)
             {
-                 new MessageBox("Thông báo", "Vui lòng kiểm tra lại Internet!").Show();
+               await  new MessageBox("Thông báo", "Vui lòng kiểm tra lại Internet!").Show();
             }
         }
 
@@ -56,13 +55,8 @@ namespace HGPT_APP.Global
                 await ShowMessage("Thông Báo", "Vui Lòng kiểm tra lại kết nối mạng", "OK", () =>
                 { App.Current.MainPage = new Login(); });
             }
-            if (Device.RuntimePlatform == Device.iOS)
-            {
-                await image.ScaleTo(1, 5000);//thời gian khởi tạo
-                await image.ScaleTo(0.9, 1500, Easing.Linear);
-                await image.ScaleTo(150, 500, Easing.Linear);
-
-            }
+           
+                await image.ScaleTo(1, 2000);//thời gian khởi tạo
             //kiêm tra xem user có thay đổi k
             try
             {
