@@ -66,19 +66,19 @@
                                         <TapGestureRecognizer x:Name="btnLenhSanXuat"  Tapped="TapGestureRecognizer_Tapped"></TapGestureRecognizer>
                                     </Image.GestureRecognizers>
                                 </Image>
-                                <Label Text="Danh sách LSX" Padding="7" Grid.Column="0" Grid.Row="1"  FontSize="16" VerticalOptions="Start" HorizontalTextAlignment="Center" TextColor="{StaticResource Primary}" FontAttributes="Italic"  LineBreakMode="WordWrap"></Label>
+                                <Label Text="Danh sách &#10;LSX" Padding="7" Grid.Column="0" Grid.Row="1"  FontSize="16" VerticalOptions="Start" HorizontalTextAlignment="Center" TextColor="{StaticResource Primary}" FontAttributes="Italic"  LineBreakMode="WordWrap"></Label>
                                 <Image Source="duyetdinhmuc.png" Grid.Column="1" Grid.Row="0" Aspect="AspectFit" HeightRequest="70" WidthRequest="70" VerticalOptions="StartAndExpand" HorizontalOptions="CenterAndExpand">
                                     <Image.GestureRecognizers>
                                         <TapGestureRecognizer x:Name="btnPhanChiaCongViec"  Tapped="TapGestureRecognizer_Tapped_2"></TapGestureRecognizer>
                                     </Image.GestureRecognizers>
                                 </Image>
-                                <Label Text="Phân chia công việc" Padding="7" Grid.Column="1" Grid.Row="1"  FontSize="16" VerticalOptions="Start" HorizontalTextAlignment="Center" TextColor="{StaticResource Primary}" FontAttributes="Italic"  LineBreakMode="WordWrap"></Label>
+                                <Label Text="Phân chia &#10;công việc" Padding="7" Grid.Column="1" Grid.Row="1"  FontSize="16" VerticalOptions="Start" HorizontalTextAlignment="Center" TextColor="{StaticResource Primary}" FontAttributes="Italic"  LineBreakMode="WordWrap"></Label>
                                 <Image Source="history.png" Grid.Column="2" Grid.Row="0" Aspect="AspectFit" HeightRequest="70" WidthRequest="70" VerticalOptions="StartAndExpand" HorizontalOptions="CenterAndExpand">
                                     <Image.GestureRecognizers>
                                         <TapGestureRecognizer x:Name="btnLichSuCongViec"  Tapped="TapGestureRecognizer_Tapped_1"></TapGestureRecognizer>
                                     </Image.GestureRecognizers>
                                 </Image>
-                                <Label Text="Lịch sử công việc"  Padding="7" Grid.Column="2" Grid.Row="1"  FontSize="16" VerticalOptions="Start" HorizontalTextAlignment="Center" TextColor="{StaticResource Primary}" FontAttributes="Italic"  LineBreakMode="WordWrap"></Label>
+                                <Label Text="Lịch sử &#10;công việc"  Padding="7" Grid.Column="2" Grid.Row="1"  FontSize="16" VerticalOptions="Start" HorizontalTextAlignment="Center" TextColor="{StaticResource Primary}" FontAttributes="Italic"  LineBreakMode="WordWrap"></Label>
                             </Grid>
                         </StackLayout>
                     </Frame>
@@ -99,19 +99,19 @@
                                         <TapGestureRecognizer x:Name="btndanhsachthietbi" Tapped="btndanhsachthietbi_Tapped" ></TapGestureRecognizer>
                                     </Image.GestureRecognizers>
                                 </Image>
-                                <Label Text="Danh mục thiết bị" Grid.Column="0" Grid.Row="1"   Padding="7"  FontSize="16" VerticalOptions="Start" HorizontalTextAlignment="Center" TextColor="{StaticResource Primary}" FontAttributes="Italic"  LineBreakMode="WordWrap" ></Label>
+                                <Label Text="Danh mục &#10;thiết bị" Grid.Column="0" Grid.Row="1"   Padding="7"  FontSize="16" VerticalOptions="Start" HorizontalTextAlignment="Center" TextColor="{StaticResource Primary}" FontAttributes="Italic"  LineBreakMode="WordWrap" ></Label>
                                 <Image Source="lichxich.png" Grid.Column="1" Grid.Row="0"  Aspect="AspectFit" HeightRequest="70" WidthRequest="70" VerticalOptions="StartAndExpand" HorizontalOptions="CenterAndExpand">
                                     <Image.GestureRecognizers>
                                         <TapGestureRecognizer x:Name="btnLichXich" Tapped="btnLichXich_Tapped" ></TapGestureRecognizer>
                                     </Image.GestureRecognizers>
                                 </Image>
-                                <Label Text="Lịch xích bảo trì" Grid.Column="1" Grid.Row="1"   Padding="7"   FontSize="16" VerticalOptions="Start" HorizontalTextAlignment="Center" TextColor="{StaticResource Primary}" FontAttributes="Italic"  LineBreakMode="WordWrap" ></Label>
+                                <Label Text="Lịch xích &#10;bảo trì" Grid.Column="1" Grid.Row="1"   Padding="7"   FontSize="16" VerticalOptions="Start" HorizontalTextAlignment="Center" TextColor="{StaticResource Primary}" FontAttributes="Italic"  LineBreakMode="WordWrap" ></Label>
                                 <Image Source="history1.png" Grid.Column="2" Grid.Row="0" Aspect="AspectFit" HeightRequest="70" WidthRequest="70" VerticalOptions="StartAndExpand" HorizontalOptions="CenterAndExpand">
                                     <Image.GestureRecognizers>
                                         <TapGestureRecognizer x:Name="btnLichSuThietBi" Tapped="btnLichSuThietBi_Tapped"></TapGestureRecognizer>
                                     </Image.GestureRecognizers>
                                 </Image>
-                                <Label Text="Lịch sử bảo trì" Grid.Column="2" Grid.Row="1"  Padding="7"  FontSize="16" VerticalOptions="Start" HorizontalTextAlignment="Center" TextColor="{StaticResource Primary}" FontAttributes="Italic"  LineBreakMode="WordWrap" ></Label>
+                                <Label Text="Lịch sử &#10;bảo trì" Grid.Column="2" Grid.Row="1"  Padding="7"  FontSize="16" VerticalOptions="Start" HorizontalTextAlignment="Center" TextColor="{StaticResource Primary}" FontAttributes="Italic"  LineBreakMode="WordWrap" ></Label>
                             </Grid>
                             </StackLayout>
                         </Frame>

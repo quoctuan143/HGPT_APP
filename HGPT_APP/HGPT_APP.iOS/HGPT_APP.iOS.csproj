@@ -397,10 +397,4 @@
   <ItemGroup>
     <BundleResource Include="Resources\history1.png" />
   </ItemGroup>
-  <ItemGroup>
-    <BundleResource Include="Resources\hinhnen%402x.png" />
-  </ItemGroup>
-  <ItemGroup>
-    <BundleResource Include="Resources\hinhnen%403x.png" />
-  </ItemGroup>
 </Project>
