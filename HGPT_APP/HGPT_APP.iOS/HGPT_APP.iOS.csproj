@@ -344,9 +344,6 @@
     <BundleResource Include="Resources\logohgpt.png" />
   </ItemGroup>
   <ItemGroup>
-    <BundleResource Include="Resources\logo trong 2020.png" />
-  </ItemGroup>
-  <ItemGroup>
     <BundleResource Include="Resources\duyetdinhmuc.png" />
   </ItemGroup>
   <ItemGroup>
@@ -396,5 +393,8 @@
   </ItemGroup>
   <ItemGroup>
     <BundleResource Include="Resources\history1.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <BundleResource Include="Resources\logo_hgpt.png" />
   </ItemGroup>
 </Project>
