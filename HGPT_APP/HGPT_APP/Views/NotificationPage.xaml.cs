@@ -41,17 +41,26 @@ namespace HGPT_APP.Views
            using (HttpClient client = new HttpClient())
             {
                 IsRunning = true;
-                var _json = Config.client.GetStringAsync(Config.URL + "api/qltb/getNotification?token=" + Preferences.Get(Config.Token, "1")).Result;
-               
-                _json = _json.Replace("\\r\\n", "").Replace("\\", "");
-                if (_json.Contains("Không Tìm Thấy Dữ Liệu") == false && _json.Contains("[]") == false)
+                try
                 {
-                    Int32 from = _json.IndexOf("[");
-                    Int32 to = _json.IndexOf("]");
-                    string result = _json.Substring(from, to - from + 1);
-                    ListThongBao  = JsonConvert.DeserializeObject<ObservableCollection<NotifycationModel>>(result);
-                    listThongBao.ItemsSource = ListThongBao;
+                    var _json = Config.client.GetStringAsync(Config.URL + "api/qltb/getNotification?token=" + Preferences.Get(Config.Token, "1")).Result;
+
+                    _json = _json.Replace("\\r\\n", "").Replace("\\", "");
+                    if (_json.Contains("Không Tìm Thấy Dữ Liệu") == false && _json.Contains("[]") == false)
+                    {
+                        Int32 from = _json.IndexOf("[");
+                        Int32 to = _json.IndexOf("]");
+                        string result = _json.Substring(from, to - from + 1);
+                        ListThongBao = JsonConvert.DeserializeObject<ObservableCollection<NotifycationModel>>(result);
+                        listThongBao.ItemsSource = ListThongBao;
+                    }
                 }
+                catch
+                {
+
+                   
+                }
+               
                 IsRunning = false;
             }    
         }

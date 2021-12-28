@@ -203,19 +203,27 @@ namespace HGPT_APP.Views
         protected override void OnAppearing()
         {
             base.OnAppearing();
-            using (HttpClient client = new HttpClient())           {
-
-                var _json = Config.client.GetStringAsync(Config.URL + "api/qltb/getNotification?token=" + Preferences.Get(Config.Token,"1")).Result;
-
-                _json = _json.Replace("\\r\\n", "").Replace("\\", "");
-                if (_json.Contains("Không Tìm Thấy Dữ Liệu") == false && _json.Contains("[]") == false)
+            using (HttpClient client = new HttpClient())           
+            {
+                try
                 {
-                    Int32 from = _json.IndexOf("[");
-                    Int32 to = _json.IndexOf("]");
-                    string result = _json.Substring(from, to - from + 1);
-                    ObservableCollection<NotifycationModel> ListThongBao = JsonConvert.DeserializeObject<ObservableCollection<NotifycationModel>>(result);
-                    txtThongBao.BadgeText = ListThongBao.Where(p => p.Viewed == 0).ToList().Count().ToString();
+                    var _json = Config.client.GetStringAsync(Config.URL + "api/qltb/getNotification?token=" + Preferences.Get(Config.Token, "1")).Result;
+
+                    _json = _json.Replace("\\r\\n", "").Replace("\\", "");
+                    if (_json.Contains("Không Tìm Thấy Dữ Liệu") == false && _json.Contains("[]") == false)
+                    {
+                        Int32 from = _json.IndexOf("[");
+                        Int32 to = _json.IndexOf("]");
+                        string result = _json.Substring(from, to - from + 1);
+                        ObservableCollection<NotifycationModel> ListThongBao = JsonConvert.DeserializeObject<ObservableCollection<NotifycationModel>>(result);
+                        txtThongBao.BadgeText = ListThongBao.Where(p => p.Viewed == 0).ToList().Count().ToString();
+                    }
                 }
+                catch 
+                {
+                   
+                }
+                
 
             }
             using (HttpClient client = new HttpClient())
