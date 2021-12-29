@@ -23,11 +23,11 @@
 	<key>MinimumOSVersion</key>
 	<string>10.3</string>
 	<key>CFBundleDisplayName</key>
-	<string>HGPT Mechanical</string>
+	<string>HGPT Pro</string>
 	<key>CFBundleIdentifier</key>
 	<string>com.hgpt.HGPT</string>
 	<key>CFBundleVersion</key>
-	<string>1.0.3</string>
+	<string>1.0.2</string>
 	<key>UILaunchStoryboardName</key>
 	<string>LaunchScreen</string>
 	<key>CFBundleName</key>
