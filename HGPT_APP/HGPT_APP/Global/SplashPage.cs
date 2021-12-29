@@ -24,7 +24,7 @@ namespace HGPT_APP.Global
                 var sub = new AbsoluteLayout();
                 image = new Image
                 {
-                    Source = "logo.png",
+                    Source = "logo_hgpt.png",
                     WidthRequest = 250,
                     HeightRequest = 250
 

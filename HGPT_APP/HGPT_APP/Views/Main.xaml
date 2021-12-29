@@ -6,7 +6,7 @@
              mc:Ignorable="d"
              xmlns:custom="clr-namespace:ImageCircle.Forms.Plugin.Abstractions;assembly=ImageCircle.Forms.Plugin" xmlns:badge="clr-namespace:Syncfusion.XForms.BadgeView;assembly=Syncfusion.SfBadgeView.XForms"
              Title="HGPT Mechanical"            
-             Shell.NavBarIsVisible="True"
+             Shell.NavBarIsVisible="True"         
              x:Class="HGPT_APP.Views.Main">
    
     <Shell.TitleView >
@@ -49,12 +49,13 @@
                 <ScrollView Grid.Row="1" >
                     <StackLayout Margin="0,0,0,0">
                     <Frame    Padding="2"  
-                        BorderColor="#06264c"
+                        BorderColor="{StaticResource Primary}"
                         CornerRadius="10"    
                         BackgroundColor="Transparent"                        
                         HeightRequest="200"
                         x:Name="frmCongViec"
                               IsVisible ="False"
+                              HasShadow="False"
                         >
                         <StackLayout Padding="5">
                             <Label Grid.Row="0" Text="Quản lý công việc" TextDecorations="Underline" TextColor="{StaticResource Primary}" FontSize="20" FontAttributes="Italic"></Label>
@@ -83,11 +84,12 @@
                     </Frame>
 
                     <Frame    Padding="2"  
-                        BorderColor="#06264c"
+                        BorderColor="{StaticResource Primary}"
                         CornerRadius="10"    
                         BackgroundColor="Transparent"                        
                         HeightRequest="200"
                         x:Name="frmThietBi"
+                              HasShadow="False"
                               IsVisible ="False">
                             <StackLayout Padding="5">
                             <Label Grid.Row="0" Text="Thiết bị công nghệ" TextDecorations="Underline" TextColor="{StaticResource Primary}" FontSize="20" FontAttributes="Italic"></Label>
@@ -116,10 +118,11 @@
                         </Frame>
 
                     <Frame    Padding="2"  
-                        BorderColor="#06264c"
+                        BorderColor="{StaticResource Primary}"
                         CornerRadius="10"    
                         BackgroundColor="Transparent"                        
                         HeightRequest="200"
+                              HasShadow="False"
                         x:Name="frmchamsockhachhang"
                               IsVisible ="False">
                         <StackLayout Padding="5">

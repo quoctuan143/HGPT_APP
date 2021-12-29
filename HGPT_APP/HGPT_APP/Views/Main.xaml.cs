@@ -242,14 +242,33 @@ namespace HGPT_APP.Views
             }
         }
 
-        private async  void btnsinhnhatkhachhangchuachamsoc_Tapped(object sender, EventArgs e)
+        private   void btnsinhnhatkhachhangchuachamsoc_Tapped(object sender, EventArgs e)
         {
-            await Navigation.PushAsync(new SinhNhatKhachHang_ChuaXuLy());
+           
+            try
+            {
+                //await Navigation.PushAsync(new KeHoachBaoTriPage());
+                 Navigation.PushAsync(new SinhNhatKhachHang_ChuaXuLy());
+            }
+            catch (Exception ex)
+            {
+
+                 new MessageBox("Thông báo", ex.Message).Show(); ;
+            }
         }
 
         private async  void btnHoanThanhChamSocKhachHang_Tapped(object sender, EventArgs e)
         {
-            await Navigation.PushAsync(new SinhNhatKhachHang_DaChamSoc());
+           
+            try
+            {
+                await Navigation.PushAsync(new SinhNhatKhachHang_DaChamSoc());
+            }
+            catch (Exception ex)
+            {
+
+                await new MessageBox("Thông báo", ex.Message).Show(); ;
+            }
         }
     }
 }       
