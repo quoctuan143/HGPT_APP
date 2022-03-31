@@ -6,7 +6,7 @@ namespace HGPT_APP.Global
 {
     public class Config
     {
-        public static string URL = "http://hrm.hgpt.vn/";
+        public static string URL = "https://hrm.hgpt.vn/";
         public static string User = "User";
         public static string Password = "Password";
         public static string Role = "Role";

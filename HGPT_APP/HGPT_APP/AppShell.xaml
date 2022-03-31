@@ -5,6 +5,7 @@
        xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
        mc:Ignorable="d"
        xmlns:local="clr-namespace:HGPT_APP.Views"
+        xmlns:local1="clr-namespace:HGPT_APP.Views.Test"
        BackgroundColor="#06264c"    
        Title="HGPT"
        xmlns:helper="clr-namespace:HGPT_APP.helper"
@@ -45,9 +46,19 @@
                             Offset="1.0" />
             </LinearGradientBrush>
         </Shell.FlyoutBackdrop>
-        <ShellContent Title="Trang Chủ"  IsTabStop="True"  ContentTemplate="{DataTemplate local:Main }">
+        <ShellContent Title="Trang Chủ"  IsTabStop="True"  ContentTemplate="{DataTemplate local:Main }" x:Name="home">
             <ShellContent.Icon >
                 <FontImageSource FontFamily="UserIcons" Glyph="{Binding Source={x:Static helper:FontIconClass.Home}}" Size="25"  />
+            </ShellContent.Icon>
+        </ShellContent>
+        <ShellContent Title="Thông Báo"  IsTabStop="True"  ContentTemplate="{DataTemplate local1:ThongBaoPage }" IsVisible="False" x:Name="thongbao">
+            <ShellContent.Icon >
+                <FontImageSource FontFamily="UserIcons" Glyph="{Binding Source={x:Static helper:FontIconClass.Email}}" Size="25"  />
+            </ShellContent.Icon>
+        </ShellContent>
+        <ShellContent Title="Tra cứu"  IsTabStop="True"  ContentTemplate="{DataTemplate local1:SearchPage }" IsVisible="False" x:Name="tracuu">
+            <ShellContent.Icon >
+                <FontImageSource FontFamily="UserIcons" Glyph="{Binding Source={x:Static helper:FontIconClass.FeatureSearch}}" Size="25"  />
             </ShellContent.Icon>
         </ShellContent>
         <ShellContent Title="Cài đặt"  IsTabStop="True"  ContentTemplate="{DataTemplate local:AboutPage }">

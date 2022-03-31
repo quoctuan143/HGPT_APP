@@ -1,0 +1,36 @@
+﻿<?xml version="1.0" encoding="UTF-8"?>
+<pages:PopupPage xmlns="http://xamarin.com/schemas/2014/forms" 
+             xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
+             xmlns:pages="clr-namespace:Rg.Plugins.Popup.Pages;assembly=Rg.Plugins.Popup" 
+             xmlns:animations="clr-namespace:Rg.Plugins.Popup.Animations;assembly=Rg.Plugins.Popup"
+             xmlns:zxing="clr-namespace:ZXing.Net.Mobile.Forms;assembly=ZXing.Net.Mobile.Forms"   
+                  xmlns:zxcm="clr-namespace:ZXing.Common;assembly=zxing.portable"
+                 CloseWhenBackgroundIsClicked="True"   
+             x:Class="HGPT_APP.Popup.Barcode">
+    <pages:PopupPage.Animation >
+        <animations:ScaleAnimation 
+            PositionIn="Center"
+            PositionOut="Center"
+            ScaleIn="1.2"
+            ScaleOut="0.8"
+            DurationIn="300"
+            DurationOut="300"
+            EasingIn="SinOut"
+            EasingOut="SinIn"
+            HasBackgroundAnimation="True"/>
+    </pages:PopupPage.Animation>
+    
+    <Frame CornerRadius="15"
+           Margin="20,0,20,0"                 
+           HorizontalOptions="FillAndExpand"
+           VerticalOptions="Center">
+        <StackLayout HorizontalOptions="FillAndExpand" >            
+            <zxing:ZXingBarcodeImageView  x:Name="txtBarcode" WidthRequest="300" HeightRequest="300" BarcodeFormat="QR_CODE" >
+                <zxing:ZXingBarcodeImageView.BarcodeOptions>
+                    <zxcm:EncodingOptions Height="300" Width="300"/>
+                </zxing:ZXingBarcodeImageView.BarcodeOptions>
+            </zxing:ZXingBarcodeImageView>
+        </StackLayout>
+
+    </Frame>
+</pages:PopupPage> 

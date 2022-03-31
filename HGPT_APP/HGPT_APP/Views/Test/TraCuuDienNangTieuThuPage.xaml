@@ -1,0 +1,273 @@
+﻿<?xml version="1.0" encoding="utf-8" ?>
+<ContentPage xmlns="http://xamarin.com/schemas/2014/forms"
+             xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
+             xmlns:sfcombobx="clr-namespace:Syncfusion.XForms.ComboBox;assembly=Syncfusion.SfComboBox.XForms"
+             xmlns:sfdatagrid="clr-namespace:Syncfusion.SfDataGrid.XForms;assembly=Syncfusion.SfDataGrid.XForms" 
+             xmlns:sfinputtext="clr-namespace:Syncfusion.XForms.TextInputLayout;assembly=Syncfusion.Core.XForms"
+             xmlns:sfbutton="clr-namespace:Syncfusion.XForms.Buttons;assembly=Syncfusion.Buttons.XForms"
+             xmlns:helper="clr-namespace:HGPT_APP.helper" 
+             xmlns:syncTheme="clr-namespace:Syncfusion.XForms.Themes;assembly=Syncfusion.Core.XForms"
+             Title="ĐIỆN NĂNG TIÊU THỤ"
+             Shell.TabBarIsVisible="False"          
+             BackgroundColor="White"
+             x:Class="HGPT_APP.Views.Test.TraCuuDienNangTieuThuPage">
+
+    <Grid>
+        <StackLayout Margin="10">
+            <Label Text="Vui lòng chọn mã khách hàng" Style="{StaticResource styleLableBlue}" FontSize="14"/>
+            <Frame Padding="10,5,5,5"  
+                       BackgroundColor="White"
+                       CornerRadius="10" 
+                   BorderColor="{StaticResource Primary}"
+                   HeightRequest="50">
+                <StackLayout Orientation="Horizontal" HorizontalOptions="FillAndExpand" VerticalOptions="FillAndExpand" >
+                    <Label Text="NGUYỄN QUỐC TUẤN" FontSize="18" HorizontalOptions="FillAndExpand" x:Name="txtTram" Style="{StaticResource styleLableBlue }"/>
+                    <Image HorizontalOptions="EndAndExpand">
+                        <Image.Source>
+                            <FontImageSource FontFamily="UserIcons" Glyph="{Binding Source={x:Static helper:FontIconClass.TextSearch}}" Color="{StaticResource Primary}" Size="20"/>
+                        </Image.Source>
+                    </Image>
+                </StackLayout>
+                <Frame.GestureRecognizers>
+                    <TapGestureRecognizer Command="{Binding SelectKhachHangCommand}" />
+                </Frame.GestureRecognizers>
+            </Frame>
+           
+
+            <StackLayout Orientation="Horizontal" HorizontalOptions="CenterAndExpand" Margin="10,0,10,20">
+                <sfinputtext:SfTextInputLayout Hint="Từ ngày"  
+                                               IsHintAlwaysFloated="True"
+                                               LeadingViewPosition="Inside"
+                                               HeightRequest="50"            
+                                               HorizontalOptions="FillAndExpand"
+                                               ContainerType="Outlined">
+                    <DatePicker Date="{Binding FromDate  , Mode=TwoWay }"                            
+                                WidthRequest="100"                                
+                            HorizontalOptions="FillAndExpand"/>
+                    <sfinputtext:SfTextInputLayout.LeadingView>
+                        <Image>
+                            <Image.Source>
+                                <FontImageSource FontFamily="UserIcons" Glyph="{Binding Source={x:Static helper:FontIconClass.Calendar}}" Color="{StaticResource Primary}"
+                                                 Size="25"/>
+                            </Image.Source>
+                        </Image>
+                    </sfinputtext:SfTextInputLayout.LeadingView>
+
+                </sfinputtext:SfTextInputLayout>
+                <sfinputtext:SfTextInputLayout Hint="Đến ngày" 
+                                               IsHintAlwaysFloated="True"
+                                               LeadingViewPosition="Inside"
+                                               HeightRequest="50"
+                                               HorizontalOptions="FillAndExpand"                                                
+                                               ContainerType="Outlined">
+                    <DatePicker Date="{Binding ToDate , Mode=TwoWay}"  
+                                WidthRequest="100"
+                            HorizontalOptions="FillAndExpand" />
+                    <sfinputtext:SfTextInputLayout.LeadingView>
+                        <Image>
+                            <Image.Source>
+                                <FontImageSource FontFamily="UserIcons" Glyph="{Binding Source={x:Static helper:FontIconClass.Calendar}}" Color="{StaticResource Primary}"
+                                                 Size="25"/>
+                            </Image.Source>
+                        </Image>
+                    </sfinputtext:SfTextInputLayout.LeadingView>
+                </sfinputtext:SfTextInputLayout>
+
+
+            </StackLayout>
+            <StackLayout Orientation="Horizontal" HorizontalOptions="FillAndExpand">
+                <sfbutton:SfButton Text="Chỉ số điện năng" Command="{Binding SearchCommand}" CornerRadius="10"       
+                                WidthRequest="150"
+                                VerticalOptions="CenterAndExpand" 
+                                HorizontalOptions="FillAndExpand"
+                                Style="{StaticResource stylesfButton}"
+                                Padding="0,10,0,10"
+                                FontAttributes="None"
+                               FontSize="Medium"
+                                >
+                </sfbutton:SfButton>
+                <sfbutton:SfButton Text="Biểu đồ so sánh" Command="{Binding SearchCommand}" CornerRadius="10"       
+                                
+                                VerticalOptions="CenterAndExpand" 
+                                HorizontalOptions="FillAndExpand"
+                               Style="{StaticResource stylesfButton}"
+                                   BackgroundColor ="Red"
+                                Padding="0,10,0,10"
+                                FontAttributes="None"
+                               FontSize="Medium"
+                                >
+                </sfbutton:SfButton>
+            </StackLayout>
+
+            <Grid ColumnDefinitions="*,auto,*" HorizontalOptions="FillAndExpand" RowDefinitions="auto" Margin="10,0,10,0">
+                <BoxView BackgroundColor="Green" HorizontalOptions="Fill"  VerticalOptions="CenterAndExpand"
+                             HeightRequest ="1" Grid.Column="0"/>
+                <BoxView BackgroundColor="Green" HorizontalOptions="Fill"  VerticalOptions="CenterAndExpand"
+                             HeightRequest ="1" Grid.Column="2"/>
+                <Label  HorizontalOptions="FillAndExpand"
+                            Style="{StaticResource styleLableBlue}"
+                            FontAttributes="Italic"
+                            Text="chi tiết chỉ số điện năng tiêu thụ" Grid.Column="1" HorizontalTextAlignment="Center" VerticalTextAlignment="Start"/>
+            </Grid>
+            <ListView ItemsSource="{Binding ListTraCuu, Mode=TwoWay}"
+                      HasUnevenRows="True"   
+                      Footer=""
+                      SelectionMode="None"
+                      BackgroundColor="White"
+                      SeparatorVisibility="None"
+                      IsRefreshing="{Binding IsBusy, Mode=TwoWay}">
+                <ListView.ItemTemplate>
+                    <DataTemplate>
+                        <ViewCell>
+                            <ViewCell.View>
+                                <StackLayout>
+                                    <Label >
+                                        <Label.FormattedText>
+                                            <FormattedString>
+                                                <Span Text="Tháng " TextColor="Red" FontAttributes="Bold" FontSize="Medium"/>
+                                                <Span Text="{Binding THANG}" TextColor="Red" FontAttributes="Bold" FontSize="Medium"/>
+                                                <Span Text="/" TextColor="Red" FontAttributes="Bold" FontSize="Medium"/>
+                                                <Span Text="{Binding NAM}" TextColor="Red" FontAttributes="Bold" FontSize="Medium"/>
+                                            </FormattedString>
+                                        </Label.FormattedText>
+                                    </Label>
+                                    <Label Style="{StaticResource styleLableBlue}" FontSize="14">
+                                        <Label.FormattedText>
+                                            <FormattedString>
+                                                <Span Text="Tổng điện năng tiêu thụ: " />
+                                                <Span Text="{Binding DIEN_TTHU , StringFormat='{0:#,###}'}" FontAttributes="Bold" TextColor="Red" FontSize="20" />
+                                                <Span Text=" kWh" FontAttributes="Bold" TextColor="Red" FontSize="20"/>
+                                            </FormattedString>
+                                        </Label.FormattedText>
+                                    </Label>
+                                    <Label Text="Chỉ số:" Style="{StaticResource styleLableBlue}" FontSize="14"/>
+                                    <Grid ColumnDefinitions="2*,2*,2*,2*,2*" RowDefinitions="auto,auto,auto,auto" 
+                                          HorizontalOptions="FillAndExpand" RowSpacing="0">
+                                        <BoxView Grid.ColumnSpan="5" Grid.Row="0" HeightRequest="1" HorizontalOptions="FillAndExpand"
+                                                 VerticalOptions="Start"
+                                                 BackgroundColor="{StaticResource Primary}"/>
+                                        <BoxView Grid.Column="0"  WidthRequest="1" VerticalOptions="FillAndExpand"
+                                                 HorizontalOptions="Start"
+                                                 BackgroundColor="{StaticResource Primary}"/>
+                                        <BoxView Grid.Column="1"  WidthRequest="1" VerticalOptions="FillAndExpand"
+                                                 HorizontalOptions="Start"
+                                                 BackgroundColor="{StaticResource Primary}"/>
+                                        <BoxView Grid.Column="2"  WidthRequest="1" VerticalOptions="FillAndExpand"
+                                                 HorizontalOptions="Start"
+                                                 BackgroundColor="{StaticResource Primary}"/>
+                                        <BoxView Grid.Column="3"  WidthRequest="1" VerticalOptions="FillAndExpand"
+                                                 HorizontalOptions="Start"
+                                                 BackgroundColor="{StaticResource Primary}"/>
+                                        <BoxView Grid.Column="4"  WidthRequest="1" VerticalOptions="FillAndExpand"
+                                                 HorizontalOptions="Start"
+                                                 BackgroundColor="{StaticResource Primary}"/>
+                                        <BoxView Grid.ColumnSpan="5" Grid.Row="1" HeightRequest="1" HorizontalOptions="FillAndExpand"
+                                                 VerticalOptions="Start"
+                                                 BackgroundColor="{StaticResource Primary}"/>
+                                        <BoxView Grid.Column="4"  WidthRequest="1" VerticalOptions="FillAndExpand"
+                                                 HorizontalOptions="End"
+                                                 BackgroundColor="{StaticResource Primary}"/>
+                                        <Label Text="Công tơ&#10; đo đếm" Style="{StaticResource styleLableBlue}"
+                                               VerticalTextAlignment="Center" HorizontalOptions="FillAndExpand"
+                                               HorizontalTextAlignment="Center" Padding="5" FontSize="14"/>
+                                        <Label Text="Chỉ số&#10;cũ" Grid.Column="1" Style="{StaticResource styleLableBlue}"
+                                               VerticalTextAlignment="Center" HorizontalOptions="FillAndExpand"
+                                               HorizontalTextAlignment="Center" Padding="5" FontSize="14"/>
+                                        <Label Text="Chỉ số&#10;mới" Grid.Column="2" Style="{StaticResource styleLableBlue}"
+                                               VerticalTextAlignment="Center" HorizontalOptions="FillAndExpand"
+                                               HorizontalTextAlignment="Center" Padding="5" FontSize="14"/>
+                                        <Label Text="Hệ số&#10;nhân" Grid.Column="3" Style="{StaticResource styleLableBlue}"
+                                               VerticalTextAlignment="Center" HorizontalOptions="FillAndExpand"
+                                               HorizontalTextAlignment="Center" Padding="5" FontSize="14"/>
+                                        <Label Text="Điện năng&#10;tiêu thụ" Grid.Column="4" Style="{StaticResource styleLableBlue}"
+                                               VerticalTextAlignment="Center" HorizontalOptions="FillAndExpand"
+                                               HorizontalTextAlignment="Center" Padding="5" FontSize="14"/>
+
+                                        <BoxView Grid.Column="0" Grid.Row="1" WidthRequest="1" VerticalOptions="FillAndExpand"
+                                                 HorizontalOptions="Start"
+                                                 BackgroundColor="{StaticResource Primary}"/>
+                                        <BoxView Grid.ColumnSpan="5" Grid.Row="1" HeightRequest="1" HorizontalOptions="FillAndExpand"
+                                                 VerticalOptions="End"
+                                                 BackgroundColor="{StaticResource Primary}"/>
+                                        <BoxView Grid.Column="4" Grid.Row="1" WidthRequest="1" VerticalOptions="FillAndExpand"
+                                                 HorizontalOptions="End"
+                                                 BackgroundColor="{StaticResource Primary}"/>
+                                        <Label Grid.Row="1" Grid.ColumnSpan="5" TextColor="Red" VerticalTextAlignment="Center" 
+                                               Padding="5" FontSize="14">
+                                            <Label.FormattedText>
+                                                <FormattedString>
+                                                    <Span Text="Kỳ hóa đơn từ "/>
+                                                    <Span Text="{Binding NGAY_DKY , StringFormat='{0:dd-MM-yyyy}'}"/>
+                                                    <Span Text=" đến "/>
+                                                    <Span Text="{Binding NGAY_CKY , StringFormat='{0:dd-MM-yyyy}'}"/>
+                                                </FormattedString>
+                                            </Label.FormattedText>
+                                        </Label>
+
+                                        <BoxView Grid.Column="0" Grid.Row="2" WidthRequest="1" VerticalOptions="FillAndExpand"
+                                                 HorizontalOptions="Start"
+                                                 BackgroundColor="{StaticResource Primary}"/>
+                                        <BoxView Grid.ColumnSpan="5" Grid.Row="2" HeightRequest="1" HorizontalOptions="FillAndExpand"
+                                                 VerticalOptions="End"
+                                                 BackgroundColor="{StaticResource Primary}"/>
+                                        <BoxView Grid.Column="4" Grid.Row="2" WidthRequest="1" VerticalOptions="FillAndExpand"
+                                                 HorizontalOptions="End"
+                                                 BackgroundColor="{StaticResource Primary}"/>
+                                        <Label Grid.Row="2" Grid.ColumnSpan="5" Style="{StaticResource styleLableBlue}" VerticalTextAlignment="Center" Padding="5">
+                                            <Label.FormattedText>
+                                                <FormattedString>
+                                                    <Span Text="Số công tơ: "/>
+                                                    <Span Text="{Binding MA_CTO}" FontAttributes="Bold"/>
+                                                </FormattedString>
+                                            </Label.FormattedText>
+                                        </Label>
+
+
+                                        <BoxView Grid.Column="0" Grid.Row="3"  WidthRequest="1" VerticalOptions="FillAndExpand"
+                                                 HorizontalOptions="Start"
+                                                 BackgroundColor="{StaticResource Primary}"/>
+                                        <BoxView Grid.Column="1" Grid.Row="3"  WidthRequest="1" VerticalOptions="FillAndExpand"
+                                                 HorizontalOptions="Start"
+                                                 BackgroundColor="{StaticResource Primary}"/>
+                                        <BoxView Grid.Column="2" Grid.Row="3" WidthRequest="1" VerticalOptions="FillAndExpand"
+                                                 HorizontalOptions="Start"
+                                                 BackgroundColor="{StaticResource Primary}"/>
+                                        <BoxView Grid.Column="3" Grid.Row="3" WidthRequest="1" VerticalOptions="FillAndExpand"
+                                                 HorizontalOptions="Start"
+                                                 BackgroundColor="{StaticResource Primary}"/>
+                                        <BoxView Grid.Column="4" Grid.Row="3" WidthRequest="1" VerticalOptions="FillAndExpand"
+                                                 HorizontalOptions="Start"
+                                                 BackgroundColor="{StaticResource Primary}"/>
+                                        <BoxView Grid.ColumnSpan="5" Grid.Row="3" HeightRequest="1" HorizontalOptions="FillAndExpand"
+                                                 VerticalOptions="End"
+                                                 BackgroundColor="{StaticResource Primary}"/>
+                                        <BoxView Grid.Column="4"  WidthRequest="1" VerticalOptions="FillAndExpand"
+                                                 HorizontalOptions="End"  Grid.Row="3"
+                                                 BackgroundColor="{StaticResource Primary}"/>
+                                        <Label Text="Toàn thời gian" Style="{StaticResource styleLableBlue}"
+                                               VerticalTextAlignment="Center" HorizontalOptions="FillAndExpand"
+                                               HorizontalTextAlignment="Center" Padding="5,0,0,0"
+                                               Grid.Column="0" Grid.Row="3" FontSize="14"/>
+                                        <Label Text="{Binding CHISO_CU, StringFormat='{0:#,####}'}"  Style="{StaticResource styleLableBlue}"
+                                               VerticalTextAlignment="Center" HorizontalOptions="FillAndExpand"
+                                               HorizontalTextAlignment="Center" Padding="5"
+                                                Grid.Column="1" Grid.Row="3" FontSize="14"/>
+                                        <Label Text="{Binding CHISO_MOI, StringFormat='{0:#,####}'}" Grid.Column="2" Grid.Row="3" Style="{StaticResource styleLableBlue}"
+                                               VerticalTextAlignment="Center" HorizontalOptions="FillAndExpand"
+                                               HorizontalTextAlignment="Center" Padding="5" FontSize="14"/>
+                                        <Label Text="{Binding HSNHAN, StringFormat='{0:#,####}'}" Grid.Column="3" Grid.Row="3" Style="{StaticResource styleLableBlue}"
+                                               VerticalTextAlignment="Center" HorizontalOptions="FillAndExpand"
+                                               HorizontalTextAlignment="Center" Padding="5" FontSize="14"/>
+                                        <Label Text="{Binding DIEN_TTHU, StringFormat='{0:#,####}'}" Grid.Column="4" Grid.Row="3" Style="{StaticResource styleLableBlue}"
+                                               VerticalTextAlignment="Center" HorizontalOptions="FillAndExpand"
+                                               HorizontalTextAlignment="Center" Padding="5" FontSize="14"/>
+                                    </Grid>
+                                </StackLayout>
+                            </ViewCell.View>
+                        </ViewCell>
+                    </DataTemplate>
+                </ListView.ItemTemplate>
+            </ListView>
+        </StackLayout>
+    </Grid>
+</ContentPage>

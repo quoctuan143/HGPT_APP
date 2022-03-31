@@ -1,0 +1,95 @@
+﻿<?xml version="1.0" encoding="utf-8" ?>
+<ContentPage xmlns="http://xamarin.com/schemas/2014/forms"
+             xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
+             xmlns:sfcombobx="clr-namespace:Syncfusion.XForms.ComboBox;assembly=Syncfusion.SfComboBox.XForms"
+             xmlns:sfdatagrid="clr-namespace:Syncfusion.SfDataGrid.XForms;assembly=Syncfusion.SfDataGrid.XForms" 
+             xmlns:sfinputtext="clr-namespace:Syncfusion.XForms.TextInputLayout;assembly=Syncfusion.Core.XForms"
+             xmlns:sfbutton="clr-namespace:Syncfusion.XForms.Buttons;assembly=Syncfusion.Buttons.XForms"
+             xmlns:helper="clr-namespace:HGPT_APP.helper" 
+             xmlns:syncTheme="clr-namespace:Syncfusion.XForms.Themes;assembly=Syncfusion.Core.XForms"
+             Title="ĐIỂM THU TIỀN ĐIỆN"
+             Shell.TabBarIsVisible="False"      
+             BackgroundColor="White"
+            x:Class="HGPT_APP.Views.Test.TraCuuDiemThuTienDienPage">
+    <Grid>
+        <StackLayout Margin="10">
+            <Label Text="Vui lòng chọn mã khách hàng" Style="{StaticResource styleLableBlue}" FontSize="14"/>
+            <Frame Padding="10,5,5,5"  
+                       BackgroundColor="White"
+                       CornerRadius="10"
+                   BorderColor="{StaticResource Primary}"
+                   HeightRequest="50">
+                <StackLayout Orientation="Horizontal" HorizontalOptions="FillAndExpand" VerticalOptions="FillAndExpand" >
+                    <Label Text="NGUYỄN QUỐC TUẤN" FontSize="18" HorizontalOptions="FillAndExpand" x:Name="txtTram" Style="{StaticResource styleLableBlue }"/>
+                    <Image HorizontalOptions="EndAndExpand">
+                        <Image.Source>
+                            <FontImageSource FontFamily="UserIcons" Glyph="{Binding Source={x:Static helper:FontIconClass.TextSearch}}" Color="{StaticResource Primary}" Size="20"/>
+                        </Image.Source>
+                    </Image>
+                </StackLayout>
+                <Frame.GestureRecognizers>
+                    <TapGestureRecognizer Command="{Binding SelectKhachHangCommand}" />
+                </Frame.GestureRecognizers>
+            </Frame>
+
+            <Grid ColumnDefinitions="*,auto,*" HorizontalOptions="FillAndExpand" RowDefinitions="auto" Margin="10,10,10,0">
+                <BoxView BackgroundColor="{StaticResource Primary}" HorizontalOptions="Fill"  VerticalOptions="CenterAndExpand"
+                             HeightRequest ="1" Grid.Column="0"/>
+                <BoxView BackgroundColor="{StaticResource Primary}" HorizontalOptions="Fill"  VerticalOptions="CenterAndExpand"
+                             HeightRequest ="1" Grid.Column="2"/>
+                <Label  HorizontalOptions="FillAndExpand"
+                            Style="{StaticResource styleLableBlue}"
+                            FontAttributes="None"
+                            Text="Các điểm thu tiền điện" Grid.Column="1" HorizontalTextAlignment="Center" VerticalTextAlignment="Start"/>
+            </Grid>
+            <ListView ItemsSource="{Binding ListTraCuu, Mode=TwoWay}"
+                      SeparatorVisibility="None"
+                      BackgroundColor="White"
+                      HasUnevenRows="True">
+                <ListView.ItemTemplate>
+                    <DataTemplate>
+                        <ViewCell>
+                            <Frame BorderColor="{StaticResource Primary}" Margin="0,20,0,0">
+                                <StackLayout>
+                                    <Label>
+                                        <Label.FormattedText>
+                                            <FormattedString>
+                                                <Span Text="Địa chỉ:   "/>
+                                                <Span Text="{Binding DCHI_THU}" FontSize="17"  TextColor="{StaticResource Primary}"/>
+                                            </FormattedString>
+                                        </Label.FormattedText>
+                                    </Label>
+                                    <Label>
+                                        <Label.FormattedText>
+                                            <FormattedString>
+                                                <Span Text="Điểm giao dịch:   "/>
+                                                <Span Text="{Binding DIEMTHU}" FontSize="17"  TextColor="{StaticResource Primary}" TextTransform="Uppercase"/>
+                                            </FormattedString>
+                                        </Label.FormattedText>
+                                    </Label>
+                                    <Label>
+                                        <Label.FormattedText>
+                                            <FormattedString>
+                                                <Span Text="Thời gian:   "/>
+                                                <Span Text="{Binding TGIAN_LVIEC}" FontSize="17"  TextColor="{StaticResource Primary}"/>
+                                            </FormattedString>
+                                        </Label.FormattedText>
+                                    </Label>
+                                    <Label>
+                                        <Label.FormattedText>
+                                            <FormattedString>
+                                                <Span Text="Ngày thu:   "/>
+                                                <Span Text="{Binding NGAY_THU}" FontSize="17"  TextColor="{StaticResource Primary}"/>
+                                            </FormattedString>
+                                        </Label.FormattedText>
+                                    </Label>
+                                </StackLayout>
+                            </Frame>
+                        </ViewCell>
+                    </DataTemplate>
+                </ListView.ItemTemplate>
+
+            </ListView>
+        </StackLayout>
+    </Grid>
+</ContentPage>

@@ -1,7 +1,8 @@
-﻿using HGPT_APP.Views;
+﻿using HGPT_APP.Global;
+using HGPT_APP.Views;
 using System;
 using System.Collections.Generic;
-
+using Xamarin.Essentials;
 using Xamarin.Forms;
 
 namespace HGPT_APP
@@ -11,6 +12,11 @@ namespace HGPT_APP
         public AppShell()
         {
             InitializeComponent();
+            if (Preferences.Get(Config.User, "tuannq") == "tuannq")
+            {               
+                thongbao.IsVisible = true;
+                tracuu.IsVisible = true;
+            }
         }
 
         private void MenuItem_Clicked(object sender, EventArgs e)

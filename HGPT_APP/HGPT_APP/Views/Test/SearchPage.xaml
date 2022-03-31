@@ -1,0 +1,120 @@
+﻿<?xml version="1.0" encoding="utf-8" ?>
+<ContentPage xmlns="http://xamarin.com/schemas/2014/forms"
+             xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
+             Shell.NavBarIsVisible="False"
+             BackgroundColor="White"
+             x:Class="HGPT_APP.Views.Test.SearchPage">
+    <Grid>
+        <StackLayout Spacing="0"></StackLayout>
+        <Grid RowDefinitions="auto,auto,auto" RowSpacing="0">
+
+            <AbsoluteLayout  HeightRequest="150" HorizontalOptions="FillAndExpand" 
+                              Padding="0"
+                             VerticalOptions="FillAndExpand">
+                <Image Source="tracuu.png" HeightRequest="150"  Aspect="Fill" HorizontalOptions="FillAndExpand" VerticalOptions="FillAndExpand"                       
+                      />
+                <Label Text="TRA CỨU" FontSize="25" AbsoluteLayout.LayoutFlags="PositionProportional"
+                       FontAttributes="Bold"
+                       Style="{StaticResource styleLableWhite}"
+                       AbsoluteLayout.LayoutBounds="{OnPlatform Android='0.65,0.25,200,70', iOS='0.65,0.25,200,70'}"/>
+                <Label Text="Tìm kiếm thông tin" FontSize="16" AbsoluteLayout.LayoutFlags="PositionProportional"
+                       Style="{StaticResource styleLableWhite}"
+                       AbsoluteLayout.LayoutBounds="{OnPlatform iOS='0.65,0.65,200,70', Android='0.65,0.65,200,70'}"/>
+            </AbsoluteLayout>
+            <ScrollView Orientation="Vertical"  Grid.Row="1" Padding="0" Margin="0">
+                <StackLayout Spacing="0" Margin="0">
+                    <Grid RowDefinitions="auto,auto,auto" ColumnDefinitions="5*,5*" RowSpacing="0">
+
+                        <StackLayout Padding="5" Grid.Row="0" Grid.Column="0" Orientation="Vertical" >
+                            <Image Source="tracuughiso.png" Aspect="AspectFit"   HeightRequest="60" WidthRequest="60" HorizontalOptions="Center"/>
+                            <Label Text="Tra cứu lịch sử ghi số" Style="{StaticResource styleLableBlue}"  HorizontalTextAlignment="Center"
+                               HorizontalOptions="CenterAndExpand" Padding="10,10,10,10"
+                               FontSize="16" />
+                            <StackLayout.GestureRecognizers>
+                                <TapGestureRecognizer Command="{Binding TraCuuGhiChiSoCommand}" />
+                            </StackLayout.GestureRecognizers>
+                        </StackLayout>
+                        <StackLayout Padding="5" Grid.Row="0" Grid.Column="1" Orientation="Vertical" >
+                            <Image Source="vitri.png" Aspect="AspectFit"   HeightRequest="60" WidthRequest="60" HorizontalOptions="Center"/>
+                            <Label Text="Điểm thu tiền điện" Style="{StaticResource styleLableBlue}"  HorizontalTextAlignment="Center"
+                               HorizontalOptions="CenterAndExpand"   Padding="10,10,10,10"
+                               FontSize="16" />
+                            <StackLayout.GestureRecognizers>
+                                <TapGestureRecognizer Tapped="TapGestureRecognizer_Tapped"/>
+                            </StackLayout.GestureRecognizers>
+                        </StackLayout>
+                        <BoxView Grid.ColumnSpan="2" Grid.Row="1" HeightRequest="1" HorizontalOptions="FillAndExpand"
+                             VerticalOptions="Start"
+                             BackgroundColor="{StaticResource Primary}"/>
+
+                        <StackLayout Padding="5" Grid.Row="1" Grid.Column="0" Orientation="Vertical" >
+                            <Image Source="tracuucapdien.png" Aspect="AspectFit"   HeightRequest="60" WidthRequest="60" HorizontalOptions="Center"/>
+                            <Label Text="Tra cứu lịch tạm ngừng cung cấp điện" Style="{StaticResource styleLableBlue}"  HorizontalTextAlignment="Center"
+                               HorizontalOptions="CenterAndExpand" Padding="10,10,10,10"
+                               FontSize="16" />
+                        </StackLayout>
+                        <StackLayout Padding="5" Grid.Row="1" Grid.Column="1" Orientation="Vertical" >
+                            <Image Source="tracuudiennang.png" Aspect="AspectFit"   HeightRequest="60" WidthRequest="60" HorizontalOptions="Center"/>
+                            <Label Text="Tra cứu điện năng tiêu thụ" Style="{StaticResource styleLableBlue}"  HorizontalTextAlignment="Center"
+                               HorizontalOptions="CenterAndExpand"   Padding="10,10,10,10"
+                               FontSize="16" />
+                            <StackLayout.GestureRecognizers>
+                                <TapGestureRecognizer Tapped="TapGestureRecognizer_Tapped_1" />
+                            </StackLayout.GestureRecognizers>
+                        </StackLayout>
+                        <BoxView Grid.ColumnSpan="2" Grid.Row="2" HeightRequest="1" HorizontalOptions="FillAndExpand"
+                             VerticalOptions="Start"
+                             BackgroundColor="{StaticResource Primary}"/>
+
+                        <StackLayout Padding="5" Grid.Row="2" Grid.Column="0" Orientation="Vertical" >
+                            <Image Source="thanhtoantiendien.png" Aspect="AspectFit"   HeightRequest="60" WidthRequest="60" HorizontalOptions="Center"/>
+                            <Label Text="Thông tin thanh toán tiền điện" Style="{StaticResource styleLableBlue}"  HorizontalTextAlignment="Center"
+                               HorizontalOptions="CenterAndExpand" Padding="10,10,10,10"
+                               FontSize="16" />
+                            <StackLayout.GestureRecognizers>
+                                <TapGestureRecognizer Command="{Binding TraCuuThongTinThanhToanCommand}" />
+                            </StackLayout.GestureRecognizers>
+                        </StackLayout>
+                        <StackLayout Padding="5" Grid.Row="2" Grid.Column="1" Orientation="Vertical" >
+                            <Image Source="tracuuhoadon.png" Aspect="AspectFit"   HeightRequest="60" WidthRequest="60" HorizontalOptions="Center"/>
+                            <Label Text="Tra cứu hóa đơn điện tử" Style="{StaticResource styleLableBlue}"  HorizontalTextAlignment="Center"
+                               HorizontalOptions="CenterAndExpand"   Padding="10,10,10,10"
+                               FontSize="16" />
+                            <StackLayout.GestureRecognizers>
+                                <TapGestureRecognizer Command="{Binding TraCuuHoaDonDienTuCommand}" />
+                            </StackLayout.GestureRecognizers>
+                        </StackLayout>
+
+
+                        <BoxView Grid.ColumnSpan="2" Grid.Row="3" HeightRequest="1" HorizontalOptions="FillAndExpand"
+                             VerticalOptions="Start"
+                             BackgroundColor="{StaticResource Primary}"/>
+                        <BoxView Grid.Column="1" Grid.RowSpan="3" WidthRequest="1" VerticalOptions="FillAndExpand"
+                             HorizontalOptions="Start"
+                             BackgroundColor="{StaticResource Primary}"/>
+                    </Grid>
+                    <AbsoluteLayout HeightRequest="100" HorizontalOptions="FillAndExpand" VerticalOptions="FillAndExpand" Margin="10">
+                        <Image Source="webcskh.png" Aspect="AspectFit" HeightRequest="100" HorizontalOptions="FillAndExpand"
+                               AbsoluteLayout.LayoutFlags="All" AbsoluteLayout.LayoutBounds="1,1,1,1" />
+                        <Label Text="Website" FontSize="25" FontAttributes="Bold" Style="{StaticResource styleLableWhite}"
+                               AbsoluteLayout.LayoutBounds="0.09,0.5,100,30" AbsoluteLayout.LayoutFlags="PositionProportional"/>
+                        <Label Text="Chăm sóc khách hàng" FontSize="20"  Style="{StaticResource styleLableWhite}"
+                               AbsoluteLayout.LayoutBounds="0.15,0.9,200,30" AbsoluteLayout.LayoutFlags="PositionProportional"/>
+                        <AbsoluteLayout.GestureRecognizers>
+                            <TapGestureRecognizer Command="{Binding OpenWebCommand}">
+
+                            </TapGestureRecognizer>
+                        </AbsoluteLayout.GestureRecognizers>
+                    </AbsoluteLayout>
+
+
+
+                </StackLayout>
+
+            </ScrollView>
+
+        </Grid>
+
+
+    </Grid>
+</ContentPage>

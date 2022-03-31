@@ -1,6 +1,9 @@
-﻿using HGPT_APP.ViewModels;
+﻿using HGPT_APP.Global;
+using HGPT_APP.ViewModels;
 using System;
 using System.ComponentModel;
+using System.Threading.Tasks;
+using Xamarin.Essentials;
 using Xamarin.Forms;
 using Xamarin.Forms.Xaml;
 
@@ -15,9 +18,28 @@ namespace HGPT_APP.Views
         public AboutPage()
         {
             InitializeComponent();
+            if (Preferences.Get(Config.User, "tuannq") == "tuannq")
+            {
+                thongbao.IsVisible = false;
+                boxthongbao.IsVisible = false;
+            }
             viewModel = new AboutViewModel();
             viewModel.navigation = Navigation;
             BindingContext = viewModel;
+        }
+        protected override bool OnBackButtonPressed()
+        {
+            base.OnBackButtonPressed();
+            BackButtonPressed();
+            return true;
+        }
+        public async Task BackButtonPressed()
+        {
+            var ok = await DisplayAlert("Thông báo", "Bạn có muốn thoát chương trình không?", "ok", "cancle");
+            if (ok)
+            {
+                System.Diagnostics.Process.GetCurrentProcess().CloseMainWindow();
+            }
         }
     }
 }

@@ -6,9 +6,10 @@
              mc:Ignorable="d"
              xmlns:custom="clr-namespace:ImageCircle.Forms.Plugin.Abstractions;assembly=ImageCircle.Forms.Plugin" xmlns:badge="clr-namespace:Syncfusion.XForms.BadgeView;assembly=Syncfusion.SfBadgeView.XForms"
              Title="HGPT Mechanical"            
-             Shell.NavBarIsVisible="True"         
+             Shell.NavBarIsVisible="True"       
+             xmlns:helper="clr-namespace:HGPT_APP.helper"
              x:Class="HGPT_APP.Views.Main">
-   
+
     <Shell.TitleView >
         <StackLayout Orientation="Horizontal" HorizontalOptions="FillAndExpand">
             <custom:CircleImage x:Name="AnhDaiDien" Source="trangchu.jpg" WidthRequest="40" HeightRequest="40" Margin="0,0,0,0" Aspect="AspectFill" 
@@ -41,13 +42,13 @@
                 </badge:SfBadgeView.BadgeSettings>
             </badge:SfBadgeView>
         </StackLayout>
-    </Shell.TitleView>  
+    </Shell.TitleView>
     <ContentPage.Content>
-            <Grid RowDefinitions="2.5*,7.5*" VerticalOptions="FillAndExpand" >
-                <Image Source="trangchu.jpg" Grid.Row="0" Aspect="AspectFill" HorizontalOptions="FillAndExpand" VerticalOptions="FillAndExpand"></Image>
+        <Grid RowDefinitions="2.5*,7.5*" VerticalOptions="FillAndExpand" >
+            <Image Source="trangchu.jpg" Grid.Row="0" Aspect="AspectFill" HorizontalOptions="FillAndExpand" VerticalOptions="FillAndExpand"></Image>
 
-                <ScrollView Grid.Row="1" >
-                    <StackLayout Margin="0,0,0,0">
+            <ScrollView Grid.Row="1" >
+                <StackLayout Margin="0,0,0,0">
                     <Frame    Padding="2"  
                         BorderColor="{StaticResource Primary}"
                         CornerRadius="10"    
@@ -91,9 +92,9 @@
                         x:Name="frmThietBi"
                               HasShadow="False"
                               IsVisible ="False">
-                            <StackLayout Padding="5">
+                        <StackLayout Padding="5">
                             <Label Grid.Row="0" Text="Thiết bị công nghệ" TextDecorations="Underline" TextColor="{StaticResource Primary}" FontSize="20" FontAttributes="Italic"></Label>
-                                <Grid ColumnDefinitions="3.3*,3.3*,3.4*" RowDefinitions="*,*" Margin="0,20,0,0"  RowSpacing="0" 
+                            <Grid ColumnDefinitions="3.3*,3.3*,3.4*" RowDefinitions="*,*" Margin="0,20,0,0"  RowSpacing="0" 
                                       HorizontalOptions="FillAndExpand" VerticalOptions="FillAndExpand">
                                 <Image Source="machine.png" Grid.Column="0" Grid.Row="0" Aspect="AspectFit" HeightRequest="70" WidthRequest="70" VerticalOptions="StartAndExpand" HorizontalOptions="CenterAndExpand">
                                     <Image.GestureRecognizers>
@@ -114,8 +115,8 @@
                                 </Image>
                                 <Label Text="Lịch sử &#10;bảo trì" Grid.Column="2" Grid.Row="1"  Padding="7"  FontSize="16" VerticalOptions="Start" HorizontalTextAlignment="Center" TextColor="{StaticResource Primary}" FontAttributes="Italic"  LineBreakMode="WordWrap" ></Label>
                             </Grid>
-                            </StackLayout>
-                        </Frame>
+                        </StackLayout>
+                    </Frame>
 
                     <Frame    Padding="2"  
                         BorderColor="{StaticResource Primary}"
@@ -128,32 +129,131 @@
                         <StackLayout Padding="5">
                             <Label Grid.Row="0" Text="Chăm sóc khách hàng" TextDecorations="Underline" TextColor="{StaticResource Primary}" FontSize="20" FontAttributes="Italic"></Label>
                             <Grid ColumnDefinitions="3.3*,3.3*,3.4*" RowDefinitions="*,*" Margin="0,20,0,0"  RowSpacing="0" 
-                                      HorizontalOptions="FillAndExpand" VerticalOptions="FillAndExpand"> 
-                                   
+                                      HorizontalOptions="FillAndExpand" VerticalOptions="FillAndExpand">
+
                                 <Image Source="birthday.png" Grid.Row="0" Grid.Column="0" Aspect="AspectFit" HeightRequest="70" WidthRequest="70" HorizontalOptions="CenterAndExpand" VerticalOptions="StartAndExpand">
                                     <Image.GestureRecognizers>
                                         <TapGestureRecognizer Tapped="btnsinhnhatkhachhangchuachamsoc_Tapped"></TapGestureRecognizer>
                                     </Image.GestureRecognizers>
-                                </Image>                                
+                                </Image>
                                 <Label Grid.Row="1" Grid.Column="0" Text="Sinh nhật khách hàng" Style="{StaticResource styleLableBlue}"  Padding="7,2,7,0" FontAttributes="Italic" HorizontalTextAlignment="Center" VerticalOptions="Center"></Label>
 
                                 <Image Grid.Row="0" Grid.Column="1" Source="finishjob.png" Aspect="AspectFit" HeightRequest="70" WidthRequest="70" HorizontalOptions="CenterAndExpand" VerticalOptions="StartAndExpand" >
-                                        <Image.GestureRecognizers>
-                                            <TapGestureRecognizer x:Name="btnHoanThanhChamSocKhachHang" Tapped="btnHoanThanhChamSocKhachHang_Tapped" ></TapGestureRecognizer>
-                                        </Image.GestureRecognizers>
-                                    </Image>
+                                    <Image.GestureRecognizers>
+                                        <TapGestureRecognizer x:Name="btnHoanThanhChamSocKhachHang" Tapped="btnHoanThanhChamSocKhachHang_Tapped" ></TapGestureRecognizer>
+                                    </Image.GestureRecognizers>
+                                </Image>
                                 <Label Grid.Row="1" Grid.Column="1" Text="Đã chăm sóc khách hàng" Style="{StaticResource styleLableBlue}"  Padding="7,2,7,0"  FontAttributes="Italic" HorizontalTextAlignment="Center" VerticalOptions="Center" ></Label>
-                             
+
 
                             </Grid>
                         </StackLayout>
                     </Frame>
 
+                    <Grid RowDefinitions="auto,*" x:Name="gridTest" IsVisible="False" >
+                        <Frame Padding="5" Grid.Row="0" CornerRadius="20" Margin="10,0,10,0"
+                               HasShadow="False"
+                               BackgroundColor="Green" >
+                            <StackLayout Padding="5" Spacing="6" >
+                                <Frame Padding="10,5,5,5"  
+                                       BackgroundColor="White"
+                                       CornerRadius="10"
+                                       HeightRequest="50">
+                                    <StackLayout Orientation="Horizontal" HorizontalOptions="FillAndExpand" VerticalOptions="FillAndExpand" >
+                                        <Label Text="Nguyễn Quốc Tuấn" FontSize="18" HorizontalOptions="FillAndExpand" x:Name="txtTram" Style="{StaticResource styleLableBlue }"/>
+                                        <Image HorizontalOptions="EndAndExpand">
+                                            <Image.Source>
+                                                <FontImageSource FontFamily="UserIcons" Glyph="{Binding Source={x:Static helper:FontIconClass.TextSearch}}" Color="Green" Size="20"/>
+                                            </Image.Source>
+                                        </Image>
+                                    </StackLayout>
+                                    <Frame.GestureRecognizers>
+                                        <TapGestureRecognizer Command="{Binding SelectKhachHangCommand}" />
+                                    </Frame.GestureRecognizers>
+                                </Frame>
+                                <Label Text="161 Dương Đức Hiền" Style="{StaticResource styleLableWhite}"  FontSize="17"
+                                       HorizontalOptions="StartAndExpand"/>
+                                <Label Text="Mã khách hàng : KH0000101" Style="{StaticResource styleLableWhite}"  FontSize="17"  />
+                                <Label Text="Mã số giao dịch : PP030000940650" Style="{StaticResource styleLableWhite}"  FontSize="17"  />
+
+
+                            </StackLayout>
+                            <Frame.Background>
+                                <LinearGradientBrush StartPoint="0,0"  EndPoint="1,0">
+                                    <GradientStop Color="Green"
+                                                      Offset="0.1"/>
+                                    <GradientStop Color="#26C986"
+                                                      Offset="1.0"/>
+                                </LinearGradientBrush>
+                            </Frame.Background>
+                        </Frame>
+                        <ScrollView Grid.Row="1" Orientation="Vertical" HorizontalOptions="FillAndExpand" VerticalOptions="FillAndExpand" >
+                            <Grid RowDefinitions="auto,auto,auto,*">
+                                <Ellipse   Fill="Green"
+                     WidthRequest="10" HeightRequest="10" HorizontalOptions="Center"/>
+                                <Frame Padding="5" Grid.Row="1" CornerRadius="20" Margin="10,0,10,0"  HasShadow="True" BackgroundColor="White"  >
+                                    <StackLayout Padding="5"  >
+                                        <StackLayout Orientation="Horizontal">
+                                            <Label Text="Tiền hàng" TextColor="Black" FontSize="17"
+                               HorizontalOptions="StartAndExpand" Padding="20,0,0,0" />
+                                            <Label Text="Đã nộp" TextColor="Red" FontSize="17"
+                               FontAttributes="Italic"
+                               HorizontalOptions="End" Padding="20,0,0,0" />
+                                        </StackLayout>
+                                        <StackLayout Orientation="Horizontal">
+                                            <Label Text="12/2021" Style="{StaticResource styleLableBlue}" FontSize="17"
+                               HorizontalOptions="StartAndExpand" FontAttributes="Bold" />
+                                            <Label Text="530.000" TextColor="Red" FontSize="17"
+                               FontAttributes="Bold"
+                               HorizontalOptions="End" Padding="20,0,0,0" />
+                                        </StackLayout>
+                                        <StackLayout Orientation="Horizontal">
+                                            <Label Text="Chỉ số cuối kỳ" Style="{StaticResource styleLableBlue}" FontSize="17"
+                               HorizontalOptions="StartAndExpand" />
+                                            <Label Text="Điện năng tiêu thụ"  FontSize="17"
+                               Style="{StaticResource styleLableBlue}"
+                               HorizontalOptions="End" Padding="20,0,0,0" />
+                                        </StackLayout>
+                                        <StackLayout Orientation="Horizontal">
+                                            <Label Text="200" Style="{StaticResource styleLableBlue}" FontSize="17"
+                               FontAttributes="Bold"
+                               HorizontalOptions="StartAndExpand" />
+                                            <Label Text="300" FontSize="17"  
+                               FontAttributes="Bold" Style="{StaticResource styleLableBlue}"
+                               HorizontalOptions="End" Padding="20,0,0,0" />
+                                        </StackLayout>
+                                    </StackLayout>
+                                </Frame>
+                              
+                                <AbsoluteLayout  Grid.Row="2" HeightRequest="120" HorizontalOptions="FillAndExpand" VerticalOptions="FillAndExpand" Margin="10">
+                                    <Image Source="thanhtoan.png" Opacity="0.5" Aspect="AspectFill" HeightRequest="120" HorizontalOptions="FillAndExpand"  
+                               AbsoluteLayout.LayoutFlags="All" AbsoluteLayout.LayoutBounds="1,1,1,1" />
+                                    <Label Text="Thanh toán tiền điện" FontSize="20" FontAttributes="Bold"  Style="{StaticResource styleLableWhite}"
+                               AbsoluteLayout.LayoutBounds="0.2,0.5,300,30" AbsoluteLayout.LayoutFlags="PositionProportional"/>
+
+                                    <AbsoluteLayout.GestureRecognizers>
+                                        <TapGestureRecognizer x:Name="barcode" Tapped="barcode_Tapped">
+
+                                        </TapGestureRecognizer>
+                                    </AbsoluteLayout.GestureRecognizers>
+                                    <AbsoluteLayout.Background>
+                                        <LinearGradientBrush StartPoint="0,0"  EndPoint="1,0">
+                                            <GradientStop Color="Green"
+                                                      Offset="0.1"/>
+                                            <GradientStop Color="#26C986"
+                                                      Offset="1.0"/>
+                                        </LinearGradientBrush>
+                                    </AbsoluteLayout.Background>
+                                </AbsoluteLayout>
+                            </Grid>
+                        </ScrollView>
+
+                    </Grid>
 
 
 
                 </StackLayout>
-                </ScrollView>
+            </ScrollView>
 
 
 
@@ -162,7 +262,7 @@
 
 
 
-            </Grid>
+        </Grid>
 
-        </ContentPage.Content>
+    </ContentPage.Content>
 </ContentPage>

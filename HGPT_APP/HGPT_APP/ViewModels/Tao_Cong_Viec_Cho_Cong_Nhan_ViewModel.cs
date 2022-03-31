@@ -162,7 +162,7 @@ namespace HGPT_APP.ViewModels
                         var OK = await new MessageYesNo("Thông báo", "Bạn có muốn phân chia công việc này không?").Show();
                         if (OK == DialogReturn.OK)
                         {
-                            IsBusy = true;
+                            string test = JsonConvert.SerializeObject(listOK );                            
                             using (HttpClient client = new HttpClient())
                             {
                                 client.BaseAddress = new Uri(Config.URL);

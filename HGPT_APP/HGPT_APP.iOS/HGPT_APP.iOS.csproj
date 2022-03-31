@@ -397,4 +397,37 @@
   <ItemGroup>
     <BundleResource Include="Resources\logo_hgpt.png" />
   </ItemGroup>
+  <ItemGroup>
+    <BundleResource Include="Resources\catdien.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <BundleResource Include="Resources\email.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <BundleResource Include="Resources\icon_tien.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <BundleResource Include="Resources\thanhtoantiendien.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <BundleResource Include="Resources\tracuucapdien.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <BundleResource Include="Resources\tracuudiennang.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <BundleResource Include="Resources\tracuughiso.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <BundleResource Include="Resources\tracuuhoadon.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <BundleResource Include="Resources\vitri.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <BundleResource Include="Resources\thongbao.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <BundleResource Include="Resources\tracuu.png" />
+  </ItemGroup>
 </Project>

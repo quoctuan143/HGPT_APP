@@ -1,0 +1,61 @@
+﻿<?xml version="1.0" encoding="utf-8" ?>
+<ContentPage xmlns="http://xamarin.com/schemas/2014/forms"
+             xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
+             Title="THÔNG BÁO CẮT ĐIỆN"             
+             x:Class="HGPT_APP.Views.Test.ThongBaoNgungCapDienPage"             
+             BackgroundColor="White"
+             Shell.TabBarIsVisible="False">    
+    <Grid>
+        <ListView ItemsSource="{Binding ListTraCuu , Mode=TwoWay}"                
+                  SelectionMode="Single"
+                  BackgroundColor="White"
+                  HasUnevenRows="True">
+            <ListView.ItemTemplate>
+                <DataTemplate>
+                    <ViewCell>
+                        <ViewCell.View>
+                            <StackLayout Margin="0,10,0,0">
+                                <Grid ColumnDefinitions="3*,7*">
+                                    <Image Source="logo.png" Aspect="AspectFit" HeightRequest="70" WidthRequest="70"
+                                           VerticalOptions="Center"/>
+                                    <StackLayout Grid.Column="1" HorizontalOptions="FillAndExpand" VerticalOptions="FillAndExpand" Padding="5,0,10,10">
+                                        <StackLayout Orientation="Horizontal" >
+                                            <Label Text="HGPT" Style="{StaticResource styleLableBlue}" FontAttributes="Bold" FontSize="18"
+                                                    TextColor="{StaticResource Primary}"
+                                                   VerticalTextAlignment="Center"></Label>
+                                            <Label Text="{Binding NGAY_TBAO}" VerticalTextAlignment="Center" HorizontalTextAlignment="End"
+                                                    TextColor="{StaticResource Primary}"
+                                                   HorizontalOptions="EndAndExpand"
+                                                   FontAttributes="Italic" FontSize="12"></Label>
+                                        </StackLayout>
+
+                                        <Label Text="{Binding TIEU_DE}" Style="{StaticResource styleLableBlue}"  FontSize="18"
+                                                TextColor="{StaticResource Primary}"
+                                                   VerticalTextAlignment="Center"></Label>
+                                        <Label  Style="{StaticResource styleLableBlue}"  FontSize="14"
+                                                 TextColor="{StaticResource Primary}"
+                                                   VerticalTextAlignment="Center">
+                                            <Label.FormattedText>
+                                                <FormattedString >
+                                                    <Span Text="{Binding NOI_DUNG}" />
+                                                </FormattedString>
+                                            </Label.FormattedText>
+                                        </Label>
+                                        <Label Text="{Binding DA_XEM,Mode=TwoWay}"   FontSize="14"
+                                                TextColor="{StaticResource Primary}"
+                                               FontAttributes="Italic"
+                                                HorizontalOptions="EndAndExpand"
+                                                   VerticalTextAlignment="Center"></Label>
+
+                                    </StackLayout>
+                                </Grid>
+                                <BoxView HeightRequest="1" BackgroundColor="{StaticResource Primary}" HorizontalOptions="FillAndExpand"/>
+                            </StackLayout>
+
+                        </ViewCell.View>
+                    </ViewCell>
+                </DataTemplate>
+            </ListView.ItemTemplate>
+        </ListView>
+    </Grid>
+</ContentPage>

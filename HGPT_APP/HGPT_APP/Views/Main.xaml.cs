@@ -43,6 +43,10 @@ namespace HGPT_APP.Views
                 {
                     frmchamsockhachhang.IsVisible = true;
                 }
+                if (Preferences.Get(Config.User, "tuannq") == "tuannq")
+                {
+                    gridTest.IsVisible = true;
+                }
             }
             catch (Exception ex)
             {
@@ -269,6 +273,25 @@ namespace HGPT_APP.Views
 
                 await new MessageBox("Thông báo", ex.Message).Show(); ;
             }
+        }
+        protected  override bool OnBackButtonPressed()
+        {
+            base.OnBackButtonPressed();
+            BackButtonPressed();
+            return true;
+        }
+        public async Task BackButtonPressed()
+        {
+            var ok =await  DisplayAlert("Thông báo", "Bạn có muốn thoát chương trình không?", "ok", "cancle");
+            if (ok)
+            {
+                System.Diagnostics.Process.GetCurrentProcess().CloseMainWindow();
+            }
+        }
+
+        private async void barcode_Tapped(object sender, EventArgs e)
+        {
+            await new Barcode("dfsfsdfdf").Show();
         }
     }
 }       
