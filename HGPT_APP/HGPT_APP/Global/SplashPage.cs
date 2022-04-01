@@ -1,6 +1,7 @@
 ﻿using HGPT_APP.Popup;
 using HGPT_APP.Views;
 using Plugin.Connectivity;
+using Plugin.LatestVersion;
 using System;
 using System.Collections.Generic;
 using System.Text;
@@ -46,7 +47,6 @@ namespace HGPT_APP.Global
                await  new MessageBox("Thông báo", "Vui lòng kiểm tra lại Internet!").Show();
             }
         }
-
         protected override async void OnAppearing()
         {
             base.OnAppearing();
@@ -55,40 +55,62 @@ namespace HGPT_APP.Global
                 await ShowMessage("Thông Báo", "Vui Lòng kiểm tra lại kết nối mạng", "OK", () =>
                 { App.Current.MainPage = new Login(); });
             }
-           
-                await image.ScaleTo(1, 2000);//thời gian khởi tạo
+            await image.ScaleTo(1, 2000);//thời gian khởi tạo
+                                         //await image.ScaleTo(0.9, 1500, Easing.Linear);
+                                         // await image.ScaleTo(150, 500, Easing.Linear);
+
             //kiêm tra xem user có thay đổi k
             try
             {
 
-
-                var _json = Config.client.GetStringAsync(Config.URL + "api/hgpt/get_Login?username=" + Preferences.Get(Config.User, "1") + "&password=" + Preferences.Get(Config.Password, "1")).Result;
-                _json = _json.Replace("\\r\\n", "").Replace("\\", "");
-                if (_json.Contains("Không Tìm Thấy Dữ Liệu") == false && _json.Contains("[]") == false)
+                var isLatest = await CrossLatestVersion.Current.IsUsingLatestVersion();
+                if (!isLatest)
                 {
-                     App.Current.MainPage = new AppShell();
-                    
+                    var update = await DisplayAlert("New Version", "Có phiên bản mới trên app store. Bạn có muốn cập nhật không", "Yes", "No");
+
+                    if (update)
+                    {
+                        await CrossLatestVersion.Current.OpenAppInStore();
+                    }
+                    else
+                    {
+                        var _json = Config.client.GetStringAsync(Config.URL + "api/hgpt/get_Login?username=" + Preferences.Get(Config.User, "1") + "&password=" + Preferences.Get(Config.Password, "1")).Result;
+                        _json = _json.Replace("\\r\\n", "").Replace("\\", "");
+                        if (_json.Contains("Không Tìm Thấy Dữ Liệu") == false && _json.Contains("[]") == false)
+                        {
+                            App.Current.MainPage = new AppShell();
+
+                        }
+                        else
+                        {
+                            App.Current.MainPage = new Login();
+                        }
+                    }
                 }
                 else
                 {
-                    App.Current.MainPage = new Login();
+                    var _json = Config.client.GetStringAsync(Config.URL + "api/hgpt/get_Login?username=" + Preferences.Get(Config.User, "1") + "&password=" + Preferences.Get(Config.Password, "1")).Result;
+                    _json = _json.Replace("\\r\\n", "").Replace("\\", "");
+                    if (_json.Contains("Không Tìm Thấy Dữ Liệu") == false && _json.Contains("[]") == false)
+                    {
+                        App.Current.MainPage = new AppShell();
+
+                    }
+                    else
+                    {
+                        App.Current.MainPage = new Login();
+                    }
                 }
-
-
-
             }
             catch (Exception ex)
             {
 
-                await ShowMessage("Thông Báo", ex.Message, "OK", () =>
+                await ShowMessage("Thông Báo", ex.Message, "OK",  () =>
                 { App.Current.MainPage = new Login(); });
             }
 
-
         }
-
-
-
+      
         public async Task ShowMessage(string title, string message, string buttonText, Action afterHideCallback)
         {
             await DisplayAlert(

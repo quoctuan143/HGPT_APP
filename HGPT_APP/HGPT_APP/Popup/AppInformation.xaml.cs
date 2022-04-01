@@ -35,7 +35,7 @@ namespace HGPT_APP.Popup
             string url = string.Empty;
             var location = RegionInfo.CurrentRegion.Name.ToLower();
             if (Device.RuntimePlatform == Device.Android)
-                url = "https://play.google.com/store/apps/details?id=com.companyname.app_hoatho";
+                url = "https://play.google.com/store/apps/details?id=com.companyname.hgpt_app";
             else if (Device.RuntimePlatform == Device.iOS)
                 url = "https://itunes.apple.com/" + location + "/app/HoaThoCorp/id1602180514?mt=8";
             await Browser.OpenAsync(url, BrowserLaunchMode.External);

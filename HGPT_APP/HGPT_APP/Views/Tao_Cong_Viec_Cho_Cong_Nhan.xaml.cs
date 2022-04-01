@@ -77,7 +77,7 @@ namespace HGPT_APP.Views
             if (item != null)
             {
 
-                if (item.TEN_NHAN_VIEN.ToLower().Contains(filterText))
+                if (item.TEN_NHAN_VIEN.ToLower().Contains(filterText.ToLower ()))
                     return true;
             }
             return false;
