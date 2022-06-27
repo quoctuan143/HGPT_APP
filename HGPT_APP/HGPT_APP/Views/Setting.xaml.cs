@@ -29,6 +29,50 @@ namespace HGPT_APP.Views
             chknhanthongbaocongty.Toggled += Chknhanthongbaocongty_Toggled;
             chkNhanBaoTri.Toggled += ChkNhanBaoTri_Toggled;
             chknhanthongbaolenhsanxuat.Toggled += Chknhanthongbaolenhsanxuat_Toggled;
+            chknhanthongbaogiamsat.Toggled += Chknhanthongbaogiamsat_Toggled;
+        }
+
+        private async void Chknhanthongbaogiamsat_Toggled(object sender, ToggledEventArgs e)
+        {
+            if (chknhanthongbaogiamsat.IsToggled == true)
+            {
+                Preferences.Set(Config.ThongBaoGiamSat, true);
+                using (HttpClient client = new HttpClient())
+                {
+                    Token token = new Token { TokenKey = CrossFirebasePushNotification.Current.Token, Topic = "ThongBaoGiamSat", UserName = Preferences.Get(Config.User, ""), Device = Device.RuntimePlatform };
+                    client.BaseAddress = new Uri(Config.URL);
+
+                    var ok = client.PostAsJsonAsync("api/qltb/InsertToken", token);
+                    if (ok.Result.Content.ReadAsStringAsync().Result.ToLower().Contains("ok"))
+                    {
+                        DependencyService.Get<IMessage>().ShortAlert("Đã đăng ký thành công");
+                    }
+                    else
+                    {
+                        await new MessageBox("Thông báo", ok.Result.Content.ReadAsStringAsync().Result).Show();
+                    }
+                    client.Dispose();
+                }
+            }
+            else
+            {
+                Preferences.Set(Config.ThongBaoGiamSat, false);
+                using (HttpClient client = new HttpClient())
+                {
+                    Token token = new Token { TokenKey = CrossFirebasePushNotification.Current.Token, Topic = "ThongBaoGiamSat", UserName = Preferences.Get(Config.User, ""), Device = Device.RuntimePlatform };
+                    client.BaseAddress = new Uri(Config.URL);
+                    var ok = client.PostAsJsonAsync("api/qltb/DeleteToken", token);
+                    if (ok.Result.Content.ReadAsStringAsync().Result.ToLower().Contains("ok"))
+                    {
+                        DependencyService.Get<IMessage>().ShortAlert("Hủy đăng ký thành công");
+                    }
+                    else
+                    {
+                        await new MessageBox("Thông báo", ok.Result.Content.ReadAsStringAsync().Result).Show();
+                    }
+                    client.Dispose();
+                }
+            }
         }
 
         private async void Chknhanthongbaolenhsanxuat_Toggled(object sender, ToggledEventArgs e)

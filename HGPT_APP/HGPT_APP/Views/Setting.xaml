@@ -6,7 +6,7 @@
              x:Class="HGPT_APP.Views.Setting">
     <ContentPage.Content>
         <StackLayout Margin="5">
-            <Grid RowDefinitions="*,*,*,*" ColumnDefinitions="7*,3*">
+            <Grid RowDefinitions="*,*,*,*,*" ColumnDefinitions="7*,3*">
                 <Label Text="Nhận thông báo bảo trì" Grid.Column="0" Grid.Row="0"
                        Style="{StaticResource styleLableBlue}"/>
                 <Switch x:Name="chkNhanBaoTri" IsToggled="False" OnColor="Red" Grid.Column="1" Grid.Row="0" />
@@ -22,6 +22,9 @@
                 <Label Text="Nhận thông báo công ty" Grid.Column="0" Grid.Row="3"
                        Style="{StaticResource styleLableBlue}"/>
                 <Switch x:Name="chknhanthongbaocongty" IsToggled="False" OnColor="Red" Grid.Column="1" Grid.Row="3" />
+                <Label Text="Nhận thông báo của giám sát" Grid.Column="0" Grid.Row="4"
+                       Style="{StaticResource styleLableBlue}"/>
+                <Switch x:Name="chknhanthongbaogiamsat" IsToggled="False" OnColor="Red" Grid.Column="1" Grid.Row="4" />
             </Grid>
         </StackLayout>
     </ContentPage.Content>

@@ -111,11 +111,7 @@
                                     <Label Text="{Binding Ending_Date , StringFormat='{0:dd/MM/yyyy}'}" TextColor="{Binding NgayConLai, Converter={StaticResource colorConverter},ConverterParameter='lable'}" Padding="5,0,0,0" WidthRequest="140"   XAlign="Start" YAlign="Center" />
                                 </DataTemplate>
                             </sfDataGrid:GridTemplateColumn.CellTemplate>
-                            <!--<sfDataGrid:GridTemplateColumn.CellStyle>
-                                <Style TargetType="sfDataGrid:GridCell">
-                                    <Setter Property="BackgroundColor"    Value="{Binding NgayConLai, Converter={StaticResource colorConverter} ,ConverterParameter='gridcell'}" />
-                                </Style>
-                            </sfDataGrid:GridTemplateColumn.CellStyle>-->
+                          
                         </sfDataGrid:GridTemplateColumn>
                         <sfDataGrid:GridTemplateColumn MappingName="NgayConLai" 
                                                    Width="140"
@@ -129,11 +125,7 @@
                                     </Label>
                                 </DataTemplate>
                             </sfDataGrid:GridTemplateColumn.CellTemplate>
-                            <!--<sfDataGrid:GridTemplateColumn.CellStyle>
-                                <Style TargetType="sfDataGrid:GridCell">
-                                    <Setter Property="BackgroundColor"    Value="{Binding NgayConLai, Converter={StaticResource colorConverter} ,ConverterParameter='gridcell'}" />
-                                </Style>
-                            </sfDataGrid:GridTemplateColumn.CellStyle>-->
+                           
                         </sfDataGrid:GridTemplateColumn>
 
 
@@ -145,58 +137,7 @@
             </Grid>
             <sfbutton:SfButton x:Name="btnStartAll" Command="{Binding KhoiTaoCongViecCommand}" Text="Phân Việc" Style="{StaticResource stylesfButton}" HorizontalOptions="FillAndExpand" VerticalOptions="End"></sfbutton:SfButton>
         </StackLayout>
-        <!--<tabView:SfTabView BackgroundColor="White"                         
-                           DisplayMode="ImageWithText"
-                           VisibleHeaderCount="2"
-                           EnableSwiping="False"
-                           TabHeaderPosition="Bottom"     
-                           TabItemTapped="SfTabView_TabItemTapped_1"
-                          >
-            --><!--<tabView:SfTabItem Title="Thông Tin" ImageSource="information.png" >
-                <tabView:SfTabItem.Content>
-                    
-                </tabView:SfTabItem.Content>
-            </tabView:SfTabItem>-->
-
-            <!--<tabView:SfTabItem Title="Công Đoạn" ImageSource="list.png" >
-                <tabView:SfTabItem.Content>
-                    <StackLayout Spacing="0">
-                        <sfDataGrid:SfDataGrid x:Name="listCongDoan"                                           
-                                            ItemsSource="{Binding ListCongDoanLSX}"  
-                                            AutoGenerateColumns="False"      
-                                            ColumnSizer="LastColumnFill"
-                                            GridStyle="{StaticResource dark}"   
-                                            Style="{StaticResource styleDataGrid}" 
-                                            
-                                            >
-                            <sfDataGrid:SfDataGrid.Columns>
-
-                                <sfDataGrid:GridTemplateColumn  MappingName="MA_CONG_DOAN" HeaderText="Công Đoạn" Width="200"  HeaderFontAttribute="Bold"  HeaderCellTextSize="16">
-                                    <sfDataGrid:GridTemplateColumn.CellTemplate>
-                                        <DataTemplate>
-                                            <Label Text="{Binding MA_CONG_DOAN}" TextColor="Black" Padding="5,0,0,0" WidthRequest="200"   XAlign="Start" YAlign="Center" />
-                                        </DataTemplate>
-                                    </sfDataGrid:GridTemplateColumn.CellTemplate>
-                                </sfDataGrid:GridTemplateColumn>
-
-                                <sfDataGrid:GridTemplateColumn MappingName="SO_NGAY_CONG"                                                    
-                                                   HeaderText="Ngày Công" 
-                                                   HeaderFontAttribute="Bold" 
-                                                   HeaderCellTextSize="16">
-                                    <sfDataGrid:GridTemplateColumn.CellTemplate>
-                                        <DataTemplate>
-                                            <Label Text="{Binding SO_NGAY_CONG}" TextColor="Black" Padding="5,0,0,0"    XAlign="Start" YAlign="Center" />
-                                        </DataTemplate>
-                                    </sfDataGrid:GridTemplateColumn.CellTemplate>
-                                </sfDataGrid:GridTemplateColumn>
-
-                            </sfDataGrid:SfDataGrid.Columns>
-
-                        </sfDataGrid:SfDataGrid>
-                    </StackLayout>
-                </tabView:SfTabItem.Content>
-            </tabView:SfTabItem>--><!--
-        </tabView:SfTabView>-->
+        
         
     </ContentPage.Content>
 </ContentPage>

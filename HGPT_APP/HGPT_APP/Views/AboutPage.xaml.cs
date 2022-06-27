@@ -1,4 +1,5 @@
 ﻿using HGPT_APP.Global;
+using HGPT_APP.Popup;
 using HGPT_APP.ViewModels;
 using System;
 using System.ComponentModel;
@@ -35,11 +36,9 @@ namespace HGPT_APP.Views
         }
         public async Task BackButtonPressed()
         {
-            var ok = await DisplayAlert("Thông báo", "Bạn có muốn thoát chương trình không?", "ok", "cancle");
-            if (ok)
-            {
+            var ok = await new MessageYesNo("Thông báo", "Bạn có muốn thoát chương trình không?").Show();
+            if (ok == DialogReturn.OK)
                 System.Diagnostics.Process.GetCurrentProcess().CloseMainWindow();
-            }
         }
     }
 }

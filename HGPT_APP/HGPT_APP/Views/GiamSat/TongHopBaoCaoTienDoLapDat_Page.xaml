@@ -1,0 +1,99 @@
+﻿<?xml version="1.0" encoding="utf-8" ?>
+<ContentPage xmlns="http://xamarin.com/schemas/2014/forms"
+             xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml" 
+             xmlns:sfinputtext="clr-namespace:Syncfusion.XForms.TextInputLayout;assembly=Syncfusion.Core.XForms" 
+             xmlns:sfcombobox="clr-namespace:Syncfusion.XForms.ComboBox;assembly=Syncfusion.SfComboBox.XForms"            
+             x:Class="HGPT_APP.Views.GiamSat.TongHopBaoCaoTienDoLapDat_Page"
+             xmlns:helper="clr-namespace:HGPT_APP.helper" 
+             xmlns:sfbutton="clr-namespace:Syncfusion.XForms.Buttons;assembly=Syncfusion.Buttons.XForms"              
+             xmlns:sfDataGrid="clr-namespace:Syncfusion.SfDataGrid.XForms;assembly=Syncfusion.SfDataGrid.XForms" 
+             xmlns:local1="clr-namespace:HGPT_APP.Converter"             
+             xmlns:converter="clr-namespace:HGPT_APP.Converter"
+             Shell.TabBarIsVisible="False"           
+             Title="{Binding Title}">
+    <ContentPage.Resources>
+        <ResourceDictionary>
+            <local1:Dark x:Key="dark" />
+            <converter:LSX_CapCha x:Key="LSX_CapCha"/>
+        </ResourceDictionary>
+
+    </ContentPage.Resources>
+    <ContentPage.Content>
+        <StackLayout Spacing="0">
+            <sfcombobox:SfComboBox x:Name="cbToSanXuat" DataSource="{Binding CongTrinhList , Mode=TwoWay }" 
+                                   DisplayMemberPath="Description" SelectedValuePath="Code"
+                                           SelectedItem="{Binding SelectCongTrinh , Mode=TwoWay }"
+                                   Style="{StaticResource styleCombobox}"                                   
+                                   Watermark="Chọn công trình cần báo cáo"
+                                   WatermarkColor="{StaticResource Primary}"
+                                   IsEditableMode="True"                                                               
+                                   HeightRequest="40"
+                                   ShowClearButton="True"                                    
+                                   >                
+            </sfcombobox:SfComboBox>
+            <Grid x:Name="mGridLayout" AbsoluteLayout.LayoutFlags="All"
+                              AbsoluteLayout.LayoutBounds="1,1,1,1" 
+                              VerticalOptions="FillAndExpand" HorizontalOptions="FillAndExpand">
+                <sfDataGrid:SfDataGrid x:Name="listCongDoanCongNhan"                                           
+                                       ItemsSource="{Binding ListTienDoLapDat , Mode=TwoWay}"                                                                              
+                                       AutoGenerateColumns="False"                                                                     
+                                       GridStyle="{StaticResource dark}"   
+                                       GroupCaptionTextFormat="{}{}{Key}"
+                                       Style="{StaticResource styleDataGrid}"
+                                       AllowEditing="True"
+                                       NavigationMode="Cell"					                   
+                                       EditTapAction="OnTap"					                      
+                                       ColumnSizer="LastColumnFill"
+                                       >
+                    <sfDataGrid:SfDataGrid.Columns>
+                        <sfDataGrid:GridTemplateColumn MappingName="Description"  HeaderText="Hạng mục lắp đặt" HeaderFontAttribute="Bold" Width="200"   HeaderCellTextSize="16">
+                            <sfDataGrid:GridTemplateColumn.CellTemplate>
+                                <DataTemplate>
+                                    <Label Text="{Binding Description}" Padding="5,0,0,0" FontSize="18"  TextColor="{Binding Type, Converter={StaticResource LSX_CapCha}}"  XAlign="Start" YAlign="Center"/>
+                                </DataTemplate>
+                            </sfDataGrid:GridTemplateColumn.CellTemplate>
+                        </sfDataGrid:GridTemplateColumn>
+                        <sfDataGrid:GridTemplateColumn MappingName="QuyCach"  HeaderText="Quy Cách"  HeaderFontAttribute="Bold" Width="180" HeaderCellTextSize="16">
+                            <sfDataGrid:GridTemplateColumn.CellTemplate>
+                                <DataTemplate>
+                                    <Label Text="{Binding QuyCach}" Padding="5,0,0,0" FontSize="18" TextColor="{Binding Type, Converter={StaticResource LSX_CapCha}}"   XAlign="Start" YAlign="Center"/>
+                                </DataTemplate>
+                            </sfDataGrid:GridTemplateColumn.CellTemplate>
+                        </sfDataGrid:GridTemplateColumn>
+                        <sfDataGrid:GridTemplateColumn MappingName="SoLuong"  HeaderText="Số Lượng" HeaderFontAttribute="Bold" Width="80"   HeaderCellTextSize="16">
+                            <sfDataGrid:GridTemplateColumn.CellTemplate>
+                                <DataTemplate>
+                                    <Label Text="{Binding SoLuong,StringFormat='{0:#,##0}'}" FontSize="18" FontAttributes="Bold" Padding="5,0,0,0" TextColor="{Binding Type, Converter={StaticResource LSX_CapCha}}"   XAlign="Start" YAlign="Center"/>
+                                </DataTemplate>
+                            </sfDataGrid:GridTemplateColumn.CellTemplate>
+                        </sfDataGrid:GridTemplateColumn>
+                        <sfDataGrid:GridTemplateColumn MappingName="KhoiLuong"  HeaderText="Khối Lượng" HeaderFontAttribute="Bold" Width="100"   HeaderCellTextSize="16">
+                            <sfDataGrid:GridTemplateColumn.CellTemplate>
+                                <DataTemplate>
+                                    <Label Text="{Binding KhoiLuong,StringFormat='{0:#,##0.##}'}" FontSize="18" FontAttributes="Bold" Padding="5,0,0,0" TextColor="{Binding Type, Converter={StaticResource LSX_CapCha}}"   XAlign="Start" YAlign="Center"/>
+                                </DataTemplate>
+                            </sfDataGrid:GridTemplateColumn.CellTemplate>
+                        </sfDataGrid:GridTemplateColumn>
+                        <sfDataGrid:GridTemplateColumn MappingName="KhoiLuongDaLap"  HeaderText="KL thực hiện" HeaderFontAttribute="Bold" Width="100"   HeaderCellTextSize="16">
+                            <sfDataGrid:GridTemplateColumn.CellTemplate>
+                                <DataTemplate>
+                                    <Label Text="{Binding KhoiLuongDaLap,StringFormat='{0:#,##0.##}'}" FontSize="18" FontAttributes="Bold" Padding="5,0,0,0" TextColor="{Binding Type, Converter={StaticResource LSX_CapCha}}"   XAlign="Start" YAlign="Center"/>
+                                </DataTemplate>
+                            </sfDataGrid:GridTemplateColumn.CellTemplate>
+                        </sfDataGrid:GridTemplateColumn>
+                        <sfDataGrid:GridTemplateColumn MappingName="PhanTramDaLap"  HeaderText="% tiến độ" HeaderFontAttribute="Bold" Width="80"   HeaderCellTextSize="16">
+                            <sfDataGrid:GridTemplateColumn.CellTemplate>
+                                <DataTemplate>
+                                    <Label Text="{Binding PhanTramDaLap,StringFormat='{0:#,##0.##}'}" FontSize="18" FontAttributes="Bold" Padding="5,0,0,0" TextColor="{Binding Type, Converter={StaticResource LSX_CapCha}}"   XAlign="Start" YAlign="Center"/>
+                                </DataTemplate>
+                            </sfDataGrid:GridTemplateColumn.CellTemplate>
+                        </sfDataGrid:GridTemplateColumn>
+                    </sfDataGrid:SfDataGrid.Columns>
+                    <sfDataGrid:SfDataGrid.GroupColumnDescriptions>
+                        <sfDataGrid:GroupColumnDescription ColumnName="TenBaoCao" />
+                    </sfDataGrid:SfDataGrid.GroupColumnDescriptions>
+                </sfDataGrid:SfDataGrid>
+            </Grid>
+        </StackLayout>
+    </ContentPage.Content>
+</ContentPage>

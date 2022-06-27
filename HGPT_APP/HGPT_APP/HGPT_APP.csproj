@@ -14,6 +14,7 @@
   </ItemGroup>
 
   <ItemGroup>
+    <PackageReference Include="CarouselView.FormsPlugin" Version="6.0.0" />
     <PackageReference Include="Microsoft.AppCenter" Version="3.4.3" />
     <PackageReference Include="Microsoft.AppCenter.Analytics" Version="3.4.3" />
     <PackageReference Include="Microsoft.AppCenter.Crashes" Version="3.4.3" />
@@ -27,6 +28,7 @@
     <PackageReference Include="Syncfusion.Xamarin.SfChart" Version="18.2.0.55" />
     <PackageReference Include="Syncfusion.Xamarin.SfComboBox" Version="18.2.0.55" />
     <PackageReference Include="Syncfusion.Xamarin.SfDataGrid" Version="18.2.0.55" />
+    <PackageReference Include="Syncfusion.Xamarin.SfListView" Version="18.2.0.55" />
     <PackageReference Include="Syncfusion.Xamarin.SfNumericTextBox" Version="18.2.0.55" />
     <PackageReference Include="Syncfusion.Xamarin.SfPullToRefresh" Version="18.2.0.55" />
     <PackageReference Include="Syncfusion.Xamarin.SfRichTextEditor" Version="18.2.0.55" />
@@ -37,6 +39,7 @@
     <PackageReference Include="Xam.Plugins.Forms.ImageCircle" Version="3.0.0.5" />
     <PackageReference Include="Xamarin.Forms" Version="5.0.0.2291" />  
     <PackageReference Include="Xamarin.Essentials" Version="1.7.0" />  
+    <PackageReference Include="Xamarin.MediaGallery" Version="2.1.1" />  
     <PackageReference Include="ZXing.Net.Mobile" Version="2.4.1" />  
     <PackageReference Include="ZXing.Net.Mobile.Forms" Version="2.4.1" />
   </ItemGroup>
@@ -53,6 +56,30 @@
     </Compile>
     <Compile Update="Popup\Sua_Cong_Doan_Cong_Nhan.xaml.cs">
       <DependentUpon>Sua_Cong_Doan_Cong_Nhan.xaml</DependentUpon>
+    </Compile>
+    <Compile Update="Views\GiamSat\BaoCaoTongHopChiPhi_Page.xaml.cs">
+      <DependentUpon>BaoCaoTongHopChiPhi_Page.xaml</DependentUpon>
+    </Compile>
+    <Compile Update="Views\GiamSat\TongHopBaoCaoTienDoLapDat_Page.xaml.cs">
+      <DependentUpon>TongHopBaoCaoTienDoLapDat_Page.xaml</DependentUpon>
+    </Compile>
+    <Compile Update="Views\GiamSat\TienDoLapDat_Page.xaml.cs">
+      <DependentUpon>TienDoLapDat_Page.xaml</DependentUpon>
+    </Compile>
+    <Compile Update="Views\GiamSat\XemChamCongNhanSu_Page.xaml.cs">
+      <DependentUpon>XemChamCongNhanSu_Page.xaml</DependentUpon>
+    </Compile>
+    <Compile Update="Views\GiamSat\ThemNhanSuChoGiamSat_Page.xaml.cs">
+      <DependentUpon>ThemNhanSuChoGiamSat_Page.xaml</DependentUpon>
+    </Compile>
+    <Compile Update="Views\GiamSat\ChamCongNhanSu_Page.xaml.cs">
+      <DependentUpon>ChamCongNhanSu_Page.xaml</DependentUpon>
+    </Compile>
+    <Compile Update="Views\GiamSat\XemBaoCaoGiamSat_Page.xaml.cs">
+      <DependentUpon>XemBaoCaoGiamSat_Page.xaml</DependentUpon>
+    </Compile>
+    <Compile Update="Views\GiamSat\BaoCaoGiamSat_Page.xaml.cs">
+      <DependentUpon>BaoCaoGiamSat_Page.xaml</DependentUpon>
     </Compile>
     <Compile Update="Views\Lich_Su_Phan_Chia_Cong_Viec.xaml.cs">
       <DependentUpon>Lich_Su_Phan_Chia_Cong_Viec.xaml</DependentUpon>
@@ -88,6 +115,9 @@
       <Generator>MSBuild:UpdateDesignTimeXaml</Generator>
     </EmbeddedResource>
     <EmbeddedResource Update="Views\Danh_Muc_Thiet_Bi.xaml">
+      <Generator>MSBuild:UpdateDesignTimeXaml</Generator>
+    </EmbeddedResource>
+    <EmbeddedResource Update="Views\GiamSat\BaoCaoGiamSat_Page.xaml">
       <Generator>MSBuild:UpdateDesignTimeXaml</Generator>
     </EmbeddedResource>
     <EmbeddedResource Update="Views\KeHoachBaoTriPage.xaml">

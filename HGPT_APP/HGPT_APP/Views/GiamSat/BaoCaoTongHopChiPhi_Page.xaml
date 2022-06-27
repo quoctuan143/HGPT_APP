@@ -1,0 +1,101 @@
+﻿<?xml version="1.0" encoding="utf-8" ?>
+<ContentPage xmlns="http://xamarin.com/schemas/2014/forms"
+             xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"             
+             xmlns:sfcombobox="clr-namespace:Syncfusion.XForms.ComboBox;assembly=Syncfusion.SfComboBox.XForms"            
+             x:Class="HGPT_APP.Views.GiamSat.BaoCaoTongHopChiPhi_Page"            
+             xmlns:sfbutton="clr-namespace:Syncfusion.XForms.Buttons;assembly=Syncfusion.Buttons.XForms"             
+             xmlns:sfDataGrid="clr-namespace:Syncfusion.SfDataGrid.XForms;assembly=Syncfusion.SfDataGrid.XForms" 
+             xmlns:local1="clr-namespace:HGPT_APP.Converter"
+             Shell.TabBarIsVisible="False"
+             x:Name="NhanSuGiamSat"
+             Title="{Binding Title}">
+    <ContentPage.Resources>
+        <ResourceDictionary>
+            <local1:Dark x:Key="dark" />
+        </ResourceDictionary>
+
+    </ContentPage.Resources>
+    <ContentPage.Content>
+        <StackLayout Spacing="0">
+            
+                <sfcombobox:SfComboBox x:Name="cbToSanXuat" DataSource="{Binding ListLenhSanXuat , Mode=TwoWay }" 
+                                   DisplayMemberPath="External_Document_No_" SelectedValuePath="LENH_SAN_XUAT"
+                                   SelectedItem="{Binding SelectLenhSanXuat , Mode=TwoWay }"
+                                   Style="{StaticResource styleCombobox}"                                   
+                                   Watermark="Chọn lệnh sản xuất để xem"
+                                   WatermarkColor="{StaticResource Primary}"
+                                   IsEditableMode="True"                                                               
+                                   HeightRequest="50"
+                                   ShowClearButton="True"
+                                   />
+            <StackLayout Orientation="Horizontal">
+                <sfbutton:SfButton Text="Add Group" Style="{StaticResource stylesfButtonCorner}" x:Name="addgroup" Clicked="addgroup_Clicked" HorizontalOptions="CenterAndExpand"/>
+                <sfbutton:SfButton Text="Remove Group" Style="{StaticResource sfbuttonCancel}" x:Name="removegroup" Clicked="removegroup_Clicked" HorizontalOptions="CenterAndExpand"/>
+            </StackLayout>
+            <sfDataGrid:SfDataGrid x:Name="listCongDoanCongNhan"                                           
+                                       ItemsSource="{Binding ListTongHopChiPhi , Mode=TwoWay}"                                                                              
+                                       AutoGenerateColumns="False"                                                                     
+                                       GridStyle="{StaticResource dark}"  
+                                       Style="{StaticResource styleDataGrid}"
+                                       GroupCaptionTextFormat="{}{}{Key}"
+                                       AllowEditing="True"
+                                       NavigationMode="Cell"
+					                   EditTapAction="OnTap"					                       
+                                       ColumnSizer="LastColumnFill"
+                                       SelectionMode="None"
+                                       GroupingMode="Multiple"
+                                       AutoExpandGroups="True"
+                                       AllowGroupExpandCollapse="True"
+                                       >
+                <sfDataGrid:SfDataGrid.Columns>
+                    <sfDataGrid:GridTemplateColumn MappingName="DienGiai"  HeaderText="Nội dung" HeaderFontAttribute="Bold" Width="200"   HeaderCellTextSize="16">
+                        <sfDataGrid:GridTemplateColumn.CellTemplate>
+                            <DataTemplate>
+                                <Label Text="{Binding DienGiai}" Style="{StaticResource styleLableBlue}" FontSize="18"  Padding="5,0,0,0" TextColor="Black"  XAlign="Start" YAlign="Center"/>
+                            </DataTemplate>
+                        </sfDataGrid:GridTemplateColumn.CellTemplate>
+                    </sfDataGrid:GridTemplateColumn>
+                    <sfDataGrid:GridTemplateColumn MappingName="Amount"  HeaderText="Chi phí/Ngày công" Width="140" HeaderFontAttribute="Bold"    HeaderCellTextSize="16">
+                        <sfDataGrid:GridTemplateColumn.CellTemplate>
+                            <DataTemplate>
+                                <Label Text="{Binding Amount, StringFormat='{0:#,##0}'}" Style="{StaticResource styleLableBlue}" FontSize="18"  Padding="5,0,0,0" TextColor="Black"  XAlign="Start" YAlign="Center"/>
+                            </DataTemplate>
+                        </sfDataGrid:GridTemplateColumn.CellTemplate>
+                    </sfDataGrid:GridTemplateColumn>                    
+                </sfDataGrid:SfDataGrid.Columns>
+                <sfDataGrid:SfDataGrid.GroupColumnDescriptions>
+                    <sfDataGrid:GroupColumnDescription ColumnName="TenCongTrinh" />                    
+                </sfDataGrid:SfDataGrid.GroupColumnDescriptions>
+                <sfDataGrid:SfDataGrid.GroupSummaryRows>
+                    <sfDataGrid:GridGroupSummaryRow ShowSummaryInRow="True" Title="Tổng: {Salary}">
+
+                        <sfDataGrid:GridGroupSummaryRow.SummaryColumns>
+
+                            <sfDataGrid:GridSummaryColumn Name="Salary" 
+                                                  MappingName="Amount" 
+                                                  Format="{}{Sum:c}"
+                                                  SummaryType="DoubleAggregate">
+                            </sfDataGrid:GridSummaryColumn>
+
+                        </sfDataGrid:GridGroupSummaryRow.SummaryColumns>
+
+                    </sfDataGrid:GridGroupSummaryRow>
+                </sfDataGrid:SfDataGrid.GroupSummaryRows>
+                <sfDataGrid:SfDataGrid.TableSummaryRows>
+                    <sfDataGrid:GridTableSummaryRow Title="Tổng chi phí : {TotalSalary}" 
+                                Position="Bottom"
+                                ShowSummaryInRow="True">
+                        <sfDataGrid:GridTableSummaryRow.SummaryColumns>
+                            <sfDataGrid:GridSummaryColumn Name="TotalSalary"
+                                      Format="{}{Sum:c}"
+                                      MappingName="Amount"                                       
+                                      SummaryType="DoubleAggregate" />
+
+                        </sfDataGrid:GridTableSummaryRow.SummaryColumns>
+                    </sfDataGrid:GridTableSummaryRow>
+                </sfDataGrid:SfDataGrid.TableSummaryRows>
+            </sfDataGrid:SfDataGrid>
+            
+        </StackLayout>
+    </ContentPage.Content>
+</ContentPage>

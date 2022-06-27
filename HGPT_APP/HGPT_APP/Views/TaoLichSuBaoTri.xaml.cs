@@ -207,7 +207,7 @@ namespace HGPT_APP.Views
                     return;
                 }
                 media = await CrossMedia.Current.PickPhotoAsync();
-                if (media == null) return;
+                if (media == null) return;                
                 imagePicture.Source = ImageSource.FromStream(() =>
                 {
                     return media.GetStream();

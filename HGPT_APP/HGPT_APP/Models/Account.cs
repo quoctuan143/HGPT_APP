@@ -19,5 +19,7 @@ namespace HGPT_APP.Models
         public int IsThietBi { get; set; }
         public int IsPhanViec { get; set; }
         public int ChamSocKhachHang { get; set; }
+        public int IsGiamSat { get; set; }
+        public int Admin { get; set; }
     }
 }

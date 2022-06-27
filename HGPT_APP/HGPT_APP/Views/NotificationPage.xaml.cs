@@ -16,6 +16,7 @@ using HGPT_APP.Popup;
 using HGPT_APP.Views.SinhNhatKhachHang;
 using Plugin.FirebasePushNotification;
 using Xamarin.Essentials;
+using HGPT_APP.Views.GiamSat;
 
 namespace HGPT_APP.Views
 {
@@ -88,6 +89,8 @@ namespace HGPT_APP.Views
                                 await Navigation.PushAsync(new Phan_Chia_Cong_Viec());
                             else if (item.Code == "sinhnhatkhachhang")
                                 await Navigation.PushAsync(new SinhNhatKhachHang_ChuaXuLy());
+                            else if (item.Code == "ThongBaoGiamSat")
+                                await Navigation.PushAsync(new XemBaoCaoGiamSat_Page());
                         }
                         else
                         {

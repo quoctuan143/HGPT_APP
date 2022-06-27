@@ -59,11 +59,13 @@ namespace HGPT_APP.Views
                         Preferences.Set(Config.AnhDaiDien, user[0].ImageURL);
                         Preferences.Set(Config.IsThietBi, user[0].IsThietBi.ToString());
                         Preferences.Set(Config.IsPhanViec, user[0].IsPhanViec.ToString());
+                        Preferences.Set(Config.IsGiamSat, user[0].IsGiamSat.ToString());
+                        Preferences.Set(Config.Admin, user[0].Admin.ToString());
                         Preferences.Set(Config.IsChamSocKhachHang, user[0].ChamSocKhachHang.ToString());
                         Preferences.Set(Config.ThongBaoCongTy, true);
                         Preferences.Set(Config.ThongBaoBaoTri, true);
                         Preferences.Set(Config.LenhSanXuat, true);
-                        Preferences.Set(Config.ThongBaoPhanViec, true);
+                        Preferences.Set(Config.ThongBaoPhanViec, true);                        
                         Preferences.Set(Config.Token, CrossFirebasePushNotification.Current.Token);
                         //App.Current.MainPage = new AppShell();
                     }

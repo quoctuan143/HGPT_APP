@@ -5,6 +5,7 @@ using System.Linq;
 using Foundation;
 using ImageCircle.Forms.Plugin.iOS;
 using Plugin.FirebasePushNotification;
+using Syncfusion.ListView.XForms.iOS;
 using Syncfusion.SfPicker.XForms.iOS;
 using Syncfusion.XForms.iOS.TextInputLayout;
 using UIKit;
@@ -32,6 +33,8 @@ namespace HGPT_APP.iOS
         {
             global::Xamarin.Forms.Forms.SetFlags(new string[] { "CollectionView_Experimental", "Brush_Experimental", "SwipeView_Experimental", "CarouseView_Experimental", "IndicatorView_Experimental" });
             global::Xamarin.Forms.Forms.Init();
+            CarouselViewRenderer.Init();
+            NativeMedia.Platform.Init(GetTopViewController);
             Syncfusion.SfDataGrid.XForms.iOS.SfDataGridRenderer.Init();
             new Syncfusion.XForms.iOS.ComboBox.SfComboBoxRenderer();
             Syncfusion.XForms.iOS.Border.SfBorderRenderer.Init();
@@ -39,6 +42,7 @@ namespace HGPT_APP.iOS
             Syncfusion.XForms.iOS.Buttons.SfSwitchRenderer.Init();           
             Syncfusion.XForms.iOS.BadgeView.SfBadgeViewRenderer.Init();
             Syncfusion.XForms.iOS.RichTextEditor.SfRichTextEditorRenderer.Init();
+            SfListViewRenderer.Init();
             SfTextInputLayoutRenderer.Init();
             Rg.Plugins.Popup.Popup.Init();
             ImageCircleRenderer.Init();
@@ -68,7 +72,15 @@ namespace HGPT_APP.iOS
 
             return base.FinishedLaunching(app, options);
         }
+        public UIViewController GetTopViewController()
+        {
+            var vc = UIApplication.SharedApplication.KeyWindow.RootViewController;
 
+            if (vc is UINavigationController navController)
+                vc = navController.ViewControllers.Last();
+
+            return vc;
+        }
         private void IOS_OnNotificationReceived(object source, FirebasePushNotificationDataEventArgs e)
         {
            if (e.Data.Count > 0)

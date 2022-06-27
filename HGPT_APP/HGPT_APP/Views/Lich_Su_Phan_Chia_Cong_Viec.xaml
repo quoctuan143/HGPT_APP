@@ -108,23 +108,6 @@
                                 </DataTemplate>
                             </sfDataGrid:GridTemplateColumn.CellTemplate>
                         </sfDataGrid:GridTemplateColumn>
-
-                        <!--<sfDataGrid:GridTemplateColumn MappingName="NGAY_TAO"  HeaderText="Ngày tạo" HeaderFontAttribute="Bold" Width="120"   HeaderCellTextSize="16">
-                            <sfDataGrid:GridTemplateColumn.CellTemplate>
-                                <DataTemplate>
-                                    <Label Text="{Binding NGAY_TAO, StringFormat='{0:dd/MM/yyyy}'}" Padding="5,0,0,0" TextColor="Black" XAlign="Start" YAlign="Center"/>
-                                </DataTemplate>
-                            </sfDataGrid:GridTemplateColumn.CellTemplate>                           
-                        </sfDataGrid:GridTemplateColumn>-->
-
-                        <!--<sfDataGrid:GridTemplateColumn MappingName="NGAY_CONG"  HeaderText="Ngày công" HeaderFontAttribute="Bold" Width="80"   HeaderCellTextSize="16">
-                            <sfDataGrid:GridTemplateColumn.CellTemplate>
-                                <DataTemplate>
-                                    <Label Text="{Binding NGAY_CONG , StringFormat='{0:0}'}" Padding="5,0,0,0" FontAttributes="Bold" Style="{StaticResource styleLablenotwhite}" XAlign="Start" YAlign="Center"/>
-                                </DataTemplate>
-                            </sfDataGrid:GridTemplateColumn.CellTemplate>                            
-                        </sfDataGrid:GridTemplateColumn>-->
-
                         <sfDataGrid:GridTemplateColumn MappingName="GIO_CONG" AllowEditing="True" HeaderText="Giờ công" HeaderFontAttribute="Bold" Width="80"   HeaderCellTextSize="16">
                             <sfDataGrid:GridTemplateColumn.CellTemplate>
                                 <DataTemplate>

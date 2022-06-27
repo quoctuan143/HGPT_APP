@@ -30,7 +30,7 @@ namespace HGPT_APP.Droid
            
           
             await CrossMedia.Current.Initialize();
-            
+            NativeMedia.Platform.Init(this, savedInstanceState);
             var d = new Dictionary<string, string>();
             if (Intent.Extras != null)
             {
@@ -82,7 +82,13 @@ namespace HGPT_APP.Droid
            // CreateNotificationChannel();
         }
 
+        protected override void OnActivityResult(int requestCode, Result resultCode, Intent intent)
+        {
+            if (NativeMedia.Platform.CheckCanProcessResult(requestCode, resultCode, intent))
+                NativeMedia.Platform.OnActivityResult(requestCode, resultCode, intent);
 
+            base.OnActivityResult(requestCode, resultCode, intent);
+        }
         public override void OnRequestPermissionsResult(int requestCode, string[] permissions, [GeneratedEnum] Android.Content.PM.Permission[] grantResults)
         {
             Xamarin.Essentials.Platform.OnRequestPermissionsResult(requestCode, permissions, grantResults);

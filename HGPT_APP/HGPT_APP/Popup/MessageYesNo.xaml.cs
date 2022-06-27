@@ -20,8 +20,7 @@ namespace HGPT_APP.Popup
 
         public MessageYesNo(string thongbao, string noidung)
         {
-            InitializeComponent();
-            lblThongBao.Text = thongbao;
+            InitializeComponent();           
             lblMessage.Text = noidung;
         }
 

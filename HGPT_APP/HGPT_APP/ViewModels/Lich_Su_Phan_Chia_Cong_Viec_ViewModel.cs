@@ -64,11 +64,7 @@ namespace HGPT_APP.ViewModels
             {
 
                  new MessageBox("Thông báo", ex.ToString()).Show();
-            }
-            NgayLamViec = DateTime.Now.Date;
-            ListCong_Doan_Cong_Nhans = new ObservableCollection<LICH_SU_PHAN_CONG_VIEC>();
-            Title = "Lịch sử công việc";
-            LoadCongDoanCongNhan = new Command<DateTime>(async (p) => await LoadCongDoanCongNhanExcute(p));           
+            }            
         }            
 
         private async Task LoadCongDoanCongNhanExcute(DateTime ngaytao)

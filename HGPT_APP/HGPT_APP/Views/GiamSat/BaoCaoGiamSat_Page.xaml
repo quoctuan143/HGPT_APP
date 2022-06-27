@@ -1,0 +1,257 @@
+﻿<?xml version="1.0" encoding="utf-8" ?>
+<ContentPage xmlns="http://xamarin.com/schemas/2014/forms"
+             xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml" 
+             xmlns:sfinputtext="clr-namespace:Syncfusion.XForms.TextInputLayout;assembly=Syncfusion.Core.XForms" 
+             xmlns:sfcombobox="clr-namespace:Syncfusion.XForms.ComboBox;assembly=Syncfusion.SfComboBox.XForms"
+             xmlns:sfCheck="clr-namespace:Syncfusion.XForms.Buttons;assembly=Syncfusion.Buttons.XForms" 
+             x:Class="HGPT_APP.Views.GiamSat.BaoCaoGiamSat_Page"
+             xmlns:helper="clr-namespace:HGPT_APP.helper" 
+             xmlns:sfbutton="clr-namespace:Syncfusion.XForms.Buttons;assembly=Syncfusion.Buttons.XForms" xmlns:syncfusion="clr-namespace:Syncfusion.SfNumericTextBox.XForms;assembly=Syncfusion.SfNumericTextBox.XForms" xmlns:syncfusion1="clr-namespace:Syncfusion.ListView.XForms;assembly=Syncfusion.SfListView.XForms" xmlns:rte="clr-namespace:Syncfusion.XForms.RichTextEditor;assembly=Syncfusion.SfRichTextEditor.XForms" xmlns:cv="clr-namespace:CarouselView.FormsPlugin.Abstractions;assembly=CarouselView.FormsPlugin.Abstractions" xmlns:sfDataGrid="clr-namespace:Syncfusion.SfDataGrid.XForms;assembly=Syncfusion.SfDataGrid.XForms"
+             Shell.TabBarIsVisible="False"
+             xmlns:local1="clr-namespace:HGPT_APP.Converter"
+             Title="{Binding Title}"
+             x:Name="BaoCaoGiamSat"
+             >
+    <ContentPage.Resources>
+        <ResourceDictionary>
+            <local1:Dark x:Key="dark" />
+        </ResourceDictionary>
+        <Style TargetType="Entry" Class="entryClass">
+            <Setter Property="FontAttributes" Value="Bold"></Setter>
+            <Setter Property="TextColor" Value="{StaticResource Primary}"></Setter>
+            <Setter Property="FontSize" Value="16"></Setter>
+            <Setter Property="BackgroundColor" Value="White"></Setter>
+        </Style>
+    </ContentPage.Resources>
+    <ContentPage.Content>
+        <StackLayout>
+            <ScrollView VerticalOptions="FillAndExpand" Orientation="Vertical">
+                <StackLayout Spacing="6">
+                    <sfcombobox:SfComboBox x:Name="cbToSanXuat" DataSource="{Binding CongTrinhList , Mode=TwoWay }" DisplayMemberPath="Description" SelectedValuePath="Code"
+                                           SelectedItem="{Binding SelectCongTrinh , Mode=TwoWay }"
+                                   Style="{StaticResource styleCombobox}"                                   
+                                   Watermark="Chọn công trình cần báo cáo"
+                                   WatermarkColor="{StaticResource Primary}"
+                                   IsEditableMode="True"                                                               
+                                   HeightRequest="50"
+                                   ShowClearButton="True"                                  
+                                   >
+
+                    </sfcombobox:SfComboBox>
+                    <sfinputtext:SfTextInputLayout Hint="Ngày báo cáo"      
+                                               Grid.Column="0"
+                                               IsHintAlwaysFloated="True"
+                                               LeadingViewPosition="Inside"
+                                               HeightRequest="50"
+                                               ContainerType="Outlined">
+                        <DatePicker  x:Name="searchDate" HorizontalOptions="FillAndExpand"                                                                                       
+                                    />
+                        <sfinputtext:SfTextInputLayout.LeadingView>
+                            <Image>
+                                <Image.Source >
+                                    <FontImageSource FontFamily="UserIcons" Color="{StaticResource Primary}" Glyph="{x:Static helper:FontIconClass.Calendar}"/>
+                                </Image.Source>
+                            </Image>
+                        </sfinputtext:SfTextInputLayout.LeadingView>
+                    </sfinputtext:SfTextInputLayout>
+                    <Label Text="Thời tiết" Style="{StaticResource styleLableBlue}"  FontSize="20" FontAttributes="Bold" TextDecorations="Underline"
+                       Margin="5,10,10,0"/>
+                    <ListView ItemsSource="{Binding ListBaoCaoGiamSat.ListThoiTiet}"
+                          Margin="5,5,5,0"                          
+                          HasUnevenRows="True"                         
+                          SeparatorVisibility="None"            
+                          SelectionMode="None"
+                              HeightRequest="80"
+                         >
+                        <ListView.ItemTemplate>
+                            <DataTemplate>
+                                <ViewCell>
+                                    <Grid ColumnDefinitions="3.3*,3.3*,3.4*" VerticalOptions="CenterAndExpand" >                                      
+                                        <Label Text="{Binding Description}" Style="{StaticResource styleLableBlue}" VerticalOptions="Center"></Label>
+                                        <sfCheck:SfRadioGroup Orientation="Horizontal"  Grid.Column="1" Spacing="30">
+                                            <sfCheck:SfRadioButton Text="Nắng"  VerticalOptions="Center" IsChecked="{Binding Sunny}"/>
+                                            <sfCheck:SfRadioButton Text="Mưa"   IsChecked="{Binding Rainy}"  VerticalOptions="Center"/>                                            
+                                        </sfCheck:SfRadioGroup>
+                                    </Grid>
+                                </ViewCell>
+                            </DataTemplate>
+                        </ListView.ItemTemplate>
+
+                    </ListView>
+                    <Label Text="Nhân sự" Style="{StaticResource styleLableBlue}"  FontSize="20" FontAttributes="Bold" TextDecorations="Underline"
+                       Margin="5,10,10,0"/>
+                    <ListView ItemsSource="{Binding ListBaoCaoGiamSat.ListNhanLuc , Mode=TwoWay}"
+                          Margin="5,5,5,0"
+                          HasUnevenRows="True"             
+                              RowHeight="-1"
+                              HeightRequest="{Binding HeightNhanSu}"
+                          SeparatorVisibility="None"            
+                          SelectionMode="None"
+                          HorizontalScrollBarVisibility="Never"  >
+                        <ListView.Header>
+                            <Grid ColumnDefinitions="4*,3*,3*" VerticalOptions="CenterAndExpand">
+                                <Label Text="Số lượng" FontAttributes="Bold"  Grid.Column="1" Style="{StaticResource styleLableBlue}" HorizontalOptions="Center" VerticalOptions="Center" HorizontalTextAlignment="Center"></Label>
+                                <Label Text="Đơn giá" FontAttributes="Bold"   Grid.Column="2" Style="{StaticResource styleLableBlue}" HorizontalOptions="Center" VerticalOptions="Center" HorizontalTextAlignment="Center"></Label>
+                            </Grid>
+                        </ListView.Header>
+                        <ListView.ItemTemplate>
+                            <DataTemplate>
+                                <ViewCell>
+                                    
+                                        <Grid ColumnDefinitions="4*,3*,3*" VerticalOptions="CenterAndExpand">
+                                            <Label Text="{Binding Description}" Style="{StaticResource styleLableBlue}" VerticalOptions="Center"></Label>
+                                            <Entry Text="{Binding Quantity , Mode=TwoWay}" Keyboard="Numeric" HorizontalTextAlignment="Center" Grid.Column="1" FontSize="20" FontAttributes="Bold"/>
+                                            <Entry Text="{Binding UnitPrice , Mode=TwoWay }" IsVisible ="{Binding IsEdit}" Keyboard="Numeric" HorizontalTextAlignment="Center" Grid.Column="2" FontSize="20" FontAttributes="Bold"/>                                        
+                                        </Grid>                                    
+                                    
+                                </ViewCell>
+                            </DataTemplate>
+                            
+                        </ListView.ItemTemplate>
+
+                    </ListView>
+                    <StackLayout Margin="5,10,10,0" Orientation="Horizontal">
+                        <Label Text="Chi phí khác" Style="{StaticResource styleLableBlue}"  FontSize="20" FontAttributes="Bold" TextDecorations="Underline"
+                       />
+                        <Image Source="addnew.png" Aspect="AspectFit" HeightRequest="40" HorizontalOptions="StartAndExpand" Margin="0,0,10,0">
+                            <Image.GestureRecognizers>
+                                <TapGestureRecognizer Command="{Binding AddCommand}"/>
+                            </Image.GestureRecognizers>
+                        </Image>
+                    </StackLayout>
+
+                    <ListView x:Name="listchiphi"                                           
+                              ItemsSource="{Binding ListChiPhiKhac, Mode=TwoWay}" 
+                              HasUnevenRows="True"
+                              HeightRequest="{Binding HeightChiPhi}" 
+                              SeparatorVisibility="None"      
+                              HorizontalScrollBarVisibility="Never" 
+                              SelectionMode="None"
+                              >
+                        <ListView.Header>
+                            <Grid ColumnDefinitions="2.5*,4.5*,2*,1*" VerticalOptions="CenterAndExpand">
+                                <Label Text="Nhóm" FontAttributes="Bold"  Grid.Column="0" Style="{StaticResource styleLableBlue}" HorizontalOptions="Center" VerticalOptions="Center" HorizontalTextAlignment="Center"></Label>
+                                <Label Text="Nội dung chi phí" FontAttributes="Bold"  Grid.Column="1" Style="{StaticResource styleLableBlue}" HorizontalOptions="Center" VerticalOptions="Center" HorizontalTextAlignment="Center"></Label>
+                                <Label Text="Thành tiền" FontAttributes="Bold"   Grid.Column="2" Style="{StaticResource styleLableBlue}" HorizontalOptions="Center" VerticalOptions="Center" HorizontalTextAlignment="Center"></Label>
+                            </Grid>
+                        </ListView.Header>
+                        <ListView.ItemTemplate>
+                            <DataTemplate>
+                                <ViewCell>
+                                    <Grid ColumnDefinitions="2.5*,4*,2.5*,1*">
+                                        <Picker x:Name="picker"
+                                                SelectedItem="{Binding NhomChiPhi}"
+                                                Title="Chọn nhóm chi phí"
+                                                TitleColor="Red">           
+                                            <Picker.ItemsSource>
+                                                <x:Array Type="{x:Type x:String}">
+                                                    <x:String>Chi phí chung</x:String>
+                                                    <x:String>Vật tư, CCDC</x:String>
+                                                    <x:String>Tiền xe</x:String>
+                                                    <x:String>Sửa xe</x:String>
+                                                    <x:String>Nhiên liệu, xăng dầu</x:String>
+                                                    <x:String>Gởi, nhận hàng</x:String>                                                    
+                                                </x:Array>
+                                            </Picker.ItemsSource>
+                                        </Picker>
+                                        <Editor Text="{Binding Description}" AutoSize="TextChanges" Keyboard="Plain" VerticalOptions="Center" Grid.Column="1"/>
+                                        <Entry Text="{Binding Amount , Mode=TwoWay}" Keyboard="Numeric" HorizontalTextAlignment="Center" Grid.Column="2" FontSize="18" FontAttributes="Bold"/>
+                                        <Image Source="delete.png" Grid.Column="3" WidthRequest="20" HeightRequest="20"
+                                               Aspect="AspectFit">
+                                            <Image.GestureRecognizers>
+                                                <TapGestureRecognizer
+                                                Command="{Binding Path=BindingContext.RemoveCommand, Source={x:Reference Name=BaoCaoGiamSat}}"
+                                                CommandParameter="{Binding .}" />
+                                            </Image.GestureRecognizers>
+                                        </Image>
+
+                                    </Grid>
+                                </ViewCell>
+                                
+                            </DataTemplate>
+                        </ListView.ItemTemplate>
+                    </ListView>
+
+                    <StackLayout Margin="5,10,10,0" Orientation="Horizontal">
+                        <Label Text="Máy móc thiết bị" Style="{StaticResource styleLableBlue}"  FontSize="20" FontAttributes="Bold" TextDecorations="Underline"
+                       />
+                        <Image Source="addnew.png" Aspect="AspectFit" HeightRequest="40" HorizontalOptions="StartAndExpand" Margin="0,0,10,0">
+                            <Image.GestureRecognizers>
+                                <TapGestureRecognizer Command="{Binding AddThietBiCommand}"/>
+                            </Image.GestureRecognizers>
+                        </Image>
+                    </StackLayout>
+
+                    <ListView ItemsSource="{Binding ListMayMocThietBi}"
+                          Margin="5,5,5,0"
+                          HasUnevenRows="True"                        
+                          SeparatorVisibility="None"            
+                          SelectionMode="None"
+                           HeightRequest="{Binding HeightMayMoc}"
+                          HorizontalScrollBarVisibility="Never"  >
+                            <ListView.Header>
+                                <Grid ColumnDefinitions="4*,2*,3*,1*" VerticalOptions="CenterAndExpand">
+                                    <Label Text="Số lượng" FontAttributes="Bold"  Grid.Column="1" Style="{StaticResource styleLableBlue}" HorizontalOptions="Center" VerticalOptions="Center" HorizontalTextAlignment="Center"></Label>
+                                    <Label Text="Đơn giá" FontAttributes="Bold"   Grid.Column="2" Style="{StaticResource styleLableBlue}" HorizontalOptions="Center" VerticalOptions="Center" HorizontalTextAlignment="Center"></Label>
+                                </Grid>
+                            </ListView.Header>
+                            <ListView.ItemTemplate>
+                                <DataTemplate>
+                                    <ViewCell>
+                                        <Grid ColumnDefinitions="4*,2*,3*,1*" VerticalOptions="CenterAndExpand">
+                                        <Editor Text="{Binding Description}" AutoSize="TextChanges" Keyboard="Plain" VerticalOptions="Center"/>
+                                        <Entry Text="{Binding Quantity }" Keyboard="Text" HorizontalTextAlignment="Center" Grid.Column="1" FontSize="18" FontAttributes="Bold"/>
+                                        <Entry Text="{Binding UnitPrice}"  Keyboard="Numeric" HorizontalTextAlignment="Center" Grid.Column="2" FontSize="18" FontAttributes="Bold"/>
+                                        <Image Source="delete.png" Grid.Column="3" WidthRequest="20" HeightRequest="20"
+                                               Aspect="AspectFit">
+                                            <Image.GestureRecognizers>
+                                                <TapGestureRecognizer
+                                                Command="{Binding Path=BindingContext.DeleteThietBiCommand, Source={x:Reference Name=BaoCaoGiamSat}}"
+                                                CommandParameter="{Binding .}" />
+                                            </Image.GestureRecognizers>
+                                        </Image>
+                                    </Grid>
+                                    </ViewCell>
+                                </DataTemplate>
+
+                            </ListView.ItemTemplate>
+
+                        </ListView>
+                    <Label Text="Tóm tắt công việc hôm nay" Style="{StaticResource styleLableBlue}"  FontSize="20" FontAttributes="Bold" TextDecorations="Underline"
+                       Margin="5,10,10,0"/>
+                    <Editor Text="{Binding NoiDungBaoCao}" Keyboard="Plain" AutoSize="TextChanges" HorizontalOptions="FillAndExpand"
+                           VerticalOptions="FillAndExpand"  />
+                    <Label Text="Dự kiến công việc ngày mai" Style="{StaticResource styleLableBlue}"  FontSize="20" FontAttributes="Bold" TextDecorations="Underline"
+                       Margin="5,10,10,0"/>
+                    <Editor Text="{Binding CongViecNgayMai}" Keyboard="Plain" AutoSize="TextChanges" HorizontalOptions="FillAndExpand"
+                           VerticalOptions="FillAndExpand"  />
+                    <Grid Margin="5,10,10,0" ColumnDefinitions="7*,3*">
+                        <Label Text="Hình ảnh công trình" Style="{StaticResource styleLableBlue}"  FontSize="20" FontAttributes="Bold" TextDecorations="Underline"/>
+                        <sfbutton:SfButton Grid.Column="1" Text="File Ảnh" Style="{StaticResource stylesfButton}" CornerRadius="60"
+                                           Command="{Binding SelectImage}"/>
+                    </Grid>
+                    <cv:CarouselViewControl  x:Name="viewImage" Position="1" ShowIndicators="True" IndicatorsShape="Circle" IndicatorsTintColor="LightGray" 
+                                CurrentPageIndicatorTintColor="Red" Orientation="Horizontal" InterPageSpacing="10" 
+                                Margin="0,10,0,10" 
+                                ItemsSource="{Binding ImageList, Mode=TwoWay}"   HorizontalOptions="FillAndExpand" HeightRequest="250"
+                                VerticalOptions="StartAndExpand" AnimateTransition="True" >
+                        <cv:CarouselViewControl.ItemTemplate>
+                            <DataTemplate>
+                                <Image Source="{Binding data}"   Aspect="AspectFill" HorizontalOptions="FillAndExpand" VerticalOptions="FillAndExpand"/>
+
+                            </DataTemplate>
+                        </cv:CarouselViewControl.ItemTemplate>
+
+                    </cv:CarouselViewControl>
+
+                    
+
+                </StackLayout>
+            </ScrollView>
+            <sfbutton:SfButton x:Name="btnStartAll" Command="{Binding GuiBaoCao}" Text="Gửi báo cáo" Style="{StaticResource stylesfButton}" 
+                                   HorizontalOptions="StartAndExpand" VerticalOptions="EndAndExpand"></sfbutton:SfButton>
+        </StackLayout>
+        
+       
+    </ContentPage.Content>
+</ContentPage>

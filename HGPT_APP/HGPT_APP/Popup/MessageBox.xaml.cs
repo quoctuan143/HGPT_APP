@@ -18,9 +18,8 @@ namespace HGPT_APP.Popup
         TaskCompletionSource<DialogReturn> _tsk = null;
         public MessageBox(string thongbao, string noidung)
         {
-            InitializeComponent();
-            lblThongBao.Text = thongbao;
-            lblMessage.Text = noidung;
+            InitializeComponent();          
+            lblNoiDung.Text = noidung;
         }
         private async void btnOK_Clicked(object sender, EventArgs e)
         {
