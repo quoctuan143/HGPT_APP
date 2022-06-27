@@ -12,7 +12,6 @@ using UIKit;
 using UserNotifications;
 using Xamarin.Forms;
 using Xamarin.Forms.Platform.iOS;
-
 namespace HGPT_APP.iOS
 {
     // The UIApplicationDelegate for the application. This class is responsible for launching the 
@@ -33,7 +32,7 @@ namespace HGPT_APP.iOS
         {
             global::Xamarin.Forms.Forms.SetFlags(new string[] { "CollectionView_Experimental", "Brush_Experimental", "SwipeView_Experimental", "CarouseView_Experimental", "IndicatorView_Experimental" });
             global::Xamarin.Forms.Forms.Init();
-            CarouselViewRenderer.Init();
+            CarouselView.FormsPlugin.iOS.CarouselViewRenderer.Init();
             NativeMedia.Platform.Init(GetTopViewController);
             Syncfusion.SfDataGrid.XForms.iOS.SfDataGridRenderer.Init();
             new Syncfusion.XForms.iOS.ComboBox.SfComboBoxRenderer();
