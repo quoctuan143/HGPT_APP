@@ -33,7 +33,8 @@ namespace HGPT_APP.ViewModels.GiamSat
         int _heigthchiphi = 0;
         public int HeightChiPhi { get => _heigthchiphi; set => SetProperty(ref _heigthchiphi, value); }
         public INavigation navigation { get; set; }
-        public DateTime NgayLamViec { get; set; }
+        DateTime _ngaylamviec;
+        public DateTime NgayLamViec { get => _ngaylamviec ; set => SetProperty (ref _ngaylamviec ,value ); }
         string _noidungbaocao ="";
         public string NoiDungBaoCao { get => _noidungbaocao ; set => SetProperty (ref _noidungbaocao ,value); }
         string _congviecngaymai ="";
