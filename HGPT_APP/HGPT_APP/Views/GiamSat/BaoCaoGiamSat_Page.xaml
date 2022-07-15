@@ -44,7 +44,7 @@
                                                LeadingViewPosition="Inside"
                                                HeightRequest="50"
                                                ContainerType="Outlined">
-                        <DatePicker  x:Name="searchDate" HorizontalOptions="FillAndExpand"                                                                                       
+                        <DatePicker  x:Name="searchDate" HorizontalOptions="FillAndExpand"  Date="{Binding NgayLamViec, Mode=TwoWay}"                                                                                             
                                     />
                         <sfinputtext:SfTextInputLayout.LeadingView>
                             <Image>
