@@ -84,13 +84,14 @@
             </Grid>
             <sfDataGrid:SfDataGrid x:Name="listCongDoanCongNhan"                                           
                                        ItemsSource="{Binding ListTienDoLapDat , Mode=TwoWay}"                                                                              
-                                       AutoGenerateColumns="False"                                                                     
+                                       AutoGenerateColumns="False"              
+                                       Style="{StaticResource styleDataGrid}"
                                        GridStyle="{StaticResource dark}"   
                                        GroupCaptionTextFormat="{}{}{Key}"
                                        AllowEditing="True"
                                        NavigationMode="Cell"					                   
-                                        EditTapAction="OnTap"					                      
-                                       ColumnSizer="LastColumnFill"                                         
+                                       EditTapAction="OnTap"					                      
+                                       ColumnSizer="Auto"                                         
                                        >
                 <sfDataGrid:SfDataGrid.Columns>
                     <sfDataGrid:GridTemplateColumn MappingName="Description"  HeaderText="Hạng mục lắp đặt" HeaderFontAttribute="Bold" Width="160"   HeaderCellTextSize="16">
@@ -126,7 +127,7 @@
                             </DataTemplate>
                         </sfDataGrid:GridTemplateColumn.CellTemplate>
                     </sfDataGrid:GridTemplateColumn>
-                    <sfDataGrid:GridTemplateColumn MappingName="SoLuongCanLap"   HeaderText="SL Thực Hiện" HeaderFontAttribute="Bold" Width="80"  HeaderCellTextSize="16">
+                    <sfDataGrid:GridTemplateColumn MappingName="SoLuongCanLap"   HeaderText="SL Thực Hiện" HeaderFontAttribute="Bold" HeaderCellTextSize="16">
                         <sfDataGrid:GridTemplateColumn.CellTemplate>
                             <DataTemplate>
                                 <Entry Text="{Binding SoLuongCanLap, Mode=TwoWay}"  FontSize="20" FontAttributes="Bold" IsVisible="{Binding ChuaHoanThanh}" Keyboard="Numeric" TextColor="{Binding Type, Converter={StaticResource LSX_CapCha}}"  />

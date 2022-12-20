@@ -10,14 +10,12 @@ namespace HGPT_APP.Views.GiamSat
     [XamlCompilation(XamlCompilationOptions.Compile)]
     public partial class TongHopBaoCaoTienDoLapDat_Page : ContentPage
     {
-        TongHopBaoCaoTienDoLapDat_ViewModel viewModel;
-        List<NgayCong> NgayCong = new List<NgayCong>();
-        public TongHopBaoCaoTienDoLapDat_Page()  
+        TongHopBaoCaoTienDoLapDat_ViewModel viewModel;       
+        public TongHopBaoCaoTienDoLapDat_Page(string CongTrinh)  
         {
             InitializeComponent();
             listCongDoanCongNhan.QueryRowHeight += ListCongDoanCongNhan_QueryRowHeight;
-            viewModel = new TongHopBaoCaoTienDoLapDat_ViewModel();
-            viewModel.navigation = Navigation;
+            viewModel = new TongHopBaoCaoTienDoLapDat_ViewModel(CongTrinh);           
             BindingContext = viewModel; 
         }
 
@@ -33,11 +31,7 @@ namespace HGPT_APP.Views.GiamSat
 
         protected override void OnAppearing()
         {
-            base.OnAppearing();
-            if (viewModel.ListTienDoLapDat.Count  == 0 )
-            {
-                viewModel.LoadCommand.Execute(null);
-            }    
+            base.OnAppearing();            
         }     
        
     }    

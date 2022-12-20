@@ -33,6 +33,7 @@ namespace HGPT_APP.Global
             if (client == null)
             {
                 client = new System.Net.Http.HttpClient();
+                client.BaseAddress = new Uri(URL);
             }          
         }
 

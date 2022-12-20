@@ -1,0 +1,60 @@
+﻿<?xml version="1.0" encoding="utf-8" ?>
+<ContentPage xmlns="http://xamarin.com/schemas/2014/forms"
+             xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml" 
+             xmlns:sfinputtext="clr-namespace:Syncfusion.XForms.TextInputLayout;assembly=Syncfusion.Core.XForms"
+             x:Class="HGPT_APP.Views.GiamSat.DanhSachCongTrinhDuocLapDatTrongNgay_Page"
+             xmlns:helper="clr-namespace:HGPT_APP.helper"                           
+             xmlns:sfDataGrid="clr-namespace:Syncfusion.SfDataGrid.XForms;assembly=Syncfusion.SfDataGrid.XForms" 
+             xmlns:local1="clr-namespace:HGPT_APP.Converter"  
+             Shell.TabBarIsVisible="False"           
+             Title="{Binding Title}">
+    <ContentPage.Resources>
+        <ResourceDictionary>
+            <local1:Dark x:Key="dark" />               
+        </ResourceDictionary>
+
+    </ContentPage.Resources>
+    <ContentPage.Content>
+        <StackLayout Spacing="0">            
+            <Grid x:Name="mGridLayout" AbsoluteLayout.LayoutFlags="All"
+                              AbsoluteLayout.LayoutBounds="1,1,1,1"                   
+                              VerticalOptions="FillAndExpand" HorizontalOptions="FillAndExpand">
+                <sfDataGrid:SfDataGrid x:Name="listCongDoanCongNhan"
+                                       ItemsSource="{Binding ListDanhSachCongTrinh , Mode=TwoWay}"                                        
+                                       AutoGenerateColumns="False"                                                                     
+                                       GridStyle="{StaticResource dark}"   
+                                       GroupCaptionTextFormat="{}{}{Key}"
+                                       Style="{StaticResource styleDataGrid}"
+                                       AllowEditing="True"
+                                       NavigationMode="Cell"					                   
+                                       EditTapAction="OnTap"					                      
+                                       ColumnSizer="LastColumnFill"
+                                       AllowGroupExpandCollapse="True"
+                                       SelectionChanged="listCongDoanCongNhan_SelectionChanged"
+                                       >
+                    <sfDataGrid:SfDataGrid.Columns>
+                        <sfDataGrid:GridTemplateColumn MappingName="code"  HeaderText="Mã công trình" HeaderFontAttribute="Bold" Width="120" HeaderCellTextSize="16">
+                            <sfDataGrid:GridTemplateColumn.CellTemplate>
+                                <DataTemplate>
+                                    <Label Text="{Binding Code}" Padding="5,0,0,0" FontSize="18"                                            
+                                           XAlign="Start" YAlign="Center"/>
+                                </DataTemplate>
+                            </sfDataGrid:GridTemplateColumn.CellTemplate>
+                        </sfDataGrid:GridTemplateColumn>
+                        <sfDataGrid:GridTemplateColumn MappingName="Description"  HeaderText="Tên công trình"  HeaderFontAttribute="Bold" HeaderCellTextSize="16">
+                            <sfDataGrid:GridTemplateColumn.CellTemplate>
+                                <DataTemplate>
+                                    <Label Text="{Binding Description}" Padding="5,0,0,0" FontSize="18"                                              
+                                           XAlign="Start" YAlign="Center"/>
+                                </DataTemplate>
+                            </sfDataGrid:GridTemplateColumn.CellTemplate>
+                        </sfDataGrid:GridTemplateColumn>                         
+                    </sfDataGrid:SfDataGrid.Columns>
+                    <sfDataGrid:SfDataGrid.GroupColumnDescriptions>
+                        <sfDataGrid:GroupColumnDescription ColumnName="FullName" />
+                    </sfDataGrid:SfDataGrid.GroupColumnDescriptions>
+                </sfDataGrid:SfDataGrid>
+            </Grid>
+        </StackLayout>
+    </ContentPage.Content>
+</ContentPage>

@@ -1,6 +1,7 @@
 ﻿using System;
 using System.Collections.Generic;
 using System.Collections.ObjectModel;
+using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
 using HGPT_APP.Global;
@@ -59,6 +60,7 @@ namespace HGPT_APP.ViewModels
         #region "ICommand"
         public Command LoadLenhSanXuat { get; set; }
         public Command<string> LoadCongDoanLSX { get; set; }
+        public Command StopLenhSanXuat { get; set; } 
 
         public Command KhoiTaoCongViecCommand { get; set; }
         #endregion
@@ -71,6 +73,7 @@ namespace HGPT_APP.ViewModels
                 ListCongDoanLSX = new ObservableCollection<LSX_PHAN_CHIA_CONG_DOAN>();
                 LoadLenhSanXuat = new Command(async () => await ExcuteLenhSanXuat());
                 LoadCongDoanLSX = new Command<string>(async (p) => await ExcuteLoadCongDoanLSX(p));
+                StopLenhSanXuat = new Command(async () => await ExcuteStopLenhSanXuat());
                 KhoiTaoCongViecCommand = new Command(async () => await KhoiTaoCongViecExcute());
             }
             catch (Exception ex)
@@ -128,14 +131,41 @@ namespace HGPT_APP.ViewModels
                 IsRunning = false;
             }
         }
+        
+        private async Task ExcuteStopLenhSanXuat() 
+        {
+            try
+            {
+                if (SelectLSX == null )
+                {
+                    await new MessageBox("Thông báo", "Vui lòng chọn hạng mục cần đóng").Show();
+                    return;
+                }    
+                var ask = await new MessageYesNo("Thông báo", "Bạn có muốn đóng hạng mục này không?").Show();
+                if (ask == DialogReturn.OK )
+                {
+                    var result = await RunHttpClientPost("api/hgpt/Dong_Lenh_San_Xuat", SelectLSX.LENH_SAN_XUAT );
 
-        private async Task ExcuteLoadCongDoanLSX(string lsx)
+                    if (result.IsSuccessStatusCode)
+                    {
+                        List_LENH_SAN_XUATs.Remove(List_LENH_SAN_XUATs.FirstOrDefault(x => x.LENH_SAN_XUAT == SelectLSX.LENH_SAN_XUAT));
+                    }
+                }  
+            }
+            catch (Exception ex)
+            {
+
+                await new MessageBox("Thông báo", ex.ToString()).Show();
+            }            
+        }
+
+        private async Task  ExcuteLoadCongDoanLSX(string lsx) 
         {
             try
             {
                 IsBusy = true;
                 ListCongDoanLSX.Clear();
-                var _json = Config.client.GetStringAsync(Config.URL + "api/hgpt/get_Cong_Doan_Theo_LSX?lsx=" + lsx ).Result;              
+                var _json = Config.client.GetStringAsync(Config.URL + "api/hgpt/get_Cong_Doan_Theo_LSX?lsx=" + lsx).Result;
                 _json = _json.Replace("\\r\\n", "").Replace("\\", "");
                 if (_json.Contains("Không Tìm Thấy Dữ Liệu") == false && _json.Contains("[]") == false)
                 {
@@ -153,7 +183,7 @@ namespace HGPT_APP.ViewModels
             finally
             {
                 IsBusy = false;
-                
+
             }
         }
         #endregion

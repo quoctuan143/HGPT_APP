@@ -1,0 +1,491 @@
+﻿<?xml version="1.0" encoding="utf-8" ?>
+<ContentPage xmlns="http://xamarin.com/schemas/2014/forms"
+             xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml" 
+             xmlns:sfinputtext="clr-namespace:Syncfusion.XForms.TextInputLayout;assembly=Syncfusion.Core.XForms"
+             x:Class="HGPT_APP.Views.GiamSat.TheoDoiGiamSat_Page"
+             xmlns:helper="clr-namespace:HGPT_APP.helper"                           
+             xmlns:sfDataGrid="clr-namespace:Syncfusion.SfDataGrid.XForms;assembly=Syncfusion.SfDataGrid.XForms" 
+             xmlns:local1="clr-namespace:HGPT_APP.Converter"
+             xmlns:syncfusion="clr-namespace:Syncfusion.XForms.Pickers;assembly=Syncfusion.SfPicker.XForms"
+             Shell.TabBarIsVisible="False"           
+             Title="{Binding Title}">
+    <ContentPage.Resources>
+        <ResourceDictionary>
+            <local1:Dark x:Key="dark" />               
+        </ResourceDictionary>
+
+    </ContentPage.Resources>
+    <ContentPage.Content>
+        <StackLayout Spacing="0">
+            <StackLayout Orientation="Horizontal">
+                <syncfusion:SfDatePicker x:Name="datepicker"                                          
+                                         ShowFooter="True"
+                                         PickerMode="Dialog"
+                                         PickerHeight="300"
+                                         PickerWidth="200"
+                                         HeaderText="Chọn tháng"
+                                         Format="yyyy_MM_dd"
+                                         OkCommand="{Binding OkCommand}"
+                                         />
+                <Button Text="Chọn tháng để xem"
+                        x:Name="pickerButton"                    
+                        Clicked="pickerButton_Clicked"
+                        HorizontalOptions="Center"
+                        VerticalOptions="Center"
+                        HeightRequest="40"/>
+                <Label Style="{StaticResource styleLableBlue}"
+                       FontSize="20"
+                       Text="{Binding NgayXem,Mode=TwoWay}" />
+            </StackLayout>
+            <Grid x:Name="mGridLayout" AbsoluteLayout.LayoutFlags="All"
+                              AbsoluteLayout.LayoutBounds="1,1,1,1"                   
+                              VerticalOptions="FillAndExpand" HorizontalOptions="FillAndExpand">
+                <sfDataGrid:SfDataGrid x:Name="listCongDoanCongNhan"
+                                       ItemsSource="{Binding ListDanhSachCongTrinh , Mode=TwoWay}"                                        
+                                       AutoGenerateColumns="False"                                                                     
+                                       GridStyle="{StaticResource dark}"   
+                                       GroupCaptionTextFormat="{}{}{Key}"
+                                       Style="{StaticResource styleDataGrid}"
+                                       ColumnSizer="LastColumnFill"
+                                       AllowGroupExpandCollapse="True"
+                                       >
+                    <sfDataGrid:SfDataGrid.Columns>                         
+                        <sfDataGrid:GridTemplateColumn MappingName="ChamCong"  
+                                                       HeaderText="Nhóm"  HeaderFontAttribute="Bold" HeaderCellTextSize="16"
+                                                       Width="100">
+                            <sfDataGrid:GridTemplateColumn.CellTemplate>
+                                <DataTemplate>
+                                    <Label Text="{Binding ChamCong}" Padding="5,0,0,0" FontSize="16"                                              
+                                           XAlign="Start" YAlign="Center"/>
+                                </DataTemplate>
+                            </sfDataGrid:GridTemplateColumn.CellTemplate>
+                        </sfDataGrid:GridTemplateColumn>
+                        <sfDataGrid:GridTemplateColumn MappingName="Ngay1"
+                                                       HeaderText="1"
+                                                       Width="30"
+                                                       HeaderFontAttribute="Bold"
+                                                       HeaderCellTextSize="16">
+                            <sfDataGrid:GridTemplateColumn.CellTemplate>
+                                <DataTemplate>
+                                    <CheckBox  IsChecked="{Binding Ngay1}"
+                                               Color="Green"
+                                               IsEnabled="False"
+                                               HorizontalOptions="Center" />
+                                </DataTemplate>
+                            </sfDataGrid:GridTemplateColumn.CellTemplate>
+                        </sfDataGrid:GridTemplateColumn>
+                        <sfDataGrid:GridTemplateColumn MappingName="Ngay2"
+                                                       HeaderText="2"
+                                                       Width="30"
+                                                       HeaderFontAttribute="Bold"
+                                                       HeaderCellTextSize="16">
+                            <sfDataGrid:GridTemplateColumn.CellTemplate>
+                                <DataTemplate>
+                                    <CheckBox  IsChecked="{Binding Ngay2}"
+                                               Color="Green"
+                                               IsEnabled="False"
+                                               HorizontalOptions="Center" />
+                                </DataTemplate>
+                            </sfDataGrid:GridTemplateColumn.CellTemplate>
+                        </sfDataGrid:GridTemplateColumn>
+                        <sfDataGrid:GridTemplateColumn MappingName="Ngay3"
+                                                       HeaderText="3"
+                                                       Width="30"
+                                                       HeaderFontAttribute="Bold"
+                                                       HeaderCellTextSize="16">
+                            <sfDataGrid:GridTemplateColumn.CellTemplate>
+                                <DataTemplate>
+                                    <CheckBox  IsChecked="{Binding Ngay3}"
+                                               Color="Green"
+                                               IsEnabled="False"
+                                               HorizontalOptions="Center" />
+                                </DataTemplate>
+                            </sfDataGrid:GridTemplateColumn.CellTemplate>
+                        </sfDataGrid:GridTemplateColumn>
+                        <sfDataGrid:GridTemplateColumn MappingName="Ngay4"
+                                                       HeaderText="4"
+                                                       Width="30"
+                                                       HeaderFontAttribute="Bold"
+                                                       HeaderCellTextSize="16">
+                            <sfDataGrid:GridTemplateColumn.CellTemplate>
+                                <DataTemplate>
+                                    <CheckBox  IsChecked="{Binding Ngay4}"
+                                               Color="Green"
+                                               IsEnabled="False"
+                                               HorizontalOptions="Center" />
+                                </DataTemplate>
+                            </sfDataGrid:GridTemplateColumn.CellTemplate>
+                        </sfDataGrid:GridTemplateColumn>
+                        <sfDataGrid:GridTemplateColumn MappingName="Ngay5"
+                                                       HeaderText="5"
+                                                       Width="30"
+                                                       HeaderFontAttribute="Bold"
+                                                       HeaderCellTextSize="16">
+                            <sfDataGrid:GridTemplateColumn.CellTemplate>
+                                <DataTemplate>
+                                    <CheckBox  IsChecked="{Binding Ngay5}"
+                                               Color="Green"
+                                               IsEnabled="False"
+                                               HorizontalOptions="Center" />
+                                </DataTemplate>
+                            </sfDataGrid:GridTemplateColumn.CellTemplate>
+                        </sfDataGrid:GridTemplateColumn>
+                        <sfDataGrid:GridTemplateColumn MappingName="Ngay6"
+                                                       HeaderText="6"
+                                                       Width="30"
+                                                       HeaderFontAttribute="Bold"
+                                                       HeaderCellTextSize="16">
+                            <sfDataGrid:GridTemplateColumn.CellTemplate>
+                                <DataTemplate>
+                                    <CheckBox  IsChecked="{Binding Ngay6}"
+                                               Color="Green"
+                                               IsEnabled="False"
+                                               HorizontalOptions="Center" />
+                                </DataTemplate>
+                            </sfDataGrid:GridTemplateColumn.CellTemplate>
+                        </sfDataGrid:GridTemplateColumn>
+                        <sfDataGrid:GridTemplateColumn MappingName="Ngay7"
+                                                       HeaderText="7"
+                                                       Width="30"
+                                                       HeaderFontAttribute="Bold"
+                                                       HeaderCellTextSize="16">
+                            <sfDataGrid:GridTemplateColumn.CellTemplate>
+                                <DataTemplate>
+                                    <CheckBox  IsChecked="{Binding Ngay7}"
+                                               Color="Green"
+                                               IsEnabled="False"
+                                               HorizontalOptions="Center" />
+                                </DataTemplate>
+                            </sfDataGrid:GridTemplateColumn.CellTemplate>
+                        </sfDataGrid:GridTemplateColumn>
+                        <sfDataGrid:GridTemplateColumn MappingName="Ngay8"
+                                                       HeaderText="8"
+                                                       Width="30"
+                                                       HeaderFontAttribute="Bold"
+                                                       HeaderCellTextSize="16">
+                            <sfDataGrid:GridTemplateColumn.CellTemplate>
+                                <DataTemplate>
+                                    <CheckBox  IsChecked="{Binding Ngay8}"
+                                               Color="Green"
+                                               IsEnabled="False"
+                                               HorizontalOptions="Center" />
+                                </DataTemplate>
+                            </sfDataGrid:GridTemplateColumn.CellTemplate>
+                        </sfDataGrid:GridTemplateColumn>
+                        <sfDataGrid:GridTemplateColumn MappingName="Ngay9"
+                                                       HeaderText="9"
+                                                       Width="30"
+                                                       HeaderFontAttribute="Bold"
+                                                       HeaderCellTextSize="16">
+                            <sfDataGrid:GridTemplateColumn.CellTemplate>
+                                <DataTemplate>
+                                    <CheckBox  IsChecked="{Binding Ngay9}"
+                                               Color="Green"
+                                               IsEnabled="False"
+                                               HorizontalOptions="Center" />
+                                </DataTemplate>
+                            </sfDataGrid:GridTemplateColumn.CellTemplate>
+                        </sfDataGrid:GridTemplateColumn>
+                        <sfDataGrid:GridTemplateColumn MappingName="Ngay10"
+                                                       HeaderText="10"
+                                                       Width="30"
+                                                       HeaderFontAttribute="Bold"
+                                                       HeaderCellTextSize="16">
+                            <sfDataGrid:GridTemplateColumn.CellTemplate>
+                                <DataTemplate>
+                                    <CheckBox  IsChecked="{Binding Ngay10}"
+                                               Color="Green"
+                                               IsEnabled="False"
+                                               HorizontalOptions="Center" />
+                                </DataTemplate>
+                            </sfDataGrid:GridTemplateColumn.CellTemplate>
+                        </sfDataGrid:GridTemplateColumn>
+                        <sfDataGrid:GridTemplateColumn MappingName="Ngay11"
+                                                       HeaderText="11"
+                                                       Width="30"
+                                                       HeaderFontAttribute="Bold"
+                                                       HeaderCellTextSize="16">
+                            <sfDataGrid:GridTemplateColumn.CellTemplate>
+                                <DataTemplate>
+                                    <CheckBox  IsChecked="{Binding Ngay11}"
+                                               Color="Green"
+                                               IsEnabled="False"
+                                               HorizontalOptions="Center" />
+                                </DataTemplate>
+                            </sfDataGrid:GridTemplateColumn.CellTemplate>
+                        </sfDataGrid:GridTemplateColumn>
+                        <sfDataGrid:GridTemplateColumn MappingName="Ngay12"
+                                                       HeaderText="12"
+                                                       Width="30"
+                                                       HeaderFontAttribute="Bold"
+                                                       HeaderCellTextSize="16">
+                            <sfDataGrid:GridTemplateColumn.CellTemplate>
+                                <DataTemplate>
+                                    <CheckBox  IsChecked="{Binding Ngay12}"
+                                               Color="Green"
+                                               IsEnabled="False"
+                                               HorizontalOptions="Center" />
+                                </DataTemplate>
+                            </sfDataGrid:GridTemplateColumn.CellTemplate>
+                        </sfDataGrid:GridTemplateColumn>
+                        <sfDataGrid:GridTemplateColumn MappingName="Ngay13"
+                                                       HeaderText="13"
+                                                       Width="30"
+                                                       HeaderFontAttribute="Bold"
+                                                       HeaderCellTextSize="16">
+                            <sfDataGrid:GridTemplateColumn.CellTemplate>
+                                <DataTemplate>
+                                    <CheckBox  IsChecked="{Binding Ngay13}"
+                                               Color="Green"
+                                               IsEnabled="False"
+                                               HorizontalOptions="Center" />
+                                </DataTemplate>
+                            </sfDataGrid:GridTemplateColumn.CellTemplate>
+                        </sfDataGrid:GridTemplateColumn>
+                        <sfDataGrid:GridTemplateColumn MappingName="Ngay14"
+                                                       HeaderText="14"
+                                                       Width="30"
+                                                       HeaderFontAttribute="Bold"
+                                                       HeaderCellTextSize="16">
+                            <sfDataGrid:GridTemplateColumn.CellTemplate>
+                                <DataTemplate>
+                                    <CheckBox  IsChecked="{Binding Ngay14}"
+                                               Color="Green"
+                                               IsEnabled="False"
+                                               HorizontalOptions="Center" />
+                                </DataTemplate>
+                            </sfDataGrid:GridTemplateColumn.CellTemplate>
+                        </sfDataGrid:GridTemplateColumn>
+                        <sfDataGrid:GridTemplateColumn MappingName="Ngay15"
+                                                       HeaderText="15"
+                                                       Width="30"
+                                                       HeaderFontAttribute="Bold"
+                                                       HeaderCellTextSize="16">
+                            <sfDataGrid:GridTemplateColumn.CellTemplate>
+                                <DataTemplate>
+                                    <CheckBox  IsChecked="{Binding Ngay15}"
+                                               Color="Green"
+                                               IsEnabled="False"
+                                               HorizontalOptions="Center" />
+                                </DataTemplate>
+                            </sfDataGrid:GridTemplateColumn.CellTemplate>
+                        </sfDataGrid:GridTemplateColumn>
+                        <sfDataGrid:GridTemplateColumn MappingName="Ngay16"
+                                                       HeaderText="16"
+                                                       Width="30"
+                                                       HeaderFontAttribute="Bold"
+                                                       HeaderCellTextSize="16">
+                            <sfDataGrid:GridTemplateColumn.CellTemplate>
+                                <DataTemplate>
+                                    <CheckBox  IsChecked="{Binding Ngay16}"
+                                               Color="Green"
+                                               IsEnabled="False"
+                                               HorizontalOptions="Center" />
+                                </DataTemplate>
+                            </sfDataGrid:GridTemplateColumn.CellTemplate>
+                        </sfDataGrid:GridTemplateColumn>
+                        <sfDataGrid:GridTemplateColumn MappingName="Ngay17"
+                                                       HeaderText="17"
+                                                       Width="30"
+                                                       HeaderFontAttribute="Bold"
+                                                       HeaderCellTextSize="16">
+                            <sfDataGrid:GridTemplateColumn.CellTemplate>
+                                <DataTemplate>
+                                    <CheckBox  IsChecked="{Binding Ngay17}"
+                                               Color="Green"
+                                               IsEnabled="False"
+                                               HorizontalOptions="Center" />
+                                </DataTemplate>
+                            </sfDataGrid:GridTemplateColumn.CellTemplate>
+                        </sfDataGrid:GridTemplateColumn>
+                        <sfDataGrid:GridTemplateColumn MappingName="Ngay18"
+                                                       HeaderText="18"
+                                                       Width="30"
+                                                       HeaderFontAttribute="Bold"
+                                                       HeaderCellTextSize="16">
+                            <sfDataGrid:GridTemplateColumn.CellTemplate>
+                                <DataTemplate>
+                                    <CheckBox  IsChecked="{Binding Ngay18}"
+                                               Color="Green"
+                                               IsEnabled="False"
+                                               HorizontalOptions="Center" />
+                                </DataTemplate>
+                            </sfDataGrid:GridTemplateColumn.CellTemplate>
+                        </sfDataGrid:GridTemplateColumn>
+                        <sfDataGrid:GridTemplateColumn MappingName="Ngay19"
+                                                       HeaderText="19"
+                                                       Width="30"
+                                                       HeaderFontAttribute="Bold"
+                                                       HeaderCellTextSize="16">
+                            <sfDataGrid:GridTemplateColumn.CellTemplate>
+                                <DataTemplate>
+                                    <CheckBox  IsChecked="{Binding Ngay19}"
+                                               Color="Green"
+                                               IsEnabled="False"
+                                               HorizontalOptions="Center" />
+                                </DataTemplate>
+                            </sfDataGrid:GridTemplateColumn.CellTemplate>
+                        </sfDataGrid:GridTemplateColumn>
+                        <sfDataGrid:GridTemplateColumn MappingName="Ngay20"
+                                                       HeaderText="20"
+                                                       Width="30"
+                                                       HeaderFontAttribute="Bold"
+                                                       HeaderCellTextSize="16">
+                            <sfDataGrid:GridTemplateColumn.CellTemplate>
+                                <DataTemplate>
+                                    <CheckBox  IsChecked="{Binding Ngay20}"
+                                               Color="Green"
+                                               IsEnabled="False"
+                                               HorizontalOptions="Center" />
+                                </DataTemplate>
+                            </sfDataGrid:GridTemplateColumn.CellTemplate>
+                        </sfDataGrid:GridTemplateColumn>
+                        <sfDataGrid:GridTemplateColumn MappingName="Ngay21"
+                                                       HeaderText="21"
+                                                       Width="30"
+                                                       HeaderFontAttribute="Bold"
+                                                       HeaderCellTextSize="16">
+                            <sfDataGrid:GridTemplateColumn.CellTemplate>
+                                <DataTemplate>
+                                    <CheckBox  IsChecked="{Binding Ngay21}"
+                                               Color="Green"
+                                               IsEnabled="False"
+                                               HorizontalOptions="Center" />
+                                </DataTemplate>
+                            </sfDataGrid:GridTemplateColumn.CellTemplate>
+                        </sfDataGrid:GridTemplateColumn>
+                        <sfDataGrid:GridTemplateColumn MappingName="Ngay22"
+                                                       HeaderText="22"
+                                                       Width="30"
+                                                       HeaderFontAttribute="Bold"
+                                                       HeaderCellTextSize="16">
+                            <sfDataGrid:GridTemplateColumn.CellTemplate>
+                                <DataTemplate>
+                                    <CheckBox  IsChecked="{Binding Ngay22}"
+                                               Color="Green"
+                                               IsEnabled="False"
+                                               HorizontalOptions="Center" />
+                                </DataTemplate>
+                            </sfDataGrid:GridTemplateColumn.CellTemplate>
+                        </sfDataGrid:GridTemplateColumn>
+                        <sfDataGrid:GridTemplateColumn MappingName="Ngay23"
+                                                       HeaderText="23"
+                                                       Width="30"
+                                                       HeaderFontAttribute="Bold"
+                                                       HeaderCellTextSize="16">
+                            <sfDataGrid:GridTemplateColumn.CellTemplate>
+                                <DataTemplate>
+                                    <CheckBox  IsChecked="{Binding Ngay23}"
+                                               Color="Green"
+                                               IsEnabled="False"
+                                               HorizontalOptions="Center" />
+                                </DataTemplate>
+                            </sfDataGrid:GridTemplateColumn.CellTemplate>
+                        </sfDataGrid:GridTemplateColumn>
+                        <sfDataGrid:GridTemplateColumn MappingName="Ngay24"
+                                                       HeaderText="24"
+                                                       Width="30"
+                                                       HeaderFontAttribute="Bold"
+                                                       HeaderCellTextSize="16">
+                            <sfDataGrid:GridTemplateColumn.CellTemplate>
+                                <DataTemplate>
+                                    <CheckBox  IsChecked="{Binding Ngay24}"
+                                               Color="Green"
+                                               IsEnabled="False"
+                                               HorizontalOptions="Center" />
+                                </DataTemplate>
+                            </sfDataGrid:GridTemplateColumn.CellTemplate>
+                        </sfDataGrid:GridTemplateColumn>
+                        <sfDataGrid:GridTemplateColumn MappingName="Ngay25"
+                                                       HeaderText="25"
+                                                       Width="30"
+                                                       HeaderFontAttribute="Bold"
+                                                       HeaderCellTextSize="16">
+                            <sfDataGrid:GridTemplateColumn.CellTemplate>
+                                <DataTemplate>
+                                    <CheckBox  IsChecked="{Binding Ngay25}"
+                                               Color="Green"
+                                               IsEnabled="False"
+                                               HorizontalOptions="Center" />
+                                </DataTemplate>
+                            </sfDataGrid:GridTemplateColumn.CellTemplate>
+                        </sfDataGrid:GridTemplateColumn>
+                        <sfDataGrid:GridTemplateColumn MappingName="Ngay26"
+                                                       HeaderText="26"
+                                                       Width="30"
+                                                       HeaderFontAttribute="Bold"
+                                                       HeaderCellTextSize="16">
+                            <sfDataGrid:GridTemplateColumn.CellTemplate>
+                                <DataTemplate>
+                                    <CheckBox  IsChecked="{Binding Ngay26}"
+                                               Color="Green"
+                                               IsEnabled="False"
+                                               HorizontalOptions="Center" />
+                                </DataTemplate>
+                            </sfDataGrid:GridTemplateColumn.CellTemplate>
+                        </sfDataGrid:GridTemplateColumn>
+                        <sfDataGrid:GridTemplateColumn MappingName="Ngay27"
+                                                       HeaderText="27"
+                                                       Width="30"
+                                                       HeaderFontAttribute="Bold"
+                                                       HeaderCellTextSize="16">
+                            <sfDataGrid:GridTemplateColumn.CellTemplate>
+                                <DataTemplate>
+                                    <CheckBox  IsChecked="{Binding Ngay27}"
+                                               Color="Green"
+                                               IsEnabled="False"
+                                               HorizontalOptions="Center" />
+                                </DataTemplate>
+                            </sfDataGrid:GridTemplateColumn.CellTemplate>
+                        </sfDataGrid:GridTemplateColumn>
+                        <sfDataGrid:GridTemplateColumn MappingName="Ngay28"
+                                                       HeaderText="28"
+                                                       Width="30"
+                                                       HeaderFontAttribute="Bold"
+                                                       HeaderCellTextSize="16">
+                            <sfDataGrid:GridTemplateColumn.CellTemplate>
+                                <DataTemplate>
+                                    <CheckBox  IsChecked="{Binding Ngay28}"
+                                               Color="Green"
+                                               IsEnabled="False"
+                                               HorizontalOptions="Center" />
+                                </DataTemplate>
+                            </sfDataGrid:GridTemplateColumn.CellTemplate>
+                        </sfDataGrid:GridTemplateColumn>
+                        <sfDataGrid:GridTemplateColumn MappingName="Ngay29"
+                                                       HeaderText="29"
+                                                       Width="30"
+                                                       HeaderFontAttribute="Bold"
+                                                       HeaderCellTextSize="16">
+                            <sfDataGrid:GridTemplateColumn.CellTemplate>
+                                <DataTemplate>
+                                    <CheckBox  IsChecked="{Binding Ngay29}"
+                                               Color="Green"
+                                               IsEnabled="False"
+                                               HorizontalOptions="Center" />
+                                </DataTemplate>
+                            </sfDataGrid:GridTemplateColumn.CellTemplate>
+                        </sfDataGrid:GridTemplateColumn>
+                        <sfDataGrid:GridTemplateColumn MappingName="Ngay30"
+                                                       HeaderText="30"
+                                                       Width="30"
+                                                       HeaderFontAttribute="Bold"
+                                                       HeaderCellTextSize="16">
+                            <sfDataGrid:GridTemplateColumn.CellTemplate>
+                                <DataTemplate>
+                                    <CheckBox  IsChecked="{Binding Ngay30}"
+                                               Color="Green"
+                                               IsEnabled="False"
+                                               HorizontalOptions="Center" />
+                                </DataTemplate>
+                            </sfDataGrid:GridTemplateColumn.CellTemplate>
+                        </sfDataGrid:GridTemplateColumn>
+                    </sfDataGrid:SfDataGrid.Columns>
+                    <sfDataGrid:SfDataGrid.GroupColumnDescriptions>
+                        <sfDataGrid:GroupColumnDescription ColumnName="FullName" />
+                    </sfDataGrid:SfDataGrid.GroupColumnDescriptions>
+                </sfDataGrid:SfDataGrid>
+            </Grid>
+        </StackLayout>
+    </ContentPage.Content>
+</ContentPage>

@@ -120,32 +120,6 @@
                                 </Style>
                             </sfDataGrid:GridTemplateColumn.CellStyle>
                         </sfDataGrid:GridTemplateColumn>
-                        <sfDataGrid:GridTemplateColumn MappingName="DINH_MUC"   HeaderText="Định Mức" HeaderFontAttribute="Bold" Width="120"   HeaderCellTextSize="16">
-                            <sfDataGrid:GridTemplateColumn.CellTemplate>
-                                <DataTemplate>
-                                    <Label Text="{Binding DINH_MUC}" Padding="5,0,0,0" TextColor="{Binding TRANG_THAI , Converter={StaticResource ChuyenTrangThaiConverter}, ConverterParameter='textcolor'}" XAlign="Start" YAlign="Center"/>
-                                </DataTemplate>
-                            </sfDataGrid:GridTemplateColumn.CellTemplate>
-                            <sfDataGrid:GridTemplateColumn.CellStyle>
-                                <Style TargetType="sfDataGrid:GridCell">
-                                    <Setter Property="BackgroundColor"    Value="{Binding TRANG_THAI, Converter={StaticResource ChuyenTrangThaiConverter} ,ConverterParameter='background'}" />
-                                </Style>
-                            </sfDataGrid:GridTemplateColumn.CellStyle>
-                        </sfDataGrid:GridTemplateColumn>
-
-                        <!--<sfDataGrid:GridTemplateColumn MappingName="NGAY_TAO"  HeaderText="Ngày Tạo" HeaderFontAttribute="Bold" Width="120"   HeaderCellTextSize="16">
-                            <sfDataGrid:GridTemplateColumn.CellTemplate>
-                                <DataTemplate>
-                                    <Label Text="{Binding NGAY_TAO, StringFormat='{0:dd/MM/yyyy}'}" Padding="5,0,0,0" TextColor="{Binding TRANG_THAI , Converter={StaticResource ChuyenTrangThaiConverter}, ConverterParameter='textcolor'}" XAlign="Start" YAlign="Center"/>
-                                </DataTemplate>
-                            </sfDataGrid:GridTemplateColumn.CellTemplate>
-                            <sfDataGrid:GridTemplateColumn.CellStyle>
-                                <Style TargetType="sfDataGrid:GridCell">
-                                    <Setter Property="BackgroundColor"    Value="{Binding TRANG_THAI, Converter={StaticResource ChuyenTrangThaiConverter} ,ConverterParameter='background'}" />
-                                </Style>
-                            </sfDataGrid:GridTemplateColumn.CellStyle>
-                        </sfDataGrid:GridTemplateColumn>-->
-
                         <sfDataGrid:GridTemplateColumn MappingName="GIO_BAT_DAU"  HeaderText="Giờ Bắt Đầu" HeaderFontAttribute="Bold" Width="120"   HeaderCellTextSize="16">
                             <sfDataGrid:GridTemplateColumn.CellTemplate>
                                 <DataTemplate>

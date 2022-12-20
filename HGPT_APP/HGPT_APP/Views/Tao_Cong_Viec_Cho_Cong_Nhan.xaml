@@ -58,6 +58,21 @@
                                        ColumnSizer="LastColumnFill"
                                        >
                     <sfDataGrid:SfDataGrid.Columns>
+                        <sfDataGrid:GridTemplateColumn MappingName="TO_SAN_XUAT"
+                                                       HeaderText="Tổ sản xuất"
+                                                       HeaderFontAttribute="Bold"
+                                                       Width="140"
+                                                       HeaderCellTextSize="16">
+                            <sfDataGrid:GridTemplateColumn.CellTemplate>
+                                <DataTemplate>
+                                    <Label Text="{Binding TO_SAN_XUAT}"
+                                           Padding="5,0,0,0"
+                                           TextColor="Black"
+                                           XAlign="Start"
+                                           YAlign="Center" />
+                                </DataTemplate>
+                            </sfDataGrid:GridTemplateColumn.CellTemplate>
+                        </sfDataGrid:GridTemplateColumn>
                         <sfDataGrid:GridTemplateColumn MappingName="TEN_NHAN_VIEN"  HeaderText="Tên nhân viên" HeaderFontAttribute="Bold" Width="140"   HeaderCellTextSize="16">
                             <sfDataGrid:GridTemplateColumn.CellTemplate>
                                 <DataTemplate>

@@ -30,12 +30,12 @@ namespace HGPT_APP.Views.GiamSat
             }
         }
 
-        protected override void OnAppearing()
+        protected  override async void OnAppearing()
         {
             base.OnAppearing();
             if (viewModel.ListTienDoLapDat.Count  == 0 )
             {
-                viewModel.LoadCommand.Execute(null);
+                viewModel.LoadCommand.Execute(null);                
             }    
         }
         string filterText = "";

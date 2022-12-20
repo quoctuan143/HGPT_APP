@@ -6,8 +6,10 @@ using Foundation;
 using ImageCircle.Forms.Plugin.iOS;
 using Plugin.FirebasePushNotification;
 using Syncfusion.ListView.XForms.iOS;
+using Syncfusion.SfCalendar.XForms.iOS;
 using Syncfusion.SfPicker.XForms.iOS;
 using Syncfusion.XForms.iOS.TextInputLayout;
+using Syncfusion.XForms.Pickers.iOS;
 using UIKit;
 using UserNotifications;
 using Xamarin.Forms;
@@ -27,7 +29,9 @@ namespace HGPT_APP.iOS
         //
         // You have 17 seconds to return from this method, or iOS will terminate your application.
         //
-        Dictionary<string, string> dict = new Dictionary<string, string>();
+        //Dictionary<string, string> dict = new Dictionary<string, string>();
+        private bool IsNotification = false;
+        private object NotificationData;
         public override bool FinishedLaunching(UIApplication app, NSDictionary options)
         {
             global::Xamarin.Forms.Forms.SetFlags(new string[] { "CollectionView_Experimental", "Brush_Experimental", "SwipeView_Experimental", "CarouseView_Experimental", "IndicatorView_Experimental" });
@@ -41,11 +45,13 @@ namespace HGPT_APP.iOS
             Syncfusion.XForms.iOS.Buttons.SfSwitchRenderer.Init();           
             Syncfusion.XForms.iOS.BadgeView.SfBadgeViewRenderer.Init();
             Syncfusion.XForms.iOS.RichTextEditor.SfRichTextEditorRenderer.Init();
+            SfCalendarRenderer.Init();
             SfListViewRenderer.Init();
             SfTextInputLayoutRenderer.Init();
             Rg.Plugins.Popup.Popup.Init();
             ImageCircleRenderer.Init();
             SfPickerRenderer.Init();
+            SfDatePickerRenderer.Init();
             Syncfusion.XForms.iOS.TabView.SfTabViewRenderer.Init();
             Syncfusion.XForms.iOS.PopupLayout.SfPopupLayoutRenderer.Init();
            
@@ -65,9 +71,13 @@ namespace HGPT_APP.iOS
             UINavigationBar.Appearance.BarTintColor = color;
             UITabBar.Appearance.BackgroundColor = color;
             UITabBar.Appearance.BarTintColor = color;
-           
-            CrossFirebasePushNotification.IOS.OnNotificationReceived += IOS_OnNotificationReceived;
-            LoadApplication(new App(dict));
+            CrossFirebasePushNotification.Current.OnNotificationOpened += (s, p) =>
+            {
+                System.Diagnostics.Debug.WriteLine("NOTIFICATION RECEIVED", p.Data);
+                NotificationData = p.Data;
+                IsNotification = false;
+            };
+            LoadApplication(new App(IsNotification, NotificationData));
 
             return base.FinishedLaunching(app, options);
         }
@@ -80,13 +90,13 @@ namespace HGPT_APP.iOS
 
             return vc;
         }
-        private void IOS_OnNotificationReceived(object source, FirebasePushNotificationDataEventArgs e)
-        {
-           if (e.Data.Count > 0)
-            {
-                dict.Add("key", "nhanthongbao"); // cái này chỉ để kiểm tra có nhận thông báo ko.
-            }    
-        }
+        //private void IOS_OnNotificationReceived(object source, FirebasePushNotificationDataEventArgs e)
+        //{
+        //   if (e.Data.Count > 0)
+        //    {
+        //        dict.Add("key", "nhanthongbao"); // cái này chỉ để kiểm tra có nhận thông báo ko.
+        //    }    
+        //}
 
         public override void WillEnterForeground(UIApplication uiApplication)
         {

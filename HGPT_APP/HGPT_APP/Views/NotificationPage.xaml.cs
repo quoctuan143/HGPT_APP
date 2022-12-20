@@ -90,13 +90,14 @@ namespace HGPT_APP.Views
                             else if (item.Code == "sinhnhatkhachhang")
                                 await Navigation.PushAsync(new SinhNhatKhachHang_ChuaXuLy());
                             else if (item.Code == "ThongBaoGiamSat")
-                                await Navigation.PushAsync(new XemBaoCaoGiamSat_Page());
+                                await Navigation.PushAsync(new XemBaoCaoGiamSat_Page(item.SoChungTu, item.Date == null ? DateTime.Now.Date : Convert.ToDateTime(item.Date)));
                         }
                         else
                         {
                             await new MessageBox("Thông báo", ok.Result.Content.ReadAsStringAsync().Result.ToLower()).Show();
                         }
                         client.Dispose();
+                        ListThongBao.Remove(item);
                     }
                 }
 

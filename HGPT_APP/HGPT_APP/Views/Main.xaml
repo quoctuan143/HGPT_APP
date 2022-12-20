@@ -8,6 +8,7 @@
              Title="HGPT Mechanical"            
              Shell.NavBarIsVisible="True"       
              xmlns:helper="clr-namespace:HGPT_APP.helper" xmlns:cv="clr-namespace:CarouselView.FormsPlugin.Abstractions;assembly=CarouselView.FormsPlugin.Abstractions"
+             xmlns:syncfusion="clr-namespace:Syncfusion.XForms.Pickers;assembly=Syncfusion.SfPicker.XForms"
              x:Class="HGPT_APP.Views.Main">
 
     <Shell.TitleView >
@@ -64,14 +65,23 @@
                         BorderColor="{StaticResource Primary}"
                         CornerRadius="10"    
                         BackgroundColor="Transparent"                        
-                        HeightRequest="200"
+                        HeightRequest="220"
                         x:Name="frmCongViec"
                               IsVisible ="False"
                               HasShadow="False"
                         >
                             <StackLayout Padding="5">
-                                <Label Grid.Row="0" Text="Quản lý công việc" TextDecorations="Underline" TextColor="{StaticResource Primary}" FontSize="20" FontAttributes="Italic"></Label>
-                                <Grid ColumnDefinitions="3.3*,3.3*,3.4*" RowDefinitions="*,*" Margin="0,20,0,0" RowSpacing="5" 
+                            <syncfusion:SfDatePicker x:Name="datepicker"
+                                                     Date="{Binding Thang,Mode=TwoWay}"
+                                                     ShowFooter="True"
+                                                     PickerMode="Dialog"
+                                                     PickerHeight="300"
+                                                     PickerWidth="300"
+                                                     HeaderText="Chọn ngày"
+                                                     Format="dd_MMM_yyyy"
+                                                     OkCommand="{Binding SelectDateCommand}" />
+                            <Label Grid.Row="0" Text="Quản lý công việc" TextDecorations="Underline" TextColor="{StaticResource Primary}" FontSize="20" FontAttributes="Italic"></Label>
+                            <Grid ColumnDefinitions="2.5*,2.5*,2.5*,2.5*" RowDefinitions="*,*" Margin="0,20,0,0" RowSpacing="5" 
                                       HorizontalOptions="FillAndExpand" VerticalOptions="FillAndExpand">
                                     <Image Source="duyetgiacong.png" Grid.Column="0" Grid.Row="0" Aspect="AspectFit" HeightRequest="70" WidthRequest="70" VerticalOptions="StartAndExpand" HorizontalOptions="CenterAndExpand">
                                         <Image.GestureRecognizers>
@@ -91,7 +101,30 @@
                                         </Image.GestureRecognizers>
                                     </Image>
                                     <Label Text="Lịch sử &#10;công việc"  Padding="7" Grid.Column="2" Grid.Row="1"  FontSize="16" VerticalOptions="Start" HorizontalTextAlignment="Center" TextColor="{StaticResource Primary}" FontAttributes="Italic"  LineBreakMode="WordWrap"></Label>
-                                </Grid>
+                                <Image Source="tranfer.png"
+                                       Grid.Column="3"
+                                       Grid.Row="0"
+                                       Aspect="AspectFit"
+                                       HeightRequest="70"
+                                       WidthRequest="70"
+                                       VerticalOptions="StartAndExpand"
+                                       HorizontalOptions="CenterAndExpand">
+                                    <Image.GestureRecognizers>
+                                        <TapGestureRecognizer x:Name="btnPhanViecTuKeHoach"
+                                                              Tapped="btnPhanViecTuKeHoach_Tapped"></TapGestureRecognizer>
+                                    </Image.GestureRecognizers>
+                                </Image>
+                                <Label Text="Phân việc &#10;Từ kế hoạch"
+                                       Padding="7"
+                                       Grid.Column="3"
+                                       Grid.Row="1"
+                                       FontSize="16"
+                                       VerticalOptions="Start"
+                                       HorizontalTextAlignment="Center"
+                                       TextColor="{StaticResource Primary}"
+                                       FontAttributes="Italic"
+                                       LineBreakMode="WordWrap"></Label>
+                            </Grid>
                             </StackLayout>
                         </Frame>
 
@@ -141,12 +174,30 @@
                                 <Label Grid.Row="0" Text="Chăm sóc khách hàng" TextDecorations="Underline" TextColor="{StaticResource Primary}" FontSize="20" FontAttributes="Italic"></Label>
                                 <Grid ColumnDefinitions="3.3*,3.3*,3.4*" RowDefinitions="*,*" Margin="0,20,0,0"  RowSpacing="0" 
                                       HorizontalOptions="FillAndExpand" VerticalOptions="FillAndExpand">
-
-                                    <Image Source="birthday.png" Grid.Row="0" Grid.Column="0" Aspect="AspectFit" HeightRequest="70" WidthRequest="70" HorizontalOptions="CenterAndExpand" VerticalOptions="StartAndExpand">
-                                        <Image.GestureRecognizers>
-                                            <TapGestureRecognizer Tapped="btnsinhnhatkhachhangchuachamsoc_Tapped"></TapGestureRecognizer>
-                                        </Image.GestureRecognizers>
-                                    </Image>
+                                <badge:SfBadgeView Grid.Row="0"
+                                                   BadgeText=""
+                                                   HorizontalOptions="Center"
+                                                   VerticalOptions="Center"
+                                                   x:Name="bagCSKH">
+                                    <badge:SfBadgeView.Content>
+                                        <Image Source="birthday.png"
+                                               Aspect="AspectFit"
+                                               HeightRequest="70"
+                                               WidthRequest="70">
+                                            <Image.GestureRecognizers>
+                                                <TapGestureRecognizer Tapped="btnsinhnhatkhachhangchuachamsoc_Tapped"></TapGestureRecognizer>
+                                            </Image.GestureRecognizers>
+                                        </Image>
+                                    </badge:SfBadgeView.Content>
+                                    <badge:SfBadgeView.BadgeSettings>
+                                        <badge:BadgeSetting BadgeType="Error"
+                                                            Offset="-5,0"
+                                                            BadgeAnimation="Scale"
+                                                            BadgePosition="TopRight"
+                                                            FontSize="15"
+                                                            FontAttributes="Bold" />
+                                    </badge:SfBadgeView.BadgeSettings>
+                                </badge:SfBadgeView>                                  
                                     <Label Grid.Row="1" Grid.Column="0" Text="Sinh nhật khách hàng" Style="{StaticResource styleLableBlue}"  Padding="7,2,7,0" FontAttributes="Italic" HorizontalTextAlignment="Center" VerticalOptions="Center"></Label>
 
                                     <Image Grid.Row="0" Grid.Column="1" Source="finishjob.png" Aspect="AspectFit" HeightRequest="70" WidthRequest="70" HorizontalOptions="CenterAndExpand" VerticalOptions="StartAndExpand" >
@@ -171,7 +222,8 @@
                               IsVisible ="False">
                             <StackLayout Padding="5">
                                 <Label Grid.Row="0" Text="Giám sát tại công trình" TextDecorations="Underline" TextColor="{StaticResource Primary}" FontSize="20" FontAttributes="Italic"></Label>
-                                <Grid ColumnDefinitions="3.3*,3.3*,3.4*" RowDefinitions="auto,*,auto,*,*,*" Margin="0,20,0,0"  RowSpacing="0" 
+                            <Grid ColumnDefinitions="3.3*,3.3*,3.4*"
+                                  RowDefinitions="auto,*,auto,*,*,*,*,*" Margin="0,20,0,0"  RowSpacing="0" 
                                       HorizontalOptions="FillAndExpand" VerticalOptions="FillAndExpand">
 
                                     <Image Source="report1.png" Grid.Row="0" Grid.Column="0" Aspect="AspectFit" HeightRequest="70" WidthRequest="70" HorizontalOptions="CenterAndExpand" VerticalOptions="StartAndExpand">
@@ -180,13 +232,34 @@
                                         </Image.GestureRecognizers>
                                     </Image>
                                     <Label Grid.Row="1" Grid.Column="0" Text="Báo cáo công việc" Style="{StaticResource styleLableBlue}"  Padding="7,2,7,0" FontAttributes="Italic" HorizontalTextAlignment="Center" VerticalTextAlignment="Start"></Label>
-
-                                    <Image Grid.Row="0" Grid.Column="1" Source="report.png" Aspect="AspectFit" HeightRequest="70" WidthRequest="70" HorizontalOptions="CenterAndExpand" VerticalOptions="StartAndExpand" >
-                                        <Image.GestureRecognizers>
-                                            <TapGestureRecognizer x:Name="btnXembaoCaoHangNgay" Tapped="btnXembaoCaoHangNgay_Tapped" ></TapGestureRecognizer>
-                                        </Image.GestureRecognizers>
-                                    </Image>
-                                    <Label Grid.Row="1" Grid.Column="1" Text="Xem báo cáo hàng ngày" Style="{StaticResource styleLableBlue}"  Padding="7,2,7,0"  FontAttributes="Italic" HorizontalTextAlignment="Center"  VerticalTextAlignment="Start"></Label>
+                                                                              
+                                <badge:SfBadgeView Grid.Row="0"
+                                                   Grid.Column="1"
+                                                   BadgeText=""
+                                                   HorizontalOptions="Center"
+                                                   VerticalOptions="Center"
+                                                   x:Name="bagXembaoCaoHangNgay">
+                                    <badge:SfBadgeView.Content>
+                                        <Image Source="report.png"
+                                               Aspect="AspectFit"
+                                               HeightRequest="65"
+                                               WidthRequest="65"
+                                               x:Name="ImgXembaoCaoHangNgay">
+                                            <Image.GestureRecognizers>
+                                                <TapGestureRecognizer   Tapped="btnXembaoCaoHangNgay_Tapped"></TapGestureRecognizer>
+                                            </Image.GestureRecognizers>
+                                        </Image>
+                                    </badge:SfBadgeView.Content>
+                                    <badge:SfBadgeView.BadgeSettings>
+                                        <badge:BadgeSetting BadgeType="Error"
+                                                            Offset="-5,0"
+                                                            BadgeAnimation="Scale"
+                                                            BadgePosition="TopRight"
+                                                            FontSize="15"
+                                                            FontAttributes="Bold" />
+                                    </badge:SfBadgeView.BadgeSettings>
+                                </badge:SfBadgeView>
+                                <Label Grid.Row="1" Grid.Column="1" Text="Xem báo cáo hàng ngày" Style="{StaticResource styleLableBlue}"  Padding="7,2,7,0"  FontAttributes="Italic" HorizontalTextAlignment="Center"  VerticalTextAlignment="Start"></Label>
                                     <Image Grid.Row="0" Grid.Column="2" Source="chamcong.png" Aspect="AspectFit" HeightRequest="70" WidthRequest="70" HorizontalOptions="CenterAndExpand" VerticalOptions="StartAndExpand" >
                                         <Image.GestureRecognizers>
                                             <TapGestureRecognizer x:Name="btnChamCongNhanSu" Tapped="btnChamCongNhanSu_Tapped" ></TapGestureRecognizer>
@@ -226,6 +299,48 @@
                                     </Image.GestureRecognizers>
                                 </Image>
                                 <Label Grid.Row="6" Grid.Column="1"  Text="Tổng hợp lắp đặt tại công trình" Style="{StaticResource styleLableBlue}"  Padding="7,2,7,0" FontAttributes="Italic" HorizontalTextAlignment="Center" VerticalTextAlignment="Start"></Label>
+                                <Image Source="machine.png"
+                                       Grid.Row="5"
+                                       Grid.Column="2"
+                                       Aspect="AspectFit"
+                                       HeightRequest="70"
+                                       WidthRequest="70"
+                                       HorizontalOptions="CenterAndExpand"
+                                       VerticalOptions="StartAndExpand">
+                                    <Image.GestureRecognizers>
+                                        <TapGestureRecognizer x:Name="btnDanhSachCongTrinh"
+                                                              Tapped="btnDanhSachCongTrinh_Tapped"></TapGestureRecognizer>
+                                    </Image.GestureRecognizers>
+                                </Image>
+                                <Label Grid.Row="6"
+                                       Grid.Column="2"
+                                       Text="Danh sách công trình"
+                                       Style="{StaticResource styleLableBlue}"
+                                       Padding="7,2,7,0"
+                                       FontAttributes="Italic"
+                                       HorizontalTextAlignment="Center"
+                                       VerticalTextAlignment="Start"></Label>
+                                <Image Source="report.png"
+                                       Grid.Row="7"
+                                       Grid.Column="0"
+                                       Aspect="AspectFit"
+                                       HeightRequest="70"
+                                       WidthRequest="70"
+                                       HorizontalOptions="CenterAndExpand"
+                                       VerticalOptions="StartAndExpand">
+                                    <Image.GestureRecognizers>
+                                        <TapGestureRecognizer x:Name="btnTheoDoiGiamSat"
+                                                              Tapped="btnTheoDoiGiamSat_Tapped"></TapGestureRecognizer>
+                                    </Image.GestureRecognizers>
+                                </Image>
+                                <Label Grid.Row="8"
+                                       Grid.Column="0"
+                                       Text="Theo dõi giám sát"
+                                       Style="{StaticResource styleLableBlue}"
+                                       Padding="7,2,7,0"
+                                       FontAttributes="Italic"
+                                       HorizontalTextAlignment="Center"
+                                       VerticalTextAlignment="Start"></Label>
                             </Grid>
                             </StackLayout>
                         </Frame>

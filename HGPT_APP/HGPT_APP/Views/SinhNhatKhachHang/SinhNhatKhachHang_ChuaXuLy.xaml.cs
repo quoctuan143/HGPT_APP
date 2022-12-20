@@ -30,7 +30,7 @@ namespace HGPT_APP.Views.SinhNhatKhachHang
         private void ListView_ItemSelected(object sender, SelectedItemChangedEventArgs e)
         {
             ChamSocKhachHang cskh = listChuaXuLy.SelectedItem as ChamSocKhachHang;
-            Navigation.PushModalAsync(new NoiDungChamSocKhachHang(cskh));
+            Navigation.PushAsync(new NoiDungChamSocKhachHang(cskh));
         }
     }
 }

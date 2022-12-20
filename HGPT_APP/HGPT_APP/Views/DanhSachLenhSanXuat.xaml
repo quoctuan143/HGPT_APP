@@ -2,15 +2,15 @@
 <ContentPage xmlns="http://xamarin.com/schemas/2014/forms"
              xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
              xmlns:d="http://xamarin.com/schemas/2014/forms/design"
-             xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006" 
-             xmlns:sfDataGrid="clr-namespace:Syncfusion.SfDataGrid.XForms;assembly=Syncfusion.SfDataGrid.XForms" 
-             xmlns:sfbutton="clr-namespace:Syncfusion.XForms.Buttons;assembly=Syncfusion.Buttons.XForms" 
+             xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
+             xmlns:sfDataGrid="clr-namespace:Syncfusion.SfDataGrid.XForms;assembly=Syncfusion.SfDataGrid.XForms"
+             xmlns:sfbutton="clr-namespace:Syncfusion.XForms.Buttons;assembly=Syncfusion.Buttons.XForms"
              xmlns:sfinputtext="clr-namespace:Syncfusion.XForms.TextInputLayout;assembly=Syncfusion.Core.XForms"
              xmlns:local1="clr-namespace:HGPT_APP.Converter"
-             xmlns:local="clr-namespace:HGPT_APP.ViewModels" xmlns:tabView="clr-namespace:Syncfusion.XForms.TabView;assembly=Syncfusion.SfTabView.XForms"
-                          mc:Ignorable="d"
+             xmlns:local="clr-namespace:HGPT_APP.ViewModels"                  
+             mc:Ignorable="d"
              Title="{Binding Title}"
-              Shell.TabBarIsVisible="False"
+             Shell.TabBarIsVisible="False"
              x:Class="HGPT_APP.Views.DanhSachLenhSanXuat">
     <ContentPage.Resources>
         <ResourceDictionary>
@@ -23,60 +23,85 @@
     </ContentPage.BindingContext>
     <ContentPage.Content>
 
-        <StackLayout Spacing="10" VerticalOptions="FillAndExpand" HorizontalOptions="FillAndExpand">
-            <sfinputtext:SfTextInputLayout Hint="Nhập số lệnh sản xuất" 
-                                               LeadingViewPosition="Inside"
-                                               HeightRequest="50"
-                                               ContainerType="Outlined">
-                <Entry  x:Name="search" HorizontalOptions="FillAndExpand"   Placeholder="Chọn lệnh sản xuất"
-                                    Style="{StaticResource styleSearch}"
-                                    ClearButtonVisibility="WhileEditing"                       
-                                    TextChanged="search_TextChanged"/>
+        <StackLayout Spacing="10"
+                     VerticalOptions="FillAndExpand"
+                     HorizontalOptions="FillAndExpand">
+            <sfinputtext:SfTextInputLayout Hint="Nhập số lệnh sản xuất"
+                                           LeadingViewPosition="Inside"
+                                           HeightRequest="50"
+                                           ContainerType="Outlined">
+                <Entry  x:Name="search"
+                        HorizontalOptions="FillAndExpand"
+                        Placeholder="Chọn lệnh sản xuất"
+                        Style="{StaticResource styleSearch}"
+                        ClearButtonVisibility="WhileEditing"
+                        TextChanged="search_TextChanged" />
                 <sfinputtext:SfTextInputLayout.LeadingView>
                     <Image Source="search.png"></Image>
                 </sfinputtext:SfTextInputLayout.LeadingView>
             </sfinputtext:SfTextInputLayout>
-            <Grid x:Name="mGridLayout" AbsoluteLayout.LayoutFlags="All"
-                              AbsoluteLayout.LayoutBounds="1,1,1,1" 
-                              VerticalOptions="FillAndExpand" HorizontalOptions="FillAndExpand">
-                <sfDataGrid:SfDataGrid x:Name="listLenhSX"                                           
-                                            ItemsSource="{Binding List_LENH_SAN_XUATs}"      
-                                             SelectedItem="{Binding SelectLSX}"
-                                            AutoGenerateColumns="False"                                         
-                                            GridStyle="{StaticResource dark}"                                            
-                                            Style="{StaticResource styleDataGrid}">
+            <Grid x:Name="mGridLayout"
+                  AbsoluteLayout.LayoutFlags="All"
+                  AbsoluteLayout.LayoutBounds="1,1,1,1"
+                  VerticalOptions="FillAndExpand"
+                  HorizontalOptions="FillAndExpand">
+                <sfDataGrid:SfDataGrid x:Name="listLenhSX"
+                                       ItemsSource="{Binding List_LENH_SAN_XUATs}"
+                                       SelectedItem="{Binding SelectLSX}"
+                                       AutoGenerateColumns="False"
+                                       GridStyle="{StaticResource dark}"
+                                       Style="{StaticResource styleDataGrid}">
                     <sfDataGrid:SfDataGrid.Columns>
 
-                        <sfDataGrid:GridTemplateColumn  MappingName="External_Document_No_" HeaderText="Số LSX" Width="150"  HeaderFontAttribute="Bold"  HeaderCellTextSize="16">
+                        <sfDataGrid:GridTemplateColumn  MappingName="External_Document_No_"
+                                                        HeaderText="Số LSX"
+                                                        Width="150"
+                                                        HeaderFontAttribute="Bold"
+                                                        HeaderCellTextSize="16">
                             <sfDataGrid:GridTemplateColumn.CellTemplate>
                                 <DataTemplate>
-                                    <Label Text="{Binding External_Document_No_}" TextColor="{Binding NgayConLai, Converter={StaticResource colorConverter},ConverterParameter='lable'}" Padding="5,0,0,0" WidthRequest="120"   XAlign="Start" YAlign="Center" />
+                                    <Label Text="{Binding External_Document_No_}"
+                                           TextColor="{Binding NgayConLai, Converter={StaticResource colorConverter},ConverterParameter='lable'}"
+                                           Padding="5,0,0,0"
+                                           WidthRequest="120"
+                                           XAlign="Start"
+                                           YAlign="Center" />
                                 </DataTemplate>
                             </sfDataGrid:GridTemplateColumn.CellTemplate>
-                            
+
                         </sfDataGrid:GridTemplateColumn>
 
 
-                        <sfDataGrid:GridTemplateColumn MappingName="Ten_Khach_Hang" 
-                                                   Width="150"
-                                                   HeaderText="Tên khách hàng" 
-                                                   HeaderFontAttribute="Bold" 
-                                                   HeaderCellTextSize="16">
+                        <sfDataGrid:GridTemplateColumn MappingName="Ten_Khach_Hang"
+                                                       Width="150"
+                                                       HeaderText="Tên khách hàng"
+                                                       HeaderFontAttribute="Bold"
+                                                       HeaderCellTextSize="16">
                             <sfDataGrid:GridTemplateColumn.CellTemplate>
                                 <DataTemplate>
-                                    <Label Text="{Binding Ten_Khach_Hang}" TextColor="{Binding NgayConLai, Converter={StaticResource colorConverter},ConverterParameter='lable'}" Padding="5,0,0,0" WidthRequest="150"   XAlign="Start" YAlign="Center" />
+                                    <Label Text="{Binding Ten_Khach_Hang}"
+                                           TextColor="{Binding NgayConLai, Converter={StaticResource colorConverter},ConverterParameter='lable'}"
+                                           Padding="5,0,0,0"
+                                           WidthRequest="150"
+                                           XAlign="Start"
+                                           YAlign="Center" />
                                 </DataTemplate>
                             </sfDataGrid:GridTemplateColumn.CellTemplate>
-                            
+
                         </sfDataGrid:GridTemplateColumn>
-                        <sfDataGrid:GridTemplateColumn MappingName="Ten_San_Pham" 
-                                                   Width="150"
-                                                   HeaderText="Tên Sản Phẩm" 
-                                                   HeaderFontAttribute="Bold" 
-                                                   HeaderCellTextSize="16">
+                        <sfDataGrid:GridTemplateColumn MappingName="Ten_San_Pham"
+                                                       Width="150"
+                                                       HeaderText="Tên Sản Phẩm"
+                                                       HeaderFontAttribute="Bold"
+                                                       HeaderCellTextSize="16">
                             <sfDataGrid:GridTemplateColumn.CellTemplate>
                                 <DataTemplate>
-                                    <Label Text="{Binding Ten_San_Pham}" TextColor="{Binding NgayConLai, Converter={StaticResource colorConverter},ConverterParameter='lable'}" Padding="5,0,0,0" WidthRequest="150"   XAlign="Start" YAlign="Center" />
+                                    <Label Text="{Binding Ten_San_Pham}"
+                                           TextColor="{Binding NgayConLai, Converter={StaticResource colorConverter},ConverterParameter='lable'}"
+                                           Padding="5,0,0,0"
+                                           WidthRequest="150"
+                                           XAlign="Start"
+                                           YAlign="Center" />
                                 </DataTemplate>
                             </sfDataGrid:GridTemplateColumn.CellTemplate>
                             <!--<sfDataGrid:GridTemplateColumn.CellStyle>
@@ -84,60 +109,35 @@
                                     <Setter Property="BackgroundColor"    Value="{Binding NgayConLai, Converter={StaticResource colorConverter} ,ConverterParameter='gridcell'}" />
                                 </Style>
                             </sfDataGrid:GridTemplateColumn.CellStyle>-->
-                        </sfDataGrid:GridTemplateColumn>
-                        <sfDataGrid:GridTemplateColumn  HeaderText="Ghi chú"                                                
-                                                        Width="200"
-                                                MappingName="Description" 
-                                                HeaderFontAttribute="Bold" 
-                                                HeaderCellTextSize="16">
-                            <sfDataGrid:GridTemplateColumn.CellTemplate>
-                                <DataTemplate>
-                                    <Label Text="{Binding Description}" TextColor="{Binding NgayConLai, Converter={StaticResource colorConverter},ConverterParameter='lable'}" Padding="5,0,0,0" WidthRequest="200"   XAlign="Start" YAlign="Center" />
-                                </DataTemplate>
-                            </sfDataGrid:GridTemplateColumn.CellTemplate>
-                            <!--<sfDataGrid:GridTemplateColumn.CellStyle>
-                                <Style TargetType="sfDataGrid:GridCell">
-                                    <Setter Property="BackgroundColor"    Value="{Binding NgayConLai, Converter={StaticResource colorConverter} ,ConverterParameter='gridcell'}" />
-                                </Style>
-                            </sfDataGrid:GridTemplateColumn.CellStyle>-->
-                        </sfDataGrid:GridTemplateColumn>
-                        <sfDataGrid:GridTemplateColumn MappingName="Ending_Date" 
-                                                   Width="140"
-                                                   HeaderText="Ngày giao hàng" 
-                                                   HeaderFontAttribute="Bold" 
-                                                   HeaderCellTextSize="16">
-                            <sfDataGrid:GridTemplateColumn.CellTemplate>
-                                <DataTemplate>
-                                    <Label Text="{Binding Ending_Date , StringFormat='{0:dd/MM/yyyy}'}" TextColor="{Binding NgayConLai, Converter={StaticResource colorConverter},ConverterParameter='lable'}" Padding="5,0,0,0" WidthRequest="140"   XAlign="Start" YAlign="Center" />
-                                </DataTemplate>
-                            </sfDataGrid:GridTemplateColumn.CellTemplate>
-                          
-                        </sfDataGrid:GridTemplateColumn>
-                        <sfDataGrid:GridTemplateColumn MappingName="NgayConLai" 
-                                                   Width="140"
-                                                   HeaderText="Ngày Còn Lại" 
-                                                   HeaderFontAttribute="Bold" 
-                                                   HeaderCellTextSize="16">
-                            <sfDataGrid:GridTemplateColumn.CellTemplate>
-                                <DataTemplate>
-                                    <Label Text="{Binding NgayConLai}" Padding="5,0,0,0" TextColor="{Binding NgayConLai, Converter={StaticResource colorConverter},ConverterParameter='lable'}" WidthRequest="140"   XAlign="Start" YAlign="Center">
-
-                                    </Label>
-                                </DataTemplate>
-                            </sfDataGrid:GridTemplateColumn.CellTemplate>
-                           
-                        </sfDataGrid:GridTemplateColumn>
-
+                        </sfDataGrid:GridTemplateColumn>                       
 
                     </sfDataGrid:SfDataGrid.Columns>
 
                 </sfDataGrid:SfDataGrid>
-                <ActivityIndicator x:Name="mIndicator" IsRunning="{Binding IsRunning}" Color="CornflowerBlue" VerticalOptions="Center"
-                           HorizontalOptions="Center"   />
+                <ActivityIndicator x:Name="mIndicator"
+                                   IsRunning="{Binding IsRunning}"
+                                   Color="CornflowerBlue"
+                                   VerticalOptions="Center"
+                                   HorizontalOptions="Center" />
             </Grid>
-            <sfbutton:SfButton x:Name="btnStartAll" Command="{Binding KhoiTaoCongViecCommand}" Text="Phân Việc" Style="{StaticResource stylesfButton}" HorizontalOptions="FillAndExpand" VerticalOptions="End"></sfbutton:SfButton>
+            <StackLayout Orientation="Horizontal"
+                         VerticalOptions="End"
+                         HorizontalOptions="FillAndExpand">
+                <sfbutton:SfButton x:Name="btnStartAll"
+                                   Command="{Binding KhoiTaoCongViecCommand}"
+                                   Text="Phân Việc"
+                                   Style="{StaticResource stylesfButton}"
+                                   HorizontalOptions="FillAndExpand"></sfbutton:SfButton>
+                <sfbutton:SfButton x:Name="btnStopLSX"
+                                   Command="{Binding StopLenhSanXuat}"
+                                   Text="Đóng LSX"
+                                   IsVisible="False"
+                                   Style="{StaticResource sfbuttonCancel}"
+                                   HorizontalOptions="FillAndExpand"></sfbutton:SfButton>
+            </StackLayout>
+
         </StackLayout>
-        
-        
+
+
     </ContentPage.Content>
 </ContentPage>

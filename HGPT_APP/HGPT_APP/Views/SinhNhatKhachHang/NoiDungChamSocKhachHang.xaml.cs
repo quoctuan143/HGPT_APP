@@ -42,7 +42,7 @@ namespace HGPT_APP.Views.SinhNhatKhachHang
                         {
                             await new MessageBox("Thông báo", "Đã lưu thành công").Show();
                             MessagingCenter.Send(this, "xulysinhnhatkhachhang", CSKH);
-                            Device.BeginInvokeOnMainThread(async () => await Navigation.PopModalAsync());
+                            Device.BeginInvokeOnMainThread(async () => await Navigation.PopAsync());
 
                         }    
                     }    

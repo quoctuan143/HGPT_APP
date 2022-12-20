@@ -12,12 +12,15 @@ using System.Collections.Generic;
 using HGPT_APP.Views;
 using Android.Content;
 using Plugin.FirebasePushNotification;
+using Plugin.LocalNotification;
 
 namespace HGPT_APP.Droid
 {
-    [Activity(Label = "HGPT Pro", Icon = "@mipmap/logohgpt", Theme = "@style/MainTheme", MainLauncher = true, ConfigurationChanges = ConfigChanges.ScreenSize | ConfigChanges.Orientation | ConfigChanges.UiMode | ConfigChanges.ScreenLayout | ConfigChanges.SmallestScreenSize, ScreenOrientation = ScreenOrientation.Portrait)]
+    [Activity(Label = "HGPT Pro", Icon = "@mipmap/logohgpt", Theme = "@style/MainTheme", MainLauncher = true, ConfigurationChanges = ConfigChanges.ScreenSize | ConfigChanges.Orientation | ConfigChanges.UiMode | ConfigChanges.ScreenLayout | ConfigChanges.SmallestScreenSize, ScreenOrientation = ScreenOrientation.FullSensor)]
     public class MainActivity : global::Xamarin.Forms.Platform.Android.FormsAppCompatActivity
     {
+        private bool IsNotification = false;
+        private object NotificationData;
         protected override async void OnCreate(Bundle savedInstanceState)
         {
             TabLayoutResource = Resource.Layout.Tabbar;
@@ -31,16 +34,9 @@ namespace HGPT_APP.Droid
           
             await CrossMedia.Current.Initialize();
             NativeMedia.Platform.Init(this, savedInstanceState);
-            var d = new Dictionary<string, string>();
-            if (Intent.Extras != null)
-            {
-                var b = Intent.Extras;
-                foreach (var key in b.KeySet())
-                {
-                    d.Add(key, b.Get(key).ToString());      
-                }
-            }           
+            NotificationCenter.NotifyNotificationTapped(Intent);
             FirebasePushNotificationManager.ProcessIntent(this, Intent);
+
 #if DEBUG
             FirebasePushNotificationManager.Initialize(this,
                           new NotificationUserCategory[]
@@ -69,17 +65,17 @@ namespace HGPT_APP.Droid
                     new NotificationUserAction("Reject","Reject", NotificationActionType.Default, "cancel")
                     })
                 }, false);
-#endif
+#endif            
             CrossFirebasePushNotification.Current.OnNotificationOpened += (s, p) =>
             {
                 System.Diagnostics.Debug.WriteLine("NOTIFICATION RECEIVED", p.Data);
-                //NotificationData = p.Data;
-               //IsNotification = false;
+                NotificationData = p.Data;
+                IsNotification = false;
             };
-            LoadApplication(new App(d));          
-            
-           // IsPlayServicesAvailable();
-           // CreateNotificationChannel();
+            LoadApplication(new App(IsNotification, NotificationData));
+
+            // IsPlayServicesAvailable();
+            // CreateNotificationChannel();
         }
 
         protected override void OnActivityResult(int requestCode, Result resultCode, Intent intent)
@@ -95,10 +91,11 @@ namespace HGPT_APP.Droid
             ZXing.Net.Mobile.Android.PermissionsHandler.OnRequestPermissionsResult(requestCode, permissions, grantResults);
             base.OnRequestPermissionsResult(requestCode, permissions, grantResults);
         }
+        
         protected override void OnNewIntent(Intent intent)
-        {           
+        {
+            NotificationCenter.NotifyNotificationTapped(intent);
             base.OnNewIntent(intent);
-        }       
-      
+        }
     }
 }

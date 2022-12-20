@@ -4,6 +4,7 @@ using HGPT_APP.Models;
 using HGPT_APP.Popup;
 using HGPT_APP.ViewModels;
 using Newtonsoft.Json;
+using Syncfusion.SfDataGrid.XForms;
 using System;
 using System.Collections.Generic;
 using System.Linq;
@@ -25,8 +26,20 @@ namespace HGPT_APP.Views
         public Lich_Su_Phan_Chia_Cong_Viec()
         {
             InitializeComponent();
+            listCongDoanCongNhan.QueryRowHeight += ListCongDoanCongNhan_QueryRowHeight;
             BindingContext = viewModel = new Lich_Su_Phan_Chia_Cong_Viec_ViewModel();
         }
+
+        private void ListCongDoanCongNhan_QueryRowHeight(object sender, Syncfusion.SfDataGrid.XForms.QueryRowHeightEventArgs e)
+        {
+            if (e.RowIndex != 0)
+            {
+                //Calculates and sets height of the row based on its content 
+                e.Height = listCongDoanCongNhan.GetRowHeight(e.RowIndex);
+                e.Handled = true;
+            }
+        }
+
         protected override void OnAppearing()
         {
             base.OnAppearing();

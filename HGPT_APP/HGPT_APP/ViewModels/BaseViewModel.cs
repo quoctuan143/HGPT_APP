@@ -13,6 +13,7 @@ using System.Collections.ObjectModel;
 using HGPT_APP.Global;
 using Newtonsoft.Json;
 using System.Threading.Tasks;
+using System.Net.Http;
 
 namespace HGPT_APP.ViewModels
 {
@@ -75,7 +76,48 @@ namespace HGPT_APP.ViewModels
             get { return title; }
             set { SetProperty(ref title, value); }
         }
+        public async Task<HttpClientResponseModel<T>> RunHttpClientGet<T>(string apiUrl) where T : class
+        {
+            try
+            {
+                var respon = await Config.client.GetAsync(apiUrl);
+                HttpClientResponseModel<T> values = new HttpClientResponseModel<T>();
+                values.Status = respon;
+                values.Lists = new ObservableCollection<T>();
+                if (respon.StatusCode == System.Net.HttpStatusCode.OK)
+                {
+                    string _json = await respon.Content.ReadAsStringAsync();
+                    _json = _json.Replace("\\r\\n", "").Replace("\\", "");
+                    if (_json.Contains("[]") == false)
+                    {
+                        Int32 from = _json.IndexOf("[");
+                        Int32 to = _json.IndexOf("]");
+                        string result = _json.Substring(from, to - from + 1);
+                        values.Lists = JsonConvert.DeserializeObject<ObservableCollection<T>>(result);
+                    }
+                }
+                return values;
+            }
+            catch (Exception ex)
+            {
+                return new HttpClientResponseModel<T> { Status = new HttpResponseMessage { StatusCode = System.Net.HttpStatusCode.BadRequest } };
+            }
 
+        }
+
+        public async Task<HttpResponseMessage> RunHttpClientPost(string apiUrl, object Value)
+        {
+            try
+            {
+                HttpResponseMessage Status = await Config.client.PostAsJsonAsync(apiUrl, Value);
+                return Status;
+            }
+            catch (Exception ex)
+            {
+                return new HttpResponseMessage { StatusCode = System.Net.HttpStatusCode.BadRequest };
+            }
+
+        }
         protected bool SetProperty<T>(ref T backingStore, T value,
             [CallerMemberName] string propertyName = "",
             Action onChanged = null)
@@ -100,5 +142,11 @@ namespace HGPT_APP.ViewModels
             changed.Invoke(this, new PropertyChangedEventArgs(propertyName));
         }
         #endregion
+    }
+
+    public class HttpClientResponseModel<T> where T : class
+    {
+        public HttpResponseMessage Status { get; set; }
+        public ObservableCollection<T> Lists { get; set; }
     }
 }

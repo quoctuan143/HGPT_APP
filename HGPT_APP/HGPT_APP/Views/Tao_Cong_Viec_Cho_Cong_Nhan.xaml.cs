@@ -44,7 +44,7 @@ namespace HGPT_APP.Views
                 TextAlignment = TextAlignment.Start,
                 LoadUIView=true
         };           
-            listCongDoanCongNhan.Columns.Insert(1,comboBoxColumn);
+            listCongDoanCongNhan.Columns.Insert(2,comboBoxColumn);
         }
 
         private void ListCongDoanCongNhan_QueryCellStyle(object sender, QueryCellStyleEventArgs e)

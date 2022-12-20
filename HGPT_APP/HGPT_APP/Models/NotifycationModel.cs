@@ -16,5 +16,7 @@ namespace HGPT_APP.Models
                 else TRANG_THAI = "Chưa xem";
             } }
         public string TRANG_THAI { get; set; }
+        public string SoChungTu { get; set; }
+        public DateTime? Date { get; set; } 
     }
 }

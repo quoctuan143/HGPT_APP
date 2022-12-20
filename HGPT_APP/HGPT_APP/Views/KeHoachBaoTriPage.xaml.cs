@@ -2,6 +2,7 @@
 using HGPT_APP.Models;
 using HGPT_APP.Popup;
 using HGPT_APP.ViewModels;
+using Syncfusion.SfDataGrid.XForms;
 using System;
 using System.Collections.Generic;
 using System.Linq;
@@ -21,10 +22,21 @@ namespace HGPT_APP.Views
         public KeHoachBaoTriPage()
         {
             InitializeComponent();
-            listThietBi.ItemsSourceChanged += ListThietBi_ItemsSourceChanged; ;
+            listThietBi.ItemsSourceChanged += ListThietBi_ItemsSourceChanged;
+            listThietBi.QueryRowHeight += ListThietBi_QueryRowHeight;
             entryNam.Text = DateTime.Now.Year.ToString();
             BindingContext = viewModel = new KeHoachBaoTriViewModel();
 
+        }
+
+        private void ListThietBi_QueryRowHeight(object sender, Syncfusion.SfDataGrid.XForms.QueryRowHeightEventArgs e)
+        {
+            if (e.RowIndex != 0)
+            {
+                //Calculates and sets height of the row based on its content 
+                e.Height = listThietBi.GetRowHeight(e.RowIndex);
+                e.Handled = true;
+            }
         }
 
         private void ListThietBi_ItemsSourceChanged(object sender, Syncfusion.SfDataGrid.XForms.GridItemsSourceChangedEventArgs e)

@@ -99,12 +99,12 @@
                 <Setter Property="AllowDraggingRow" Value="True"></Setter>
                 <Setter Property="AllowDraggingColumn" Value="True"></Setter>
                 <Setter Property="SelectionMode" Value="Single"></Setter>         
-                <Setter Property="AutoExpandGroups" Value="False"></Setter>
+                <Setter Property="AutoExpandGroups" Value="True"></Setter>
                 <Setter Property="AllowTriStateSorting" Value="True"></Setter>
                 <Setter Property="AllowDiagonalScrolling" Value="True"></Setter>
                 <Setter Property="VerticalOverScrollMode" Value="None"></Setter>
                 <Setter Property="AllowGroupExpandCollapse" Value="True"></Setter>
-                <Setter Property="ColumnSizer" Value="LastColumnFill"/>
+                <Setter Property="ColumnSizer" Value="LastColumnFill"/>                  
             </Style>           
 
             <Style TargetType="Button" x:Key="styleButton">
@@ -119,6 +119,12 @@
                 <Setter Property="TextColor" Value="White" ></Setter>
                 <Setter Property="FontSize" Value="16" ></Setter>
                 <Setter Property="FontAttributes" Value="Bold" ></Setter>
+                <Setter Property="FontSize"
+                        Value="20" />
+                <Setter Property="FontFamily"
+                        Value="Arial" />
+                <Setter Property="CornerRadius"
+                        Value="10" />
             </Style>
             <Style TargetType="sfButton:SfButton" x:Key="sfbuttonCancel">
                 <Setter Property="BackgroundColor" Value="Red"></Setter>

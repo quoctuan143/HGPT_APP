@@ -56,23 +56,11 @@ namespace HGPT_APP.ViewModels.GiamSat
             set
             {
                 SetProperty(ref _ngaylamviec, value);
-                if (_selectCongTrinh != null )
-                {
-                    XemBaoCao(_selectCongTrinh.Code , value );
-                }    
-               
+                XemBaoCao(MaCongTrinh, value);
             }
         }
-        
-        DanhSachCongTrinh _selectCongTrinh;
-        public DanhSachCongTrinh SelectCongTrinh 
-        { get => _selectCongTrinh; 
-            set
-            {
-                SetProperty(ref _selectCongTrinh, value);
-                XemBaoCao(value.Code, NgayLamViec);
-            } 
-        }  
+
+         string   MaCongTrinh { get; set; }
         BaoCaoGiamSat_Model _bao_cao_giam_sat;
         public BaoCaoGiamSat_Model ListBaoCaoGiamSat
         {
@@ -88,52 +76,24 @@ namespace HGPT_APP.ViewModels.GiamSat
         }        
         #endregion
 
-        #region "Commnad"
-        public Command LoadCongDoanBaoCao { get; set; }         
+        #region "Commnad"              
        
         #endregion
 
-        public XemBaoCaoGiamSat_ViewModel()
+        public XemBaoCaoGiamSat_ViewModel(string maCongTrinh,DateTime ngay)
         {
             try
             {
-                NgayLamViec = DateTime.Now.Date;                
-                Title = "Xem Báo cáo công việc";
-                LoadCongDoanBaoCao = new Command(async () => await LoadCongDoanBaoCaoExcute());     
-                
+                MaCongTrinh = maCongTrinh;
+                NgayLamViec = ngay;                
+                Title = "Chi tiết báo cáo công việc";                
             }
             catch (Exception ex)
             {
 
                  Task.Run(async ()   => await  new  MessageBox("Thông báo", ex.ToString()).Show());
-            }
-          
+            }          
         }
-       
-        private async Task LoadCongDoanBaoCaoExcute()
-        {
-            try
-            {
-                if (IsBusy == true) return;
-                IsBusy = true;
-                IsRunning = true;
-                ShowLoading("Đang tải dữ liệu");
-                await Task.Delay(1000);
-                GetCongTrinh("1");                
-                HideLoading();
-            }
-            catch (Exception ex)
-            {
-                HideLoading();
-                await new MessageBox("Thông báo", ex.ToString()).Show();
-            }
-            finally
-            {
-                IsBusy = false;
-                IsRunning = false;
-            }
-        }
-
       async  void XemBaoCao(string macongtrinh, DateTime ngaybaocao)
         {
             try

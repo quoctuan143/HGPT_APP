@@ -57,9 +57,9 @@ namespace HGPT_APP.ViewModels.SinhNhatKhachHang
             try
             {
                 ChamSocKhachHang kh = obj as ChamSocKhachHang;
-                Xamarin.Essentials.PhoneDialer.Open(kh.PhoneNo_);
+                PhoneDialer.Open(kh.PhoneNo_.ToString().Trim());
             }
-            catch
+            catch (Exception ex)    
             {
 
                

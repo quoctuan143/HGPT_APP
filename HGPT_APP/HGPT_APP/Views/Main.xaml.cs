@@ -1,7 +1,9 @@
 ﻿using HGPT_APP.Global;
 using HGPT_APP.Interface;
 using HGPT_APP.Models;
+using HGPT_APP.Models.GiamSat;
 using HGPT_APP.Popup;
+using HGPT_APP.ViewModels;
 using HGPT_APP.Views.GiamSat;
 using HGPT_APP.Views.SinhNhatKhachHang;
 using Newtonsoft.Json;
@@ -16,6 +18,7 @@ using System.ComponentModel;
 using System.Linq;
 using System.Net.Http;
 using System.Runtime.CompilerServices;
+using System.Runtime.InteropServices;
 using System.Text;
 using System.Threading.Tasks;
 using System.Timers;
@@ -29,15 +32,17 @@ namespace HGPT_APP.Views
     public partial class Main : ContentPage
     {
         public ObservableCollection<FileAttach> ImageList { get; set; }
+        BaseViewModel viewModel;
         Timer timer;
         int position = 0;
+       public Command SelectDateCommand { get; set; }
         public Main()
         {
             InitializeComponent();
             try
             {
                 txtName.Text = Preferences.Get(Config.FullName, "");
-
+                viewModel = new BaseViewModel();
                 ImageList = new ObservableCollection<FileAttach>
                 {
                     new FileAttach { FileName = "https://hrm.hgpt.vn/image/hinh1.jpg" },
@@ -45,6 +50,28 @@ namespace HGPT_APP.Views
                     new FileAttach { FileName = "https://hrm.hgpt.vn/image/hinh3.jpg" },
                     new FileAttach { FileName = "https://hrm.hgpt.vn/image/hinh4.jpg" }
                 };
+                SelectDateCommand = new Command(async () => 
+                {
+                    try
+                    {
+                        var asked = await new MessageYesNo("Thông báo", "Bạn có muốn chuyển kế hoạch sang công việc hiện tại không?").Show();
+                        if (asked == DialogReturn.OK )
+                        {
+                            string url = "api/hgpt/TaoCongViecTuKeHoach?ngaytao=" + String.Format("{0:yyyy-MM-dd}", datepicker.Date) + "&nguoitao=" + Preferences.Get(Config.User, "");
+                            var ok = await viewModel.RunHttpClientGet<object>(url);
+                            if (ok.Status.IsSuccessStatusCode)
+                                DependencyService.Get<IMessage>().LongAlert("Đã chuyển kế hoạch sang công việc cho ngày bạn chọn");
+                            else
+                                await new MessageBox("Thông báo", ok.Status.Content.ReadAsStringAsync().Result).Show();
+                        }    
+                    }
+                    catch
+                    {
+
+                       
+                    }
+                   
+                });
                 if (Preferences.Get(Config.AnhDaiDien, "") != "")
                     AnhDaiDien.Source = ImageSource.FromUri(new Uri(Preferences.Get(Config.AnhDaiDien, "")));
 
@@ -66,12 +93,20 @@ namespace HGPT_APP.Views
                 }
                 
                 BindingContext = this;
+                Task.Run( async () => 
+                {
+                    
+                    var a = await viewModel.RunHttpClientGet<object>("api/qltb/getChamSocKhachHangChuaHoanThanh");
+                    bagCSKH.BadgeText = a.Lists.Count.ToString();
+                });
                 timer = new Timer();
                 timer.Interval = 2000;
                 timer.Enabled = true;
                 timer.Elapsed += Timer_Elapsed;
                 timer.Start();
-              Task.Run( ()=>  NewVersion());
+                CrossFirebasePushNotification.Current.OnNotificationReceived += Current_OnNotificationReceived;
+                CrossFirebasePushNotification.Current.OnNotificationOpened += Current_OnNotificationOpened;
+                Task.Run( ()=>  NewVersion());
             }
             catch (Exception ex)
             {
@@ -81,6 +116,88 @@ namespace HGPT_APP.Views
 
 
         }
+        private async void Current_OnNotificationOpened(object source, FirebasePushNotificationResponseEventArgs p)
+        {
+            await Device.InvokeOnMainThreadAsync(async () =>
+            {
+                string loaiphieu;
+                try
+                {                    
+                    if (p.Data["sochungtu"].ToString() != "")
+                    {
+                        string soChungTu = p.Data["sochungtu"].ToString();
+                        loaiphieu = p.Data["loaiphieu"].ToString();
+                        switch (loaiphieu)
+                        {   
+                            case "ThongBaoBaoTri":
+                        await Navigation.PushAsync(new KeHoachBaoTriPage());
+                                break;
+                            case "ThongBaoPhanViec":
+                        await Navigation.PushAsync(new Phan_Chia_Cong_Viec());
+                                break;
+                            case "LenhSanXuat":
+                             await Navigation.PushAsync(new DanhSachLenhSanXuat());
+                                break;
+                            case "ThongBaoCongTy":
+                                await Navigation.PushAsync(new NotificationPage());
+                                break;
+                            case "ThongBaoGiamSat":
+                        await Navigation.PushAsync(new XemBaoCaoGiamSat_Page(soChungTu, Convert.ToDateTime( p.Data["date"])));
+                                break;
+                            case "sinhnhatkhachhang" :
+                        await Navigation.PushAsync(new SinhNhatKhachHang_ChuaXuLy());
+                                break;
+                        }                        
+                    }
+                }
+                catch
+                {
+                }
+            });
+        }
+
+        private async void Current_OnNotificationReceived(object source, FirebasePushNotificationDataEventArgs p)
+        {
+            await Device.InvokeOnMainThreadAsync(async () =>
+            {
+                string loaiphieu;
+                try
+                {
+                    if (p.Data["sochungtu"].ToString() != "")
+                    {
+                        string soChungTu = p.Data["sochungtu"].ToString();
+                        loaiphieu = p.Data["loaiphieu"].ToString();
+                        switch (loaiphieu)
+                        {
+                            case "ThongBaoBaoTri":
+                                await Navigation.PushAsync(new KeHoachBaoTriPage());
+                                break;
+                            case "ThongBaoPhanViec":
+                                await Navigation.PushAsync(new Phan_Chia_Cong_Viec());
+                                break;
+                            case "LenhSanXuat":
+                                await Navigation.PushAsync(new DanhSachLenhSanXuat());
+                  
+                                break;
+                            case "ThongBaoCongTy":
+                                await new MessageBox("Thông báo", p.Data["body"].ToString()).Show();
+                                break;
+                            case "ThongBaoGiamSat":
+                                await Navigation.PushAsync(new XemBaoCaoGiamSat_Page(soChungTu, Convert.ToDateTime(p.Data ["date"])));
+                                break;
+                            case "sinhnhatkhachhang":
+                                await Navigation.PushAsync(new SinhNhatKhachHang_ChuaXuLy());
+                                break;
+                        }
+                    }
+                }
+                catch
+                {
+                }
+            });
+
+        }
+
         private void Timer_Elapsed(object sender, ElapsedEventArgs e)
         {
             Device.BeginInvokeOnMainThread(() =>
@@ -273,7 +390,7 @@ namespace HGPT_APP.Views
             await Navigation.PushAsync(new NotificationPage());
         }
 
-        protected override void OnAppearing()
+        protected override async void OnAppearing()
         {
             base.OnAppearing();
             using (HttpClient client = new HttpClient())
@@ -289,8 +406,14 @@ namespace HGPT_APP.Views
                         Int32 to = _json.IndexOf("]");
                         string result = _json.Substring(from, to - from + 1);
                         ObservableCollection<NotifycationModel> ListThongBao = JsonConvert.DeserializeObject<ObservableCollection<NotifycationModel>>(result);
-                        txtThongBao.BadgeText = ListThongBao.Where(p => p.Viewed == 0).ToList().Count().ToString();
+                        txtThongBao.BadgeText = ListThongBao.Where(p => p.Viewed == 0).ToList().Count().ToString();                        
                     }
+
+                    var a = await viewModel.RunHttpClientGet<DanhSachCongTrinhHoatDongTrongNgay_Model>("DanhSachCongTrinhHoatDongTrongNgay?ngay=" + string.Format("{0:yyyy-MM-dd}",  DateTime.Now.Date));
+                    int XembaoCaoHangNgay = a.Lists.Count;
+                    bagXembaoCaoHangNgay.BadgeText = XembaoCaoHangNgay > 0 ? XembaoCaoHangNgay.ToString() : "";
+                    //ImgXembaoCaoHangNgay.WidthRequest = XembaoCaoHangNgay > 0 ? 60 : 65;
+                    //ImgXembaoCaoHangNgay.HeightRequest = XembaoCaoHangNgay > 0 ? 60 : 65;
                 }
                 catch
                 {
@@ -391,7 +514,7 @@ namespace HGPT_APP.Views
         {
             try
             {
-                await Navigation.PushAsync(new XemBaoCaoGiamSat_Page());
+                await Navigation.PushAsync(new DanhSachCongTrinhHoatDongTrongNgay_Page());
             }
             catch (Exception ex)
             {
@@ -461,13 +584,44 @@ namespace HGPT_APP.Views
         {
             try
             {
-                await Navigation.PushAsync(new TongHopBaoCaoTienDoLapDat_Page());
+                await Navigation.PushAsync(new DanhSachCongTrinhDuocLapDatTrongNgay_Page());
             }
             catch (Exception ex)
             {
 
                 await new MessageBox("Thông báo", ex.Message).Show(); ;
             }
+        }
+
+        private async void btnDanhSachCongTrinh_Tapped(object sender, EventArgs e)
+        {
+            try
+            {
+                await Navigation.PushAsync(new DanhSachCongTrinh_Page());
+            }
+            catch (Exception ex)
+            {
+
+                await new MessageBox("Thông báo", ex.Message).Show(); ;
+            }
+        }
+
+        private async void btnTheoDoiGiamSat_Tapped(object sender, EventArgs e)
+        {
+            try
+            {
+                await Navigation.PushAsync(new TheoDoiGiamSat_Page());
+            }
+            catch (Exception ex)
+            {
+
+                await new MessageBox("Thông báo", ex.Message).Show(); ;
+            }
+        }
+
+        private void btnPhanViecTuKeHoach_Tapped(object sender, EventArgs e)
+        {
+            datepicker.IsOpen = true;
         }
     }
 }

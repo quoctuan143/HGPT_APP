@@ -25,6 +25,7 @@ namespace HGPT_APP.Views
             chknhanthongbaocongty.IsToggled = Preferences.Get(Config.ThongBaoCongTy, false);
             chkNhanBaoTri.IsToggled = Preferences.Get(Config.ThongBaoBaoTri, false);
             chknhanthongbaolenhsanxuat.IsToggled = Preferences.Get(Config.LenhSanXuat , false);
+            chknhanthongbaogiamsat.IsToggled = Preferences.Get(Config.ThongBaoGiamSat, false);
             chkcanhbaokhongkethuccongviec.Toggled += chkcanhbaokhongkethuccongviec_Toggled;
             chknhanthongbaocongty.Toggled += Chknhanthongbaocongty_Toggled;
             chkNhanBaoTri.Toggled += ChkNhanBaoTri_Toggled;

@@ -69,12 +69,12 @@ namespace HGPT_APP.ViewModels.GiamSat
                 ListTienDoLapDat = new ObservableCollection<TienDoLapDat >();
                 ListNhomBaoCao = new ObservableCollection<NhomBaoCaoTienDo>
                 {
-                    new NhomBaoCaoTienDo {Value="HaHang", Name ="Hạ Hàng"},
-                    new NhomBaoCaoTienDo {Value="NghiemThuCongTrinh", Name ="Nghiệm thu tại công trình"},
-                    new NhomBaoCaoTienDo {Value="LapKetCau", Name ="Lắp kết cấu"},
-                    new NhomBaoCaoTienDo {Value="HoanThien", Name ="Hoàn thiện"},
-                    new NhomBaoCaoTienDo {Value="NghiemThuBanGiao", Name ="Nghiệm thu bàn giao"}
-                };
+                   //new NhomBaoCaoTienDo {Value="HaHang", Name ="Hạ Hàng"},
+                    //new NhomBaoCaoTienDo {Value="NghiemThuCongTrinh", Name ="Nghiệm thu tại công trình"},
+                    new NhomBaoCaoTienDo {Value="LapKetCau", Name ="Lắp kết cấu"}
+                    //new NhomBaoCaoTienDo {Value="HoanThien", Name ="Hoàn thiện"},
+                    //new NhomBaoCaoTienDo {Value="NghiemThuBanGiao", Name ="Nghiệm thu bàn giao"}
+                };                
                 GuiBaoCao = new Command(async () => await GuiBaoCaoClick());
                 SelectAllCommand = new Command(ChonTatCaClick);
                

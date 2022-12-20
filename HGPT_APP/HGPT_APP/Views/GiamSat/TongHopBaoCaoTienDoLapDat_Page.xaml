@@ -19,18 +19,7 @@
 
     </ContentPage.Resources>
     <ContentPage.Content>
-        <StackLayout Spacing="0">
-            <sfcombobox:SfComboBox x:Name="cbToSanXuat" DataSource="{Binding CongTrinhList , Mode=TwoWay }" 
-                                   DisplayMemberPath="Description" SelectedValuePath="Code"
-                                           SelectedItem="{Binding SelectCongTrinh , Mode=TwoWay }"
-                                   Style="{StaticResource styleCombobox}"                                   
-                                   Watermark="Chọn công trình cần báo cáo"
-                                   WatermarkColor="{StaticResource Primary}"
-                                   IsEditableMode="True"                                                               
-                                   HeightRequest="40"
-                                   ShowClearButton="True"                                    
-                                   >                
-            </sfcombobox:SfComboBox>
+        <StackLayout Spacing="0">             
             <Grid x:Name="mGridLayout" AbsoluteLayout.LayoutFlags="All"
                               AbsoluteLayout.LayoutBounds="1,1,1,1" 
                               VerticalOptions="FillAndExpand" HorizontalOptions="FillAndExpand">

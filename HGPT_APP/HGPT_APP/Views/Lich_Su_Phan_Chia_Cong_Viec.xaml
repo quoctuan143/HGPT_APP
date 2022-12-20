@@ -55,6 +55,7 @@
                 </sfinputtext:SfTextInputLayout>
             </Grid>          
             <Grid x:Name="mGridLayout" AbsoluteLayout.LayoutFlags="All"
+                  BackgroundColor="White"
                   AbsoluteLayout.LayoutBounds="1,1,1,1" VerticalOptions="FillAndExpand" HorizontalOptions="FillAndExpand">
                 <sfDataGrid:SfDataGrid x:Name="listCongDoanCongNhan"                                           
                                        ItemsSource="{Binding ListCong_Doan_Cong_Nhans , Mode=TwoWay}" 
@@ -100,14 +101,7 @@
                                     <Label Text="{Binding NOI_DUNG}" Padding="5,0,0,0" TextColor="Black" XAlign="Start" YAlign="Center"/>
                                 </DataTemplate>
                             </sfDataGrid:GridTemplateColumn.CellTemplate>                            
-                        </sfDataGrid:GridTemplateColumn>
-                        <sfDataGrid:GridTemplateColumn MappingName="DINH_MUC"   HeaderText="Định mức" HeaderFontAttribute="Bold" Width="120"   HeaderCellTextSize="16">
-                            <sfDataGrid:GridTemplateColumn.CellTemplate>
-                                <DataTemplate>
-                                    <Label Text="{Binding DINH_MUC}" Padding="5,0,0,0" TextColor="Black" XAlign="Start" YAlign="Center"/>
-                                </DataTemplate>
-                            </sfDataGrid:GridTemplateColumn.CellTemplate>
-                        </sfDataGrid:GridTemplateColumn>
+                        </sfDataGrid:GridTemplateColumn>                             
                         <sfDataGrid:GridTemplateColumn MappingName="GIO_CONG" AllowEditing="True" HeaderText="Giờ công" HeaderFontAttribute="Bold" Width="80"   HeaderCellTextSize="16">
                             <sfDataGrid:GridTemplateColumn.CellTemplate>
                                 <DataTemplate>

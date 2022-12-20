@@ -9,6 +9,9 @@ using Xamarin.Forms;
 using Xamarin.Forms.Xaml;
 using HGPT_APP.Popup;
 using Syncfusion.SfDataGrid.XForms;
+using Xamarin.Essentials;
+using HGPT_APP.Global;
+using System.Data;
 
 namespace HGPT_APP.Views
 {
@@ -39,6 +42,10 @@ namespace HGPT_APP.Views
             if (viewModel.IsBusy == true) return;
             if (viewModel.List_LENH_SAN_XUATs.Count == 0)
                 viewModel.LoadLenhSanXuat.Execute(null);
+            if ("linhtc,dunghd,tuannq1,hiennk".Contains(Preferences.Get(Config.User ,"")))
+            {
+                btnStopLSX.IsVisible = true;
+            }    
         }
         public bool FilterRecords(object o)
         {

@@ -15,11 +15,13 @@
 
   <ItemGroup>
     <PackageReference Include="CarouselView.FormsPlugin" Version="6.0.0" />
+    <PackageReference Include="ImageFromXamarinUI" Version="1.0.0" />
     <PackageReference Include="Microsoft.AppCenter" Version="3.4.3" />
     <PackageReference Include="Microsoft.AppCenter.Analytics" Version="3.4.3" />
     <PackageReference Include="Microsoft.AppCenter.Crashes" Version="3.4.3" />
     <PackageReference Include="Microsoft.AspNet.WebApi.Client" Version="5.2.7" />
     <PackageReference Include="Plugin.FirebasePushNotification" Version="3.3.10" />
+    <PackageReference Include="Plugin.LocalNotification" Version="9.0.0" />
     <PackageReference Include="Rg.Plugins.Popup" Version="2.0.0.14" />
     <PackageReference Include="Syncfusion.Xamarin.Buttons" Version="18.2.0.55" />
     <PackageReference Include="Syncfusion.Xamarin.Core" Version="18.2.0.55" />
@@ -30,6 +32,7 @@
     <PackageReference Include="Syncfusion.Xamarin.SfDataGrid" Version="18.2.0.55" />
     <PackageReference Include="Syncfusion.Xamarin.SfListView" Version="18.2.0.55" />
     <PackageReference Include="Syncfusion.Xamarin.SfNumericTextBox" Version="18.2.0.55" />
+    <PackageReference Include="Syncfusion.Xamarin.SfPicker" Version="18.2.0.55" />
     <PackageReference Include="Syncfusion.Xamarin.SfPullToRefresh" Version="18.2.0.55" />
     <PackageReference Include="Syncfusion.Xamarin.SfRichTextEditor" Version="18.2.0.55" />
     <PackageReference Include="Syncfusion.Xamarin.SfTabView" Version="18.2.0.55" />
@@ -38,7 +41,7 @@
     <PackageReference Include="Xam.Plugin.Media" Version="5.0.1" />
     <PackageReference Include="Xam.Plugins.Forms.ImageCircle" Version="3.0.0.5" />
     <PackageReference Include="Xamarin.Forms" Version="5.0.0.2291" />  
-    <PackageReference Include="Xamarin.Essentials" Version="1.7.0" />  
+    <PackageReference Include="Xamarin.Essentials" Version="1.7.3" />  
     <PackageReference Include="Xamarin.MediaGallery" Version="2.1.1" />  
     <PackageReference Include="ZXing.Net.Mobile" Version="2.4.1" />  
     <PackageReference Include="ZXing.Net.Mobile.Forms" Version="2.4.1" />
@@ -59,6 +62,18 @@
     </Compile>
     <Compile Update="Views\GiamSat\BaoCaoTongHopChiPhi_Page.xaml.cs">
       <DependentUpon>BaoCaoTongHopChiPhi_Page.xaml</DependentUpon>
+    </Compile>
+    <Compile Update="Views\GiamSat\TheoDoiGiamSat_Page.xaml.cs">
+      <DependentUpon>TheoDoiGiamSat_Page.xaml</DependentUpon>
+    </Compile>
+    <Compile Update="Views\GiamSat\DanhSachCongTrinh_Page.xaml.cs">
+      <DependentUpon>DanhSachCongTrinh_Page.xaml</DependentUpon>
+    </Compile>
+    <Compile Update="Views\GiamSat\DanhSachCongTrinhDuocLapDatTrongNgay_Page.xaml.cs">
+      <DependentUpon>DanhSachCongTrinhDuocLapDatTrongNgay_Page.xaml</DependentUpon>
+    </Compile>
+    <Compile Update="Views\GiamSat\DanhSachCongTrinhHoatDongTrongNgay_Page.xaml.cs">
+      <DependentUpon>DanhSachCongTrinhHoatDongTrongNgay_Page.xaml</DependentUpon>
     </Compile>
     <Compile Update="Views\GiamSat\TongHopBaoCaoTienDoLapDat_Page.xaml.cs">
       <DependentUpon>TongHopBaoCaoTienDoLapDat_Page.xaml</DependentUpon>
@@ -112,6 +127,9 @@
       <Generator>MSBuild:UpdateDesignTimeXaml</Generator>
     </EmbeddedResource>
     <EmbeddedResource Update="Popup\ShowImage.xaml">
+      <Generator>MSBuild:UpdateDesignTimeXaml</Generator>
+    </EmbeddedResource>
+    <EmbeddedResource Update="Templates\IconViewMain.xaml">
       <Generator>MSBuild:UpdateDesignTimeXaml</Generator>
     </EmbeddedResource>
     <EmbeddedResource Update="Views\Danh_Muc_Thiet_Bi.xaml">

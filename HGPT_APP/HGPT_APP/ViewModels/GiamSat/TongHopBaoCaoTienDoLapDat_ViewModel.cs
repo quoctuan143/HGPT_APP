@@ -13,18 +13,7 @@ namespace HGPT_APP.ViewModels.GiamSat
   public class TongHopBaoCaoTienDoLapDat_ViewModel : BaseViewModel
     {
 
-        #region "Khai báo biến"              
-        public INavigation navigation { get; set; }
-        DateTime _ngaylamviec;
-        public DateTime NgayLamViec { get => _ngaylamviec; set => SetProperty(ref _ngaylamviec, value); }             
-        DanhSachCongTrinh _selectCongTrinh;
-        public DanhSachCongTrinh SelectCongTrinh { get => _selectCongTrinh; 
-            set 
-            { 
-                SetProperty(ref _selectCongTrinh, value);
-                HienThiThongTin();
-            } 
-        }      
+        #region "Khai báo biến"  
        ObservableCollection < TongHopBaoCaoTienDoLapDat> _tiendolapdat;
         public ObservableCollection<TongHopBaoCaoTienDoLapDat> ListTienDoLapDat
         {
@@ -42,13 +31,13 @@ namespace HGPT_APP.ViewModels.GiamSat
 
         
 
-        public TongHopBaoCaoTienDoLapDat_ViewModel()
+        public TongHopBaoCaoTienDoLapDat_ViewModel(string CongTrinh)
         {
             try
-            {
-                NgayLamViec = DateTime.Now.Date;                
-                Title = "Tổng hợp báo cáo tiến độ lắp đặt";
+            {                         
+                Title = "Chi tiết tiến độ lắp đặt";
                 ListTienDoLapDat = new ObservableCollection<TongHopBaoCaoTienDoLapDat >();
+                HienThiThongTin(CongTrinh);
             }
             catch (Exception ex)
             {
@@ -56,51 +45,19 @@ namespace HGPT_APP.ViewModels.GiamSat
                  Task.Run(async ()   => await  new  MessageBox("Thông báo", ex.ToString()).Show());
             }
           
-        }
+        }        
 
-        public override async Task LoadData(object ojb)
+        public async void HienThiThongTin (string CongTrinh)
         {
-           
             try
-            {
+            {            
                 if (IsBusy == true) return;
                 IsBusy = true;
                 IsRunning = true;
                 ShowLoading("Đang tải dữ liệu");
                 await Task.Delay(1000);
                 //get danh sách công trình
-                GetCongTrinh("1");                
-                HideLoading();
-            }
-            catch (Exception ex)
-            {
-                HideLoading();
-                await new MessageBox("Thông báo", ex.ToString()).Show();
-            }
-            finally
-            {
-                IsBusy = false;
-                IsRunning = false;
-            }
-        }
-
-        public async void HienThiThongTin ()
-        {
-            try
-            {
-                if (_selectCongTrinh == null  )
-                {
-                    await new MessageBox("Thông báo", "Vui lòng chọn công trình báo cáo").Show();
-                    return;
-                }
-               
-                if (IsBusy == true) return;
-                IsBusy = true;
-                IsRunning = true;
-                ShowLoading("Đang tải dữ liệu");
-                await Task.Delay(1000);
-                //get danh sách công trình
-                var _json = Config.client.GetStringAsync(Config.URL + $"BaoCaoTatCaLapDatHienTaiCuaCongTrinh?macongtrinh={(_selectCongTrinh == null ? "abc" : _selectCongTrinh.Code)}").Result;
+                var _json = Config.client.GetStringAsync(Config.URL + $"BaoCaoTatCaLapDatHienTaiCuaCongTrinh?macongtrinh={(CongTrinh == null ? "abc" : CongTrinh)}").Result;
                 _json = _json.Replace("\\r\\n", "").Replace("\\", "");
                 if (_json != "[]")
                 {
