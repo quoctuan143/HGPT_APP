@@ -25,6 +25,7 @@
                                          PickerWidth="200"
                                          HeaderText="Chọn tháng"
                                          Format="yyyy_MM_dd"
+                                         Date="{Binding Thang,Mode=TwoWay}"
                                          OkCommand="{Binding OkCommand}"
                                          />
                 <Button Text="Chọn tháng để xem"

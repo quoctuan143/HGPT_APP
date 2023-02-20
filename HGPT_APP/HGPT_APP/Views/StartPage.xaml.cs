@@ -1,52 +1,26 @@
-﻿using HGPT_APP.Popup;
-using HGPT_APP.Views;
+﻿using HGPT_APP.Global;
+using HGPT_APP.Popup;
 using Plugin.Connectivity;
-using Plugin.LatestVersion;
 using System;
 using System.Collections.Generic;
+using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
 using Xamarin.Essentials;
 using Xamarin.Forms;
+using Xamarin.Forms.Xaml;
 
-namespace HGPT_APP.Global
+namespace HGPT_APP.Views
 {
-    public class SplashPage : ContentPage
-    {
-
-        // IMqttClient client;
-        Image image;
-        public SplashPage()
-        {
+	[XamlCompilation(XamlCompilationOptions.Compile)]
+	public partial class StartPage : ContentPage
+	{
+		public StartPage ()
+		{
+			InitializeComponent ();
             CrossConnectivity.Current.ConnectivityChanged += Current_ConnectivityChangedAsync;
-
-
             NavigationPage.SetHasNavigationBar(this, false);
-            var sub = new AbsoluteLayout();
-            image = new Image
-            {
-                Source = "logo_hgpt.png",
-                WidthRequest = 250,
-                HeightRequest = 250
-
-            };
-            AbsoluteLayout.SetLayoutFlags(image, AbsoluteLayoutFlags.PositionProportional);
-            AbsoluteLayout.SetLayoutBounds(image, new Rectangle(0.5, 0.5, AbsoluteLayout.AutoSize, AbsoluteLayout.AutoSize));
-            var lable = new Label
-            {
-                Text = "App tiện ích HGPT",
-                HorizontalOptions = LayoutOptions.FillAndExpand,
-                TextColor = Color.Red,
-                FontSize = 20 
-            };
-            AbsoluteLayout.SetLayoutFlags(lable, AbsoluteLayoutFlags.PositionProportional);
-            AbsoluteLayout.SetLayoutBounds(lable, new Rectangle(0.5, 0.95, AbsoluteLayout.AutoSize, AbsoluteLayout.AutoSize));
-            sub.Children.Add(image);
-            sub.Children.Add(lable);
-            this.BackgroundColor = Color.White;
-            this.Content = sub;
         }
-
         private async void Current_ConnectivityChangedAsync(object sender, Plugin.Connectivity.Abstractions.ConnectivityChangedEventArgs e)
         {
             if (!CrossConnectivity.Current.IsConnected)
@@ -63,11 +37,6 @@ namespace HGPT_APP.Global
                 { App.Current.MainPage = new Login(); });
             }
             await Task.Delay(2000);
-            await image.ScaleTo(1, 2000);//thời gian khởi tạo
-                                         //await image.ScaleTo(0.9, 1500, Easing.Linear);
-                                         // await image.ScaleTo(150, 500, Easing.Linear);
-
-            //kiêm tra xem user có thay đổi k
             try
             {
 

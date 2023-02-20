@@ -10,14 +10,16 @@ using Xamarin.Forms.Xaml;
 
 namespace HGPT_APP.Templates
 {
-    [XamlCompilation(XamlCompilationOptions.Compile)]
-    public partial class IconViewMain : ContentView
-    {
+	[XamlCompilation(XamlCompilationOptions.Compile)]
+	public partial class IconViewMain : ContentView
+	{
         public static readonly BindableProperty TitleProperty = BindableProperty.Create(nameof(Title), typeof(string), typeof(IconViewMain), string.Empty);
         public static readonly BindableProperty ImageSourceProperty = BindableProperty.Create(nameof(IconImageSource), typeof(ImageSource), typeof(IconViewMain), default(ImageSource));
         public static readonly BindableProperty BadgeTextProperty = BindableProperty.Create(nameof(BadgeText), typeof(string), typeof(IconViewMain), string.Empty);
         public static readonly BindableProperty ActionCommandProperty = BindableProperty.Create(nameof(ActionCommand), typeof(ICommand), typeof(IconViewMain));
         public static readonly BindableProperty DisableProperty = BindableProperty.Create(nameof(Disable), typeof(bool), typeof(IconViewMain), false);
+        public static readonly BindableProperty ImageWidthProperty = BindableProperty.Create(nameof(ImageWidth), typeof(int), typeof(IconViewMain), 0);
+        public static readonly BindableProperty ImageHeightProperty = BindableProperty.Create(nameof(ImageHeight), typeof(int), typeof(IconViewMain), 0);
         public string Title
         {
             get => (string)GetValue(TitleProperty);
@@ -27,6 +29,16 @@ namespace HGPT_APP.Templates
         {
             get => (string)GetValue(BadgeTextProperty);
             set => SetValue(BadgeTextProperty, value);
+        }
+        public int ImageWidth
+        {
+            get => (int)GetValue(ImageWidthProperty);
+            set => SetValue(ImageWidthProperty, value);
+        }
+        public int ImageHeight
+        {
+            get => (int)GetValue(ImageHeightProperty);
+            set => SetValue(ImageHeightProperty, value);
         }
         public bool Disable
         {
@@ -45,13 +57,10 @@ namespace HGPT_APP.Templates
             get => (ICommand)GetValue(ActionCommandProperty);
             set => SetValue(ActionCommandProperty, value);
         }
-
-
-        public IconViewMain() 
-        {
-            InitializeComponent();
-        }
-
+        public IconViewMain ()
+		{
+			InitializeComponent ();
+		}
         private void Frame_Tapped(object sender, EventArgs e)
         {
             ActionCommand.Execute(null);

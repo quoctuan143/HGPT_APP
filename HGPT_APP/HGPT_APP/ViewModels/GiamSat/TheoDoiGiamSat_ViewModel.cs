@@ -15,8 +15,10 @@ namespace HGPT_APP.ViewModels.GiamSat
 
         #region "Khai báo biến"              
         public INavigation navigation { get; set; }
-        public DateTime Thang { get; set; }    
-        public string NgayXem  { get; set; }    
+        string _ngayxem;
+        DateTime _thang;
+        public DateTime Thang { get => _thang  ; set => SetProperty (ref _thang ,value ); }    
+        public string NgayXem  { get => _ngayxem ; set => SetProperty(ref _ngayxem ,value ); }    
        ObservableCollection <TheoDoiGiamSat_Model> _listDanhSachCongTrinh;
         public ObservableCollection<TheoDoiGiamSat_Model> ListDanhSachCongTrinh { 
             get => _listDanhSachCongTrinh;
