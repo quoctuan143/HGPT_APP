@@ -35,16 +35,7 @@ namespace HGPT_APP.Views.GiamSat
         }
 
         private async  void btnShareZalo_Clicked(object sender, EventArgs e)
-        {
-            //try
-            //{
-            //    await Browser.OpenAsync($"https://hrm.hgpt.vn/Home/BaoCaoCongTrinh?CongTrinh={MaCongTrinh}&Ngay={string.Format("{0:yyyy - MM - dd}", Ngay)}", BrowserLaunchMode.SystemPreferred);
-            //}
-            //catch (Exception ex)
-            //{
-            //    // An unexpected error occured. No browser may be installed on the device.
-            //}
-            
+        {     
             await Share.RequestAsync(new ShareTextRequest
             {
                 Title = "Báo cáo công việc",

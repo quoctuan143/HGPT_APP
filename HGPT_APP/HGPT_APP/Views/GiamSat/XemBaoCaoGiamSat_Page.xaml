@@ -10,7 +10,7 @@
              xmlns:cv="clr-namespace:CarouselView.FormsPlugin.Abstractions;assembly=CarouselView.FormsPlugin.Abstractions"
              Shell.TabBarIsVisible="False"
              Title="{Binding Title}">
-    <Shell.TitleView>
+    <!--<Shell.TitleView>
         <StackLayout Orientation="Horizontal"
                      HorizontalOptions="FillAndExpand">            
             <Label  x:Name="txtName"
@@ -34,11 +34,13 @@
 
             </Image>
         </StackLayout>
-    </Shell.TitleView>
+    </Shell.TitleView>-->
     <ContentPage.Content>
-        <StackLayout>
+        <AbsoluteLayout>
             
             <ScrollView VerticalOptions="FillAndExpand" Orientation="Vertical"
+                        AbsoluteLayout.LayoutFlags="All"
+                        AbsoluteLayout.LayoutBounds="1,1,1,1"
                         BackgroundColor="White"
                         x:Name="listData">
                 <StackLayout Spacing="6">                     
@@ -212,8 +214,20 @@
                     </StackLayout>
                 </StackLayout>
             </ScrollView>
-            
-        </StackLayout>
+
+            <Image Source="reopen1.png"
+                   x:Name="btnShareZalo"
+                   HeightRequest="30"
+                   WidthRequest="30"
+                   Aspect="AspectFit"
+                   AbsoluteLayout.LayoutFlags="PositionProportional"
+                   AbsoluteLayout.LayoutBounds="0.95, 0.95, 40, 40">
+                <Image.GestureRecognizers>
+                    <TapGestureRecognizer Tapped="btnShareZalo_Clicked" />
+                </Image.GestureRecognizers>
+
+            </Image>
+        </AbsoluteLayout>
         
        
     </ContentPage.Content>
