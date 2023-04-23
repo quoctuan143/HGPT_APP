@@ -1,10 +1,11 @@
 ﻿<?xml version="1.0" encoding="utf-8" ?>
 <ContentPage xmlns="http://xamarin.com/schemas/2014/forms"
-             xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml" xmlns:sfcombox="clr-namespace:Syncfusion.XForms.ComboBox;assembly=Syncfusion.SfComboBox.XForms"
+             xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
+             xmlns:sfcombox="clr-namespace:Syncfusion.XForms.ComboBox;assembly=Syncfusion.SfComboBox.XForms"
              Title="Cập nhật thông tin thiết bị"
-              xmlns:ListCollection="clr-namespace:System.Collections.Generic;assembly=netstandard"   
-              Shell.TabBarIsVisible="False"
-             x:Class="HGPT_APP.Views.ThongTinThietBi_Edit">
+             Shell.TabBarIsVisible="False"
+             x:Class="HGPT_APP.Views.ThongTinThietBi_Edit"
+             BackgroundColor="White">
     <ScrollView Orientation="Vertical">
         <StackLayout>
             <Grid x:Name="Information" ColumnDefinitions="4*,6*" RowDefinitions="auto,40,auto,auto,auto,auto,auto,auto,50,50,40,40" Padding="10">
@@ -26,28 +27,25 @@
                 <Label Text="Ngày Sử Dụng" Grid.Column="0" VerticalTextAlignment="Center" Grid.Row="7" FontSize="16" TextColor="Black"></Label>
                 <DatePicker Date="{Binding Item.NgaySuDung ,Mode=TwoWay}" Grid.Column="1" Grid.Row="7" FontSize="16" TextColor="Black"></DatePicker>
                 <Label Text="Mã Nhà Máy" Grid.Column="0" VerticalTextAlignment="Center" Grid.Row="8" FontSize="16" TextColor="Black"></Label>
-                <sfcombox:SfComboBox x:Name="cbNhaMay" Grid.Column="1" Grid.Row="8" DataSource="{Binding ListNhaMay}" 
+                <sfcombox:SfComboBox x:Name="cbNhaMay" Grid.Column="1" Grid.Row="8" DataSource="{Binding ListNhaMay}"
                                  DisplayMemberPath="Name" SelectedValuePath="Code"
-                                   Style="{StaticResource styleCombobox}"                                   
+                                   Style="{StaticResource styleCombobox}"
                                    Watermark="Chọn nhà máy"
                                    SelectedItem="{Binding SelectNhaMay}"
-                                 HeightRequest="50"
-                                   >
-
+                                 HeightRequest="50">
                 </sfcombox:SfComboBox>
                 <Label Text="Phòng Sử Dụng" Grid.Column="0" VerticalTextAlignment="Center" Grid.Row="9" FontSize="16" TextColor="Black"></Label>
-                <sfcombox:SfComboBox x:Name="cbPhongBan"    
+                <sfcombox:SfComboBox x:Name="cbPhongBan"
                                  Grid.Column="1"
                                  Grid.Row="9"
                                  DataSource="{Binding ListPhongBan , Mode=TwoWay}"
                                  SelectedItem="{Binding SelectPhongBan, Mode=TwoWay}"
                                  Style="{StaticResource styleCombobox}"
-                                       Watermark="Chọn phòng ban"    
+                                       Watermark="Chọn phòng ban"
                                        DisplayMemberPath="Name"
-                                       HorizontalOptions="FillAndExpand"                              
-                                       NoResultsFoundText="Không tìm thấy thông tin"     
-                                       IsEditableMode="True"
-                                      >
+                                       HorizontalOptions="FillAndExpand"
+                                       NoResultsFoundText="Không tìm thấy thông tin"
+                                       IsEditableMode="True">
                 </sfcombox:SfComboBox>
                 <Label Text="Ngưởi sử dụng" Grid.Column="0" VerticalTextAlignment="Center" Grid.Row="10" FontSize="16" TextColor="Black"></Label>
                 <Entry Text="{Binding Item.NguoiSuDung,Mode=TwoWay}" Grid.Column="1" Grid.Row="10" FontSize="16" TextColor="Black"></Entry>
@@ -57,5 +55,4 @@
             <Button Style="{StaticResource styleButton}" Text="Cập Nhật" Clicked="Button_Clicked"></Button>
         </StackLayout>
     </ScrollView>
-   
 </ContentPage>

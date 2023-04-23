@@ -7,7 +7,8 @@
              x:Class="HGPT_APP.Views.AboutPage"
              xmlns:vm="clr-namespace:HGPT_APP.ViewModels"
              xmlns:helper="clr-namespace:HGPT_APP.helper"            
-             Title="{Binding Title}">
+             Title="{Binding Title}"
+             BackgroundColor="White">
     
     <Shell.TitleView >
         <StackLayout Orientation="Horizontal" HorizontalOptions="FillAndExpand">

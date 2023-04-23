@@ -1,24 +1,22 @@
 ﻿<?xml version="1.0" encoding="utf-8" ?>
 <ContentPage xmlns="http://xamarin.com/schemas/2014/forms"
-             xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml" 
-             xmlns:sfinputtext="clr-namespace:Syncfusion.XForms.TextInputLayout;assembly=Syncfusion.Core.XForms"
-             x:Class="HGPT_APP.Views.GiamSat.TheoDoiGiamSat_Page"
-             xmlns:helper="clr-namespace:HGPT_APP.helper"                           
-             xmlns:sfDataGrid="clr-namespace:Syncfusion.SfDataGrid.XForms;assembly=Syncfusion.SfDataGrid.XForms" 
+             xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
              xmlns:local1="clr-namespace:HGPT_APP.Converter"
+             xmlns:sfDataGrid="clr-namespace:Syncfusion.SfDataGrid.XForms;assembly=Syncfusion.SfDataGrid.XForms"
              xmlns:syncfusion="clr-namespace:Syncfusion.XForms.Pickers;assembly=Syncfusion.SfPicker.XForms"
-             Shell.TabBarIsVisible="False"           
-             Title="{Binding Title}">
+             x:Class="HGPT_APP.Views.GiamSat.TheoDoiGiamSat_Page"
+             Shell.TabBarIsVisible="False"
+             Title="{Binding Title}"
+             BackgroundColor="White">
     <ContentPage.Resources>
         <ResourceDictionary>
-            <local1:Dark x:Key="dark" />               
+            <local1:Dark x:Key="dark" />
         </ResourceDictionary>
-
     </ContentPage.Resources>
     <ContentPage.Content>
         <StackLayout Spacing="0">
             <StackLayout Orientation="Horizontal">
-                <syncfusion:SfDatePicker x:Name="datepicker"                                          
+                <syncfusion:SfDatePicker x:Name="datepicker"
                                          ShowFooter="True"
                                          PickerMode="Dialog"
                                          PickerHeight="300"
@@ -26,38 +24,36 @@
                                          HeaderText="Chọn tháng"
                                          Format="yyyy_MM_dd"
                                          Date="{Binding Thang,Mode=TwoWay}"
-                                         OkCommand="{Binding OkCommand}"
-                                         />
+                                         OkCommand="{Binding OkCommand}" />
                 <Button Text="Chọn tháng để xem"
-                        x:Name="pickerButton"                    
+                        x:Name="pickerButton"
                         Clicked="pickerButton_Clicked"
                         HorizontalOptions="Center"
                         VerticalOptions="Center"
-                        HeightRequest="40"/>
+                        HeightRequest="40" />
                 <Label Style="{StaticResource styleLableBlue}"
                        FontSize="20"
                        Text="{Binding NgayXem,Mode=TwoWay}" />
             </StackLayout>
             <Grid x:Name="mGridLayout" AbsoluteLayout.LayoutFlags="All"
-                              AbsoluteLayout.LayoutBounds="1,1,1,1"                   
+                              AbsoluteLayout.LayoutBounds="1,1,1,1"
                               VerticalOptions="FillAndExpand" HorizontalOptions="FillAndExpand">
                 <sfDataGrid:SfDataGrid x:Name="listCongDoanCongNhan"
-                                       ItemsSource="{Binding ListDanhSachCongTrinh , Mode=TwoWay}"                                        
-                                       AutoGenerateColumns="False"                                                                     
-                                       GridStyle="{StaticResource dark}"   
+                                       ItemsSource="{Binding ListDanhSachCongTrinh , Mode=TwoWay}"
+                                       AutoGenerateColumns="False"
+                                       GridStyle="{StaticResource dark}"
                                        GroupCaptionTextFormat="{}{}{Key}"
                                        Style="{StaticResource styleDataGrid}"
                                        ColumnSizer="LastColumnFill"
-                                       AllowGroupExpandCollapse="True"
-                                       >
-                    <sfDataGrid:SfDataGrid.Columns>                         
-                        <sfDataGrid:GridTemplateColumn MappingName="ChamCong"  
+                                       AllowGroupExpandCollapse="True">
+                    <sfDataGrid:SfDataGrid.Columns>
+                        <sfDataGrid:GridTemplateColumn MappingName="ChamCong"
                                                        HeaderText="Nhóm"  HeaderFontAttribute="Bold" HeaderCellTextSize="16"
                                                        Width="100">
                             <sfDataGrid:GridTemplateColumn.CellTemplate>
                                 <DataTemplate>
-                                    <Label Text="{Binding ChamCong}" Padding="5,0,0,0" FontSize="16"                                              
-                                           XAlign="Start" YAlign="Center"/>
+                                    <Label Text="{Binding ChamCong}" Padding="5,0,0,0" FontSize="16"
+                                           XAlign="Start" YAlign="Center" />
                                 </DataTemplate>
                             </sfDataGrid:GridTemplateColumn.CellTemplate>
                         </sfDataGrid:GridTemplateColumn>

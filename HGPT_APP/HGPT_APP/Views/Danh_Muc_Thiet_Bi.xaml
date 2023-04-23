@@ -12,7 +12,8 @@
              mc:Ignorable="d"
              Title="Danh mục thiết bị"
               Shell.TabBarIsVisible="False"
-             x:Class="HGPT_APP.Views.Danh_Muc_Thiet_Bi">
+             x:Class="HGPT_APP.Views.Danh_Muc_Thiet_Bi"
+             BackgroundColor="White">
     <ContentPage.Resources>
         <ResourceDictionary>
             <local1:Dark x:Key="dark" />

@@ -3,19 +3,19 @@
              xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
              Title="Khách hàng đã chăm sóc"
               Shell.TabBarIsVisible="False"
-             x:Class="HGPT_APP.Views.SinhNhatKhachHang.SinhNhatKhachHang_DaChamSoc">
+             x:Class="HGPT_APP.Views.SinhNhatKhachHang.SinhNhatKhachHang_DaChamSoc"
+             BackgroundColor="White">
     <ContentPage.Content>
         <ListView VerticalScrollBarVisibility="Never"
                   HasUnevenRows="True"
                  SeparatorVisibility="None"
-                  ItemsSource="{Binding ListDanhSach,Mode=TwoWay}"               
-                  IsRefreshing="{Binding IsRunning}"
-                  >
+                  ItemsSource="{Binding ListDanhSach,Mode=TwoWay}"
+                  IsRefreshing="{Binding IsRunning}">
             <ListView.ItemTemplate>
                 <DataTemplate>
                     <ViewCell>
-                        <Frame 
-                            
+                        <Frame
+
                              BorderColor="Gray"
                             CornerRadius="5"
                             Margin="0,0,0,10"
@@ -27,46 +27,45 @@
                                 <Label Style="{StaticResource styleLableBlue}" FontSize="18" FontAttributes="Bold">
                                     <Label.FormattedText>
                                         <FormattedString>
-                                            <Span  Text="{Binding NguoiLienHe}"/>
-                                            <Span Text=" ( "/>
-                                            <Span  Text="{Binding NgaySinh, StringFormat='{0:dd/MM/yyyy}'}"/>
-                                            <Span Text=" )"/>
+                                            <Span  Text="{Binding NguoiLienHe}" />
+                                            <Span Text=" ( " />
+                                            <Span  Text="{Binding NgaySinh, StringFormat='{0:dd/MM/yyyy}'}" />
+                                            <Span Text=" )" />
                                         </FormattedString>
                                     </Label.FormattedText>
                                 </Label>
                                 <Label Style="{StaticResource styleLableBlue}">
                                     <Label.FormattedText>
                                         <FormattedString>
-                                            <Span Text="Số ĐT: "/>
-                                            <Span  Text="{Binding PhoneNo_}"/>
+                                            <Span Text="Số ĐT: " />
+                                            <Span  Text="{Binding PhoneNo_}" />
                                         </FormattedString>
                                     </Label.FormattedText>
                                 </Label>
                                 <Label Style="{StaticResource styleLableBlue}" LineBreakMode="WordWrap">
                                     <Label.FormattedText>
                                         <FormattedString>
-                                            <Span Text="Chức vụ: "/>
-                                            <Span  Text="{Binding ChucVu}"/>
+                                            <Span Text="Chức vụ: " />
+                                            <Span  Text="{Binding ChucVu}" />
                                         </FormattedString>
                                     </Label.FormattedText>
                                 </Label>
                                 <Label  Style="{StaticResource styleLableBlue}">
                                     <Label.FormattedText>
                                         <FormattedString>
-                                            <Span Text="Người chăm sóc: "/>
-                                            <Span Text="{Binding FullName}"/>
+                                            <Span Text="Người chăm sóc: " />
+                                            <Span Text="{Binding FullName}" />
                                         </FormattedString>
                                     </Label.FormattedText>
                                 </Label>
                                 <Label  Style="{StaticResource styleLableBlue}" LineBreakMode="WordWrap" TextColor="Red">
                                     <Label.FormattedText>
                                         <FormattedString>
-                                            <Span Text="Nội dung: "/>
-                                            <Span Text="{Binding NoiDungChamSoc}"/>
+                                            <Span Text="Nội dung: " />
+                                            <Span Text="{Binding NoiDungChamSoc}" />
                                         </FormattedString>
                                     </Label.FormattedText>
                                 </Label>
-                               
                             </StackLayout>
                         </Frame>
                     </ViewCell>

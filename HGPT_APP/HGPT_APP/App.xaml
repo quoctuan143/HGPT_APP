@@ -87,10 +87,10 @@
                 <Setter Property="FontFamily" Value="Arial"></Setter>
                 <Setter Property="LineBreakMode" Value="WordWrap"/>
             </Style>
-            <Style TargetType="Label" x:Key="styleLablenotwhite">
+            <Style TargetType="Label" x:Key="styleLablenotwhite" >
                 <Setter Property="TextColor" Value="Black"></Setter>
                 <Setter Property="FontSize" Value="16"></Setter>
-                <Setter Property="FontFamily" Value="Arial"></Setter>
+                <Setter Property="FontFamily" Value="Arial"></Setter>                 
             </Style>
 
             <Style TargetType="sfDatagrid:SfDataGrid" x:Key="styleDataGrid">

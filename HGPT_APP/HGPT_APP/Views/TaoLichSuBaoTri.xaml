@@ -1,20 +1,20 @@
 ﻿<?xml version="1.0" encoding="utf-8" ?>
 <ContentPage xmlns="http://xamarin.com/schemas/2014/forms"
              xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
-             xmlns:d="http://xamarin.com/schemas/2014/forms/design"
              xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
+             xmlns:d="http://xamarin.com/schemas/2014/forms/design"
+             xmlns:local1="clr-namespace:HGPT_APP.Converter"
+             xmlns:sfDataGrid="clr-namespace:Syncfusion.SfDataGrid.XForms;assembly=Syncfusion.SfDataGrid.XForms"
+             xmlns:sfCheckbox="clr-namespace:Syncfusion.XForms.Buttons;assembly=Syncfusion.Buttons.XForms"
+             xmlns:sfcombox="clr-namespace:Syncfusion.XForms.ComboBox;assembly=Syncfusion.SfComboBox.XForms"
+             xmlns:sfinputText="clr-namespace:Syncfusion.XForms.TextInputLayout;assembly=Syncfusion.Core.XForms"
+             xmlns:ListCollection="clr-namespace:System.Collections.Generic;assembly=netstandard"
              mc:Ignorable="d"
              x:Class="HGPT_APP.Views.TaoLichSuBaoTri"
-             xmlns:local="clr-namespace:HGPT_APP.Views" 
-             xmlns:sfcombox="clr-namespace:Syncfusion.XForms.ComboBox;assembly=Syncfusion.SfComboBox.XForms" 
-             xmlns:sfinputText="clr-namespace:Syncfusion.XForms.TextInputLayout;assembly=Syncfusion.Core.XForms" 
-             xmlns:sfCheckbox="clr-namespace:Syncfusion.XForms.Buttons;assembly=Syncfusion.Buttons.XForms" 
-             xmlns:sfDataGrid="clr-namespace:Syncfusion.SfDataGrid.XForms;assembly=Syncfusion.SfDataGrid.XForms"
-             xmlns:ListCollection="clr-namespace:System.Collections.Generic;assembly=netstandard"     
-             xmlns:local1="clr-namespace:HGPT_APP.Converter"
              InputTransparent="False"
-              Shell.TabBarIsVisible="False"
-             Title="Cập nhật bảo trì">
+             Shell.TabBarIsVisible="False"
+             Title="Cập nhật bảo trì"
+             BackgroundColor="White">
     <ContentPage.Resources>
         <ResourceDictionary>
             <local1:Dark x:Key="dark" />
@@ -24,16 +24,14 @@
         <StackLayout Spacing="0">
             <ScrollView Orientation="Vertical">
                 <StackLayout Spacing="0">
-                    <sfDataGrid:SfDataGrid x:Name="listquytrinh"  
-                                          ItemsSource="{Binding QUY_TRINH_BAO_TRIs, Mode=TwoWay}"   
-                                            AutoGenerateColumns="False" 
-                                            GridStyle="{StaticResource dark}"                                            
+                    <sfDataGrid:SfDataGrid x:Name="listquytrinh"
+                                          ItemsSource="{Binding QUY_TRINH_BAO_TRIs, Mode=TwoWay}"
+                                            AutoGenerateColumns="False"
+                                            GridStyle="{StaticResource dark}"
                                             Style="{StaticResource styleDataGrid}"
-                                            ColumnSizer="LastColumnFill"
-                                              >
+                                            ColumnSizer="LastColumnFill">
                         <sfDataGrid:SfDataGrid.Columns>
                             <sfDataGrid:GridSwitchColumn MappingName="IsCheck" HeaderText="">
-
                             </sfDataGrid:GridSwitchColumn>
                             <sfDataGrid:GridTemplateColumn  MappingName="NOI_DUNG" HeaderText="Nội dung bảo trì"   HeaderFontAttribute="Bold"  HeaderCellTextSize="16">
                                 <sfDataGrid:GridTemplateColumn.CellTemplate>
@@ -45,51 +43,46 @@
                         </sfDataGrid:SfDataGrid.Columns>
                     </sfDataGrid:SfDataGrid>
 
-                    <sfinputText:SfTextInputLayout Hint="Phụ tùng thay thế"      
-                                               ContainerType="Outlined"              
-                                              >
+                    <sfinputText:SfTextInputLayout Hint="Phụ tùng thay thế"
+                                               ContainerType="Outlined">
                         <Entry x:Name="entryPhuTung" Style="{StaticResource styleEntry}"  ClearButtonVisibility="WhileEditing"></Entry>
                         <sfinputText:SfTextInputLayout.HintLabelStyle>
-                            <sfinputText:LabelStyle FontSize="16" FontAttributes="Bold"  />
+                            <sfinputText:LabelStyle FontSize="16" FontAttributes="Bold" />
                         </sfinputText:SfTextInputLayout.HintLabelStyle>
                     </sfinputText:SfTextInputLayout>
 
-
-                    <sfcombox:SfComboBox x:Name="cbNhaMay" Grid.Column="0"  IsEditableMode="False"  
+                    <sfcombox:SfComboBox x:Name="cbNhaMay" Grid.Column="0"  IsEditableMode="False"
                                          Watermark="Chọn nhà máy"
                                          HeightRequest="40"
-                                         ShowBorder="False" Style="{StaticResource styleCombobox}"  >
+                                         ShowBorder="False" Style="{StaticResource styleCombobox}">
                         <sfcombox:SfComboBox.ComboBoxSource>
                             <ListCollection:List x:TypeArguments="x:String">
                                 <x:String>NM1</x:String>
                                 <x:String>NM2</x:String>
-                                
                             </ListCollection:List>
                         </sfcombox:SfComboBox.ComboBoxSource>
                     </sfcombox:SfComboBox>
-                    <sfinputText:SfTextInputLayout Hint="Nội dung khác"      
-                                               ContainerType="Outlined"   
-                                              >
+                    <sfinputText:SfTextInputLayout Hint="Nội dung khác"
+                                               ContainerType="Outlined">
                         <Entry x:Name="entryNoiDungKhac" Style="{StaticResource styleEntry}"  ClearButtonVisibility="WhileEditing"></Entry>
                         <sfinputText:SfTextInputLayout.HintLabelStyle>
-                            <sfinputText:LabelStyle FontSize="16" FontAttributes="Bold"  />
+                            <sfinputText:LabelStyle FontSize="16" FontAttributes="Bold" />
                         </sfinputText:SfTextInputLayout.HintLabelStyle>
                     </sfinputText:SfTextInputLayout>
                     <sfCheckbox:SfCheckBox x:Name="chkBaoDuong" IsChecked="True"  Text="Bảo dưỡng định kỳ" FontSize="16" FontAttributes="Bold" TextColor="#06264c"></sfCheckbox:SfCheckBox>
 
-                    <sfinputText:SfTextInputLayout Hint="Tình trạng hiện tại"      
-                                               ContainerType="Outlined"                                                
-                                              >
+                    <sfinputText:SfTextInputLayout Hint="Tình trạng hiện tại"
+                                               ContainerType="Outlined">
                         <Entry x:Name="entryTinhTrang" Style="{StaticResource styleEntry}"  ClearButtonVisibility="WhileEditing"></Entry>
                         <sfinputText:SfTextInputLayout.HintLabelStyle>
-                            <sfinputText:LabelStyle FontSize="16" FontAttributes="Bold"  />
+                            <sfinputText:LabelStyle FontSize="16" FontAttributes="Bold" />
                         </sfinputText:SfTextInputLayout.HintLabelStyle>
                     </sfinputText:SfTextInputLayout>
                     <StackLayout Padding="10">
-                        <Frame CornerRadius="20" 
+                        <Frame CornerRadius="20"
                            Padding="0"
                            IsClippedToBounds="True">
-                            <Image x:Name="imagePicture" Source="noimage.jpg" Aspect="AspectFit" >
+                            <Image x:Name="imagePicture" Source="noimage.jpg" Aspect="AspectFit">
                                 <Image.GestureRecognizers>
                                     <TapGestureRecognizer Tapped="TapGestureRecognizer_Tapped"></TapGestureRecognizer>
                                 </Image.GestureRecognizers>
@@ -99,9 +92,6 @@
                 </StackLayout>
             </ScrollView>
             <Button Text="Cập Nhật" Clicked="Save_Clicked" Style="{StaticResource styleButton}" VerticalOptions="End" HorizontalOptions="FillAndExpand" ></Button>
-
         </StackLayout>
-
     </ContentPage.Content>
-
 </ContentPage>

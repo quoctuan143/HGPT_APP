@@ -1,12 +1,13 @@
 ﻿<?xml version="1.0" encoding="utf-8" ?>
 <ContentPage xmlns="http://xamarin.com/schemas/2014/forms"
              xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
-             Title="HGPT Mechanical thông báo"            
+             Title="HGPT Mechanical thông báo"
               Shell.TabBarIsVisible="False"
-             x:Class="HGPT_APP.Views.NotificationPage">
+             x:Class="HGPT_APP.Views.NotificationPage"
+             BackgroundColor="White">
     <ContentPage.Content>
         <StackLayout>
-            <ListView 
+            <ListView
                       ItemsSource="{Binding ListThongBao, Mode=TwoWay }"
                       ItemSelected="listThongBao_ItemSelected"
                     HasUnevenRows="True"
@@ -16,22 +17,19 @@
                 <ListView.ItemTemplate>
                     <DataTemplate>
                         <ViewCell>
-                            <StackLayout   Margin="5" >
+                            <StackLayout   Margin="5">
                                 <StackLayout Spacing="5" Padding="10">
-                                    
-                                    <Grid ColumnDefinitions="2*,8*"  >
-                                        <Image Source="logo_hgpt.png" Aspect="AspectFit" Grid.Column="0" WidthRequest="30" HeightRequest="30"/>
+
+                                    <Grid ColumnDefinitions="2*,8*">
+                                        <Image Source="logo_hgpt.png" Aspect="AspectFit" Grid.Column="0" WidthRequest="30" HeightRequest="30" />
                                         <StackLayout Grid.Column="1">
-                                            <Label Text="{Binding Description}" Style="{StaticResource styleLableBlue}" FontSize="20"/>
-                                            <Label Text="{Binding CreateDate }" Style="{StaticResource styleLableBlue}"/>
-                                            <Label Text="{Binding TRANG_THAI }" Style="{StaticResource styleLableBlue}" FontSize="12"/>
+                                            <Label Text="{Binding Description}" Style="{StaticResource styleLableBlue}" FontSize="20" />
+                                            <Label Text="{Binding CreateDate }" Style="{StaticResource styleLableBlue}" />
+                                            <Label Text="{Binding TRANG_THAI }" Style="{StaticResource styleLableBlue}" FontSize="12" />
                                         </StackLayout>
                                     </Grid>
-
-                                </StackLayout>                                
-
+                                </StackLayout>
                             </StackLayout>
-                          
                         </ViewCell>
                     </DataTemplate>
                 </ListView.ItemTemplate>

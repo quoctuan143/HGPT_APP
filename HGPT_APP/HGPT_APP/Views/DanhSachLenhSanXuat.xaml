@@ -11,7 +11,8 @@
              mc:Ignorable="d"
              Title="{Binding Title}"
              Shell.TabBarIsVisible="False"
-             x:Class="HGPT_APP.Views.DanhSachLenhSanXuat">
+             x:Class="HGPT_APP.Views.DanhSachLenhSanXuat"
+             BackgroundColor="White">
     <ContentPage.Resources>
         <ResourceDictionary>
             <local1:Dark x:Key="dark" />

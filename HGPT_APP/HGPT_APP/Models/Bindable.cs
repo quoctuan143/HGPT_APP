@@ -31,6 +31,24 @@ namespace HGPT_APP.Models
 
             changed.Invoke(this, new PropertyChangedEventArgs(propertyName));
         }
+
+        public bool CheckThapPhan(string value)
+        {
+            if (!string.IsNullOrEmpty(value))
+            {
+                char lastChar = value[value.Length - 1];
+                if (lastChar == ',')
+                {
+                    return true;
+                }
+            }
+            return false;
+        }
+        public void FormatNumberString(ref double number, string value)
+        {
+            double.TryParse(!string.IsNullOrEmpty(value) ? value : "0", out double quantity);
+            number = quantity;
+        }
         #endregion
     }
 }

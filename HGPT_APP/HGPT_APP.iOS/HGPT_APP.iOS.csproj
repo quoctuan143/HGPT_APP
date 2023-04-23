@@ -479,4 +479,34 @@
   <ItemGroup>
     <BundleResource Include="Resources\tranfer.png" />
   </ItemGroup>
+  <ItemGroup>
+    <BundleResource Include="Resources\quanlycongnhan.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <BundleResource Include="Resources\phanviectukehoach.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <BundleResource Include="Resources\theodoigiamsat.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <BundleResource Include="Resources\tiendo.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <BundleResource Include="Resources\xembaocaohangngay.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <BundleResource Include="Resources\phanchiacongviec.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <BundleResource Include="Resources\lichsucongviec.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <BundleResource Include="Resources\danhsachlsx.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <BundleResource Include="Resources\danhsachcongtrinh.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <BundleResource Include="Resources\dachamsockhachhang.png" />
+  </ItemGroup>
 </Project>

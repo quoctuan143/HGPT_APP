@@ -1,58 +1,57 @@
 ﻿<?xml version="1.0" encoding="utf-8" ?>
 <ContentPage xmlns="http://xamarin.com/schemas/2014/forms"
              xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
-             xmlns:d="http://xamarin.com/schemas/2014/forms/design"
              xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
-             mc:Ignorable="d"
-             xmlns:local="clr-namespace:HGPT_APP.ViewModels" 
+             xmlns:d="http://xamarin.com/schemas/2014/forms/design"
+             xmlns:local1="clr-namespace:HGPT_APP.Converter"
+             xmlns:local="clr-namespace:HGPT_APP.ViewModels"
              xmlns:sfDataGrid="clr-namespace:Syncfusion.SfDataGrid.XForms;assembly=Syncfusion.SfDataGrid.XForms"
-             xmlns:local1="clr-namespace:HGPT_APP.Converter" 
              xmlns:sfinputtext="clr-namespace:Syncfusion.XForms.TextInputLayout;assembly=Syncfusion.Core.XForms"
+             mc:Ignorable="d"
              Title="{Binding Title}"
               Shell.TabBarIsVisible="False"
-             x:Class="HGPT_APP.Views.Phan_Chia_Cong_Viec">
+             x:Class="HGPT_APP.Views.Phan_Chia_Cong_Viec"
+             BackgroundColor="White">
     <ContentPage.ToolbarItems>
         <ToolbarItem IconImageSource="add.png" Clicked="ToolbarItem_Clicked"></ToolbarItem>
         <ToolbarItem IconImageSource="sua.png" Clicked="ToolbarItem_Clicked_1"></ToolbarItem>
     </ContentPage.ToolbarItems>
     <ContentPage.BindingContext>
-        <local:Phan_Chia_Cong_Viec_ViewModel></local:Phan_Chia_Cong_Viec_ViewModel>       
+        <local:Phan_Chia_Cong_Viec_ViewModel></local:Phan_Chia_Cong_Viec_ViewModel>
     </ContentPage.BindingContext>
     <ContentPage.Resources>
         <ResourceDictionary>
             <local1:Dark x:Key="dark" />
             <local1:ChuyenTrangThaiConverter x:Key="ChuyenTrangThaiConverter" />
         </ResourceDictionary>
-
     </ContentPage.Resources>
     <ContentPage.Content>
         <StackLayout Spacing="10">
-            <sfinputtext:SfTextInputLayout Hint="Tìm kiếm"                                               
+            <sfinputtext:SfTextInputLayout Hint="Tìm kiếm"
                                                        IsHintAlwaysFloated="True"
                                                LeadingViewPosition="Inside"
                                                HeightRequest="50"
                                                ContainerType="Outlined">
                 <Entry  x:Name="search" HorizontalOptions="FillAndExpand"   Placeholder="Nhập tên nhân viên hoặc lệnh sản xuất"
-                                    Style="{StaticResource styleSearch}"                                                    
-                                    TextChanged="search_TextChanged"/>
+                                    Style="{StaticResource styleSearch}"
+                                    TextChanged="search_TextChanged" />
                 <sfinputtext:SfTextInputLayout.LeadingView>
                     <Image Source="search.png"></Image>
                 </sfinputtext:SfTextInputLayout.LeadingView>
             </sfinputtext:SfTextInputLayout>
             <Grid x:Name="mGridLayout" AbsoluteLayout.LayoutFlags="All"
                   AbsoluteLayout.LayoutBounds="1,1,1,1" VerticalOptions="FillAndExpand" HorizontalOptions="FillAndExpand">
-                <sfDataGrid:SfDataGrid x:Name="listCongDoanCongNhan"                                           
-                                       ItemsSource="{Binding ListCong_Doan_Cong_Nhans , Mode=TwoWay}" 
+                <sfDataGrid:SfDataGrid x:Name="listCongDoanCongNhan"
+                                       ItemsSource="{Binding ListCong_Doan_Cong_Nhans , Mode=TwoWay}"
                                        SelectedItem="{Binding SelectCongDoan}"
                                        GroupCaptionTextFormat="{}{}{Key}"
                                        AutoGenerateColumns="False"
-                                       NavigationMode="Cell"                                      
+                                       NavigationMode="Cell"
                                        GridStyle="{StaticResource dark}"
-                                       Style="{StaticResource styleDataGrid}"  
-                                       AllowSwiping="True"               
-                                       SwipeEnded="listCongDoanCongNhan_SwipeEnded"    
-                                       MaxSwipeOffset="200"                                       
-                                       >
+                                       Style="{StaticResource styleDataGrid}"
+                                       AllowSwiping="True"
+                                       SwipeEnded="listCongDoanCongNhan_SwipeEnded"
+                                       MaxSwipeOffset="200">
                     <sfDataGrid:SfDataGrid.Columns>
 
                         <sfDataGrid:GridTemplateColumn MappingName="Uncheck"  HeaderText="Không KT" HeaderFontAttribute="Bold" Width="120"   HeaderCellTextSize="16">
@@ -68,11 +67,10 @@
                             </sfDataGrid:GridTemplateColumn.CellStyle>
                         </sfDataGrid:GridTemplateColumn>
 
-
                         <sfDataGrid:GridTemplateColumn MappingName="TO_SAN_XUAT"  HeaderText="Tổ Sản Xuất" HeaderFontAttribute="Bold" Width="120"   HeaderCellTextSize="16">
                             <sfDataGrid:GridTemplateColumn.CellTemplate>
                                 <DataTemplate>
-                                    <Label Text="{Binding TO_SAN_XUAT}" Padding="5,0,0,0" TextColor="{Binding TRANG_THAI , Converter={StaticResource ChuyenTrangThaiConverter}, ConverterParameter='textcolor'}"  XAlign="Start" YAlign="Center"/>
+                                    <Label Text="{Binding TO_SAN_XUAT}" Padding="5,0,0,0" TextColor="{Binding TRANG_THAI , Converter={StaticResource ChuyenTrangThaiConverter}, ConverterParameter='textcolor'}"  XAlign="Start" YAlign="Center" />
                                 </DataTemplate>
                             </sfDataGrid:GridTemplateColumn.CellTemplate>
                             <sfDataGrid:GridTemplateColumn.CellStyle>
@@ -85,7 +83,7 @@
                         <sfDataGrid:GridTemplateColumn MappingName="TEN_NHAN_VIEN"  HeaderText="Tên nhân viên" HeaderFontAttribute="Bold" Width="120"   HeaderCellTextSize="16">
                             <sfDataGrid:GridTemplateColumn.CellTemplate>
                                 <DataTemplate>
-                                    <Label Text="{Binding TEN_NHAN_VIEN}" Padding="5,0,0,0" TextColor="{Binding TRANG_THAI , Converter={StaticResource ChuyenTrangThaiConverter}, ConverterParameter='textcolor'}"  XAlign="Start" YAlign="Center"/>
+                                    <Label Text="{Binding TEN_NHAN_VIEN}" Padding="5,0,0,0" TextColor="{Binding TRANG_THAI , Converter={StaticResource ChuyenTrangThaiConverter}, ConverterParameter='textcolor'}"  XAlign="Start" YAlign="Center" />
                                 </DataTemplate>
                             </sfDataGrid:GridTemplateColumn.CellTemplate>
                             <sfDataGrid:GridTemplateColumn.CellStyle>
@@ -93,12 +91,12 @@
                                     <Setter Property="BackgroundColor"    Value="{Binding TRANG_THAI, Converter={StaticResource ChuyenTrangThaiConverter} ,ConverterParameter='background'}" />
                                 </Style>
                             </sfDataGrid:GridTemplateColumn.CellStyle>
-                        </sfDataGrid:GridTemplateColumn>                        
+                        </sfDataGrid:GridTemplateColumn>
 
                         <sfDataGrid:GridTemplateColumn MappingName="MA_CONG_DOAN"  HeaderText="Công Đoạn" HeaderFontAttribute="Bold" Width="120"   HeaderCellTextSize="16">
                             <sfDataGrid:GridTemplateColumn.CellTemplate>
                                 <DataTemplate>
-                                    <Label Text="{Binding MA_CONG_DOAN}" Padding="5,0,0,0" TextColor="{Binding TRANG_THAI , Converter={StaticResource ChuyenTrangThaiConverter}, ConverterParameter='textcolor'}" XAlign="Start" YAlign="Center"/>
+                                    <Label Text="{Binding MA_CONG_DOAN}" Padding="5,0,0,0" TextColor="{Binding TRANG_THAI , Converter={StaticResource ChuyenTrangThaiConverter}, ConverterParameter='textcolor'}" XAlign="Start" YAlign="Center" />
                                 </DataTemplate>
                             </sfDataGrid:GridTemplateColumn.CellTemplate>
                             <sfDataGrid:GridTemplateColumn.CellStyle>
@@ -111,7 +109,7 @@
                         <sfDataGrid:GridTemplateColumn MappingName="NOI_DUNG"   HeaderText="Nội dung" HeaderFontAttribute="Bold" Width="120"   HeaderCellTextSize="16">
                             <sfDataGrid:GridTemplateColumn.CellTemplate>
                                 <DataTemplate>
-                                    <Label Text="{Binding NOI_DUNG}" Padding="5,0,0,0" TextColor="{Binding TRANG_THAI , Converter={StaticResource ChuyenTrangThaiConverter}, ConverterParameter='textcolor'}" XAlign="Start" YAlign="Center"/>
+                                    <Label Text="{Binding NOI_DUNG}" Padding="5,0,0,0" TextColor="{Binding TRANG_THAI , Converter={StaticResource ChuyenTrangThaiConverter}, ConverterParameter='textcolor'}" XAlign="Start" YAlign="Center" />
                                 </DataTemplate>
                             </sfDataGrid:GridTemplateColumn.CellTemplate>
                             <sfDataGrid:GridTemplateColumn.CellStyle>
@@ -123,7 +121,7 @@
                         <sfDataGrid:GridTemplateColumn MappingName="GIO_BAT_DAU"  HeaderText="Giờ Bắt Đầu" HeaderFontAttribute="Bold" Width="120"   HeaderCellTextSize="16">
                             <sfDataGrid:GridTemplateColumn.CellTemplate>
                                 <DataTemplate>
-                                    <Label Text="{Binding GIO_BAT_DAU , StringFormat='{0:HH:mm:ss}'}" Padding="5,0,0,0" TextColor="{Binding TRANG_THAI , Converter={StaticResource ChuyenTrangThaiConverter}, ConverterParameter='textcolor'}" XAlign="Start" YAlign="Center"/>
+                                    <Label Text="{Binding GIO_BAT_DAU , StringFormat='{0:HH:mm:ss}'}" Padding="5,0,0,0" TextColor="{Binding TRANG_THAI , Converter={StaticResource ChuyenTrangThaiConverter}, ConverterParameter='textcolor'}" XAlign="Start" YAlign="Center" />
                                 </DataTemplate>
                             </sfDataGrid:GridTemplateColumn.CellTemplate>
                             <sfDataGrid:GridTemplateColumn.CellStyle>
@@ -132,12 +130,11 @@
                                 </Style>
                             </sfDataGrid:GridTemplateColumn.CellStyle>
                         </sfDataGrid:GridTemplateColumn>
-                       
+
                         <sfDataGrid:GridTemplateColumn MappingName="TRANG_THAI"  HeaderText="Trạng Thái" HeaderFontAttribute="Bold" Width="120"   HeaderCellTextSize="16">
                             <sfDataGrid:GridTemplateColumn.CellTemplate>
                                 <DataTemplate>
-                                    <Label Text="{Binding TRANG_THAI , Converter={StaticResource ChuyenTrangThaiConverter}}"  Padding="5,0,0,0" TextColor="{Binding TRANG_THAI , Converter={StaticResource ChuyenTrangThaiConverter}, ConverterParameter='textcolor'}" XAlign="Start" YAlign="Center"/>
-                                    
+                                    <Label Text="{Binding TRANG_THAI , Converter={StaticResource ChuyenTrangThaiConverter}}"  Padding="5,0,0,0" TextColor="{Binding TRANG_THAI , Converter={StaticResource ChuyenTrangThaiConverter}, ConverterParameter='textcolor'}" XAlign="Start" YAlign="Center" />
                                 </DataTemplate>
                             </sfDataGrid:GridTemplateColumn.CellTemplate>
                             <sfDataGrid:GridTemplateColumn.CellStyle>
@@ -150,8 +147,7 @@
                         <sfDataGrid:GridTemplateColumn MappingName="NGUOI_TAO"  HeaderText="Người Tạo" HeaderFontAttribute="Bold" Width="120"   HeaderCellTextSize="16">
                             <sfDataGrid:GridTemplateColumn.CellTemplate>
                                 <DataTemplate>
-                                    <Label Text="{Binding NGUOI_TAO}"  Padding="5,0,0,0" TextColor="{Binding TRANG_THAI , Converter={StaticResource ChuyenTrangThaiConverter}, ConverterParameter='textcolor'}" XAlign="Start" YAlign="Center"/>
-
+                                    <Label Text="{Binding NGUOI_TAO}"  Padding="5,0,0,0" TextColor="{Binding TRANG_THAI , Converter={StaticResource ChuyenTrangThaiConverter}, ConverterParameter='textcolor'}" XAlign="Start" YAlign="Center" />
                                 </DataTemplate>
                             </sfDataGrid:GridTemplateColumn.CellTemplate>
                             <sfDataGrid:GridTemplateColumn.CellStyle>
@@ -166,85 +162,76 @@
                         <DataTemplate>
                             <Grid ColumnDefinitions="2.5*,2.5*,2.5*,2.5*" ColumnSpacing="0" HorizontalOptions="FillAndExpand">
                                 <ContentView Grid.Column="0">
-                                    <ContentView.GestureRecognizers >
+                                    <ContentView.GestureRecognizers>
                                         <TapGestureRecognizer x:Name="start" Tapped="start_Tapped"></TapGestureRecognizer>
                                     </ContentView.GestureRecognizers>
                                     <Grid  BackgroundColor="Green">
-                                       
-                                        <Label 
-                                       Text ="Start" 
-                                       HorizontalTextAlignment="Center" 
-                                       VerticalTextAlignment="Center"  
-                                       LineBreakMode ="NoWrap" 
-                                       BackgroundColor="Transparent" 
+
+                                        <Label
+                                       Text ="Start"
+                                       HorizontalTextAlignment="Center"
+                                       VerticalTextAlignment="Center"
+                                       LineBreakMode ="NoWrap"
+                                       BackgroundColor="Transparent"
                                        TextColor ="White" />
                                     </Grid>
                                 </ContentView>
 
                                 <ContentView Grid.Column="1">
-                                    <ContentView.GestureRecognizers >
+                                    <ContentView.GestureRecognizers>
                                         <TapGestureRecognizer x:Name="Edit" Tapped="Edit_Tapped"></TapGestureRecognizer>
                                     </ContentView.GestureRecognizers>
                                     <Grid  BackgroundColor="#009EDA">
-                                                                             
+
                                         <Label
-                                       Text ="Sửa" 
-                                       HorizontalTextAlignment="Center" 
-                                       VerticalTextAlignment="Center"  
-                                       LineBreakMode ="NoWrap" 
-                                       BackgroundColor="Transparent" 
+                                       Text ="Sửa"
+                                       HorizontalTextAlignment="Center"
+                                       VerticalTextAlignment="Center"
+                                       LineBreakMode ="NoWrap"
+                                       BackgroundColor="Transparent"
                                        TextColor ="White" />
                                     </Grid>
                                 </ContentView>
 
                                 <ContentView Grid.Column="2">
-                                    <ContentView.GestureRecognizers >
+                                    <ContentView.GestureRecognizers>
                                         <TapGestureRecognizer x:Name="delete" Tapped="delete_Tapped"></TapGestureRecognizer>
                                     </ContentView.GestureRecognizers>
-                                    <Grid  BackgroundColor="Red">                                        
+                                    <Grid  BackgroundColor="Red">
 
-                                        
-                                        <Label   Text ="Xóa" 
-                                       HorizontalTextAlignment="Center" 
-                                       VerticalTextAlignment="Center"  
-                                       LineBreakMode ="NoWrap" 
-                                       BackgroundColor="Transparent" 
+                                        <Label   Text ="Xóa"
+                                       HorizontalTextAlignment="Center"
+                                       VerticalTextAlignment="Center"
+                                       LineBreakMode ="NoWrap"
+                                       BackgroundColor="Transparent"
                                        TextColor ="White" />
                                     </Grid>
                                 </ContentView>
 
                                 <ContentView Grid.Column="3">
-                                    <ContentView.GestureRecognizers >
+                                    <ContentView.GestureRecognizers>
                                         <TapGestureRecognizer x:Name="stop" Tapped="stop_Tapped" ></TapGestureRecognizer>
                                     </ContentView.GestureRecognizers>
                                     <Grid  BackgroundColor="Gray">
-                                        
-                                        <Label 
-                                       Text ="Stop" 
-                                       HorizontalTextAlignment="Center" 
-                                       VerticalTextAlignment="Center"  
-                                       LineBreakMode ="NoWrap" 
-                                       BackgroundColor="Transparent" 
+
+                                        <Label
+                                       Text ="Stop"
+                                       HorizontalTextAlignment="Center"
+                                       VerticalTextAlignment="Center"
+                                       LineBreakMode ="NoWrap"
+                                       BackgroundColor="Transparent"
                                        TextColor ="White" />
                                     </Grid>
                                 </ContentView>
                             </Grid>
-                           
-                                
-                            
-                            
                         </DataTemplate>
                     </sfDataGrid:SfDataGrid.LeftSwipeTemplate>
                     <sfDataGrid:SfDataGrid.GroupColumnDescriptions>
                         <sfDataGrid:GroupColumnDescription ColumnName="ExternalDocumentNo_" />
                     </sfDataGrid:SfDataGrid.GroupColumnDescriptions>
-
-                    
-
                 </sfDataGrid:SfDataGrid>
                 <ActivityIndicator x:Name="mIndicator" IsRunning="{Binding IsRunning}" Color="CornflowerBlue" VerticalOptions="Center"
-                           HorizontalOptions="Center"  
-                         />
+                           HorizontalOptions="Center" />
             </Grid>
 
             <StackLayout Orientation="Horizontal" Spacing="3">

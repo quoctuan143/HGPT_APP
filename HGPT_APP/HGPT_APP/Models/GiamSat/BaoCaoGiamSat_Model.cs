@@ -24,11 +24,26 @@ namespace HGPT_APP.Models.GiamSat
         public string  CongViecNgayMai { get; set; }
        
     }
-    public class ChiPhiKhac 
+    public class ChiPhiKhac :Bindable
     {
         public string Code { get; set; }      
-        public string Description { get; set; }       
-        public double Amount { get; set; }
+        public string Description { get; set; }
+        public double _amount;
+        public double Amount { get => _amount ; set => SetProperty (ref _amount , value ); }
+        public string FormatAmount
+        {
+            get => string.Format("{0:#,##0}", Amount);
+            set
+            {
+                if (!CheckThapPhan(value))
+                {
+                    FormatNumberString(ref _amount, value);
+                    OnPropertyChanged("FormatAmount");
+                    Amount = _amount;
+                }
+
+            }
+        }
         public string NhomChiPhi { get; set; }
     }
     public class ImageList

@@ -92,14 +92,14 @@
                         <sfDataGrid:GridTemplateColumn MappingName="TangCa"   HeaderText="Tăng ca" HeaderFontAttribute="Bold" Width="80"  HeaderCellTextSize="16">
                             <sfDataGrid:GridTemplateColumn.CellTemplate>
                                 <DataTemplate>
-                                    <Entry Text="{Binding TangCa, Mode=TwoWay}" Keyboard="Text" TextColor="Black" />
+                                    <Entry Text="{Binding FormatTangCa, Mode=TwoWay}" Keyboard="Numeric" TextColor="Black" />
                                 </DataTemplate>
                             </sfDataGrid:GridTemplateColumn.CellTemplate>
                         </sfDataGrid:GridTemplateColumn>
                         <sfDataGrid:GridTemplateColumn MappingName="TangCaDem"   HeaderText="Tăng ca đêm" HeaderFontAttribute="Bold" Width="80"  HeaderCellTextSize="16">
                             <sfDataGrid:GridTemplateColumn.CellTemplate>
                                 <DataTemplate>
-                                    <Entry Text="{Binding TangCaDem, Mode=TwoWay}" Keyboard="Text" TextColor="Black" />
+                                    <Entry Text="{Binding FormatTangCaDem, Mode=TwoWay}" Keyboard="Numeric" TextColor="Black" />
                                 </DataTemplate>
                             </sfDataGrid:GridTemplateColumn.CellTemplate>
                         </sfDataGrid:GridTemplateColumn>

@@ -1,15 +1,15 @@
 ﻿<?xml version="1.0" encoding="utf-8" ?>
 <ContentPage xmlns="http://xamarin.com/schemas/2014/forms"
              xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
+             xmlns:local1="clr-namespace:HGPT_APP.Converter"
              xmlns:sfDataGrid="clr-namespace:Syncfusion.SfDataGrid.XForms;assembly=Syncfusion.SfDataGrid.XForms"
              xmlns:sfCheck="clr-namespace:Syncfusion.XForms.Buttons;assembly=Syncfusion.Buttons.XForms"
              xmlns:combobox="clr-namespace:Syncfusion.XForms.ComboBox;assembly=Syncfusion.SfComboBox.XForms"
              xmlns:ListCollection="clr-namespace:System.Collections.Generic;assembly=netstandard"
-             xmlns:local1="clr-namespace:HGPT_APP.Converter"
              Title="Kế hoạch bảo trì"
              Shell.TabBarIsVisible="False"
-             xmlns:sfinputtext="clr-namespace:Syncfusion.XForms.TextInputLayout;assembly=Syncfusion.Core.XForms"
-             x:Class="HGPT_APP.Views.KeHoachBaoTriPage">
+             x:Class="HGPT_APP.Views.KeHoachBaoTriPage"
+             BackgroundColor="White">
     <ContentPage.ToolbarItems>
         <ToolbarItem IconImageSource="scan.png"
                      Clicked="ToolbarItem_Clicked_1"></ToolbarItem>
@@ -54,7 +54,6 @@
                             </combobox:SfComboBox.ComboBoxSource>
                         </combobox:SfComboBox>
 
-
                         <Entry x:Name="entryNam"
                                Style="{StaticResource styleEntry}"
                                Unfocused="entryNam_Unfocused"
@@ -71,8 +70,6 @@
                                Placeholder="Tìm serial/Tên"
                                ClearButtonVisibility="WhileEditing"></Entry>
                     </Grid>
-
-
                 </StackLayout>
                 <sfCheck:SfRadioGroup Orientation="Horizontal"
                                       CheckedChanged="SfRadioGroup_CheckedChanged">
@@ -88,8 +85,6 @@
                                            x:Name="radChuaBaoTri"
                                            VerticalOptions="Center" />
                 </sfCheck:SfRadioGroup>
-
-
             </StackLayout>
             <Grid x:Name="mGridLayout"
                   AbsoluteLayout.LayoutFlags="All"
@@ -125,7 +120,6 @@
                             </sfDataGrid:GridTemplateColumn.CellTemplate>
                         </sfDataGrid:GridTemplateColumn>
 
-
                         <sfDataGrid:GridTemplateColumn  MappingName="No_3"
                                                         HeaderText="Số Máy"
                                                         Width="120"
@@ -141,7 +135,6 @@
                                            YAlign="Center" />
                                 </DataTemplate>
                             </sfDataGrid:GridTemplateColumn.CellTemplate>
-
                         </sfDataGrid:GridTemplateColumn>
 
                         <sfDataGrid:GridTemplateColumn  HeaderText="Tháng"
@@ -159,7 +152,6 @@
                                            YAlign="Center" />
                                 </DataTemplate>
                             </sfDataGrid:GridTemplateColumn.CellTemplate>
-
                         </sfDataGrid:GridTemplateColumn>
                         <sfDataGrid:GridTemplateColumn MappingName="Code"
                                                        Width="140"
@@ -174,7 +166,6 @@
                                            TextColor="{Binding Da_Bao_Tri, Converter={StaticResource Format_Mau_KHTB} }" />
                                 </DataTemplate>
                             </sfDataGrid:GridTemplateColumn.CellTemplate>
-
                         </sfDataGrid:GridTemplateColumn>
 
                         <sfDataGrid:GridTemplateColumn MappingName="Da_Bao_Tri"
@@ -190,9 +181,7 @@
                                                HorizontalOptions="Center" />
                                 </DataTemplate>
                             </sfDataGrid:GridTemplateColumn.CellTemplate>
-
                         </sfDataGrid:GridTemplateColumn>
-
                     </sfDataGrid:SfDataGrid.Columns>
                     <sfDataGrid:SfDataGrid.LeftSwipeTemplate>
                         <DataTemplate>
@@ -228,7 +217,6 @@
                                                               Format="{}{Count}"
                                                               MappingName="No_2"
                                                               SummaryType="CountAggregate" />
-
                             </sfDataGrid:GridTableSummaryRow.SummaryColumns>
                         </sfDataGrid:GridTableSummaryRow>
                     </sfDataGrid:SfDataGrid.TableSummaryRows>
@@ -240,6 +228,5 @@
                                    HorizontalOptions="Center" />
             </Grid>
         </StackLayout>
-
     </ContentPage.Content>
 </ContentPage>

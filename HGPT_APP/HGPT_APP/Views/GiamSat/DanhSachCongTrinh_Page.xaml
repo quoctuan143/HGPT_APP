@@ -1,20 +1,20 @@
 ﻿<?xml version="1.0" encoding="utf-8" ?>
 <ContentPage xmlns="http://xamarin.com/schemas/2014/forms"
-             xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"               
-             x:Class="HGPT_APP.Views.GiamSat.DanhSachCongTrinh_Page"
-             xmlns:d="http://xamarin.com/schemas/2014/forms/design"
+             xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
              xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
-             xmlns:sfDataGrid="clr-namespace:Syncfusion.SfDataGrid.XForms;assembly=Syncfusion.SfDataGrid.XForms" 
+             xmlns:d="http://xamarin.com/schemas/2014/forms/design"
              xmlns:local1="clr-namespace:HGPT_APP.Converter"
-             mc:Ignorable="d"
+             xmlns:sfDataGrid="clr-namespace:Syncfusion.SfDataGrid.XForms;assembly=Syncfusion.SfDataGrid.XForms"
              xmlns:sfbutton="clr-namespace:Syncfusion.XForms.Buttons;assembly=Syncfusion.Buttons.XForms"
-             Shell.TabBarIsVisible="False"           
-             Title="{Binding Title}">
+             x:Class="HGPT_APP.Views.GiamSat.DanhSachCongTrinh_Page"
+             mc:Ignorable="d"
+             Shell.TabBarIsVisible="False"
+             Title="{Binding Title}"
+             BackgroundColor="White">
     <ContentPage.Resources>
         <ResourceDictionary>
-            <local1:Dark x:Key="dark" />               
+            <local1:Dark x:Key="dark" />
         </ResourceDictionary>
-
     </ContentPage.Resources>
     <ContentPage.Content>
         <StackLayout Spacing="0" HorizontalOptions="FillAndExpand"
