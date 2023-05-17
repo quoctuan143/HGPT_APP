@@ -1,8 +1,10 @@
 ﻿using System;
 using System.Collections.Generic;
 using System.ComponentModel;
+using System.Globalization;
 using System.Runtime.CompilerServices;
 using System.Text;
+using Xamarin.Essentials;
 
 namespace HGPT_APP.Models
 {
@@ -36,11 +38,22 @@ namespace HGPT_APP.Models
         {
             if (!string.IsNullOrEmpty(value))
             {
-                char lastChar = value[value.Length - 1];
-                if (lastChar == ',')
+                char lastChar = value[value.Length - 1];                
+                if (CultureInfo.InstalledUICulture.Name == "en-US")
                 {
-                    return true;
+                    if (lastChar == '.')
+                    {
+                        return true;
+                    }
+                }   
+                else
+                {
+                    if (lastChar == ',')
+                    {
+                        return true;
+                    }
                 }
+                
             }
             return false;
         }
