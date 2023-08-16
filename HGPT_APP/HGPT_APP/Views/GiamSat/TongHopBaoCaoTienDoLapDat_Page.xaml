@@ -15,9 +15,10 @@
         </ResourceDictionary>
     </ContentPage.Resources>
     <ContentPage.Content>
-        <StackLayout Spacing="0">
+        <StackLayout Spacing="0" BackgroundColor="White">
             <Grid x:Name="mGridLayout" AbsoluteLayout.LayoutFlags="All"
                               AbsoluteLayout.LayoutBounds="1,1,1,1"
+                  BackgroundColor="White"
                               VerticalOptions="FillAndExpand" HorizontalOptions="FillAndExpand">
                 <sfDataGrid:SfDataGrid x:Name="listCongDoanCongNhan"
                                        ItemsSource="{Binding ListTienDoLapDat , Mode=TwoWay}"

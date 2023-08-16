@@ -26,7 +26,8 @@
 
         <StackLayout Spacing="10"
                      VerticalOptions="FillAndExpand"
-                     HorizontalOptions="FillAndExpand">
+                     HorizontalOptions="FillAndExpand"
+                     Style="{StaticResource styleStackLayout}">
             <sfinputtext:SfTextInputLayout Hint="Nhập số lệnh sản xuất"
                                            LeadingViewPosition="Inside"
                                            HeightRequest="50"
@@ -45,7 +46,8 @@
                   AbsoluteLayout.LayoutFlags="All"
                   AbsoluteLayout.LayoutBounds="1,1,1,1"
                   VerticalOptions="FillAndExpand"
-                  HorizontalOptions="FillAndExpand">
+                  HorizontalOptions="FillAndExpand"
+                  BackgroundColor="White">
                 <sfDataGrid:SfDataGrid x:Name="listLenhSX"
                                        ItemsSource="{Binding List_LENH_SAN_XUATs}"
                                        SelectedItem="{Binding SelectLSX}"
@@ -72,24 +74,6 @@
 
                         </sfDataGrid:GridTemplateColumn>
 
-
-                        <sfDataGrid:GridTemplateColumn MappingName="Ten_Khach_Hang"
-                                                       Width="150"
-                                                       HeaderText="Tên khách hàng"
-                                                       HeaderFontAttribute="Bold"
-                                                       HeaderCellTextSize="16">
-                            <sfDataGrid:GridTemplateColumn.CellTemplate>
-                                <DataTemplate>
-                                    <Label Text="{Binding Ten_Khach_Hang}"
-                                           TextColor="{Binding NgayConLai, Converter={StaticResource colorConverter},ConverterParameter='lable'}"
-                                           Padding="5,0,0,0"
-                                           WidthRequest="150"
-                                           XAlign="Start"
-                                           YAlign="Center" />
-                                </DataTemplate>
-                            </sfDataGrid:GridTemplateColumn.CellTemplate>
-
-                        </sfDataGrid:GridTemplateColumn>
                         <sfDataGrid:GridTemplateColumn MappingName="Ten_San_Pham"
                                                        Width="150"
                                                        HeaderText="Tên Sản Phẩm"
@@ -110,7 +94,25 @@
                                     <Setter Property="BackgroundColor"    Value="{Binding NgayConLai, Converter={StaticResource colorConverter} ,ConverterParameter='gridcell'}" />
                                 </Style>
                             </sfDataGrid:GridTemplateColumn.CellStyle>-->
-                        </sfDataGrid:GridTemplateColumn>                       
+                        </sfDataGrid:GridTemplateColumn>
+                        <sfDataGrid:GridTemplateColumn MappingName="Ten_Khach_Hang"
+                                                       Width="150"
+                                                       HeaderText="Tên khách hàng"
+                                                       HeaderFontAttribute="Bold"
+                                                       HeaderCellTextSize="16">
+                            <sfDataGrid:GridTemplateColumn.CellTemplate>
+                                <DataTemplate>
+                                    <Label Text="{Binding Ten_Khach_Hang}"
+                                           TextColor="{Binding NgayConLai, Converter={StaticResource colorConverter},ConverterParameter='lable'}"
+                                           Padding="5,0,0,0"
+                                           WidthRequest="150"
+                                           XAlign="Start"
+                                           YAlign="Center" />
+                                </DataTemplate>
+                            </sfDataGrid:GridTemplateColumn.CellTemplate>
+
+                        </sfDataGrid:GridTemplateColumn>
+                                             
 
                     </sfDataGrid:SfDataGrid.Columns>
 
@@ -123,7 +125,8 @@
             </Grid>
             <StackLayout Orientation="Horizontal"
                          VerticalOptions="End"
-                         HorizontalOptions="FillAndExpand">
+                         HorizontalOptions="FillAndExpand"
+                         BackgroundColor="White">
                 <sfbutton:SfButton x:Name="btnStartAll"
                                    Command="{Binding KhoiTaoCongViecCommand}"
                                    Text="Phân Việc"

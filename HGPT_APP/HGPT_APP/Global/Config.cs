@@ -1,5 +1,6 @@
 ﻿using System;
 using System.Collections.Generic;
+using System.Net.Http;
 using System.Text;
 
 namespace HGPT_APP.Global
@@ -34,6 +35,7 @@ namespace HGPT_APP.Global
             {
                 client = new System.Net.Http.HttpClient();
                 client.BaseAddress = new Uri(URL);
+                client.Timeout = TimeSpan.FromSeconds(10);
             }          
         }
 

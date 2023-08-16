@@ -25,9 +25,9 @@
         </Style>
     </ContentPage.Resources>
     <ContentPage.Content>
-        <StackLayout>
-            <ScrollView VerticalOptions="FillAndExpand" Orientation="Vertical">
-                <StackLayout Spacing="6">
+        <StackLayout BackgroundColor="White">
+            <ScrollView VerticalOptions="FillAndExpand" Orientation="Vertical" BackgroundColor="White">
+                <StackLayout Spacing="6" BackgroundColor="White">
                     <sfcombobox:SfComboBox x:Name="cbToSanXuat" DataSource="{Binding CongTrinhList , Mode=TwoWay }" DisplayMemberPath="Description" SelectedValuePath="Code"
                                            SelectedItem="{Binding SelectCongTrinh , Mode=TwoWay }"
                                    Style="{StaticResource styleCombobox}"

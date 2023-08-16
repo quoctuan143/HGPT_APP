@@ -15,7 +15,8 @@
     </ContentPage.Resources>
 
     <ContentPage.Content>
-        <StackLayout Spacing="10">
+        <StackLayout Spacing="10"
+                     BackgroundColor="White">
             <sfinputtext:SfTextInputLayout Hint="Nhập tên, số serial, model để tìm"
                                                Grid.Row="2"
                                                LeadingViewPosition="Inside"
@@ -30,7 +31,8 @@
                 </sfinputtext:SfTextInputLayout.LeadingView>
             </sfinputtext:SfTextInputLayout>
             <Grid x:Name="mGridLayout" AbsoluteLayout.LayoutFlags="All"
-                               AbsoluteLayout.LayoutBounds="1,1,1,1" VerticalOptions="FillAndExpand" HorizontalOptions="FillAndExpand">
+                               AbsoluteLayout.LayoutBounds="1,1,1,1" VerticalOptions="FillAndExpand" HorizontalOptions="FillAndExpand"
+                  BackgroundColor="White">
                 <sfDataGrid:SfDataGrid x:Name="listThietBi"
                                           ItemsSource="{Binding  LichSus}"
                                           AutoGenerateColumns="False"

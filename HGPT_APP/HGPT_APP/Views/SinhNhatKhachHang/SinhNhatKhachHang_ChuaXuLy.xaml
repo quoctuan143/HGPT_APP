@@ -1,7 +1,7 @@
 ﻿<?xml version="1.0" encoding="utf-8" ?>
 <ContentPage xmlns="http://xamarin.com/schemas/2014/forms"
              xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
-             Title="Sinh nhật khách hàng"
+             Title="Sinh nhật nhân viên/Khách hàng"
              x:Class="HGPT_APP.Views.SinhNhatKhachHang.SinhNhatKhachHang_ChuaXuLy"
              Shell.TabBarIsVisible="False"
              x:Name="sinhnhat"
@@ -10,6 +10,7 @@
         <ListView VerticalScrollBarVisibility="Never"
                   HasUnevenRows="True"
                  SeparatorVisibility="None"
+                  BackgroundColor="White"
                   ItemsSource="{Binding ListDanhSach,Mode=TwoWay}"
                   ItemSelected="ListView_ItemSelected"
                   IsRefreshing="{Binding IsRunning}"

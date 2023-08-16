@@ -32,7 +32,8 @@
                            TabItemTapped="SfTabView_TabItemTapped">
             <tabView:SfTabItem Title="Thông Tin" ImageSource="information.png">
                 <tabView:SfTabItem.Content>
-                    <Grid x:Name="Information" ColumnDefinitions="4*,6*" RowDefinitions="30,40,30,30,30,30,30,30,auto,*,auto" Padding="10">
+                    <Grid x:Name="Information" ColumnDefinitions="4*,6*" RowDefinitions="30,40,30,30,30,30,30,30,auto,*,auto" Padding="10"
+                          BackgroundColor="White">
                         <Label Text="Mã Tài Sản" Grid.Column="0" Grid.Row="0" FontSize="16" TextColor="Black"></Label>
                         <StackLayout Grid.Column="1" Grid.Row="0" Orientation="Horizontal">
                             <Label Text="{Binding Item.MaTaiSan}" VerticalTextAlignment="Center" FontSize="16" TextColor="Black"></Label>
@@ -74,7 +75,8 @@
             <tabView:SfTabItem Title="Lịch Sử" ImageSource="history.png" x:Name="History">
                 <tabView:SfTabItem.Content>
                     <Grid x:Name="mGridLayout" AbsoluteLayout.LayoutFlags="All"
-                               AbsoluteLayout.LayoutBounds="1,1,1,1" VerticalOptions="FillAndExpand" HorizontalOptions="FillAndExpand">
+                               AbsoluteLayout.LayoutBounds="1,1,1,1" VerticalOptions="FillAndExpand" HorizontalOptions="FillAndExpand"
+                          BackgroundColor="White">
                         <sfDataGrid:SfDataGrid x:Name="listThietBi"
                                           ItemsSource="{Binding lICH_SU_BAO_TRIs}"
                                           AutoGenerateColumns="False"
@@ -170,7 +172,8 @@
             <tabView:SfTabItem Title="Quy Trình" ImageSource="pdf.png">
                 <tabView:SfTabItem.Content>
                     <Grid x:Name="mGridLayoutquytrinh" AbsoluteLayout.LayoutFlags="All"
-                               AbsoluteLayout.LayoutBounds="1,1,1,1" VerticalOptions="FillAndExpand" HorizontalOptions="FillAndExpand">
+                               AbsoluteLayout.LayoutBounds="1,1,1,1" VerticalOptions="FillAndExpand" HorizontalOptions="FillAndExpand"
+                          BackgroundColor="White">
                         <sfDataGrid:SfDataGrid x:Name="listquytrinh"
                                           ItemsSource="{Binding QUY_TRINH_BAO_TRIs}"
                                             AutoGenerateColumns="False"
@@ -210,7 +213,8 @@
                 <tabView:SfTabItem.Content>
                     <StackLayout>
                         <Grid x:Name="mGridLayoutpt" AbsoluteLayout.LayoutFlags="All"
-                               AbsoluteLayout.LayoutBounds="1,1,1,1" VerticalOptions="FillAndExpand" HorizontalOptions="FillAndExpand">
+                               AbsoluteLayout.LayoutBounds="1,1,1,1" VerticalOptions="FillAndExpand" HorizontalOptions="FillAndExpand"
+                              BackgroundColor="White">
                             <sfDataGrid:SfDataGrid x:Name="listphutung"
                                           ItemsSource="{Binding ListPhuTung}"
                                                    SelectedItem="{Binding SelectPhuTung, Mode=TwoWay}"
@@ -243,7 +247,8 @@
             <tabView:SfTabItem Title="KH Bảo Trì" ImageSource="list.png" x:Name="KeHoachBaoTri">
                 <tabView:SfTabItem.Content>
                     <Grid AbsoluteLayout.LayoutFlags="All"
-                              AbsoluteLayout.LayoutBounds="1,1,1,1" VerticalOptions="FillAndExpand" HorizontalOptions="FillAndExpand">
+                              AbsoluteLayout.LayoutBounds="1,1,1,1" VerticalOptions="FillAndExpand" HorizontalOptions="FillAndExpand"
+                          BackgroundColor="White">
                         <sfDataGrid:SfDataGrid
                                            x:Name="listKeHoach"
                                           ItemsSource="{Binding KE_HOACH_BAO_TRIs}"

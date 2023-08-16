@@ -9,14 +9,14 @@
              Title="{Binding Title}"
              BackgroundColor="White">    
     <ContentPage.Content>
-        <AbsoluteLayout>
+        <AbsoluteLayout BackgroundColor="White">
 
             <ScrollView VerticalOptions="FillAndExpand" Orientation="Vertical"
                         AbsoluteLayout.LayoutFlags="All"
                         AbsoluteLayout.LayoutBounds="1,1,1,1"
                         BackgroundColor="White"
                         x:Name="listData">
-                <StackLayout Spacing="6">
+                <StackLayout Spacing="6" BackgroundColor="White">
                     <sfinputtext:SfTextInputLayout Hint="Ngày báo cáo"
                                                Grid.Column="0"
                                                IsHintAlwaysFloated="True"
@@ -110,7 +110,7 @@
                                     <ViewCell>
                                         <Grid ColumnDefinitions="6*,4*" VerticalOptions="CenterAndExpand">
                                             <Label Text="{Binding Description}" Style="{StaticResource styleLableBlue}" VerticalOptions="Center"></Label>
-                                            <Entry IsEnabled="False"   Text="{Binding Amount,Mode=TwoWay,StringFormat='{0:#,##0}'}"  HorizontalTextAlignment="Center" Grid.Column="1" FontSize="20" FontAttributes="Bold" />
+                                            <Entry IsEnabled="False"   Text="{Binding FormatAmount}"  HorizontalTextAlignment="Center" Grid.Column="1" FontSize="20" FontAttributes="Bold" />
                                         </Grid>
                                     </ViewCell>
                                 </DataTemplate>
@@ -140,8 +140,8 @@
                                     <ViewCell>
                                         <Grid ColumnDefinitions="4*,3*,3*" VerticalOptions="CenterAndExpand">
                                             <Label Text="{Binding Description}" Style="{StaticResource styleLableBlue}" VerticalOptions="Center"></Label>
-                                            <Entry IsEnabled="False"  Text="{Binding Quantity ,Mode=TwoWay,StringFormat='{0:#,##0.#}'}"  HorizontalTextAlignment="Center" Grid.Column="1" FontSize="20" FontAttributes="Bold" />
-                                            <Entry IsEnabled="False"  Text="{Binding UnitPrice ,Mode=TwoWay,StringFormat='{0:#,##0}'}"  HorizontalTextAlignment="Center" Grid.Column="2" FontSize="20" FontAttributes="Bold" />
+                                            <Entry IsEnabled="False"  Text="{Binding FormatQuantity}"  HorizontalTextAlignment="Center" Grid.Column="1" FontSize="20" FontAttributes="Bold" />
+                                            <Entry IsEnabled="False"  Text="{Binding FormatUnitPrice}"  HorizontalTextAlignment="Center" Grid.Column="2" FontSize="20" FontAttributes="Bold" />
                                         </Grid>
                                     </ViewCell>
                                 </DataTemplate>

@@ -6,9 +6,9 @@
              Shell.TabBarIsVisible="False"
              x:Class="HGPT_APP.Views.ThongTinThietBi_Edit"
              BackgroundColor="White">
-    <ScrollView Orientation="Vertical">
-        <StackLayout>
-            <Grid x:Name="Information" ColumnDefinitions="4*,6*" RowDefinitions="auto,40,auto,auto,auto,auto,auto,auto,50,50,40,40" Padding="10">
+    <ScrollView Orientation="Vertical" BackgroundColor="White">
+        <StackLayout BackgroundColor="White">
+            <Grid x:Name="Information" ColumnDefinitions="4*,6*" RowDefinitions="auto,40,auto,auto,auto,auto,auto,auto,50,50,40,40" Padding="10" BackgroundColor="White">
                 <Label Text="Mã Thiết Bị" VerticalTextAlignment="Center" Grid.Column="0" Grid.Row="0" FontSize="16" TextColor="Black"></Label>
 
                 <Label Text="{Binding Item.No_}" Grid.Column="1" Grid.Row="0" VerticalTextAlignment="Center" FontSize="16" TextColor="Black"></Label>

@@ -3,8 +3,8 @@
              xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
              x:Class="HGPT_APP.Views.StartPage"
              BackgroundColor="White">
-    <ContentPage.Content>
-        <StackLayout >
+    <ContentPage.Content BackgroundColor="White">
+        <StackLayout BackgroundColor="White" >
             <Image Source="logo_hgpt.png"
                    HeightRequest="250"
                    WidthRequest="250"

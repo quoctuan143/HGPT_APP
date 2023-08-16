@@ -50,6 +50,7 @@
                 <Setter Property="ClearButtonColor" Value="Red"></Setter>
                 <Setter Property="WatermarkColor" Value="Gray"></Setter>
                 <Setter Property="ShowSuggestionsOnFocus" Value="True" ></Setter>
+                <Setter Property="BackgroundColor" Value="White"/>
             </Style>
             <Style TargetType="SearchBar" x:Key="styleSearch">
                 <Setter Property="TextColor" Value="#06264c"></Setter>
@@ -57,6 +58,7 @@
                 <Setter Property="FontFamily" Value="Arial"></Setter>
                 <Setter Property="PlaceholderColor" Value="#06264c"></Setter>
                 <Setter Property="CancelButtonColor" Value="Red"></Setter>
+                <Setter Property="BackgroundColor" Value="White"/>
             </Style>
             <Style TargetType="sfinputText:SfTextInputLayout" x:Key="styleInputText">
                 <Setter Property="ContainerType" Value="Outlined"></Setter>
@@ -66,7 +68,8 @@
                 <Setter Property="FontSize" Value="16"></Setter>
                 <Setter Property="FontFamily" Value="Arial"></Setter>
                 <Setter Property="PlaceholderColor" Value="#06264c"></Setter>
-                <Setter Property="ClearButtonVisibility" Value="WhileEditing"></Setter>                
+                <Setter Property="ClearButtonVisibility" Value="WhileEditing"></Setter>
+                <Setter Property="BackgroundColor" Value="White"/>
             </Style>
             <Style TargetType="Label" x:Key="styleLableBold">
                 <Setter Property="TextColor" Value="White"></Setter>               
@@ -104,7 +107,8 @@
                 <Setter Property="AllowDiagonalScrolling" Value="True"></Setter>
                 <Setter Property="VerticalOverScrollMode" Value="None"></Setter>
                 <Setter Property="AllowGroupExpandCollapse" Value="True"></Setter>
-                <Setter Property="ColumnSizer" Value="LastColumnFill"/>                  
+                <Setter Property="ColumnSizer" Value="LastColumnFill"/>
+                <Setter Property="BackgroundColor" Value="White"/>
             </Style>           
 
             <Style TargetType="Button" x:Key="styleButton">
@@ -142,6 +146,10 @@
                 <Setter Property="FontFamily" Value="Arial"/>
                 <Setter Property="CornerRadius" Value="10"/>
             </Style>
+            <Style TargetType="StackLayout" x:Key="styleStackLayout">
+                <Setter Property="BackgroundColor" Value="White"></Setter>                    
+            </Style>
+
         </ResourceDictionary>
 
        

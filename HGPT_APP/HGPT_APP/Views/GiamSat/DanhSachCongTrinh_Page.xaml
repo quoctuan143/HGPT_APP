@@ -18,12 +18,14 @@
     </ContentPage.Resources>
     <ContentPage.Content>
         <StackLayout Spacing="0" HorizontalOptions="FillAndExpand"
-                     VerticalOptions="FillAndExpand">
+                     VerticalOptions="FillAndExpand"
+                     BackgroundColor="White">
             <Grid x:Name="mGridLayout"
                   AbsoluteLayout.LayoutFlags="All"
                   AbsoluteLayout.LayoutBounds="1,1,1,1"
                   VerticalOptions="FillAndExpand"
-                  HorizontalOptions="FillAndExpand">
+                  HorizontalOptions="FillAndExpand"
+                  BackgroundColor="White">
                 <sfDataGrid:SfDataGrid x:Name="listCongDoanCongNhan"
                                        ItemsSource="{Binding CongTrinhList , Mode=TwoWay}"
                                        SelectedItem="{Binding SelectCongTrinh,Mode=TwoWay}"

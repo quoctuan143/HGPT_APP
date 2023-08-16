@@ -26,7 +26,8 @@
         </ResourceDictionary>
     </ContentPage.Resources>
     <ContentPage.Content>
-        <StackLayout Spacing="10">
+        <StackLayout Spacing="10"
+                     BackgroundColor="White">
             <sfinputtext:SfTextInputLayout Hint="Tìm kiếm"
                                                        IsHintAlwaysFloated="True"
                                                LeadingViewPosition="Inside"
@@ -40,7 +41,8 @@
                 </sfinputtext:SfTextInputLayout.LeadingView>
             </sfinputtext:SfTextInputLayout>
             <Grid x:Name="mGridLayout" AbsoluteLayout.LayoutFlags="All"
-                  AbsoluteLayout.LayoutBounds="1,1,1,1" VerticalOptions="FillAndExpand" HorizontalOptions="FillAndExpand">
+                  AbsoluteLayout.LayoutBounds="1,1,1,1" VerticalOptions="FillAndExpand" HorizontalOptions="FillAndExpand"
+                  BackgroundColor="White">
                 <sfDataGrid:SfDataGrid x:Name="listCongDoanCongNhan"
                                        ItemsSource="{Binding ListCong_Doan_Cong_Nhans , Mode=TwoWay}"
                                        SelectedItem="{Binding SelectCongDoan}"

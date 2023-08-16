@@ -17,7 +17,7 @@
         </ResourceDictionary>
     </ContentPage.Resources>
     <ContentPage.Content>
-        <StackLayout Spacing="0">
+        <StackLayout Spacing="0" BackgroundColor="White">
             <sfinputtext:SfTextInputLayout Hint="Ngày báo cáo"
                                                Grid.Column="0"
                                                IsHintAlwaysFloated="True"

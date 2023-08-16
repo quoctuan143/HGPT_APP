@@ -16,7 +16,7 @@
         </ResourceDictionary>
     </ContentPage.Resources>
     <ContentPage.Content>
-        <StackLayout Spacing="0">
+        <StackLayout Spacing="0" BackgroundColor="White">
 
             <sfcombobox:SfComboBox x:Name="cbToSanXuat" DataSource="{Binding ListLenhSanXuat , Mode=TwoWay }"
                                    DisplayMemberPath="External_Document_No_" SelectedValuePath="LENH_SAN_XUAT"

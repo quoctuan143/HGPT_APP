@@ -8,6 +8,7 @@
     <ContentPage.Content>
         <ListView VerticalScrollBarVisibility="Never"
                   HasUnevenRows="True"
+                  BackgroundColor="White"
                  SeparatorVisibility="None"
                   ItemsSource="{Binding ListDanhSach,Mode=TwoWay}"
                   IsRefreshing="{Binding IsRunning}">

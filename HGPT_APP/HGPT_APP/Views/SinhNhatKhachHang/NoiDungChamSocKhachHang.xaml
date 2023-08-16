@@ -6,7 +6,7 @@
              x:Class="HGPT_APP.Views.SinhNhatKhachHang.NoiDungChamSocKhachHang"
              BackgroundColor="White">
     <ContentPage.Content>
-        <AbsoluteLayout>
+        <AbsoluteLayout BackgroundColor="White">
             <Editor x:Name="rte" VerticalOptions="FillAndExpand" HorizontalOptions="FillAndExpand"
                                              Placeholder="Nhập nội dung chăm sóc khách hàng"
                                              Text="{Binding NoiDungChamSoc}"

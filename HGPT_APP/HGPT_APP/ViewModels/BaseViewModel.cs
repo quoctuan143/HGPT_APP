@@ -14,6 +14,8 @@ using HGPT_APP.Global;
 using Newtonsoft.Json;
 using System.Threading.Tasks;
 using System.Net.Http;
+using System.Text;
+using HGPT_APP.Popup;
 
 namespace HGPT_APP.ViewModels
 {
@@ -98,7 +100,12 @@ namespace HGPT_APP.ViewModels
                 }
                 return values;
             }
-            catch (Exception ex)
+            catch (TaskCanceledException ex) //xử lý timeout
+            {
+                await new MessageBox("Lỗi :", ex.Message ).Show();
+                return new HttpClientResponseModel<T> { Status = new HttpResponseMessage { StatusCode = System.Net.HttpStatusCode.BadRequest } };
+            }
+            catch (Exception ex) //xử lý timeout
             {
                 return new HttpClientResponseModel<T> { Status = new HttpResponseMessage { StatusCode = System.Net.HttpStatusCode.BadRequest } };
             }
@@ -111,6 +118,11 @@ namespace HGPT_APP.ViewModels
             {
                 HttpResponseMessage Status = await Config.client.PostAsJsonAsync(apiUrl, Value);
                 return Status;
+            }
+            catch (TaskCanceledException ex)
+            {
+                await new MessageBox("Lỗi :", ex.Message).Show();
+                return new HttpResponseMessage { StatusCode = System.Net.HttpStatusCode.BadRequest };
             }
             catch (Exception ex)
             {

@@ -13,10 +13,11 @@
         </ResourceDictionary>
     </ContentPage.Resources>
     <ContentPage.Content>
-        <StackLayout Spacing="0">
+        <StackLayout Spacing="0" BackgroundColor="White">
             <Grid x:Name="mGridLayout" AbsoluteLayout.LayoutFlags="All"
                               AbsoluteLayout.LayoutBounds="1,1,1,1"
-                              VerticalOptions="FillAndExpand" HorizontalOptions="FillAndExpand">
+                              VerticalOptions="FillAndExpand" HorizontalOptions="FillAndExpand"
+                  BackgroundColor="White">
                 <sfDataGrid:SfDataGrid x:Name="listCongDoanCongNhan"
                                        ItemsSource="{Binding ListDanhSachCongTrinh , Mode=TwoWay}"
                                        AutoGenerateColumns="False"

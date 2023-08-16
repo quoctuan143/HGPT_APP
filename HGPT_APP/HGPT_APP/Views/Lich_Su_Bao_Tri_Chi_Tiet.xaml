@@ -14,9 +14,11 @@
     </ContentPage.Resources>
 
     <ContentPage.Content>
-        <StackLayout Spacing="0">
+        <StackLayout Spacing="0"
+                     BackgroundColor="White">
             <Grid x:Name="mGridLayout" AbsoluteLayout.LayoutFlags="All"
-                               AbsoluteLayout.LayoutBounds="1,1,1,1" VerticalOptions="FillAndExpand" HorizontalOptions="FillAndExpand">
+                               AbsoluteLayout.LayoutBounds="1,1,1,1" VerticalOptions="FillAndExpand" HorizontalOptions="FillAndExpand"
+                  BackgroundColor="White">
                 <sfDataGrid:SfDataGrid x:Name="listThietBi"
                                           ItemsSource="{Binding  LichSus}"
                                           AutoGenerateColumns="False"

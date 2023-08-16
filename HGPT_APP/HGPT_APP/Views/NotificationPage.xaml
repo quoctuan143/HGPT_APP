@@ -6,8 +6,9 @@
              x:Class="HGPT_APP.Views.NotificationPage"
              BackgroundColor="White">
     <ContentPage.Content>
-        <StackLayout>
+        <StackLayout BackgroundColor="White">
             <ListView
+                BackgroundColor="White"
                       ItemsSource="{Binding ListThongBao, Mode=TwoWay }"
                       ItemSelected="listThongBao_ItemSelected"
                     HasUnevenRows="True"

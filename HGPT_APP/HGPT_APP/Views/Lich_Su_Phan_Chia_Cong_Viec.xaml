@@ -22,8 +22,10 @@
         </ResourceDictionary>
     </ContentPage.Resources>
     <ContentPage.Content>
-        <StackLayout Spacing="12">
-            <Grid ColumnDefinitions="5*,5*">
+        <StackLayout Spacing="12"
+                     BackgroundColor="White">
+            <Grid ColumnDefinitions="5*,5*"
+                  BackgroundColor="White">
                 <sfinputtext:SfTextInputLayout Hint="Ngày"
                                                Grid.Column="0"
                                                IsHintAlwaysFloated="True"

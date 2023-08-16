@@ -134,16 +134,37 @@ namespace HGPT_APP.ViewModels.GiamSat
             }
         }
 
-        private void AddThietBi(object obj)
+        private async void AddThietBi(object obj)
         {
-            ListMayMocThietBi.Add(new MayMocThietBi ());
-            HeightMayMoc = 45 + ListMayMocThietBi.Count * 45;
+            try
+            {
+                ListMayMocThietBi.Add(new MayMocThietBi());
+                HeightMayMoc = 45 + ListMayMocThietBi.Count * 45;
+            }
+            catch (Exception ex)
+            {
+
+                await new MessageBox("Thông báo", ex.Message).Show();
+                return;
+            }
+
+            
         }
 
-        private void AddChiPhi(object obj)
+        private async void AddChiPhi(object obj)
         {
-            ListChiPhiKhac.Add(new ChiPhiKhac());
-            HeightChiPhi = 45 + ListChiPhiKhac.Count * 45;
+            try
+            {
+                ListChiPhiKhac.Add(new ChiPhiKhac());
+                HeightChiPhi = 45 + ListChiPhiKhac.Count * 45;
+            }
+            catch (Exception ex)
+            {
+
+                await new MessageBox("Thông báo", ex.Message).Show();
+                return;
+            }
+            
         }
 
         private async void DeleteNhanSuClick(object obj)

@@ -21,9 +21,9 @@
         </ResourceDictionary>
     </ContentPage.Resources>
     <ContentPage.Content>
-        <StackLayout Spacing="0">
-            <ScrollView Orientation="Vertical">
-                <StackLayout Spacing="0">
+        <StackLayout Spacing="0" BackgroundColor="White">
+            <ScrollView Orientation="Vertical" BackgroundColor="White">
+                <StackLayout Spacing="0" BackgroundColor="White">
                     <sfDataGrid:SfDataGrid x:Name="listquytrinh"
                                           ItemsSource="{Binding QUY_TRINH_BAO_TRIs, Mode=TwoWay}"
                                             AutoGenerateColumns="False"

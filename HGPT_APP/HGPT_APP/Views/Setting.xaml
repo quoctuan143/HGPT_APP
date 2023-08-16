@@ -6,7 +6,7 @@
              x:Class="HGPT_APP.Views.Setting"
              BackgroundColor="White">
     <ContentPage.Content>
-        <StackLayout Margin="5">
+        <StackLayout Margin="5" BackgroundColor="White">
             <Grid RowDefinitions="*,*,*,*,*" ColumnDefinitions="7*,3*">
                 <Label Text="Nhận thông báo bảo trì" Grid.Column="0" Grid.Row="0"
                        Style="{StaticResource styleLableBlue}" />

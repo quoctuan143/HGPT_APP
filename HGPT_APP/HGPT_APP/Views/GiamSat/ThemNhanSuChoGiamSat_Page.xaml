@@ -16,8 +16,8 @@
         </ResourceDictionary>
     </ContentPage.Resources>
     <ContentPage.Content>
-        <StackLayout Spacing="0">
-            <Grid ColumnDefinitions="8*,2*">
+        <StackLayout Spacing="0" BackgroundColor="White">
+            <Grid ColumnDefinitions="8*,2*" BackgroundColor="White">
                 <sfcombobox:SfComboBox x:Name="cbToSanXuat" DataSource="{Binding ListEmployee , Mode=TwoWay }"
                                    DisplayMemberPath="TEN_NHAN_VIEN" SelectedValuePath="MA_NHAN_VIEN"
                                    SelectedItem="{Binding SelectEmployee , Mode=TwoWay }"
@@ -36,6 +36,7 @@
 
             <Grid x:Name="mGridLayout" AbsoluteLayout.LayoutFlags="All"
                   Margin="0,10,0,0"
+                  BackgroundColor="White"
                   AbsoluteLayout.LayoutBounds="1,1,1,1" VerticalOptions="FillAndExpand" HorizontalOptions="FillAndExpand">
                 <sfDataGrid:SfDataGrid x:Name="listCongDoanCongNhan"
                                        ItemsSource="{Binding ListNhanSuGiamSat , Mode=TwoWay}"
