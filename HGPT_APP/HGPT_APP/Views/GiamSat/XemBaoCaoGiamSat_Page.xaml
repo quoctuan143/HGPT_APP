@@ -32,7 +32,7 @@
                             </Image>
                         </sfinputtext:SfTextInputLayout.LeadingView>
                     </sfinputtext:SfTextInputLayout>
-                    <StackLayout IsVisible="{Binding IsThoiTiet}">
+                    <StackLayout IsVisible="{Binding IsThoiTiet}" BackgroundColor="White">
                         <Label Text="Thời tiết" Style="{StaticResource styleLableBlue}"  FontSize="20" FontAttributes="Bold" TextDecorations="Underline"
                        Margin="5,10,10,0" />
                         <ListView ItemsSource="{Binding ListBaoCaoGiamSat.ListThoiTiet}"
@@ -57,7 +57,7 @@
                         </ListView>
                     </StackLayout>
 
-                    <StackLayout IsVisible="{Binding IsNhanSu}">
+                    <StackLayout IsVisible="{Binding IsNhanSu}" BackgroundColor="White">
                         <Label Text="Nhân sự" Style="{StaticResource styleLableBlue}"  FontSize="20" FontAttributes="Bold" TextDecorations="Underline"
                        Margin="5,10,10,0" />
                         <ListView ItemsSource="{Binding ListBaoCaoGiamSat.ListNhanLuc}"
@@ -80,15 +80,15 @@
                                     <ViewCell>
                                         <Grid ColumnDefinitions="4*,3*,3*" VerticalOptions="CenterAndExpand">
                                             <Label Text="{Binding Description}" Style="{StaticResource styleLableBlue}" VerticalOptions="Center"></Label>
-                                            <Entry IsEnabled="False"   Text="{Binding HomQua,Mode=TwoWay,StringFormat='{0:#,##0}'}"  HorizontalTextAlignment="Center" Grid.Column="1" FontSize="20" FontAttributes="Bold" />
-                                            <Entry IsEnabled="False"  Text="{Binding Quantity,Mode=TwoWay,StringFormat='{0:#,##0}'}" HorizontalTextAlignment="Center" Grid.Column="2" FontSize="20" FontAttributes="Bold" />
+                                            <Entry  Style="{StaticResource styleEntry}" IsEnabled="False"   Text="{Binding HomQua,Mode=TwoWay,StringFormat='{0:#,##0}'}"  HorizontalTextAlignment="Center" Grid.Column="1" FontSize="20" FontAttributes="Bold" />
+                                            <Entry Style="{StaticResource styleEntry}" IsEnabled="False"  Text="{Binding Quantity,Mode=TwoWay,StringFormat='{0:#,##0}'}" HorizontalTextAlignment="Center" Grid.Column="2" FontSize="20" FontAttributes="Bold" />
                                         </Grid>
                                     </ViewCell>
                                 </DataTemplate>
                             </ListView.ItemTemplate>
                         </ListView>
                     </StackLayout>
-                    <StackLayout IsVisible="{Binding IsChiPhi}">
+                    <StackLayout IsVisible="{Binding IsChiPhi}" BackgroundColor="White">
                         <Label Text="Chi phí khác" Style="{StaticResource styleLableBlue}"  FontSize="20" FontAttributes="Bold" TextDecorations="Underline"
                        Margin="5,10,10,0" />
                         <ListView ItemsSource="{Binding ListBaoCaoGiamSat.ListChiPhiKhac}"
@@ -110,7 +110,7 @@
                                     <ViewCell>
                                         <Grid ColumnDefinitions="6*,4*" VerticalOptions="CenterAndExpand">
                                             <Label Text="{Binding Description}" Style="{StaticResource styleLableBlue}" VerticalOptions="Center"></Label>
-                                            <Entry IsEnabled="False"   Text="{Binding FormatAmount}"  HorizontalTextAlignment="Center" Grid.Column="1" FontSize="20" FontAttributes="Bold" />
+                                            <Entry  Style="{StaticResource styleEntry}" IsEnabled="False"   Text="{Binding FormatAmount}"  HorizontalTextAlignment="Center" Grid.Column="1" FontSize="20" FontAttributes="Bold" />
                                         </Grid>
                                     </ViewCell>
                                 </DataTemplate>
@@ -118,7 +118,7 @@
                         </ListView>
                     </StackLayout>
 
-                    <StackLayout IsVisible="{Binding IsMayMoc}">
+                    <StackLayout IsVisible="{Binding IsMayMoc}" BackgroundColor="White">
                         <Label Text="Máy móc thiết bị" Style="{StaticResource styleLableBlue}"  FontSize="20" FontAttributes="Bold" TextDecorations="Underline"
                        Margin="5,10,10,0" />
 
@@ -140,15 +140,15 @@
                                     <ViewCell>
                                         <Grid ColumnDefinitions="4*,3*,3*" VerticalOptions="CenterAndExpand">
                                             <Label Text="{Binding Description}" Style="{StaticResource styleLableBlue}" VerticalOptions="Center"></Label>
-                                            <Entry IsEnabled="False"  Text="{Binding FormatQuantity}"  HorizontalTextAlignment="Center" Grid.Column="1" FontSize="20" FontAttributes="Bold" />
-                                            <Entry IsEnabled="False"  Text="{Binding FormatUnitPrice}"  HorizontalTextAlignment="Center" Grid.Column="2" FontSize="20" FontAttributes="Bold" />
+                                            <Entry Style="{StaticResource styleEntry}" IsEnabled="False"  Text="{Binding FormatQuantity}"  HorizontalTextAlignment="Center" Grid.Column="1" FontSize="20" FontAttributes="Bold" />
+                                            <Entry  Style="{StaticResource styleEntry}" IsEnabled="False"  Text="{Binding FormatUnitPrice}"  HorizontalTextAlignment="Center" Grid.Column="2" FontSize="20" FontAttributes="Bold" />
                                         </Grid>
                                     </ViewCell>
                                 </DataTemplate>
                             </ListView.ItemTemplate>
                         </ListView>
                     </StackLayout>
-                    <StackLayout IsVisible="{Binding IsTomTat}">
+                    <StackLayout IsVisible="{Binding IsTomTat}" BackgroundColor="White">
                         <Label Text="Tóm tắt công việc hôm nay" Style="{StaticResource styleLableBlue}"  FontSize="20" FontAttributes="Bold" TextDecorations="Underline"
                        Margin="5,10,10,0" />
                         <Label  Text="{Binding NoiDungBaoCao}" Style="{StaticResource styleLableBlue}"  LineBreakMode="WordWrap" HorizontalOptions="FillAndExpand"
@@ -158,14 +158,15 @@
                         <Label  Text="{Binding CongViecNgayMai}" Style="{StaticResource styleLableBlue}" LineBreakMode="WordWrap" HorizontalOptions="FillAndExpand"
                            VerticalOptions="FillAndExpand" />
                     </StackLayout>
-                    <StackLayout IsVisible="{Binding IsHinhAnh}" x:Name="Hình">
+                    <StackLayout IsVisible="{Binding IsHinhAnh}" x:Name="Hình" BackgroundColor="White">
                         <Label Text="Hình ảnh công trình" Style="{StaticResource styleLableBlue}"  FontSize="20" FontAttributes="Bold" TextDecorations="Underline" />
 
                         <ListView
                                 Margin="0,10,0,10"
                             HasUnevenRows="True"
                                 ItemsSource="{Binding ListBaoCaoGiamSat.ListImage, Mode=TwoWay}"   HorizontalOptions="FillAndExpand"
-                                VerticalOptions="StartAndExpand">
+                                VerticalOptions="StartAndExpand"
+                            BackgroundColor="White">
                             <ListView.ItemTemplate>
                                 <DataTemplate>
                                     <ViewCell>

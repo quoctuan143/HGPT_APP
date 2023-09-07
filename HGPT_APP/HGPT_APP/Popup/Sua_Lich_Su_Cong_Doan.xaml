@@ -11,7 +11,7 @@
                 xmlns:animations="clr-namespace:Rg.Plugins.Popup.Animations;assembly=Rg.Plugins.Popup"
                 mc:Ignorable="d"
                 CloseWhenBackgroundIsClicked="False"
-               
+                                               BackgroundColor="White"
              x:Class="HGPT_APP.Popup.Sua_Lich_Su_Cong_Doan">
     <page:PopupPage.Animation>
         <animations:MoveAnimation 
@@ -19,10 +19,10 @@
             PositionOut="Bottom">
         </animations:MoveAnimation>
     </page:PopupPage.Animation>
-    <ScrollView >
+    <ScrollView BackgroundColor="White">
         <Frame CornerRadius="15"           
            HorizontalOptions="FillAndExpand"
-           VerticalOptions="End">       
+           VerticalOptions="End" BackgroundColor="White">       
             <StackLayout HorizontalOptions="FillAndExpand" Spacing="5">
 
                 <Grid>

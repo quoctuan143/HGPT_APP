@@ -17,11 +17,11 @@
             PositionOut="Bottom">
         </animations:MoveAnimation>
     </page:PopupPage.Animation>
-    <ScrollView>
+    <ScrollView BackgroundColor="White">
         <Frame CornerRadius="15"
            OutlineColor="Black"
            HorizontalOptions="FillAndExpand"
-           VerticalOptions="End">
+           VerticalOptions="End" BackgroundColor="White">
 
             <StackLayout HorizontalOptions="FillAndExpand" Spacing="5">
                 <Grid>

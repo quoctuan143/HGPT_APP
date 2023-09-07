@@ -59,7 +59,8 @@
                           HasUnevenRows="True"
                           SeparatorVisibility="None"
                           SelectionMode="None"
-                              HeightRequest="80">
+                              HeightRequest="80"
+                              BackgroundColor="White">
                         <ListView.ItemTemplate>
                             <DataTemplate>
                                 <ViewCell>
@@ -83,7 +84,8 @@
                               HeightRequest="{Binding HeightNhanSu}"
                           SeparatorVisibility="None"
                           SelectionMode="None"
-                          HorizontalScrollBarVisibility="Never">
+                          HorizontalScrollBarVisibility="Never"
+                              BackgroundColor="White">
                         <ListView.Header>
                             <Grid ColumnDefinitions="4*,3*,3*" VerticalOptions="CenterAndExpand">
                                 <Label Text="Số lượng" FontAttributes="Bold"  Grid.Column="1" Style="{StaticResource styleLableBlue}" HorizontalOptions="Center" VerticalOptions="Center" HorizontalTextAlignment="Center"></Label>
@@ -96,8 +98,8 @@
 
                                     <Grid ColumnDefinitions="4*,3*,3*" VerticalOptions="CenterAndExpand">
                                         <Label Text="{Binding Description}" Style="{StaticResource styleLableBlue}" VerticalOptions="Center"></Label>
-                                        <Entry Text="{Binding FormatNumberQuantity , Mode=TwoWay}" Keyboard="Numeric" HorizontalTextAlignment="Center" Grid.Column="1" FontSize="20" FontAttributes="Bold" />
-                                        <Entry Text="{Binding FormatUnitPrice , Mode=TwoWay }" IsVisible ="{Binding IsEdit}" Keyboard="Numeric" HorizontalTextAlignment="Center" Grid.Column="2" FontSize="20" FontAttributes="Bold" />
+                                        <Entry Style="{StaticResource styleEntry}" Text="{Binding FormatNumberQuantity , Mode=TwoWay}" Keyboard="Numeric" HorizontalTextAlignment="Center" Grid.Column="1" FontSize="20" FontAttributes="Bold" />
+                                        <Entry Style="{StaticResource styleEntry}" Text="{Binding FormatUnitPrice , Mode=TwoWay }" IsVisible ="{Binding IsEdit}" Keyboard="Numeric" HorizontalTextAlignment="Center" Grid.Column="2" FontSize="20" FontAttributes="Bold" />
                                     </Grid>
                                 </ViewCell>
                             </DataTemplate>
@@ -118,7 +120,8 @@
                               HeightRequest="{Binding HeightChiPhi}"
                               SeparatorVisibility="None"
                               HorizontalScrollBarVisibility="Never"
-                              SelectionMode="None">
+                              SelectionMode="None"
+                              BackgroundColor="White">
                         <ListView.Header>
                             <Grid ColumnDefinitions="2.5*,4.5*,2*,1*" VerticalOptions="CenterAndExpand">
                                 <Label Text="Nhóm" FontAttributes="Bold"  Grid.Column="0" Style="{StaticResource styleLableBlue}" HorizontalOptions="Center" VerticalOptions="Center" HorizontalTextAlignment="Center"></Label>
@@ -145,8 +148,8 @@
                                                 </x:Array>
                                             </Picker.ItemsSource>
                                         </Picker>
-                                        <Editor Text="{Binding Description}" AutoSize="TextChanges" Keyboard="Plain" VerticalOptions="Center" Grid.Column="1" />
-                                        <Entry Text="{Binding FormatAmount , Mode=TwoWay}" Keyboard="Numeric" HorizontalTextAlignment="Center" Grid.Column="2" FontSize="14" FontAttributes="Bold" />
+                                        <Editor  Text="{Binding Description}" AutoSize="TextChanges" Keyboard="Plain" VerticalOptions="Center" Grid.Column="1" />
+                                        <Entry Style="{StaticResource styleEntry}" Text="{Binding FormatAmount , Mode=TwoWay}" Keyboard="Numeric" HorizontalTextAlignment="Center" Grid.Column="2" FontSize="14" FontAttributes="Bold" />
                                         <Image Source="delete.png" Grid.Column="3" WidthRequest="20" HeightRequest="20"
                                                Aspect="AspectFit">
                                             <Image.GestureRecognizers>
@@ -176,7 +179,8 @@
                           SeparatorVisibility="None"
                           SelectionMode="None"
                            HeightRequest="{Binding HeightMayMoc}"
-                          HorizontalScrollBarVisibility="Never">
+                          HorizontalScrollBarVisibility="Never"
+                              BackgroundColor="White">
                         <ListView.Header>
                             <Grid ColumnDefinitions="4*,2*,3*,1*" VerticalOptions="CenterAndExpand">
                                 <Label Text="Số lượng" FontAttributes="Bold"  Grid.Column="1" Style="{StaticResource styleLableBlue}" HorizontalOptions="Center" VerticalOptions="Center" HorizontalTextAlignment="Center"></Label>
@@ -188,8 +192,8 @@
                                 <ViewCell>
                                     <Grid ColumnDefinitions="4*,2*,3*,1*" VerticalOptions="CenterAndExpand">
                                         <Editor Text="{Binding Description}" AutoSize="TextChanges" Keyboard="Plain" VerticalOptions="Center" />
-                                        <Entry Text="{Binding FormatQuantity }" Keyboard="Numeric" HorizontalTextAlignment="Center" Grid.Column="1" FontSize="18" FontAttributes="Bold" />
-                                        <Entry Text="{Binding FormatUnitPrice}"  Keyboard="Numeric" HorizontalTextAlignment="Center" Grid.Column="2" FontSize="18" FontAttributes="Bold" />
+                                        <Entry Style="{StaticResource styleEntry}" Text="{Binding FormatQuantity }" Keyboard="Numeric" HorizontalTextAlignment="Center" Grid.Column="1" FontSize="18" FontAttributes="Bold" />
+                                        <Entry  Style="{StaticResource styleEntry}" Text="{Binding FormatUnitPrice}"  Keyboard="Numeric" HorizontalTextAlignment="Center" Grid.Column="2" FontSize="18" FontAttributes="Bold" />
                                         <Image Source="delete.png" Grid.Column="3" WidthRequest="20" HeightRequest="20"
                                                Aspect="AspectFit">
                                             <Image.GestureRecognizers>

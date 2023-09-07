@@ -9,7 +9,7 @@
              xmlns:page="clr-namespace:Rg.Plugins.Popup.Pages;assembly=Rg.Plugins.Popup" xmlns:animations="clr-namespace:Rg.Plugins.Popup.Animations;assembly=Rg.Plugins.Popup"
                 mc:Ignorable="d"
                 CloseWhenBackgroundIsClicked="False"
-               
+                BackgroundColor="White"
              x:Class="HGPT_APP.Popup.Dieu_Chuyen_Cong_Viec">
     <page:PopupPage.Animation>
         <animations:MoveAnimation 
@@ -20,8 +20,9 @@
     <Frame CornerRadius="15"
            OutlineColor="Black"
            HorizontalOptions="FillAndExpand"
-           VerticalOptions="End">
-        <ScrollView >
+           VerticalOptions="End"
+           BackgroundColor="White">
+        <ScrollView BackgroundColor="White">
             <StackLayout HorizontalOptions="FillAndExpand" Spacing="5">
                 <Grid>
                     <Grid.ColumnDefinitions>

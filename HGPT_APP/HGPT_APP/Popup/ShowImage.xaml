@@ -12,7 +12,7 @@
         </animations:MoveAnimation>
     </page:PopupPage.Animation>
     <Frame Padding="0"   
-           
+                            BackgroundColor="White"
           VerticalOptions="FillAndExpand"
            HorizontalOptions="FillAndExpand"   >
         <StackLayout VerticalOptions="FillAndExpand" HorizontalOptions="FillAndExpand">

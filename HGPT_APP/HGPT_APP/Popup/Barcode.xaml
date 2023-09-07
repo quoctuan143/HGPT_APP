@@ -6,7 +6,8 @@
              xmlns:zxing="clr-namespace:ZXing.Net.Mobile.Forms;assembly=ZXing.Net.Mobile.Forms"   
                   xmlns:zxcm="clr-namespace:ZXing.Common;assembly=zxing.portable"
                  CloseWhenBackgroundIsClicked="True"   
-             x:Class="HGPT_APP.Popup.Barcode">
+             x:Class="HGPT_APP.Popup.Barcode"
+                 BackgroundColor="White">
     <pages:PopupPage.Animation >
         <animations:ScaleAnimation 
             PositionIn="Center"
@@ -23,7 +24,8 @@
     <Frame CornerRadius="15"
            Margin="20,0,20,0"                 
            HorizontalOptions="FillAndExpand"
-           VerticalOptions="Center">
+           VerticalOptions="Center"
+           BackgroundColor="White">
         <StackLayout HorizontalOptions="FillAndExpand" >            
             <zxing:ZXingBarcodeImageView  x:Name="txtBarcode" WidthRequest="300" HeightRequest="300" BarcodeFormat="QR_CODE" >
                 <zxing:ZXingBarcodeImageView.BarcodeOptions>

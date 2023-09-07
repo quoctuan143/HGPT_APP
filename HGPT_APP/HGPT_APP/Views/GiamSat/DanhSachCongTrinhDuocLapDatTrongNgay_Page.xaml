@@ -35,7 +35,7 @@
                             <sfDataGrid:GridTemplateColumn.CellTemplate>
                                 <DataTemplate>
                                     <Label Text="{Binding Code}" Padding="5,0,0,0" FontSize="18"
-                                           XAlign="Start" YAlign="Center" />
+                                           XAlign="Start" YAlign="Center" TextColor="{StaticResource Primary}" />
                                 </DataTemplate>
                             </sfDataGrid:GridTemplateColumn.CellTemplate>
                         </sfDataGrid:GridTemplateColumn>
@@ -43,7 +43,7 @@
                             <sfDataGrid:GridTemplateColumn.CellTemplate>
                                 <DataTemplate>
                                     <Label Text="{Binding Description}" Padding="5,0,0,0" FontSize="18"
-                                           XAlign="Start" YAlign="Center" />
+                                           XAlign="Start" YAlign="Center" TextColor="{StaticResource Primary}" />
                                 </DataTemplate>
                             </sfDataGrid:GridTemplateColumn.CellTemplate>
                         </sfDataGrid:GridTemplateColumn>

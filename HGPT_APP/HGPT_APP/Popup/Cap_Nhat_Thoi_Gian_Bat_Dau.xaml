@@ -4,13 +4,15 @@
                xmlns:page="clr-namespace:Rg.Plugins.Popup.Pages;assembly=Rg.Plugins.Popup" 
                 xmlns:sfinputext="clr-namespace:Syncfusion.XForms.TextInputLayout;assembly=Syncfusion.Core.XForms" xmlns:sfbutton="clr-namespace:Syncfusion.XForms.Buttons;assembly=Syncfusion.Buttons.XForms"
                 CloseWhenBackgroundIsClicked="True"                
-                x:Class="HGPT_APP.Popup.Cap_Nhat_Thoi_Gian_Bat_Dau">
+                x:Class="HGPT_APP.Popup.Cap_Nhat_Thoi_Gian_Bat_Dau"
+                BackgroundColor="White">
     <ContentPage.Content>
         <Frame CornerRadius="15"
            OutlineColor="Black"
            HorizontalOptions="FillAndExpand"
-           VerticalOptions="End">
-            <StackLayout>
+           VerticalOptions="End"
+               BackgroundColor="White">
+            <StackLayout BackgroundColor="White">
                 <Grid ColumnDefinitions="5*,5*">
                     <sfinputext:SfTextInputLayout Hint="Ngày vào" Grid.Column="0" ContainerType="Outlined" IsHintAlwaysFloated="True" ReserveSpaceForAssistiveLabels="False">
                         <DatePicker  x:Name="dateKetThuc" Date="{Binding Item.GIO_BAT_DAU.Date , Mode=TwoWay}" />

@@ -8,7 +8,8 @@
                 mc:Ignorable="d"
                 xmlns:local="clr-namespace:HGPT_APP.helper"
                 CloseWhenBackgroundIsClicked="True"
-             x:Class="HGPT_APP.Popup.MessageBox">
+             x:Class="HGPT_APP.Popup.MessageBox"
+                BackgroundColor="White">
     <page:PopupPage.Animation >
         <animations:ScaleAnimation 
             PositionIn="Center"
@@ -24,7 +25,8 @@
     <Frame CornerRadius="15"
            Margin="20,0,20,0"                 
            HorizontalOptions="FillAndExpand"
-           VerticalOptions="Center">
+           VerticalOptions="Center"
+           BackgroundColor="White">
         <StackLayout HorizontalOptions="FillAndExpand" Spacing="20">
 
             <Image HorizontalOptions="CenterAndExpand">

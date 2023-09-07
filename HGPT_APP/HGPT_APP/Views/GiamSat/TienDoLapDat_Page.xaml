@@ -121,7 +121,7 @@
                     <sfDataGrid:GridTemplateColumn MappingName="SoLuongCanLap"   HeaderText="SL Thực Hiện" HeaderFontAttribute="Bold" HeaderCellTextSize="16">
                         <sfDataGrid:GridTemplateColumn.CellTemplate>
                             <DataTemplate>
-                                <Entry Text="{Binding FormatSoLuongCanLap, Mode=TwoWay}"  FontSize="20" FontAttributes="Bold" IsVisible="{Binding ChuaHoanThanh}" Keyboard="Numeric" TextColor="{Binding Type, Converter={StaticResource LSX_CapCha}}" />
+                                <Entry Text="{Binding FormatSoLuongCanLap, Mode=TwoWay}" BackgroundColor="White" FontSize="20" FontAttributes="Bold" IsVisible="{Binding ChuaHoanThanh}" Keyboard="Numeric" TextColor="{Binding Type, Converter={StaticResource LSX_CapCha}}" />
                             </DataTemplate>
                         </sfDataGrid:GridTemplateColumn.CellTemplate>
                     </sfDataGrid:GridTemplateColumn>
