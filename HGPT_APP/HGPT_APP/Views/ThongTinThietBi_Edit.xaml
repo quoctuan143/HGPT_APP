@@ -19,7 +19,7 @@
                 <Label Text="Model" Grid.Column="0" VerticalTextAlignment="Center" Grid.Row="3" FontSize="16" TextColor="Black"></Label>
                 <Entry Style="{StaticResource styleEntry}" Text="{Binding Item.No_2,Mode=TwoWay}"  Grid.Column="1" Grid.Row="3" FontSize="16" TextColor="Black"></Entry>
                 <Label Text="Xuất Xứ" Grid.Column="0" VerticalTextAlignment="Center" Grid.Row="4" FontSize="16" TextColor="Black"></Label>
-                <Entry Style="{StaticResource styleEntry}"Text="{Binding Item.XuatXu,Mode=TwoWay}" Grid.Column="1" Grid.Row="4" FontSize="16" TextColor="Black"></Entry>
+                <Entry Style="{StaticResource styleEntry}" Text="{Binding Item.XuatXu,Mode=TwoWay}" Grid.Column="1" Grid.Row="4" FontSize="16" TextColor="Black"></Entry>
                 <Label Text="Hãng Sản Xuất" Grid.Column="0" VerticalTextAlignment="Center" Grid.Row="5" FontSize="16" TextColor="Black"></Label>
                 <Entry Style="{StaticResource styleEntry}" Text="{Binding Item.NhaSanXuat,Mode=TwoWay}" Grid.Column="1" Grid.Row="5" FontSize="16" TextColor="Black"></Entry>
                 <Label Text="Công Suất" Grid.Column="0" VerticalTextAlignment="Center" Grid.Row="6" FontSize="16" TextColor="Black"></Label>
