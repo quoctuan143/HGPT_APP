@@ -45,7 +45,7 @@
                                        HorizontalOptions="FillAndExpand"                              
                                        NoResultsFoundText="Không tìm thấy thông tin"     
                                        IsEditableMode="True"
-                                       HeightRequest="50"
+                                       HeightRequest="50"                                                  
                                       >
                     </sfcombobox:SfComboBox>
                     <sfcombobox:SfComboBox x:Name="cbLenhSanXuat"    
@@ -89,6 +89,7 @@
                          VerticalOptions="FillAndExpand" 
                          Orientation="Horizontal"
                          Margin="0,10,0,0"
+                             BackgroundColor ="White"
                          >
                     <Grid HorizontalOptions="FillAndExpand">
                         <Grid.ColumnDefinitions>

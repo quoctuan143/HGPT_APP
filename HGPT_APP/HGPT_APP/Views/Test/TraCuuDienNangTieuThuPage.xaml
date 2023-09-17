@@ -42,7 +42,8 @@
                                                HorizontalOptions="FillAndExpand"
                                                ContainerType="Outlined">
                     <DatePicker Date="{Binding FromDate  , Mode=TwoWay }"                            
-                                WidthRequest="100"                                
+                                WidthRequest="100"  
+                                TextColor="Black"
                             HorizontalOptions="FillAndExpand"/>
                     <sfinputtext:SfTextInputLayout.LeadingView>
                         <Image>
@@ -62,6 +63,7 @@
                                                ContainerType="Outlined">
                     <DatePicker Date="{Binding ToDate , Mode=TwoWay}"  
                                 WidthRequest="100"
+                                TextColor="Black"
                             HorizontalOptions="FillAndExpand" />
                     <sfinputtext:SfTextInputLayout.LeadingView>
                         <Image>

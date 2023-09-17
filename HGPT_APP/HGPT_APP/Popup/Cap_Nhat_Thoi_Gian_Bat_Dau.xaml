@@ -15,11 +15,11 @@
             <StackLayout BackgroundColor="White">
                 <Grid ColumnDefinitions="5*,5*">
                     <sfinputext:SfTextInputLayout Hint="Ngày vào" Grid.Column="0" ContainerType="Outlined" IsHintAlwaysFloated="True" ReserveSpaceForAssistiveLabels="False">
-                        <DatePicker  x:Name="dateKetThuc" Date="{Binding Item.GIO_BAT_DAU.Date , Mode=TwoWay}" />
+                        <DatePicker  x:Name="dateKetThuc" Date="{Binding Item.GIO_BAT_DAU.Date , Mode=TwoWay}" TextColor="Black"/>
                     </sfinputext:SfTextInputLayout>
 
-                    <sfinputext:SfTextInputLayout Hint="Giờ vào" Grid.Column="1" ContainerType="Outlined" IsHintAlwaysFloated="True" ReserveSpaceForAssistiveLabels="False">
-                        <TimePicker x:Name="timeKetThuc" Time="{Binding Item.GIO_BAT_DAU.TimeOfDay , Mode=TwoWay}"  />
+                    <sfinputext:SfTextInputLayout Hint="Giờ vào" Grid.Column="1" ContainerType="Outlined"  IsHintAlwaysFloated="True" ReserveSpaceForAssistiveLabels="False">
+                        <TimePicker x:Name="timeKetThuc" Time="{Binding Item.GIO_BAT_DAU.TimeOfDay , Mode=TwoWay}"  TextColor="Black"/>
                     </sfinputext:SfTextInputLayout>
 
                 </Grid>

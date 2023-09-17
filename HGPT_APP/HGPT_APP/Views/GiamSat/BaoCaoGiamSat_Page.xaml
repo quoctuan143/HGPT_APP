@@ -43,7 +43,7 @@
                                                LeadingViewPosition="Inside"
                                                HeightRequest="50"
                                                ContainerType="Outlined">
-                        <DatePicker  x:Name="searchDate" HorizontalOptions="FillAndExpand"  Date="{Binding NgayLamViec, Mode=TwoWay}" />
+                        <DatePicker  x:Name="searchDate" HorizontalOptions="FillAndExpand"  Date="{Binding NgayLamViec, Mode=TwoWay}" TextColor="Black" />
                         <sfinputtext:SfTextInputLayout.LeadingView>
                             <Image>
                                 <Image.Source>
@@ -132,11 +132,13 @@
                         <ListView.ItemTemplate>
                             <DataTemplate>
                                 <ViewCell>
-                                    <Grid ColumnDefinitions="2.5*,4*,2.5*,1*">
+                                    <Grid ColumnDefinitions="2.5*,4*,2.5*,1*" BackgroundColor="White">
                                         <Picker x:Name="picker"
                                                 SelectedItem="{Binding NhomChiPhi}"
                                                 Title="Chọn nhóm chi phí"
-                                                TitleColor="Red">
+                                                TextColor="Black"
+                                                TitleColor="Red"
+                                                >
                                             <Picker.ItemsSource>
                                                 <x:Array Type="{x:Type x:String}">
                                                     <x:String>Chi phí chung</x:String>

@@ -29,7 +29,8 @@
                                        EditTapAction="OnTap"
                                        ColumnSizer="LastColumnFill"
                                        AllowGroupExpandCollapse="True"
-                                       SelectionChanged="listCongDoanCongNhan_SelectionChanged">
+                                       SelectionChanged="listCongDoanCongNhan_SelectionChanged"
+                                       >
                     <sfDataGrid:SfDataGrid.Columns>
                         <sfDataGrid:GridTemplateColumn MappingName="code"  HeaderText="Mã công trình" HeaderFontAttribute="Bold" Width="120" HeaderCellTextSize="16">
                             <sfDataGrid:GridTemplateColumn.CellTemplate>

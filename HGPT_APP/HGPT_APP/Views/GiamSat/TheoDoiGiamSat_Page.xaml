@@ -22,7 +22,7 @@
                                          PickerHeight="300"
                                          PickerWidth="200"
                                          HeaderText="Chọn tháng"
-                                         Format="yyyy_MM_dd"
+                                         Format="yyyy_MM_dd"                                            
                                          Date="{Binding Thang,Mode=TwoWay}"
                                          OkCommand="{Binding OkCommand}" />
                 <Button Text="Chọn tháng để xem"
@@ -54,6 +54,7 @@
                             <sfDataGrid:GridTemplateColumn.CellTemplate>
                                 <DataTemplate>
                                     <Label Text="{Binding ChamCong}" Padding="5,0,0,0" FontSize="16"
+                                           TextColor="Black"
                                            XAlign="Start" YAlign="Center" />
                                 </DataTemplate>
                             </sfDataGrid:GridTemplateColumn.CellTemplate>

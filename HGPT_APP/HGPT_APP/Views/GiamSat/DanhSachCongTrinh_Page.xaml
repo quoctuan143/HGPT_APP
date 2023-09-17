@@ -50,6 +50,7 @@
                                            Padding="5,0,0,0"
                                            FontSize="18"
                                            XAlign="Start"
+                                           TextColor="Black"
                                            YAlign="Center" />
                                 </DataTemplate>
                             </sfDataGrid:GridTemplateColumn.CellTemplate>
@@ -64,6 +65,7 @@
                                            Padding="5,0,0,0"
                                            FontSize="18"
                                            XAlign="Start"
+                                           TextColor="Black"
                                            YAlign="Center" />
                                 </DataTemplate>
                             </sfDataGrid:GridTemplateColumn.CellTemplate>

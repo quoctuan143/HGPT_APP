@@ -23,7 +23,7 @@
                                                LeadingViewPosition="Inside"
                                                HeightRequest="50"
                                                ContainerType="Outlined">
-                        <DatePicker  x:Name="searchDate" HorizontalOptions="FillAndExpand" Date="{Binding NgayLamViec, Mode=TwoWay}" />
+                        <DatePicker  x:Name="searchDate" HorizontalOptions="FillAndExpand" Date="{Binding NgayLamViec, Mode=TwoWay}" TextColor="Black"/>
                         <sfinputtext:SfTextInputLayout.LeadingView>
                             <Image>
                                 <Image.Source>
@@ -40,6 +40,7 @@
                           HasUnevenRows="True"
                           SeparatorVisibility="None"
                           SelectionMode="None"
+                              BackgroundColor="White"
                               HeightRequest="80">
                             <ListView.ItemTemplate>
                                 <DataTemplate>
@@ -47,8 +48,8 @@
                                         <Grid ColumnDefinitions="3.3*,3.3*,3.4*" VerticalOptions="CenterAndExpand">
                                             <Label Text="{Binding Description}" Style="{StaticResource styleLableBlue}" VerticalOptions="Center"></Label>
                                             <sfCheck:SfRadioGroup Orientation="Horizontal"  Grid.Column="1" Spacing="30">
-                                                <sfCheck:SfRadioButton Text="Nắng" IsEnabled="False" VerticalOptions="Center" IsChecked="{Binding Sunny}" />
-                                                <sfCheck:SfRadioButton Text="Mưa"  IsEnabled="False"  IsChecked="{Binding Rainy}"  VerticalOptions="Center" />
+                                                <sfCheck:SfRadioButton Text="Nắng" IsEnabled="False" TextColor="Black" VerticalOptions="Center" IsChecked="{Binding Sunny}" />
+                                                <sfCheck:SfRadioButton Text="Mưa"  IsEnabled="False" TextColor="Black"  IsChecked="{Binding Rainy}"  VerticalOptions="Center" />
                                             </sfCheck:SfRadioGroup>
                                         </Grid>
                                     </ViewCell>
@@ -67,6 +68,7 @@
                               HeightRequest="{Binding HeightNhanSu}"
                           SeparatorVisibility="None"
                           SelectionMode="None"
+                                  BackgroundColor="White"
                           HorizontalScrollBarVisibility="Never">
                             <ListView.Header>
                                 <Grid ColumnDefinitions="4*,3*,3*" VerticalOptions="CenterAndExpand">
@@ -98,6 +100,7 @@
                               HeightRequest="{Binding HeightChiPhi}"
                           SeparatorVisibility="None"
                           SelectionMode="None"
+                                  BackgroundColor="White"
                           HorizontalScrollBarVisibility="Never">
                             <ListView.Header>
                                 <Grid ColumnDefinitions="7*,3*" VerticalOptions="CenterAndExpand">
@@ -128,6 +131,7 @@
                           SeparatorVisibility="None"
                           SelectionMode="None"
                           HeightRequest="{Binding HeightMayMoc}"
+                                  BackgroundColor="White"
                           HorizontalScrollBarVisibility="Never">
                             <ListView.Header>
                                 <Grid ColumnDefinitions="4*,3*,3*" VerticalOptions="CenterAndExpand">

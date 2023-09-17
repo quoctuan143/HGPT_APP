@@ -13,7 +13,7 @@
                   BackgroundColor="White"
                   ItemsSource="{Binding ListDanhSach,Mode=TwoWay}"
                   ItemSelected="ListView_ItemSelected"
-                  IsRefreshing="{Binding IsRunning}"
+                  IsRefreshing="{Binding IsRunning}"                     
                   x:Name="listChuaXuLy">
             <ListView.ItemTemplate>
                 <DataTemplate>
@@ -24,8 +24,9 @@
                             Margin="0,0,0,10"
                                HorizontalOptions="FillAndExpand"
                                VerticalOptions="FillAndExpand"
-                               Padding="10">
-                            <StackLayout>
+                               Padding="10"
+                            BackgroundColor="White">
+                            <StackLayout BackgroundColor="White">
                                 <Label Text="{Binding CongTy}" Style="{StaticResource styleLableBlue}"  FontAttributes="Bold" />
                                 <Label Style="{StaticResource styleLableBlue}" FontSize="18" FontAttributes="Bold">
                                     <Label.FormattedText>

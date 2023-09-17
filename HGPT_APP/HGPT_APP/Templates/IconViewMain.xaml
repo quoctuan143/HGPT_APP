@@ -13,7 +13,8 @@
                BorderColor="LightGray"
                Margin="3,0,3,0"
                HeightRequest="80"
-               WidthRequest="80">
+               WidthRequest="80"
+               BackgroundColor="White">
 
 
             <Grid RowDefinitions="*,auto">

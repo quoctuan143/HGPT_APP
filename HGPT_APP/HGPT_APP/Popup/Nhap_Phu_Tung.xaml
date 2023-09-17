@@ -35,12 +35,13 @@
 
             <Editor  x:Name="txtPhuTung" Placeholder="Các mục ghi chú theo thiết bị này"  
                      HeightRequest="100"
+                     TextColor="Black"
                      VerticalOptions="FillAndExpand" HorizontalOptions="FillAndExpand"/>
 
             <StackLayout Spacing="0" HorizontalOptions="FillAndExpand" 
                          VerticalOptions="FillAndExpand" 
                          Orientation="Horizontal"
-                        
+                         BackgroundColor="White"
                          >
                 <Grid HorizontalOptions="FillAndExpand">
                     <Grid.ColumnDefinitions>

@@ -80,17 +80,17 @@
                     </sfinputext:SfTextInputLayout>
                     <Grid ColumnDefinitions="5*,5*">
                         <sfinputext:SfTextInputLayout Hint="Ngày Công" Grid.Column="0" ContainerType="Outlined" IsHintAlwaysFloated="True" ReserveSpaceForAssistiveLabels="False">
-                            <sfNumber:SfNumericTextBox x:Name="txtNgayCong" Value="{Binding Item.NGAY_CONG , Mode=TwoWay}" AllowNull="True"/>
+                            <sfNumber:SfNumericTextBox x:Name="txtNgayCong" Value="{Binding Item.NGAY_CONG , Mode=TwoWay}" AllowNull="True" TextColor="Black"/>
                         </sfinputext:SfTextInputLayout>
 
                         <sfinputext:SfTextInputLayout Hint="Giờ công" Grid.Column="1" ContainerType="Outlined" IsHintAlwaysFloated="True" ReserveSpaceForAssistiveLabels="False">
-                            <sfNumber:SfNumericTextBox x:Name="txtGioCong" Value="{Binding Item.GIO_CONG , Mode=TwoWay}" AllowNull="True" />
+                            <sfNumber:SfNumericTextBox x:Name="txtGioCong" Value="{Binding Item.GIO_CONG , Mode=TwoWay}" AllowNull="True" TextColor="Black" />
                         </sfinputext:SfTextInputLayout>
 
                     </Grid>
                     <Grid ColumnDefinitions="5*,5*">
                         <sfinputext:SfTextInputLayout Hint="Giờ tăng ca" Grid.Column="0" ContainerType="Outlined" IsHintAlwaysFloated="True" ReserveSpaceForAssistiveLabels="False">
-                            <sfNumber:SfNumericTextBox x:Name="txttangca" Value="{Binding Item.TANG_CA , Mode=TwoWay}" AllowNull="True"  >
+                            <sfNumber:SfNumericTextBox x:Name="txttangca" Value="{Binding Item.TANG_CA , Mode=TwoWay}" AllowNull="True" TextColor="Black" >
                             </sfNumber:SfNumericTextBox>
                         </sfinputext:SfTextInputLayout>
 

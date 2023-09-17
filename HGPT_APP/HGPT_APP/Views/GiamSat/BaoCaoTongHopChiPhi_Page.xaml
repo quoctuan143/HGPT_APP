@@ -44,7 +44,8 @@
                                        SelectionMode="None"
                                        GroupingMode="Multiple"
                                        AutoExpandGroups="True"
-                                       AllowGroupExpandCollapse="True">
+                                       AllowGroupExpandCollapse="True"
+                                       BackgroundColor="White">
                 <sfDataGrid:SfDataGrid.Columns>
                     <sfDataGrid:GridTemplateColumn MappingName="DienGiai"  HeaderText="Nội dung" HeaderFontAttribute="Bold" Width="200"   HeaderCellTextSize="16">
                         <sfDataGrid:GridTemplateColumn.CellTemplate>

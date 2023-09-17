@@ -20,7 +20,7 @@
         </StackLayout>
     </Shell.TitleView>
     <Grid>
-        <Grid RowDefinitions="auto,auto,*">
+        <Grid RowDefinitions="auto,auto,*" BackgroundColor="White">
             <Image Source="https://hrm.hgpt.vn/image/hinh1.jpg" Grid.Row="0" Aspect="AspectFill" HorizontalOptions="FillAndExpand" VerticalOptions="FillAndExpand"></Image>
             <StackLayout Grid.Row="1" Margin="{OnPlatform Android = '10' , iOS='10,10,0,0'}">
                 <StackLayout Orientation="Horizontal">

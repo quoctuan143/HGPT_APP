@@ -10,8 +10,8 @@
             <Editor x:Name="rte" VerticalOptions="FillAndExpand" HorizontalOptions="FillAndExpand"
                                              Placeholder="Nhập nội dung chăm sóc khách hàng"
                                              Text="{Binding NoiDungChamSoc}"
-                            Keyboard="Chat"
-
+                                              Keyboard="Chat"
+                                              TextColor="Black"
                                              AbsoluteLayout.LayoutFlags="All"
                                              AbsoluteLayout.LayoutBounds="1,1,1,1" />
             <Image Source="save.png" Aspect="AspectFill" WidthRequest="70" HeightRequest="70"
