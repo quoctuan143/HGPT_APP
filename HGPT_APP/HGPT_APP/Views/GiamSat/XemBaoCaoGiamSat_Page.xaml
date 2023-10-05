@@ -82,8 +82,8 @@
                                     <ViewCell>
                                         <Grid ColumnDefinitions="4*,3*,3*" VerticalOptions="CenterAndExpand">
                                             <Label Text="{Binding Description}" Style="{StaticResource styleLableBlue}" VerticalOptions="Center"></Label>
-                                            <Entry  Style="{StaticResource styleEntry}" IsEnabled="False"   Text="{Binding HomQua,Mode=TwoWay,StringFormat='{0:#,##0}'}"  HorizontalTextAlignment="Center" Grid.Column="1" FontSize="20" FontAttributes="Bold" />
-                                            <Entry Style="{StaticResource styleEntry}" IsEnabled="False"  Text="{Binding Quantity,Mode=TwoWay,StringFormat='{0:#,##0}'}" HorizontalTextAlignment="Center" Grid.Column="2" FontSize="20" FontAttributes="Bold" />
+                                            <Label  Style="{StaticResource styleLableBlue}"  Text="{Binding HomQua,Mode=TwoWay,StringFormat='{0:#,##0}'}" HorizontalOptions="FillAndExpand" HorizontalTextAlignment="Center" Grid.Column="1" FontSize="20" FontAttributes="Bold" />
+                                            <Label Style="{StaticResource styleLableBlue}"   Text="{Binding Quantity,Mode=TwoWay,StringFormat='{0:#,##0}'}" HorizontalOptions="FillAndExpand" HorizontalTextAlignment="Center" Grid.Column="2" FontSize="20" FontAttributes="Bold" />
                                         </Grid>
                                     </ViewCell>
                                 </DataTemplate>
@@ -113,7 +113,7 @@
                                     <ViewCell>
                                         <Grid ColumnDefinitions="6*,4*" VerticalOptions="CenterAndExpand">
                                             <Label Text="{Binding Description}" Style="{StaticResource styleLableBlue}" VerticalOptions="Center"></Label>
-                                            <Entry  Style="{StaticResource styleEntry}" IsEnabled="False"   Text="{Binding FormatAmount}"  HorizontalTextAlignment="Center" Grid.Column="1" FontSize="20" FontAttributes="Bold" />
+                                            <Label Style="{StaticResource styleLableBlue}"  Text="{Binding FormatAmount}" HorizontalOptions="FillAndExpand" Padding="0,0,5,0" HorizontalTextAlignment="End" Grid.Column="1" FontSize="20" FontAttributes="Bold" />
                                         </Grid>
                                     </ViewCell>
                                 </DataTemplate>
