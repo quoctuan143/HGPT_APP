@@ -77,7 +77,7 @@
     <Compile Include="Renderer\SaveImageFromView.cs" />
     <Compile Include="Renderer\ShellView.cs" />
     <None Include="Entitlements.plist" />
-    <BundleResource Include="GoogleService-Info.plist" />
+    <None Include="GoogleService-Info.plist" />
     <None Include="Info.plist" />
     <Compile Include="Properties\AssemblyInfo.cs" />
     <BundleResource Include="Resources\sunshine.json" />
