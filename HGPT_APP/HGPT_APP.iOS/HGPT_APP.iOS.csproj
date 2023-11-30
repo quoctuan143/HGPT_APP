@@ -46,12 +46,13 @@
     <ErrorReport>prompt</ErrorReport>
     <WarningLevel>4</WarningLevel>
     <MtouchArch>ARMv7, ARM64</MtouchArch>
-    <CodesignKey>Apple Development: Created via API (278LT5Y882)</CodesignKey>
+    <CodesignKey>Apple Development: Created via API (H758FZM55A)</CodesignKey>
     <MtouchDebug>true</MtouchDebug>
     <CodesignEntitlements>Entitlements.plist</CodesignEntitlements>
     <MtouchLink>Full</MtouchLink>
     <MtouchInterpreter>-all</MtouchInterpreter>
-    <CodesignProvision>VS: com.hgpt.HGPT Development</CodesignProvision>
+    <CodesignProvision>
+    </CodesignProvision>
     <BuildIpa>false</BuildIpa>
   </PropertyGroup>
   <PropertyGroup Condition=" '$(Configuration)|$(Platform)' == 'Release|iPhone' ">
