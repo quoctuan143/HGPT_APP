@@ -284,6 +284,11 @@ namespace HGPT_APP.ViewModels.GiamSat
                     }
                     foreach (MayMocThietBi _nhanluc in ListMayMocThietBi )
                     {
+                        if (_nhanluc.KhongTinhChoGiamSat == null)
+                        {
+                            await new MessageBox("Thông báo", "Vui lòng chọn loại máy móc thiết bị").Show();
+                            return;
+                        }    
                         if (_nhanluc.Quantity > 0)
                         {
                             Insert.Add(new BaoCaoGiamSat_Insert
@@ -296,8 +301,8 @@ namespace HGPT_APP.ViewModels.GiamSat
                                 Amount = _nhanluc.Quantity * _nhanluc.UnitPrice,
                                 CongTrinh = _selectCongTrinh.Code,
                                 Weather = 0, CongViecNgayMai ="",
-                                Description = _nhanluc.Description 
-                              
+                                Description = _nhanluc.Description,
+                                KhongTinhChoGiamSat = _nhanluc.KhongTinhChoGiamSat == "Giám sát trả tiền" ? 0 : 1
                             });
                         }
 
@@ -373,7 +378,8 @@ namespace HGPT_APP.ViewModels.GiamSat
                         if (checkUploadFile == true )
                         {
                             //gửi thông tin còn lại
-                            ok1 = await client.PostAsJsonAsync("PostBaoCaoGiamSat", Insert);
+                            var content = new StringContent(JsonConvert.SerializeObject(Insert), Encoding.UTF8, "application/json");
+                            ok1 = await client.PostAsync("PostBaoCaoGiamSat", content);
                             if (ok1.StatusCode == System.Net.HttpStatusCode.OK)
                             {                                
                                 HideLoading();

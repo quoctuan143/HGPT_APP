@@ -122,8 +122,9 @@ namespace HGPT_APP.ViewModels.GiamSat
                     HttpResponseMessage ok1 = null;
                     using (HttpClient client = new HttpClient())
                     {
-                        client.BaseAddress = new Uri(Config.URL);   
-                        ok1 = await client.PostAsJsonAsync($"CaphatNhanSuGiamSat?NguoiGiamSat={Preferences.Get(Config.User ,"")}", ListNhanSuGiamSat );
+                        client.BaseAddress = new Uri(Config.URL);
+                        var content = new StringContent(JsonConvert.SerializeObject(ListNhanSuGiamSat), Encoding.UTF8, "application/json");                       
+                        ok1 = await client.PostAsync($"CaphatNhanSuGiamSat?NguoiGiamSat={Preferences.Get(Config.User, "")}", content);
                         if (ok1.StatusCode == System.Net.HttpStatusCode.OK)
                         {
                             HideLoading();

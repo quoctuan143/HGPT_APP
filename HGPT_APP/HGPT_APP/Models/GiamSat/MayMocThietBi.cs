@@ -41,5 +41,7 @@ namespace HGPT_APP.Models.GiamSat
             }
         }
         public bool IsEdit { get; set; }
+
+       public string  KhongTinhChoGiamSat { get; set; }
     }
 }

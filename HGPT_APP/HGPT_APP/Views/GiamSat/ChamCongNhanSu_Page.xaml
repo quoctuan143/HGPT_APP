@@ -78,6 +78,13 @@
                                 </DataTemplate>
                             </sfDataGrid:GridTemplateColumn.CellTemplate>
                         </sfDataGrid:GridTemplateColumn>
+                        <sfDataGrid:GridTemplateColumn MappingName="KhongTinhAn"  HeaderText="Không Ăn" HeaderFontAttribute="Bold" HeaderCellTextSize="16">
+                            <sfDataGrid:GridTemplateColumn.CellTemplate>
+                                <DataTemplate>
+                                    <CheckBox IsChecked="{Binding KhongTinhAn}"/>
+                                </DataTemplate>
+                            </sfDataGrid:GridTemplateColumn.CellTemplate>
+                        </sfDataGrid:GridTemplateColumn>
                         <sfDataGrid:GridTemplateColumn MappingName="MaNhanVien"  HeaderText="Mã NV" HeaderFontAttribute="Bold" Width="100"   HeaderCellTextSize="16">
                             <sfDataGrid:GridTemplateColumn.CellTemplate>
                                 <DataTemplate>

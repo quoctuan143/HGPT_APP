@@ -7,7 +7,7 @@
              xmlns:sfCheck="clr-namespace:Syncfusion.XForms.Buttons;assembly=Syncfusion.Buttons.XForms"
              xmlns:sfbutton="clr-namespace:Syncfusion.XForms.Buttons;assembly=Syncfusion.Buttons.XForms"
              xmlns:sfcombobox="clr-namespace:Syncfusion.XForms.ComboBox;assembly=Syncfusion.SfComboBox.XForms"
-             xmlns:sfinputtext="clr-namespace:Syncfusion.XForms.TextInputLayout;assembly=Syncfusion.Core.XForms"
+             xmlns:sfinputtext="clr-namespace:Syncfusion.XForms.TextInputLayout;assembly=Syncfusion.Core.XForms" xmlns:sfDataGrid="clr-namespace:Syncfusion.SfDataGrid.XForms;assembly=Syncfusion.SfDataGrid.XForms"
              x:Class="HGPT_APP.Views.GiamSat.BaoCaoGiamSat_Page"
              Shell.TabBarIsVisible="False"
              Title="{Binding Title}"
@@ -140,13 +140,33 @@
                                                 TitleColor="Red"
                                                 >
                                             <Picker.ItemsSource>
-                                                <x:Array Type="{x:Type x:String}">
+                                                <x:Array Type="{x:Type x:String}">                                                                     
+                                                    <x:String>Cẩu hạ hàng</x:String>
+                                                    <x:String>Cẩu lắp</x:String>
+                                                    <x:String>Cúng rằm</x:String>
                                                     <x:String>Chi phí chung</x:String>
-                                                    <x:String>Vật tư, CCDC</x:String>
-                                                    <x:String>Tiền xe</x:String>
-                                                    <x:String>Sửa xe</x:String>
-                                                    <x:String>Nhiên liệu, xăng dầu</x:String>
                                                     <x:String>Gởi, nhận hàng</x:String>
+                                                    <x:String>Cước gởi, nhận hồ sơ</x:String>
+                                                    <x:String>Đồ dùng sinh hoạt</x:String>
+                                                    <x:String>Ngoại giao</x:String>
+                                                    <x:String>Nhân công đục bê tông</x:String>
+                                                    <x:String>Nhân công thuê ngoài lắp đặt</x:String>
+                                                    <x:String>Nhiên liệu, xăng dầu</x:String>
+                                                    <x:String>Nhiên liệu cẩu</x:String>
+                                                    <x:String>Phí xuất hóa đơn</x:String>
+                                                    <x:String>Sửa xe cẩu</x:String>
+                                                    <x:String>Sửa xe máy</x:String>
+                                                    <x:String>Thuê bảo vệ</x:String>
+                                                    <x:String>Thuê máy đào ban đất</x:String>
+                                                    <x:String>Tiền ăn</x:String>
+                                                    <x:String>Tiền trọ</x:String>
+                                                    <x:String>Tiền xe</x:String>
+                                                    <x:String>Trắc đạt</x:String>
+                                                    <x:String>Văn phòng phẩm, bảng hiệu quảng cáo</x:String>
+                                                    <x:String>Vật tư chính</x:String>
+                                                    <x:String>Vật tư, CCDC</x:String>
+                                                    <x:String>Xăng xe đi lại tại công trình</x:String>
+
                                                 </x:Array>
                                             </Picker.ItemsSource>
                                         </Picker>
@@ -175,40 +195,75 @@
                         </Image>
                     </StackLayout>
 
-                    <ListView ItemsSource="{Binding ListMayMocThietBi}"
-                          Margin="5,5,5,0"
-                          HasUnevenRows="True"
-                          SeparatorVisibility="None"
-                          SelectionMode="None"
-                           HeightRequest="{Binding HeightMayMoc}"
-                          HorizontalScrollBarVisibility="Never"
-                              BackgroundColor="White">
-                        <ListView.Header>
-                            <Grid ColumnDefinitions="4*,2*,3*,1*" VerticalOptions="CenterAndExpand">
-                                <Label Text="Số lượng" FontAttributes="Bold"  Grid.Column="1" Style="{StaticResource styleLableBlue}" HorizontalOptions="Center" VerticalOptions="Center" HorizontalTextAlignment="Center"></Label>
-                                <Label Text="Đơn giá" FontAttributes="Bold"   Grid.Column="2" Style="{StaticResource styleLableBlue}" HorizontalOptions="Center" VerticalOptions="Center" HorizontalTextAlignment="Center"></Label>
-                            </Grid>
-                        </ListView.Header>
-                        <ListView.ItemTemplate>
-                            <DataTemplate>
-                                <ViewCell>
-                                    <Grid ColumnDefinitions="4*,2*,3*,1*" VerticalOptions="CenterAndExpand">
-                                        <Editor Text="{Binding Description}" AutoSize="TextChanges" Keyboard="Plain" VerticalOptions="Center" />
-                                        <Entry Style="{StaticResource styleEntry}" Text="{Binding FormatQuantity }" Keyboard="Numeric" HorizontalTextAlignment="Center" Grid.Column="1" FontSize="18" FontAttributes="Bold" />
-                                        <Entry  Style="{StaticResource styleEntry}" Text="{Binding FormatUnitPrice}"  Keyboard="Numeric" HorizontalTextAlignment="Center" Grid.Column="2" FontSize="18" FontAttributes="Bold" />
-                                        <Image Source="delete.png" Grid.Column="3" WidthRequest="20" HeightRequest="20"
-                                               Aspect="AspectFit">
+                    <sfDataGrid:SfDataGrid x:Name="ListMayMocThietBi"                                           
+                                       ItemsSource="{Binding ListMayMocThietBi , Mode=TwoWay}"                                                                              
+                                       AutoGenerateColumns="False"                                                                     
+                                       GridStyle="{StaticResource dark}"                                      
+                                       AllowEditing="True"
+                                       NavigationMode="Cell"
+					                    EditTapAction="OnTap"
+					                    SelectionMode="SingleDeselect"     
+                                       ColumnSizer="LastColumnFill"
+                                       BackgroundColor="White"
+                                        HeightRequest="45"
+                                       >
+                        <sfDataGrid:SfDataGrid.Columns>
+                            <sfDataGrid:GridTemplateColumn MappingName="MaNhanVien" HeaderText="">
+                                <sfDataGrid:GridTemplateColumn.CellTemplate>
+                                    <DataTemplate>
+                                        <Image Source="delete.png">
                                             <Image.GestureRecognizers>
                                                 <TapGestureRecognizer
                                                 Command="{Binding Path=BindingContext.DeleteThietBiCommand, Source={x:Reference Name=BaoCaoGiamSat}}"
                                                 CommandParameter="{Binding .}" />
                                             </Image.GestureRecognizers>
                                         </Image>
-                                    </Grid>
-                                </ViewCell>
-                            </DataTemplate>
-                        </ListView.ItemTemplate>
-                    </ListView>
+                                    </DataTemplate>
+                                </sfDataGrid:GridTemplateColumn.CellTemplate>
+                            </sfDataGrid:GridTemplateColumn>
+                            <sfDataGrid:GridTemplateColumn MappingName="KhongTinhChoGiamSat" Width="100"  HeaderText="Loại" HeaderFontAttribute="Bold" HeaderCellTextSize="16">
+                                <sfDataGrid:GridTemplateColumn.CellTemplate>
+                                    <DataTemplate>
+                                        <Picker x:Name="picker"
+                                                SelectedItem="{Binding KhongTinhChoGiamSat}"
+                                                Title="Chọn nhóm chi phí"
+                                                TextColor="Black"
+                                                TitleColor="Red"
+                                                Grid.Column="0">
+                                            <Picker.ItemsSource>
+                                                <x:Array Type="{x:Type x:String}">
+                                                    <x:String>Giám sát trả tiền</x:String>
+                                                    <x:String>Công ty trả tiền</x:String>
+                                                </x:Array>
+                                            </Picker.ItemsSource>
+                                        </Picker>
+                                    </DataTemplate>
+                                </sfDataGrid:GridTemplateColumn.CellTemplate>
+                            </sfDataGrid:GridTemplateColumn>
+                            <sfDataGrid:GridTemplateColumn MappingName="Description"  HeaderText="Nội dung" HeaderFontAttribute="Bold" Width="140"   HeaderCellTextSize="16">
+                                <sfDataGrid:GridTemplateColumn.CellTemplate>
+                                    <DataTemplate>
+                                        <Editor Text="{Binding Description}" AutoSize="TextChanges" Keyboard="Plain" VerticalOptions="Center"/>
+                                    </DataTemplate>
+                                </sfDataGrid:GridTemplateColumn.CellTemplate>
+                            </sfDataGrid:GridTemplateColumn>
+                            <sfDataGrid:GridTemplateColumn MappingName="FormatQuantity"  HeaderText="Số lượng" HeaderFontAttribute="Bold" Width="80"   HeaderCellTextSize="16">
+                                <sfDataGrid:GridTemplateColumn.CellTemplate>
+                                    <DataTemplate>
+                                        <Editor  HorizontalOptions="FillAndExpand" Style="{StaticResource styleEntry}" Text="{Binding FormatQuantity }" Keyboard="Numeric"   FontSize="16" FontAttributes="Bold" />
+                                    </DataTemplate>
+                                </sfDataGrid:GridTemplateColumn.CellTemplate>
+                            </sfDataGrid:GridTemplateColumn>
+                            <sfDataGrid:GridTemplateColumn MappingName="FormatUnitPrice"   HeaderText="Đơn giá" HeaderFontAttribute="Bold" Width="100"  HeaderCellTextSize="16">
+                                <sfDataGrid:GridTemplateColumn.CellTemplate>
+                                    <DataTemplate>
+                                        <Editor Grid.Row="1"  HorizontalOptions="FillAndExpand" Placeholder="Đơn Giá" Style="{StaticResource styleEntry}" Text="{Binding FormatUnitPrice}"  Keyboard="Numeric"  FontSize="14" FontAttributes="Bold" />
+                                    </DataTemplate>
+                                </sfDataGrid:GridTemplateColumn.CellTemplate>
+                            </sfDataGrid:GridTemplateColumn>                               
+                        </sfDataGrid:SfDataGrid.Columns>
+
+                    </sfDataGrid:SfDataGrid>
                     <Label Text="Tóm tắt công việc hôm nay" Style="{StaticResource styleLableBlue}"  FontSize="20" FontAttributes="Bold" TextDecorations="Underline"
                        Margin="5,10,10,0" />
                     <Editor Text="{Binding NoiDungBaoCao}" Keyboard="Plain" AutoSize="TextChanges" HorizontalOptions="FillAndExpand"

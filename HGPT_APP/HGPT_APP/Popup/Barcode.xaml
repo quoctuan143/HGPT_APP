@@ -7,7 +7,7 @@
                   xmlns:zxcm="clr-namespace:ZXing.Common;assembly=zxing.portable"
                  CloseWhenBackgroundIsClicked="True"   
              x:Class="HGPT_APP.Popup.Barcode"
-                 BackgroundColor="White">
+                 >
     <pages:PopupPage.Animation >
         <animations:ScaleAnimation 
             PositionIn="Center"

@@ -25,7 +25,7 @@
 	<key>CFBundleDisplayName</key>
 	<string>HGPT Pro</string>
 	<key>CFBundleIdentifier</key>
-	<string>com.hgpt.HGPT</string>
+	<string>com.hgpt.HGPTPro</string>
 	<key>CFBundleVersion</key>
 	<string>1.0.19</string>
 	<key>UILaunchStoryboardName</key>

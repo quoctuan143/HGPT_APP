@@ -20,7 +20,7 @@ namespace HGPT_APP.Views.GiamSat
         int position = 0;
         public BaoCaoGiamSat_Page()
         {
-            InitializeComponent();
+            InitializeComponent();           
             viewModel = new BaoCaoGiamSat_ViewModel();
             viewModel.navigation = Navigation;
             BindingContext = viewModel;            
@@ -29,7 +29,7 @@ namespace HGPT_APP.Views.GiamSat
             timer.Enabled = true;
             timer.Elapsed += Timer_Elapsed;
             timer.Start();            
-        }       
+        }        
 
         private void Timer_Elapsed(object sender, ElapsedEventArgs e)
         {

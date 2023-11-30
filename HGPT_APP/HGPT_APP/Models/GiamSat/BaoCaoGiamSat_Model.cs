@@ -64,5 +64,6 @@ namespace HGPT_APP.Models.GiamSat
         public string CongViecNgayMai { get; set; }       
         public string CongTrinh { get; set; }
         public string NhomChiPhi { get; set; }
+        public int KhongTinhChoGiamSat { get; set; }
     }
 }

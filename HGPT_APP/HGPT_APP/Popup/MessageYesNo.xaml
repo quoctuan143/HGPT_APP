@@ -8,7 +8,7 @@
                 mc:Ignorable="d"
                 xmlns:local="clr-namespace:HGPT_APP.helper"
              x:Class="HGPT_APP.Popup.MessageYesNo"
-                BackgroundColor="White">
+                >
     <page:PopupPage.Animation >
         <animations:ScaleAnimation 
             PositionIn="Center"

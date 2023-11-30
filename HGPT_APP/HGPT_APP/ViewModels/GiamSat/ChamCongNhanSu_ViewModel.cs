@@ -120,8 +120,10 @@ namespace HGPT_APP.ViewModels.GiamSat
                     HttpResponseMessage ok1 = null;
                     using (HttpClient client = new HttpClient())
                     {
-                        client.BaseAddress = new Uri(Config.URL);   
-                        ok1 = await client.PostAsJsonAsync("CaphatGioCong?NgayCham=" + string.Format("{0:yyyy-MM-dd}",NgayLamViec ), ListCapNhatGioCong);
+                        client.BaseAddress = new Uri(Config.URL);
+                        var content = new StringContent(JsonConvert.SerializeObject(ListCapNhatGioCong), Encoding.UTF8, "application/json");
+                        ok1 =  await client.PostAsync($"CaphatGioCong?NgayCham=" + string.Format("{0:yyyy-MM-dd}",NgayLamViec), content);
+                        //client.PostAsJsonAsync("CaphatGioCong?NgayCham=" + string.Format("{0:yyyy-MM-dd}",NgayLamViec ), ListCapNhatGioCong);
                         if (ok1.StatusCode == System.Net.HttpStatusCode.OK)
                         {
                             HideLoading();

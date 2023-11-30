@@ -42,6 +42,8 @@ namespace HGPT_APP.Models.GiamSat
         public string NguoiCham { get; set; }
         public int Check { get; set; }
         public string NhomChamCong { get; set; }
+
+        public bool KhongTinhAn { get; set; }
     }
     
 }
