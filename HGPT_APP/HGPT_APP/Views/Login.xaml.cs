@@ -65,8 +65,15 @@ namespace HGPT_APP.Views
                         Preferences.Set(Config.ThongBaoCongTy, true);
                         Preferences.Set(Config.ThongBaoBaoTri, true);
                         Preferences.Set(Config.LenhSanXuat, true);
-                        Preferences.Set(Config.ThongBaoPhanViec, true);                        
-                        Preferences.Set(Config.Token, CrossFirebasePushNotification.Current.Token);
+                        Preferences.Set(Config.ThongBaoPhanViec, true);   
+                        if (Device.RuntimePlatform == Device.Android)
+                        {
+                            Preferences.Set(Config.Token, CrossFirebasePushNotification.Current.Token);
+                        }    
+                        else
+                        {
+                            Preferences.Set(Config.Token, "");
+                        }
                         //App.Current.MainPage = new AppShell();
                     }
                     else
@@ -83,13 +90,16 @@ namespace HGPT_APP.Views
                         Preferences.Set(Config.Password, btnpassword.Text);
                     }
                     //đăng kí token quản lý sinh nhật
-                    using (HttpClient client1 = new HttpClient())
+                    if (Device.RuntimePlatform == Device.Android)
                     {
-                        Token token = new Token { TokenKey = CrossFirebasePushNotification.Current.Token, Topic = "sinhnhatkhachhang", UserName = btnusername.Text, Device= Device.RuntimePlatform  };
-                        client1.BaseAddress = new Uri(Config.URL);
-                        var ok = client1.PostAsJsonAsync("api/qltb/InsertToken", token);
-                        var d = ok.Result.Content.ReadAsStringAsync();
-                        client1.Dispose();
+                        using (HttpClient client1 = new HttpClient())
+                        {
+                            Token token = new Token { TokenKey = CrossFirebasePushNotification.Current.Token, Topic = "sinhnhatkhachhang", UserName = btnusername.Text, Device = Device.RuntimePlatform };
+                            client1.BaseAddress = new Uri(Config.URL);
+                            var ok = client1.PostAsJsonAsync("api/qltb/InsertToken", token);
+                            var d = ok.Result.Content.ReadAsStringAsync();
+                            client1.Dispose();
+                        }
                     }
                     App.Current.MainPage = new AppShell();
                     client.Dispose();

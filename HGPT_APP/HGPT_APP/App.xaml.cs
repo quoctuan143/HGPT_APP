@@ -30,28 +30,30 @@ namespace HGPT_APP
             DependencyService.Register<MockDataStore>();
             new Config();
             Xamarin.Forms.Device.SetFlags(new string[] { "CollectionView_Experimental", "Brush_Experimental", "SwipeView_Experimental", "CarouseView_Experimental", "IndicatorView_Experimental" });
-            CrossFirebasePushNotification.Current.OnTokenRefresh += (s, p) =>
+            CrossFirebasePushNotification.Current.OnTokenRefresh += (s, p) =>{
+               
+            };       
+            if (Device.RuntimePlatform != Device.iOS )
             {
-                string token = CrossFirebasePushNotification.Current.Token;
-                System.Diagnostics.Debug.WriteLine($"TOKEN : {p.Token}");
-            };            
-            if (CrossFirebasePushNotification.Current.Token != Preferences.Get(Config.Token, "1"))
-            {
-                try
+                if (CrossFirebasePushNotification.Current.Token != Preferences.Get(Config.Token, "1"))
                 {
-                    Preferences.Set(Config.Token, CrossFirebasePushNotification.Current.Token);
-                    using (HttpClient client1 = new HttpClient())
+                    try
                     {
-                        Token token = new Token { TokenKey = CrossFirebasePushNotification.Current.Token, Topic = "sinhnhatkhachhang", UserName = Preferences.Get(Config.User, "1"), Device = Device.RuntimePlatform };
-                        client1.BaseAddress = new Uri(Config.URL);
-                        var ok = client1.PostAsJsonAsync("api/qltb/InsertToken", token);
-                        var d = ok.Result.Content.ReadAsStringAsync();
-                        client1.Dispose();
+                        Preferences.Set(Config.Token, CrossFirebasePushNotification.Current.Token);
+                        using (HttpClient client1 = new HttpClient())
+                        {
+                            Token token = new Token { TokenKey = CrossFirebasePushNotification.Current.Token, Topic = "sinhnhatkhachhang", UserName = Preferences.Get(Config.User, "1"), Device = Device.RuntimePlatform };
+                            client1.BaseAddress = new Uri(Config.URL);
+                            var ok = client1.PostAsJsonAsync("api/qltb/InsertToken", token);
+                            var d = ok.Result.Content.ReadAsStringAsync();
+                            client1.Dispose();
+                        }
                     }
+                    catch { }
+
                 }
-                catch { }               
-                
-            }
+            }    
+            
             if (isNotification == false)
             {
                 MainPage = new NavigationPage(new SplashPage());

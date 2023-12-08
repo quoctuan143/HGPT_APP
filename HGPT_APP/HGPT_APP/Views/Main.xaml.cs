@@ -104,8 +104,11 @@ namespace HGPT_APP.Views
                 timer.Enabled = true;
                 timer.Elapsed += Timer_Elapsed;
                 timer.Start();
-                CrossFirebasePushNotification.Current.OnNotificationReceived += Current_OnNotificationReceived;
-                CrossFirebasePushNotification.Current.OnNotificationOpened += Current_OnNotificationOpened;
+                if (Device.RuntimePlatform == Device.Android )
+                {
+                    CrossFirebasePushNotification.Current.OnNotificationReceived += Current_OnNotificationReceived;
+                    CrossFirebasePushNotification.Current.OnNotificationOpened += Current_OnNotificationOpened;
+                }                    
                 Task.Run( ()=>  NewVersion());
             }
             catch (Exception ex)
