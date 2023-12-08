@@ -288,7 +288,12 @@ namespace HGPT_APP.ViewModels.GiamSat
                         {
                             await new MessageBox("Thông báo", "Vui lòng chọn loại máy móc thiết bị").Show();
                             return;
-                        }    
+                        }
+                        if (_nhanluc.UnitPrice == 0 || _nhanluc .Quantity ==0)
+                        {
+                            await new MessageBox("Thông báo", "Vui lòng nhập đơn giá và số lượng cho thiết bị thuê").Show();
+                            return;
+                        }
                         if (_nhanluc.Quantity > 0)
                         {
                             Insert.Add(new BaoCaoGiamSat_Insert
