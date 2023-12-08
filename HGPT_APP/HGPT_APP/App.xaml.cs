@@ -30,9 +30,7 @@ namespace HGPT_APP
             DependencyService.Register<MockDataStore>();
             new Config();
             Xamarin.Forms.Device.SetFlags(new string[] { "CollectionView_Experimental", "Brush_Experimental", "SwipeView_Experimental", "CarouseView_Experimental", "IndicatorView_Experimental" });
-            CrossFirebasePushNotification.Current.OnTokenRefresh += (s, p) =>{
-               
-            };       
+                
             if (Device.RuntimePlatform != Device.iOS )
             {
                 if (CrossFirebasePushNotification.Current.Token != Preferences.Get(Config.Token, "1"))

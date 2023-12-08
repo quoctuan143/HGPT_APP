@@ -233,15 +233,15 @@ namespace HGPT_APP.Views
             }
             else
             {
-                bool isLatest = await CrossLatestVersion.Current.IsUsingLatestVersion();
-                if (!isLatest)
-                {
-                    var update = await new MessageYesNo("New Version", "Có phiên bản mới trên app store. Bạn có muốn cập nhật không").Show();
-                    if (update == DialogReturn.OK)
-                    {
-                        await CrossLatestVersion.Current.OpenAppInStore();
-                    }
-                }
+                //bool isLatest = await CrossLatestVersion.Current.IsUsingLatestVersion();
+                //if (!isLatest)
+                //{
+                //    var update = await new MessageYesNo("New Version", "Có phiên bản mới trên app store. Bạn có muốn cập nhật không").Show();
+                //    if (update == DialogReturn.OK)
+                //    {
+                //        await CrossLatestVersion.Current.OpenAppInStore();
+                //    }
+                //}
             }
         }
         private async void TapGestureRecognizer_Tapped(object sender, EventArgs e)

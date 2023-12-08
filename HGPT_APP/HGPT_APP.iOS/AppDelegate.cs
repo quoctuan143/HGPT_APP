@@ -71,12 +71,12 @@ namespace HGPT_APP.iOS
             UINavigationBar.Appearance.BarTintColor = color;
             UITabBar.Appearance.BackgroundColor = color;
             UITabBar.Appearance.BarTintColor = color;
-            CrossFirebasePushNotification.Current.OnNotificationOpened += (s, p) =>
-            {
-                System.Diagnostics.Debug.WriteLine("NOTIFICATION RECEIVED", p.Data);
-                NotificationData = p.Data;
-                IsNotification = false;
-            };
+            //CrossFirebasePushNotification.Current.OnNotificationOpened += (s, p) =>
+            //{
+            //    System.Diagnostics.Debug.WriteLine("NOTIFICATION RECEIVED", p.Data);
+            //    NotificationData = p.Data;
+            //    IsNotification = false;
+            //};
             LoadApplication(new App(IsNotification, NotificationData));
 
             return base.FinishedLaunching(app, options);
