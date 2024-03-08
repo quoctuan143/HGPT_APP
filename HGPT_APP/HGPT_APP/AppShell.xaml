@@ -46,7 +46,12 @@
                             Offset="1.0" />
             </LinearGradientBrush>
         </Shell.FlyoutBackdrop>
-        <ShellContent Title="Trang Chủ"  IsTabStop="True"  ContentTemplate="{DataTemplate local:Main }" x:Name="home">
+        <ShellContent Title="Trang Chủ"  IsTabStop="True"  ContentTemplate="{DataTemplate local:Main }" x:Name="home" IsVisible="False">
+            <ShellContent.Icon >
+                <FontImageSource FontFamily="UserIcons" Glyph="{Binding Source={x:Static helper:FontIconClass.Home}}" Size="25"  />
+            </ShellContent.Icon>
+        </ShellContent>
+        <ShellContent Title="Trang Chủ"  IsTabStop="True"  ContentTemplate="{DataTemplate local1:homeTest }" x:Name="homeTest" IsVisible="False">
             <ShellContent.Icon >
                 <FontImageSource FontFamily="UserIcons" Glyph="{Binding Source={x:Static helper:FontIconClass.Home}}" Size="25"  />
             </ShellContent.Icon>
@@ -61,7 +66,7 @@
                 <FontImageSource FontFamily="UserIcons" Glyph="{Binding Source={x:Static helper:FontIconClass.FeatureSearch}}" Size="25"  />
             </ShellContent.Icon>
         </ShellContent>
-        <ShellContent Title="Cài đặt"  IsTabStop="True"  ContentTemplate="{DataTemplate local:AboutPage }">
+        <ShellContent Title="Cài đặt"  IsTabStop="True" x:Name="caidat" ContentTemplate="{DataTemplate local:AboutPage }" IsVisible="False">
             <ShellContent.Icon >
                 <FontImageSource FontFamily="UserIcons" Glyph="{Binding Source={x:Static helper:FontIconClass.AccountSettings}}" Size="25"  />
             </ShellContent.Icon>

@@ -1,0 +1,116 @@
+﻿<?xml version="1.0" encoding="utf-8" ?>
+<ContentPage xmlns="http://xamarin.com/schemas/2014/forms"
+             xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml" 
+             xmlns:cv="clr-namespace:CarouselView.FormsPlugin.Abstractions;assembly=CarouselView.FormsPlugin.Abstractions"
+             x:Class="HGPT_APP.Views.Test.homeTest"
+             xmlns:helper="clr-namespace:HGPT_APP.helper"
+             Title="Chủ hộ: Nguyễn Quốc Tuấn">
+    <ScrollView>
+        <Grid RowDefinitions="auto,auto,*">
+            <Image Source="https://hrm.hgpt.vn/image/hinh1.jpg" Grid.Row="0" Aspect="AspectFill" HorizontalOptions="FillAndExpand" VerticalOptions="FillAndExpand"></Image>
+            <Frame Padding="5" Grid.Row="1" CornerRadius="20" Margin="10,0,10,0"
+               HasShadow="False"
+               BackgroundColor="Green" >
+                <StackLayout Padding="5" Spacing="6" >
+                    <Frame Padding="10,5,5,5"  
+                       BackgroundColor="White"
+                       CornerRadius="10"
+                   HeightRequest="50">
+                        <StackLayout Orientation="Horizontal" HorizontalOptions="FillAndExpand" VerticalOptions="FillAndExpand" >
+                            <Label Text="Nguyễn Quốc Tuấn" FontSize="18" HorizontalOptions="FillAndExpand" x:Name="txtTram" Style="{StaticResource styleLableBlue }"/>
+                            <Image HorizontalOptions="EndAndExpand">
+                                <Image.Source>
+                                    <FontImageSource FontFamily="UserIcons" Glyph="{Binding Source={x:Static helper:FontIconClass.TextSearch}}" Color="Green" Size="20"/>
+                                </Image.Source>
+                            </Image>
+                        </StackLayout>
+                        <Frame.GestureRecognizers>
+                            <TapGestureRecognizer />
+                        </Frame.GestureRecognizers>
+                    </Frame>
+                    <Label Text="161 dương đức hiền, Đà Nẵng" Style="{StaticResource styleLableWhite}"  FontSize="17"
+                       HorizontalOptions="StartAndExpand"/>
+                    <Label Text="0377432823" Style="{StaticResource styleLableWhite}"  FontSize="17"  />
+                    <Label Text="021343454" Style="{StaticResource styleLableWhite}"  FontSize="17"  />
+
+
+                </StackLayout>
+                <Frame.Background>
+                    <LinearGradientBrush StartPoint="0,0"  EndPoint="1,0">
+                        <GradientStop Color="Green"
+                                                      Offset="0.1"/>
+                        <GradientStop Color="#26C986"
+                                                      Offset="1.0"/>
+                    </LinearGradientBrush>
+                </Frame.Background>
+            </Frame>
+            <ScrollView Grid.Row="2" Orientation="Vertical" HorizontalOptions="FillAndExpand" VerticalOptions="FillAndExpand" >
+                <Grid RowDefinitions="auto,auto,auto,*">
+                    <Ellipse   Fill="Green"
+                     WidthRequest="10" HeightRequest="10" HorizontalOptions="Center"/>
+                    <Frame Padding="5" Grid.Row="1" CornerRadius="20" Margin="10,0,10,0"  HasShadow="True" BackgroundColor="White"  >
+                        <StackLayout Padding="5"  >
+                            <StackLayout Orientation="Horizontal">
+                                <Label Text="Tiền điện" TextColor="Black" FontSize="17"
+                               HorizontalOptions="StartAndExpand" Padding="20,0,0,0" />
+                                <Label Text="500.000" TextColor="Red" FontSize="17"
+                               FontAttributes="Italic"
+                               HorizontalOptions="End" Padding="20,0,0,0" />
+                            </StackLayout>
+                            <StackLayout Orientation="Horizontal">
+                                <Label Text="01/2024" Style="{StaticResource styleLableBlue}" FontSize="17"
+                               HorizontalOptions="StartAndExpand" FontAttributes="Bold" />
+                                <Label Text="550.000" TextColor="Red" FontSize="17"
+                               FontAttributes="Bold"
+                               HorizontalOptions="End" Padding="20,0,0,0" />
+                            </StackLayout>
+                            <StackLayout Orientation="Horizontal">
+                                <Label Text="Chỉ số cuối kỳ" Style="{StaticResource styleLableBlue}" FontSize="17"
+                               HorizontalOptions="StartAndExpand" />
+                                <Label Text="Điện năng tiêu thụ"  FontSize="17"
+                               Style="{StaticResource styleLableBlue}"
+                               HorizontalOptions="End" Padding="20,0,0,0" />
+                            </StackLayout>
+                            <StackLayout Orientation="Horizontal">
+                                <Label Text="140.005" Style="{StaticResource styleLableBlue}" FontSize="17"
+                               FontAttributes="Bold"
+                               HorizontalOptions="StartAndExpand" />
+                                <Label Text="617.000" FontSize="17"  
+                               FontAttributes="Bold" Style="{StaticResource styleLableBlue}"
+                               HorizontalOptions="End" Padding="20,0,0,0" />
+                            </StackLayout>
+                        </StackLayout>
+                    </Frame>
+                    <!--<AbsoluteLayout Padding="0" Grid.Row="2"  Margin="10,5,10,0"  HeightRequest="140"  HorizontalOptions="FillAndExpand" VerticalOptions="FillAndExpand"    >
+                    <Image Source="cskh.jpg" Aspect="Fill" HeightRequest="140" HorizontalOptions="FillAndExpand" 
+                           AbsoluteLayout.LayoutFlags="All" AbsoluteLayout.LayoutBounds="1,1,1,1"/>
+                    <ImageButton Source="callme.png" AbsoluteLayout.LayoutBounds="0.88,0.95,40,40" AbsoluteLayout.LayoutFlags="PositionProportional"
+                                 BackgroundColor="Transparent" Command="{Binding CallMeCommand}"/>
+                </AbsoluteLayout>-->
+                    <AbsoluteLayout  Grid.Row="2" HeightRequest="120" HorizontalOptions="FillAndExpand" VerticalOptions="FillAndExpand" Margin="10">
+                        <Image Source="thanhtoan.png" Opacity="0.5" Aspect="AspectFill" HeightRequest="120" HorizontalOptions="FillAndExpand"  
+                               AbsoluteLayout.LayoutFlags="All" AbsoluteLayout.LayoutBounds="1,1,1,1" />
+                        <Label Text="Thanh toán tiền điện" FontSize="20" FontAttributes="Bold"  Style="{StaticResource styleLableWhite}"
+                               AbsoluteLayout.LayoutBounds="0.2,0.5,300,30" AbsoluteLayout.LayoutFlags="PositionProportional"/>
+
+                        <AbsoluteLayout.GestureRecognizers>
+                            <TapGestureRecognizer  Tapped="TapGestureRecognizer_Tapped">
+
+                            </TapGestureRecognizer>
+                        </AbsoluteLayout.GestureRecognizers>
+                        <AbsoluteLayout.Background>
+                            <LinearGradientBrush StartPoint="0,0"  EndPoint="1,0">
+                                <GradientStop Color="Green"
+                                                      Offset="0.1"/>
+                                <GradientStop Color="#26C986"
+                                                      Offset="1.0"/>
+                            </LinearGradientBrush>
+                        </AbsoluteLayout.Background>
+                    </AbsoluteLayout>
+                </Grid>
+            </ScrollView>
+
+        </Grid>
+    </ScrollView>
+   
+</ContentPage>

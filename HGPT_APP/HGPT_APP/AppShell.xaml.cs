@@ -13,10 +13,17 @@ namespace HGPT_APP
         {
             InitializeComponent();
             if (Preferences.Get(Config.User, "tuannq") == "tuannq")
-            {               
+            {
+                homeTest.IsVisible = true;
                 thongbao.IsVisible = true;
                 tracuu.IsVisible = true;
+                caidat.IsVisible = true;
             }
+            else
+            {
+                home.IsVisible = true;
+                caidat.IsVisible = true;
+            }    
         }
 
         private void MenuItem_Clicked(object sender, EventArgs e)
