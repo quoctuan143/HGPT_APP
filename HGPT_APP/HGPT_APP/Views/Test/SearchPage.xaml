@@ -31,7 +31,7 @@
                                HorizontalOptions="CenterAndExpand" Padding="10,10,10,10"
                                FontSize="16" />
                             <StackLayout.GestureRecognizers>
-                                <TapGestureRecognizer Command="{Binding TraCuuGhiChiSoCommand}" />
+                                <TapGestureRecognizer Tapped="TapGestureRecognizer_Tapped_4" />
                             </StackLayout.GestureRecognizers>
                         </StackLayout>
                         <StackLayout Padding="5" Grid.Row="0" Grid.Column="1" Orientation="Vertical" >
@@ -52,6 +52,9 @@
                             <Label Text="Tra cứu lịch tạm ngừng cung cấp điện" Style="{StaticResource styleLableBlue}"  HorizontalTextAlignment="Center"
                                HorizontalOptions="CenterAndExpand" Padding="10,10,10,10"
                                FontSize="16" />
+                            <StackLayout.GestureRecognizers>
+                                <TapGestureRecognizer Tapped="TapGestureRecognizer_Tapped_3" />
+                            </StackLayout.GestureRecognizers>
                         </StackLayout>
                         <StackLayout Padding="5" Grid.Row="1" Grid.Column="1" Orientation="Vertical" >
                             <Image Source="tracuudiennang.png" Aspect="AspectFit"   HeightRequest="60" WidthRequest="60" HorizontalOptions="Center"/>
@@ -72,7 +75,7 @@
                                HorizontalOptions="CenterAndExpand" Padding="10,10,10,10"
                                FontSize="16" />
                             <StackLayout.GestureRecognizers>
-                                <TapGestureRecognizer Command="{Binding TraCuuThongTinThanhToanCommand}" />
+                                <TapGestureRecognizer Tapped="TapGestureRecognizer_Tapped_2"/>
                             </StackLayout.GestureRecognizers>
                         </StackLayout>
                         <StackLayout Padding="5" Grid.Row="2" Grid.Column="1" Orientation="Vertical" >
@@ -81,7 +84,7 @@
                                HorizontalOptions="CenterAndExpand"   Padding="10,10,10,10"
                                FontSize="16" />
                             <StackLayout.GestureRecognizers>
-                                <TapGestureRecognizer Command="{Binding TraCuuHoaDonDienTuCommand}" />
+                                <TapGestureRecognizer Tapped="TapGestureRecognizer_Tapped_3" />
                             </StackLayout.GestureRecognizers>
                         </StackLayout>
 

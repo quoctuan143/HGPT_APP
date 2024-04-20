@@ -26,5 +26,20 @@ namespace HGPT_APP.Views.Test
         {
 			Navigation.PushAsync(new TraCuuDienNangTieuThuPage());
 		}
-    }
+
+		private void TapGestureRecognizer_Tapped_2(object sender, EventArgs e)
+		{
+            Navigation.PushAsync(new ThongBaoNgungCapDienPage());
+        }
+
+		private void TapGestureRecognizer_Tapped_3(object sender, EventArgs e)
+		{
+            Navigation.PushAsync(new ThongBaoKhacPage());
+        }
+
+		private void TapGestureRecognizer_Tapped_4(object sender, EventArgs e)
+		{
+            Navigation.PushAsync(new ThongBaoTienDienPage());
+        }
+	}
 }

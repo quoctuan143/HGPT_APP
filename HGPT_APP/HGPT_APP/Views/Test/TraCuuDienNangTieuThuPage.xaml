@@ -76,30 +76,7 @@
                 </sfinputtext:SfTextInputLayout>
 
 
-            </StackLayout>
-            <StackLayout Orientation="Horizontal" HorizontalOptions="FillAndExpand">
-                <sfbutton:SfButton Text="Chỉ số điện năng" Command="{Binding SearchCommand}" CornerRadius="10"       
-                                WidthRequest="150"
-                                VerticalOptions="CenterAndExpand" 
-                                HorizontalOptions="FillAndExpand"
-                                Style="{StaticResource stylesfButton}"
-                                Padding="0,10,0,10"
-                                FontAttributes="None"
-                               FontSize="Medium"
-                                >
-                </sfbutton:SfButton>
-                <sfbutton:SfButton Text="Biểu đồ so sánh" Command="{Binding SearchCommand}" CornerRadius="10"       
-                                
-                                VerticalOptions="CenterAndExpand" 
-                                HorizontalOptions="FillAndExpand"
-                               Style="{StaticResource stylesfButton}"
-                                   BackgroundColor ="Red"
-                                Padding="0,10,0,10"
-                                FontAttributes="None"
-                               FontSize="Medium"
-                                >
-                </sfbutton:SfButton>
-            </StackLayout>
+            </StackLayout>                                 
 
             <Grid ColumnDefinitions="*,auto,*" HorizontalOptions="FillAndExpand" RowDefinitions="auto" Margin="10,0,10,0">
                 <BoxView BackgroundColor="Green" HorizontalOptions="Fill"  VerticalOptions="CenterAndExpand"
