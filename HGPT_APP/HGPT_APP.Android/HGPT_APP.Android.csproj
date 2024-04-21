@@ -16,7 +16,6 @@
     <AndroidManifest>Properties\AndroidManifest.xml</AndroidManifest>
     <MonoAndroidResourcePrefix>Resources</MonoAndroidResourcePrefix>
     <MonoAndroidAssetsPrefix>Assets</MonoAndroidAssetsPrefix>
-    <AndroidUseLatestPlatformSdk>false</AndroidUseLatestPlatformSdk>
     <TargetFrameworkVersion>v13.0</TargetFrameworkVersion>
     <AndroidEnableSGenConcurrent>true</AndroidEnableSGenConcurrent>
     <AndroidUseAapt2>true</AndroidUseAapt2>
@@ -226,7 +225,7 @@
   </ItemGroup>
   <ItemGroup>
     <ProjectReference Include="..\HGPT_APP\HGPT_APP.csproj">
-      <Project>{6A8CB70C-D961-4FA2-8818-6BA0DD730D70}</Project>
+      <Project>{5D76D510-013A-4F90-97B8-59F7EA4E9C8E}</Project>
       <Name>HGPT_APP</Name>
     </ProjectReference>
   </ItemGroup>

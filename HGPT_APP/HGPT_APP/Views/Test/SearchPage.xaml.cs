@@ -24,7 +24,7 @@ namespace HGPT_APP.Views.Test
 
         private void TapGestureRecognizer_Tapped_1(object sender, EventArgs e)
         {
-			Navigation.PushAsync(new TraCuuDienNangTieuThuPage());
+			//Navigation.PushAsync(new TraCuuDienNangTieuThuPage());
 		}
     }
 }
