@@ -51,17 +51,7 @@
             BackgroundColor="White">
             <StackLayout
                 BackgroundColor="White">
-                <cv:CarouselViewControl  x:Name="viewImage" Position="1" ShowIndicators="True" IndicatorsShape="Circle" IndicatorsTintColor="LightGray"
-                                CurrentPageIndicatorTintColor="Red" Orientation="Horizontal" InterPageSpacing="10"
-                                ItemsSource="{Binding ImageList, Mode=TwoWay}"   HorizontalOptions="FillAndExpand" HeightRequest="250"
-                                VerticalOptions="StartAndExpand" AnimateTransition="True">
-                    <cv:CarouselViewControl.ItemTemplate>
-                        <DataTemplate>
-                            <Image Source="{Binding FileName}"   Aspect="Fill" HorizontalOptions="FillAndExpand" VerticalOptions="FillAndExpand" />
-                        </DataTemplate>
-                    </cv:CarouselViewControl.ItemTemplate>
-                </cv:CarouselViewControl>
-
+                
                 <StackLayout Margin="0,0,0,0" Grid.Row="1">
                     <Frame    Padding="2"
                         BorderColor="{StaticResource Primary}"                             
@@ -81,7 +71,7 @@
                                                      HeaderText="Chọn ngày"
                                                      Format="dd_MMM_yyyy"
                                                      OkCommand="{Binding SelectDateCommand}" />
-                            <Label Grid.Row="0" Text="Quản lý công việc" TextDecorations="Underline" TextColor="{StaticResource Primary}" FontSize="20" FontAttributes="Italic"></Label>
+                            <Label Grid.Row="0" Text="Quản lý kho" TextDecorations="Underline" TextColor="{StaticResource Primary}" FontSize="20" FontAttributes="Italic"></Label>
                             <Grid ColumnDefinitions="2.5*,2.5*,2.5*,2.5*" RowDefinitions="*,*" Margin="0,20,0,0" RowSpacing="5"
                                       HorizontalOptions="FillAndExpand" VerticalOptions="FillAndExpand">
                                 <Image Source="danhsachlsx.png" Grid.Column="0" Grid.Row="0" Aspect="AspectFit" HeightRequest="70" WidthRequest="70" VerticalOptions="StartAndExpand" HorizontalOptions="CenterAndExpand">
@@ -89,47 +79,19 @@
                                         <TapGestureRecognizer x:Name="btnLenhSanXuat"  Tapped="TapGestureRecognizer_Tapped"></TapGestureRecognizer>
                                     </Image.GestureRecognizers>
                                 </Image>
-                                <Label Text="Danh sách &#10;LSX" Padding="7" Grid.Column="0" Grid.Row="1"  FontSize="16" VerticalOptions="Start" HorizontalTextAlignment="Center" TextColor="{StaticResource Primary}" FontAttributes="Italic"  LineBreakMode="WordWrap"></Label>
+                                <Label Text="Xuất kho" Padding="7" Grid.Column="0" Grid.Row="1"  FontSize="16" VerticalOptions="Start" HorizontalTextAlignment="Center" TextColor="{StaticResource Primary}" FontAttributes="Italic"  LineBreakMode="WordWrap"></Label>
                                 <Image Source="phanchiacongviec.png" Grid.Column="1" Grid.Row="0" Aspect="AspectFit" HeightRequest="70" WidthRequest="70" VerticalOptions="StartAndExpand" HorizontalOptions="CenterAndExpand">
                                     <Image.GestureRecognizers>
                                         <TapGestureRecognizer x:Name="btnPhanChiaCongViec"  Tapped="TapGestureRecognizer_Tapped_2"></TapGestureRecognizer>
                                     </Image.GestureRecognizers>
                                 </Image>
-                                <Label Text="Phân chia &#10;công việc" Padding="7" Grid.Column="1" Grid.Row="1"  FontSize="16" VerticalOptions="Start" HorizontalTextAlignment="Center" TextColor="{StaticResource Primary}" FontAttributes="Italic"  LineBreakMode="WordWrap"></Label>
-                                <Image Source="lichsucongviec.png" Grid.Column="2" Grid.Row="0" Aspect="AspectFit" HeightRequest="70" WidthRequest="70" VerticalOptions="StartAndExpand" HorizontalOptions="CenterAndExpand">
-                                    <Image.GestureRecognizers>
-                                        <TapGestureRecognizer x:Name="btnLichSuCongViec"  Tapped="TapGestureRecognizer_Tapped_1"></TapGestureRecognizer>
-                                    </Image.GestureRecognizers>
-                                </Image>
-                                <Label Text="Lịch sử &#10;công việc"  Padding="7" Grid.Column="2" Grid.Row="1"  FontSize="16" VerticalOptions="Start" HorizontalTextAlignment="Center" TextColor="{StaticResource Primary}" FontAttributes="Italic"  LineBreakMode="WordWrap"></Label>
-                                <Image Source="phanviectukehoach.png"
-                                       Grid.Column="3"
-                                       Grid.Row="0"
-                                       Aspect="AspectFit"
-                                       HeightRequest="70"
-                                       WidthRequest="70"
-                                       VerticalOptions="StartAndExpand"
-                                       HorizontalOptions="CenterAndExpand">
-                                    <Image.GestureRecognizers>
-                                        <TapGestureRecognizer x:Name="btnPhanViecTuKeHoach"
-                                                              Tapped="btnPhanViecTuKeHoach_Tapped"></TapGestureRecognizer>
-                                    </Image.GestureRecognizers>
-                                </Image>
-                                <Label Text="Phân việc &#10;Từ kế hoạch"
-                                       Padding="7"
-                                       Grid.Column="3"
-                                       Grid.Row="1"
-                                       FontSize="16"
-                                       VerticalOptions="Start"
-                                       HorizontalTextAlignment="Center"
-                                       TextColor="{StaticResource Primary}"
-                                       FontAttributes="Italic"
-                                       LineBreakMode="WordWrap"></Label>
+                                <Label Text="Báo cáo tồn kho" Padding="7" Grid.Column="1" Grid.Row="1"  FontSize="16" VerticalOptions="Start" HorizontalTextAlignment="Center" TextColor="{StaticResource Primary}" FontAttributes="Italic"  LineBreakMode="WordWrap"></Label>
+                               
                             </Grid>
                         </StackLayout>
                     </Frame>
 
-                    <Frame    Padding="2"                                 
+                    <!--<Frame    Padding="2"                                 
                         BorderColor="{StaticResource Primary}"
                         CornerRadius="10"
                         BackgroundColor="Transparent"
@@ -266,7 +228,7 @@
                                 </Image>
                                 <Label Grid.Row="1" Grid.Column="2" Text="Chấm công cho nhân sự" Style="{StaticResource styleLableBlue}"  Padding="7,2,7,0"  FontAttributes="Italic" HorizontalTextAlignment="Center"  VerticalTextAlignment="Start"></Label>
 
-                                <!--thêm nút dưới-->
+                                --><!--thêm nút dưới--><!--
                                 <Image Grid.Row="3" Grid.Column="0" Source="chamcong1.png" Aspect="AspectFit" HeightRequest="70" WidthRequest="70" HorizontalOptions="CenterAndExpand" VerticalOptions="StartAndExpand">
                                     <Image.GestureRecognizers>
                                         <TapGestureRecognizer x:Name="btnXemCongHangNgay" Tapped="btnXemCongHangNgay_Tapped" ></TapGestureRecognizer>
@@ -342,7 +304,7 @@
                                        VerticalTextAlignment="Start"></Label>
                             </Grid>
                         </StackLayout>
-                    </Frame>
+                    </Frame>-->
                 </StackLayout>
             </StackLayout>
         </ScrollView>

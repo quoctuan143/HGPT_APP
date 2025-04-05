@@ -31,26 +31,7 @@ namespace HGPT_APP
             new Config();
             Xamarin.Forms.Device.SetFlags(new string[] { "CollectionView_Experimental", "Brush_Experimental", "SwipeView_Experimental", "CarouseView_Experimental", "IndicatorView_Experimental" });
                 
-            if (Device.RuntimePlatform != Device.iOS )
-            {
-                if (CrossFirebasePushNotification.Current.Token != Preferences.Get(Config.Token, "1"))
-                {
-                    try
-                    {
-                        Preferences.Set(Config.Token, CrossFirebasePushNotification.Current.Token);
-                        using (HttpClient client1 = new HttpClient())
-                        {
-                            Token token = new Token { TokenKey = CrossFirebasePushNotification.Current.Token, Topic = "sinhnhatkhachhang", UserName = Preferences.Get(Config.User, "1"), Device = Device.RuntimePlatform };
-                            client1.BaseAddress = new Uri(Config.URL);
-                            var ok = client1.PostAsJsonAsync("api/qltb/InsertToken", token);
-                            var d = ok.Result.Content.ReadAsStringAsync();
-                            client1.Dispose();
-                        }
-                    }
-                    catch { }
-
-                }
-            }    
+            
             
             if (isNotification == false)
             {

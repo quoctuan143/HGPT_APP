@@ -79,37 +79,37 @@ namespace HGPT_APP.Views
                 {
                     frmCongViec.IsVisible = true;
                 }
-                if (Preferences.Get(Config.IsThietBi, "0") == "1")
-                {
-                    frmThietBi.IsVisible = true;
-                }
-                if (Preferences.Get(Config.IsChamSocKhachHang, "0") == "1")
-                {
-                    frmchamsockhachhang.IsVisible = true;
-                }
-                if (Preferences.Get(Config.IsGiamSat, "0") == "1")
-                {
-                    frmGiamSat.IsVisible = true;
-                }
+                //if (Preferences.Get(Config.IsThietBi, "0") == "1")
+                //{
+                //    frmThietBi.IsVisible = true;
+                //}
+                //if (Preferences.Get(Config.IsChamSocKhachHang, "0") == "1")
+                //{
+                //    frmchamsockhachhang.IsVisible = true;
+                //}
+                //if (Preferences.Get(Config.IsGiamSat, "0") == "1")
+                //{
+                //    frmGiamSat.IsVisible = true;
+                //}
                 
                 BindingContext = this;
-                Task.Run( async () => 
-                {
+                //Task.Run( async () => 
+                //{
                     
-                    var a = await viewModel.RunHttpClientGet<object>("api/qltb/getChamSocKhachHangChuaHoanThanh");
-                    bagCSKH.BadgeText = a.Lists.Count.ToString();
-                });
+                //    var a = await viewModel.RunHttpClientGet<object>("api/qltb/getChamSocKhachHangChuaHoanThanh");
+                //    bagCSKH.BadgeText = a.Lists.Count.ToString();
+                //});
                 timer = new Timer();
                 timer.Interval = 2000;
                 timer.Enabled = true;
-                timer.Elapsed += Timer_Elapsed;
+                //timer.Elapsed += Timer_Elapsed;
                 timer.Start();
                 if (Device.RuntimePlatform == Device.Android )
                 {
                     CrossFirebasePushNotification.Current.OnNotificationReceived += Current_OnNotificationReceived;
                     CrossFirebasePushNotification.Current.OnNotificationOpened += Current_OnNotificationOpened;
                 }                    
-                Task.Run( ()=>  NewVersion());
+                //Task.Run( ()=>  NewVersion());
             }
             catch (Exception ex)
             {
@@ -201,35 +201,35 @@ namespace HGPT_APP.Views
 
         }
 
-        private void Timer_Elapsed(object sender, ElapsedEventArgs e)
-        {
-            Device.BeginInvokeOnMainThread(() =>
-            {
-                position += 1;
-                viewImage.Position = position;
-                if (viewImage.Position > 3)
-                {
-                    position = 0;
-                    viewImage.Position = position;
-                }
-            });
+        //private void timer_elapsed(object sender, elapsedeventargs e)
+        //{
+        //    device.begininvokeonmainthread(() =>
+        //    {
+        //        position += 1;
+        //        viewimage.position = position;
+        //        if (viewimage.position > 3)
+        //        {
+        //            position = 0;
+        //            viewimage.position = position;
+        //        }
+        //    });
 
-        }
+        //}
         MediaFile media;
         //check version
         async void NewVersion()
         {
             if (Device.RuntimePlatform == Device.Android)
             {
-                var version = Config.client.GetStringAsync("https://play.google.com/store/apps/details?id=com.companyname.hgpt_app").Result;
-                if (version.Contains(AppInfo.VersionString) == false)
-                {
-                    var update = await new MessageYesNo("New Version", "Có phiên bản mới trên app store. Bạn có muốn cập nhật không").Show();
-                    if (update == DialogReturn.OK)
-                    {
-                        await CrossLatestVersion.Current.OpenAppInStore();
-                    }
-                }
+                //var version = Config.client.GetStringAsync("https://play.google.com/store/apps/details?id=com.companyname.hgpt_app").Result;
+                //if (version.Contains(AppInfo.VersionString) == false)
+                //{
+                //    var update = await new MessageYesNo("New Version", "Có phiên bản mới trên app store. Bạn có muốn cập nhật không").Show();
+                //    if (update == DialogReturn.OK)
+                //    {
+                //        await CrossLatestVersion.Current.OpenAppInStore();
+                //    }
+                //}
             }
             else
             {
@@ -395,50 +395,7 @@ namespace HGPT_APP.Views
 
         protected override async void OnAppearing()
         {
-            base.OnAppearing();
-            using (HttpClient client = new HttpClient())
-            {
-                try
-                {
-                    var _json = Config.client.GetStringAsync(Config.URL + "api/qltb/getNotification?token=" + Preferences.Get(Config.Token, "1")).Result;
-
-                    _json = _json.Replace("\\r\\n", "").Replace("\\", "");
-                    if (_json.Contains("Không Tìm Thấy Dữ Liệu") == false && _json.Contains("[]") == false)
-                    {
-                        Int32 from = _json.IndexOf("[");
-                        Int32 to = _json.IndexOf("]");
-                        string result = _json.Substring(from, to - from + 1);
-                        ObservableCollection<NotifycationModel> ListThongBao = JsonConvert.DeserializeObject<ObservableCollection<NotifycationModel>>(result);
-                        txtThongBao.BadgeText = ListThongBao.Where(p => p.Viewed == 0).ToList().Count().ToString();                        
-                    }
-
-                    var a = await viewModel.RunHttpClientGet<DanhSachCongTrinhHoatDongTrongNgay_Model>("DanhSachCongTrinhHoatDongTrongNgay?ngay=" + string.Format("{0:yyyy-MM-dd}",  DateTime.Now.Date));
-                    int XembaoCaoHangNgay = a.Lists.Count;
-                    bagXembaoCaoHangNgay.BadgeText = XembaoCaoHangNgay > 0 ? XembaoCaoHangNgay.ToString() : "";
-                    //ImgXembaoCaoHangNgay.WidthRequest = XembaoCaoHangNgay > 0 ? 60 : 65;
-                    //ImgXembaoCaoHangNgay.HeightRequest = XembaoCaoHangNgay > 0 ? 60 : 65;
-                }
-                catch
-                {
-
-                }
-
-
-            }
-            using (HttpClient client = new HttpClient())
-            {
-                var _json = Config.client.GetStringAsync(Config.URL + "api/qltb/getChamSocKhachHangChuaHoanThanh").Result;
-
-                _json = _json.Replace("\\r\\n", "").Replace("\\", "");
-                if (_json.Contains("Không Tìm Thấy Dữ Liệu") == false && _json.Contains("[]") == false)
-                {
-                    Int32 from = _json.IndexOf("[");
-                    Int32 to = _json.IndexOf("]");
-                    string result = _json.Substring(from, to - from + 1);
-                    //bagesinhnhatkhachhang.BadgeText  = JsonConvert.DeserializeObject<ObservableCollection<ChamSocKhachHang>>(result).Count.ToString();
-                }
-
-            }
+            base.OnAppearing();           
         }
 
         private void btnsinhnhatkhachhangchuachamsoc_Tapped(object sender, EventArgs e)
